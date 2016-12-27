@@ -1,0 +1,55 @@
+PODS:
+  - AFNetworking (2.5.0):
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
+  - AFNetworking/NSURLConnection (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.0)
+  - AFNetworking/Security (2.5.0)
+  - AFNetworking/Serialization (2.5.0)
+  - AFNetworking/UIKit (2.5.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - JSONModel (1.7.0)
+  - LUNSegmentedControl (1.0.7)
+  - pop (1.0.9)
+  - Reachability (3.2)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - SFFocusViewLayout (2.0.0)
+  - SVProgressHUD (2.0.3)
+
+DEPENDENCIES:
+  - AFNetworking (= 2.5.0)
+  - JSONModel
+  - LUNSegmentedControl
+  - pop
+  - Reachability
+  - SDWebImage
+  - SFFocusViewLayout (~> 2.0)
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  AFNetworking: 96ac9bf3eda33582701cb1fcc5b896aa1e20311e
+  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  LUNSegmentedControl: f868b1ea740f9917f05dbcb4cded85c33ec606e6
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SFFocusViewLayout: bb580b208a791c075f9e0f7021dd961e8c4cfaf7
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+
+PODFILE CHECKSUM: 41a655be42abf8378f282bbc805c45718e46ee62
+
+COCOAPODS: 1.0.1

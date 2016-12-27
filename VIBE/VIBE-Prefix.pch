@@ -1,0 +1,254 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+#ifdef __OBJC__
+
+#import <Availability.h>
+#import <UIKit/UIKit.h>
+
+#import "VibeLogInViewController.h"
+
+#import "VibeAppTool.h"
+
+#import "VibeTopicModal.h"
+#import "VibeProductModal.h"
+
+#import "POP.h"
+
+#import "Reachability.h"
+
+#import "GLImageView.h"
+#import "VibeTableView.h"
+
+#import "UIImageView+WebCache.h"
+#import "UIView+Positioning.h"
+
+#import "VibeViewController.h"
+#import "LCNavigationController.h"
+
+#import "UIERealTimeBlurView.h"
+
+#import "VibeFont.h"
+#import "NSString+Extension.h"
+
+#import "NSObject+ALiHUD.h"
+
+#import "VibeColor.h"
+
+#ifdef __OPTIMIZE__
+# define NSLog(...) {}
+#else
+# define NSLog(...) NSLog(__VA_ARGS__)
+#endif
+
+#endif
+
+
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kScreenWidth  [UIScreen mainScreen].bounds.size.width
+
+
+//屏幕和iPhone5屏幕宽度比例
+#define sizeRate [UIScreen mainScreen].bounds.size.width/320
+
+//用户定位的经纬度
+#define  Location_lattitude  @"lat_user"
+#define  Location_longitude  @"lon_user"
+
+
+
+#pragma mark - 默认字体
+
+#define Default_Font_Small @"HYQiHei-CES"
+#define Default_Font @"HYQiHei-DES"
+#define Default_Font_Middle @"HYQiHei-EES"
+#define Default_Font_Bold @"HYQiHei-GZS"
+
+#define Default_Number_Font @"HelveticaNeue-Italic"
+#define Default_Number_Font_Bold @"HelveticaNeue-MediumItalic"
+
+#define Default_Money_Font @"HelveticaNeue-Light"
+#define Default_Price_Font @"HelveticaNeue-Light"
+
+#pragma mark - 定义全局颜色
+
+#define DefaultWhite        RGB(255, 255,  255)
+
+
+#define DefaultQYOrange     RGB(255, 116, 103)
+#define PressQYOrange       RGB(232, 106, 91)
+
+#define DefaultGreen      RGB(43, 214,  206)
+#define DefaultPressdownGreen    RGB(59, 174,  130)
+
+
+#define DefaultQYTextColor      RGBA(31, 32, 35, 100)
+#define DefaultQYTextColor90    RGBA(31, 32, 35, 90)
+#define DefaultQYTextColor80    RGBA(31, 32, 35, 80)
+#define DefaultQYTextColor70    RGBA(31, 32, 35, 70)
+#define DefaultQYTextColor60    RGBA(31, 32, 35, 60)
+#define DefaultQYTextColor50    RGBA(31, 32, 35, 50)
+#define DefaultQYTextColor40    RGBA(31, 32, 35, 40)
+#define DefaultQYTextColor30    RGBA(31, 32, 35, 30)
+#define DefaultQYTextColor20    RGBA(31, 32, 35, 20)
+#define DefaultQYTextColor10    RGBA(31, 32, 35, 10)
+
+#define DefaultBackgroundColor  RGB(244, 244, 244)
+#define DefaultPinkColor        RGBA(255, 116, 103, 100)
+#define DefaultQYLineColor      RGBA(225, 225, 225, 100)
+#define Color_Orange            RGB(255, 115, 98)
+
+
+#pragma mark - 无网络
+#define isNotReachable ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == NotReachable)
+
+#pragma makr - NSString判断
+#define IsEmpty(str) (![str respondsToSelector:@selector(isEqualToString:)] || [str isEqualToString:@""] || [str isEqualToString:@"(null)"])
+
+#pragma mark - 系统版本判断
+
+#define ios6 ([[[UIDevice currentDevice] systemVersion] floatValue] - 6. >= 0 ? YES : NO)
+#define ios7 ([[[UIDevice currentDevice] systemVersion] floatValue] - 7. >= 0 ? YES : NO)
+#define ios8 ([[[UIDevice currentDevice] systemVersion] floatValue] - 8. >= 0 ? YES : NO)
+#define ios9 ([[[UIDevice currentDevice] systemVersion] floatValue] - 9. >= 0 ? YES : NO)
+
+
+#pragma mark - iPhone 型号判断
+
+#define iPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define iPhone6plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(1125, 2001), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size)) : NO)
+
+
+#pragma mark - 屏幕尺寸判断
+
+#define Is4Inch UIScreenWidth > 320
+#define Is5Inch UIScreenWidth > 375
+
+
+#pragma mark - 屏幕的宽度
+
+#define sizeScaleRatio (UIScreenWidth/375.0)
+
+#define Wide_Navi_View_Height  97.0f
+
+#define height_headerview           (ios7 ? (44+20) : 44)
+// 底部标签栏的高度
+#define TabBarHeight 50.0f
+// LoadMore高度
+#define LoadMoreViewHeight 50.f
+#define StatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
+#define UIScreenWidth   [UIScreen mainScreen].bounds.size.width
+#define UIScreenHeight  [UIScreen mainScreen].bounds.size.height
+
+#pragma mark - RGB颜色
+
+#define RGB(x,y,z) [UIColor colorWithRed:x/255.0 green:y/255.0 blue:z/255.0 alpha:1.0]
+#define RGBA(x,y,z,a) [UIColor colorWithRed:x/255.0 green:y/255.0 blue:z/255.0 alpha:a / 100.0]
+
+
+//#pragma mark - 微信
+//#define WeixinAppID         @"wx2706878112cd2a51"
+//#define WeixinAppSecret     @"7fa452905b5d292d2f318b1777c64ff4"
+//
+//#define WeixinPayMCH_ID         @"1236272702"
+//#define WeixinPayPARTNER_ID     @"9f9b84df507ff591308a380f43939d66"
+//
+//
+//#pragma mark - 微博
+//#define kSinaAppKey         @"1699401936"
+//#define kSinaAppSecret      @"f02074e90a22c03af33a9e88ff31b47c"
+//#define kSinaRedirectURI    @"http://www.qyer.com"
+//
+//#pragma mark - QQ
+//#define QQAppId             @"100737787"
+//#define QQAppKey            @"13d1b09564e4c0cc10ef2ed7468da21e"
+//
+//#define SystemURL           @"http://www.qyer.com"
+//
+//#define AppStoreId          @"658779759"
+//
+//#define Device_IDFA_Token   @"Device_IDFA_Token"
+//
+////预订说明
+//#define kDirection_Url      @"http://m.qyer.com/z/clause?source=app"
+////网签条款
+//#define kNeSignTheAgreement @"http://m.qyer.com/z/contract?source=app"
+//
+//#define appChannel_UMeng    @"App Store"//App Store
+//#define Net_NotAvilable     100000000
+//
+//#define Setting_Access_Token                  @"user_access_token"
+////ra ra_referer Key
+//#define Setting_Ra_Referer                 @"key_ra_referer"
+////记录首次打开的时间(视为app的安装时间)
+//#define Setting_AppInstalltime                @"appInstalltime_sec"
+//
+//#define APPID           @"38"
+//
+//#define kClientId       @"qyer_discount_ios"
+//#define kClientSecret   @"44c86dbde623340b5e0a"
+//#define kprivateKey  @"5fda148f7097bb83469d4d4beb2c2813"
+//
+//#define APIHost             @"http://open.qyer.com"     // 正式环境
+//#define Request_TimeOut     15
+//
+////支付宝 scheme
+//#define kAlipayOrgAppScheme   @"alipays"
+//#define kAlipayAppScheme      @"LastMinuteAlipayScheme"
+//#define kAlipayCallBackUrl    @"http://api.qyer.com/m/appalipaynotify.php"//正式
+//#define kAlipayHtml5URI       @"http://open.qyer.com/lastminute/app_alipay"
+//
+//
+////本地记录订单信息
+//#define UserOderLastMinuteTitle   @"userOderLastMinuteTitle"
+//#define UserOderID                @"userOderID"
+//
+//
+////判断WebViewController是否显示
+//#define Setting_Is_WebView_Show               @"Setting_Is_WebView_Show"
+//
+//
+////Settings category refresh
+//#define Setting_Category_IsRefreshed          @"Setting_Category_IsRefreshed"
+//#define Setting_Category_Total_IsRefreshed    @"Setting_Category_Total_IsRefreshed"
+//
+////file name
+//#define FileName_LastMinute_Category                  @"LastMinute_Category"
+//#define FileName_LastMinute_Category_Total            @"LastMinute_Category_Total"
+//#define FileName_LastMinute_Operation_Image           @"LastMinute_Operation_Image.png"
+//#define FileName_WebCache                             @"WebCache"
+//#define FileName_LastMinute_Search_Place_Holder       @"LastMinute_Search_Place_Holder"
+//#define FileName_LastMinute_Search_White_List_MD5     @"LastMinute_Search_White_List_MD5"
+//#define FileName_LastMinute_Search_White_List_Dict     @"LastMinute_Search_White_List_Dict"
+
+
+
+//typedef enum {
+//    SettingCallBackTypeNone = 0,//None
+//    SettingCallBackTypeAlipay = 1,//支付宝
+//    SettingCallBackTypeTencent = 2,//Qzone
+//    SettingCallBackTypeWeibo = 3//微博
+//} SettingCallBackType;
+//
+//
+//
+////消息类型
+//typedef enum {
+//    AllMessage = 1,
+//    SalesMessage  = 1 << 1,
+//    OrderMessage  = 1 << 2,
+//    RemindMessage = 1 << 3,
+//    CouponMessage = 1 << 4,
+//} MessageType;
+
+
+
