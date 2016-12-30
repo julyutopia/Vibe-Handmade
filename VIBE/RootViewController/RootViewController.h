@@ -6,6 +6,7 @@
 //  Copyright © 2016年 LiHaii. All rights reserved.
 //
 
+#import "VibeViewController.h"
 
 #import "RecommandTableView.h"
 #import "RecommandBannerModal.h"
@@ -27,6 +28,7 @@
 #import "TopicDetailViewController.h"
 #import "ProductDetailViewController.h"
 
+#import "VibeSearchView.h"
 
 typedef enum
 {
@@ -35,7 +37,7 @@ typedef enum
     discover_state = 2,     //探索发现页
 } Selected_Tab_State;
 
-@interface RootViewController : UIViewController<UIScrollViewDelegate,RecommandTableViewDelegate, LUNSegmentedControlDataSource, LUNSegmentedControlDelegate>
+@interface RootViewController : VibeViewController <UIScrollViewDelegate,RecommandTableViewDelegate, LUNSegmentedControlDataSource, LUNSegmentedControlDelegate, VibeSearchViewDelegate>
 {    
     NSInteger             _selectedIndex;
     
@@ -51,14 +53,11 @@ typedef enum
     
     UIView              * _naviBackView;
     
+    VibeSearchView      * _searchView;
+    
     UIView              * _recommandLayerView;
     UIView              * _creatorLayerView;
     UIView              * _discoverLayerView;
-    
-    
-    UIButton            * _recommandBtn;
-    UIButton            * _creatorBtn;
-    UIButton            * _discoveBtn;
     
     //首页推荐
     UIView              * _recommandView;
@@ -78,7 +77,5 @@ typedef enum
 
 
 @end
-
-
 
 

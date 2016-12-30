@@ -239,10 +239,6 @@
         return (kScreenWidth -20)/2 +15 +10 +42.6666666666 *sizeRate * 2 +18;
     }
     
-//    if (indexPath.section == 1) {
-//        return 42.6666666666 *sizeRate * 2 +8;
-//    }
-    
     if (indexPath.section == 1) {
         
         if (indexPath.row == 0) {

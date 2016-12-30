@@ -18,20 +18,21 @@ typedef enum
 
 @interface VibeViewController : UIViewController
 
-@property (strong, nonatomic) UIView            *topNavView;
+@property (strong, nonatomic) UIVisualEffectView    * naviBlurView;
+@property (strong, nonatomic) UIView                * topNavView;
 
-@property (nonatomic, assign) NSInteger         *naviBarType;
+@property (nonatomic, assign) NSInteger             * naviBarType;
 
-@property (strong, nonatomic) UIButton          *backBtn;
-@property (nonatomic, strong) UIButton          *rightButton;
+@property (strong, nonatomic) UIButton              * backBtn;
+@property (nonatomic, strong) UIButton              * rightButton;
 
-@property (strong, nonatomic) UILabel           *titleLabel;
-@property (strong, nonatomic) UIImageView       *titleImgView;
+@property (strong, nonatomic) UILabel               * titleLabel;
+@property (strong, nonatomic) UIImageView           * titleImgView;
 
-@property (strong, nonatomic) UIView            *line;
-@property (nonatomic, assign) BOOL              isPopUp;//判断是否是升起
+@property (strong, nonatomic) UIView                * line;
+@property (nonatomic, assign) BOOL                  isPopUp;//判断是否是升起
 
-@property (nonatomic, assign) BOOL              isWideNaviView;
+@property (nonatomic, assign) BOOL                  isWideNaviView;
 
 -(void)backBtnClicked:(id)sender;
 -(void)rightBtnClicked:(id)sender;

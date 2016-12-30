@@ -9,18 +9,27 @@
 #import "VibeViewController.h"
 
 #import "CategoryModal.h"
-
 #import "YUSegment.h"
+#import "CategoryListFilterView.h"
 
-@interface CategoryListViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource>
+#import "CategoryListProductTableViewCell.h"
+#import "ProductDetailViewController.h"
+
+@interface CategoryListViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource, CategoryListProductTableViewCellDelegate, CategoryListFilterViewDelegate>
 {
-    YUSegment           * _categorySetSegment;
+    YUSegment               * _categorySetSegment;
     
-    UITableView         * _categoryProductsListTable;
+    CategoryListFilterView  * _filterView;
     
-    CategoryModal       * _categoryDetailModal;
+    float                     _tableViewOffsetY;
     
-    NSMutableArray      * _categoryProductsArray;
+    UITableView             * _categoryProductsListTable;
+    
+    CategoryModal           * _categoryDetailModal;
+    
+    NSMutableArray          * _categoryProductsArray;
+    
+    UIVisualEffectView      * _filterBlurBackView;
 }
 
 

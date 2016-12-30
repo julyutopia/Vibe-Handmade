@@ -185,6 +185,8 @@
     [topicsArray addObject:topicModal3];
     [_recommandInfoDict setObject:topicsArray forKey:@"topic"];
     
+    
+    
     VibeProductModal * productModal1 = [[VibeProductModal alloc]init];
     [productModal1 setProductTitle:@"印度进口手工平织羊毛Kilim地毯 基利姆地毯 民族挂毯"];
     [productModal1 setProductImgURL:@"https://gd1.alicdn.com/imgextra/i1/0/TB1Upa1KVXXXXcvXVXXXXXXXXXX_!!0-item_pic.jpg"];
@@ -305,19 +307,23 @@
 #pragma mark -初始化导航栏
 -(void)initNaviBar
 {
-    UIBlurEffect * effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView * blurView = [[UIVisualEffectView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Wide_Navi_View_Height)];
-    [blurView setEffect:effect];
+//    UIBlurEffect * effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+//    UIVisualEffectView * blurView = [[UIVisualEffectView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Wide_Navi_View_Height)];
+//    [blurView setEffect:effect];
+//    
+//    _naviView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Wide_Navi_View_Height)];
+//    [_naviView setBackgroundColor:RGBA(255, 255, 255, 85)];
+//    [self.view addSubview:_naviView];
+//    
+//    [_naviView addSubview:blurView];
+//    
+//    UIView * lineView = [[UIView alloc]initWithFrame:CGRectMake(0, Wide_Navi_View_Height-1, kScreenWidth, 1)];
+//    [lineView setBackgroundColor:RGBA(0, 0, 0, 5)];
+//    [_naviView addSubview:lineView];
     
-    _naviView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Wide_Navi_View_Height)];
-    [_naviView setBackgroundColor:RGBA(255, 255, 255, 85)];
-    [self.view addSubview:_naviView];
     
-    [_naviView addSubview:blurView];
+    [self.backBtn setHidden:YES];
     
-    UIView * lineView = [[UIView alloc]initWithFrame:CGRectMake(0, Wide_Navi_View_Height-1, kScreenWidth, 1)];
-    [lineView setBackgroundColor:RGBA(0, 0, 0, 5)];
-    [_naviView addSubview:lineView];
     
     _profileBtn = [[UIButton alloc]initWithFrame:CGRectMake(15, 30, 18, 18)];
     [_profileBtn setBackgroundImage:[UIImage imageNamed:@"Navi_Profile"] forState:UIControlStateNormal];
@@ -449,7 +455,13 @@
 
 -(void)searchClick
 {
-    
+//    if (!_searchView) {
+//        _searchView = [[VibeSearchView alloc]initWithFrame:self.view.frame];
+//        [_searchView setDelegateee:self];
+//        [self.view addSubview:_searchView];
+//    }
+//    
+//    [_searchView showSearchView];
 }
 
 

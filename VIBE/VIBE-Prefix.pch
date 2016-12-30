@@ -78,13 +78,11 @@
 
 #define DefaultWhite        RGB(255, 255,  255)
 
-
 #define DefaultQYOrange     RGB(255, 116, 103)
 #define PressQYOrange       RGB(232, 106, 91)
 
 #define DefaultGreen      RGB(43, 214,  206)
 #define DefaultPressdownGreen    RGB(59, 174,  130)
-
 
 #define DefaultQYTextColor      RGBA(31, 32, 35, 100)
 #define DefaultQYTextColor90    RGBA(31, 32, 35, 90)
@@ -101,7 +99,6 @@
 #define DefaultPinkColor        RGBA(255, 116, 103, 100)
 #define DefaultQYLineColor      RGBA(225, 225, 225, 100)
 #define Color_Orange            RGB(255, 115, 98)
-
 
 #pragma mark - 无网络
 #define isNotReachable ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == NotReachable)

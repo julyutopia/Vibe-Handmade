@@ -45,13 +45,13 @@
     
     //导航栏
     UIBlurEffect * naviBlurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView * naviBlurView = [[UIVisualEffectView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, height_headerview)];
-    [naviBlurView setEffect:naviBlurEffect];
+    self.naviBlurView = [[UIVisualEffectView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, height_headerview)];
+    [self.naviBlurView setEffect:naviBlurEffect];
 
     self.topNavView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, height_headerview)];
     [self.topNavView setBackgroundColor:RGBA(255, 255, 255, 85)];
     [self.view addSubview:self.topNavView];
-    [self.topNavView addSubview:naviBlurView];
+    [self.topNavView addSubview:self.naviBlurView];
     
     
     self.line = [[UIView alloc] initWithFrame:CGRectMake(0, height_headerview - 0.5, kScreenWidth, 0.5)];
@@ -127,6 +127,7 @@
 {
     if (isWideNaviView == YES) {
      
+        [self.naviBlurView setFrame:CGRectMake(0, 0, kScreenWidth, Wide_Navi_View_Height)];
         [self.topNavView setFrame:CGRectMake(0, 0, kScreenWidth, Wide_Navi_View_Height)];
         [self.line setFrame:CGRectMake(0, Wide_Navi_View_Height - 0.5, kScreenWidth, 0.5)];
     }

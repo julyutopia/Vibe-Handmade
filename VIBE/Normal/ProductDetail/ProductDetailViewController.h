@@ -44,6 +44,8 @@
     UIView              * _sectionFooterView;
 }
 
+@property(assign, nonatomic)    NSInteger            productID;
+
 @property(retain, nonatomic)    VibeProductModal    * productDetailModal;
 
 

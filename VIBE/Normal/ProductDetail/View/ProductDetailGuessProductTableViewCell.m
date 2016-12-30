@@ -23,7 +23,8 @@
         [self addSubview:_backView];
         
         _productImgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, _imageViewWidth, _imageViewHeight)];
-        [_productImgView setContentMode:UIViewContentModeScaleToFill];
+        [_productImgView setContentMode:UIViewContentModeScaleAspectFill];
+        [_productImgView.layer setMasksToBounds:YES];
         [_backView addSubview:_productImgView];
         
         _rightViewWidth = kScreenWidth -40 -10 - _imageViewWidth -10 -10;

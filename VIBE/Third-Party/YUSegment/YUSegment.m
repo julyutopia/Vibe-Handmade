@@ -330,6 +330,12 @@ static const CGFloat        kIndicatorWidthOffset    = 20.0;
         
         // Configure normal label
         label = [self configureNormalLabelWithTitle:title];
+        
+        //隐藏
+        if (i == 0) {
+            [label setAlpha:0.0f];
+        }
+        
         [self.labelsNormal addObject:label];
         [_containerNormal addSubview:label];
         
@@ -417,11 +423,12 @@ static const CGFloat        kIndicatorWidthOffset    = 20.0;
 }
 
 - (void)buildUI {
-    if (!self.backgroundColor) {
-        self.backgroundColor = [UIColor whiteColor];
-    } else {
-        [_indicator private_setBackgroundColor:self.backgroundColor];
-    }
+    
+//    if (!self.backgroundColor) {
+//        self.backgroundColor = [UIColor whiteColor];
+//    } else {
+//        [_indicator private_setBackgroundColor:self.backgroundColor];
+//    }
     
     switch (_style) {
         case YUSegmentStyleLine: {
@@ -547,6 +554,7 @@ static const CGFloat        kIndicatorWidthOffset    = 20.0;
 }
 
 - (void)makeCurrentSegmentCenterInContainer {
+    
     CGFloat finalOffset = self.segmentWidth * (_selectedIndex + 0.5) - CGRectGetWidth(self.frame) / 2;
     CGFloat maxOffset = _scrollView.contentSize.width - CGRectGetWidth(self.frame);
     CGPoint contentOffset = _scrollView.contentOffset;
@@ -607,21 +615,45 @@ static const CGFloat        kIndicatorWidthOffset    = 20.0;
 }
 
 - (void)moveIndicatorFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex widthShouldChange:(BOOL)change {
+   
     CGFloat indicatorWidth = -1;
     if (change) {
         indicatorWidth = [self calculateIndicatorWidthAtSegmentIndex:toIndex];
     }
+    
+    NSLog(@"__________%ld__________", toIndex);
+    
+    //显示所有 正常状态的 Label
+    for (UILabel * labelll in self.labelsNormal) {
+        [labelll setAlpha:1.0f];
+    }
+    //将要 高亮标签 后面的Label 隐藏
+    for (int i = 0; i < self.labelsNormal.count; i ++) {
+        UILabel * labelll = (UILabel *)[self.labelsNormal objectAtIndex:i];
+        if (i == toIndex) {
+            [UIView animateWithDuration:0.2 animations:^{
+               [labelll setAlpha:0.0f];
+            }];            
+        }
+    }
+
+    
     [UIView animateWithDuration:kMovingAnimationDuration animations:^{
+        
         [_indicator setWidth:indicatorWidth];
         [_indicator setCenterX:self.segmentWidth * (0.5 + toIndex)];
     } completion:^(BOOL finished) {
         if (finished) {
+            
+            
+            
             [self sendActionsForControlEvents:UIControlEventValueChanged];
             if (_scrollEnabled) {
                 [self makeCurrentSegmentCenterInContainer];
             }
         }
     }];
+    
 }
 
 #pragma mark -
@@ -819,6 +851,7 @@ static const CGFloat        kIndicatorWidthOffset    = 20.0;
     }
     _scrollView = ({
         UIScrollView *scrollView = [UIScrollView new];
+        scrollView.backgroundColor = [UIColor clearColor];
         scrollView.showsVerticalScrollIndicator = NO;
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.translatesAutoresizingMaskIntoConstraints = NO;
