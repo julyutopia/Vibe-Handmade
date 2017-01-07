@@ -38,7 +38,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>请允许VIBE使用您的位置，以便优化智能推荐。</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>请允许VIBE调取您的相册权限 ✌</string>
+	<string>请允许VIBE调取您的相册权限</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>HYQiHei-35S.otf</string>

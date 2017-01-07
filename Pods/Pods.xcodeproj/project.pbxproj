@@ -1664,27 +1664,6 @@
 			};
 			name = Release;
 		};
-		26AC70ED68344EA516AEBEDC82756160 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23D5C1DB223D1BAD59246AD90E36BE80 /* SVProgressHUD.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 		2C82555F9DFD5EEBB3AE614E8AE58EC8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E9FF1050292997B5976367EBBA09353B /* Pods-VIBETests.release.xcconfig */;
@@ -1828,6 +1807,27 @@
 			};
 			name = Debug;
 		};
+		552B7212C078B5BE50FB34ECB3DBFC86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23D5C1DB223D1BAD59246AD90E36BE80 /* SVProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 		5E62115DE8C09934BF8D2FE5D15FED1E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1954,27 +1954,6 @@
 			};
 			name = Debug;
 		};
-		8A1A3BEEB56BDC0CC81F77520D062909 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23D5C1DB223D1BAD59246AD90E36BE80 /* SVProgressHUD.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		996A0422A712786DAC409B34CEB41AF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BF9A21DA287C3ECA0BD914361153401B /* SFFocusViewLayout.xcconfig */;
@@ -2037,6 +2016,27 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
+		};
+		B57F0C021DB4D4CF085163F9D2BE3A74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23D5C1DB223D1BAD59246AD90E36BE80 /* SVProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
 		};
 		B755248C397365E2A9C12DE87CA56951 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -2245,8 +2245,8 @@
 		B232438D7B66A9FFD1F7D2CFA27DF186 /* Build configuration list for PBXNativeTarget "SVProgressHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				26AC70ED68344EA516AEBEDC82756160 /* Debug */,
-				8A1A3BEEB56BDC0CC81F77520D062909 /* Release */,
+				552B7212C078B5BE50FB34ECB3DBFC86 /* Debug */,
+				B57F0C021DB4D4CF085163F9D2BE3A74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

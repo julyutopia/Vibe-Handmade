@@ -35,27 +35,14 @@
     _categoryProductsListTable.scrollIndicatorInsets = UIEdgeInsetsMake(Wide_Navi_View_Height, 0, 0, 0);
     [self.view insertSubview:_categoryProductsListTable belowSubview:self.topNavView];
     
-    
-//    UIBlurEffect * filterBlurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-//    _filterBlurBackView = [[UIVisualEffectView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
-//    [_filterBlurBackView setEffect:filterBlurEffect];
-//    [_filterBlurBackView setAlpha:0.0f];
-//    
-//    _filterBlurBackView.userInteractionEnabled = YES;
-//    UITapGestureRecognizer * filterBlurTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapFilterBackView:)];
-//    [_filterBlurBackView addGestureRecognizer:filterBlurTap];
-//    
-//    [self.view insertSubview:_filterBlurBackView belowSubview:self.topNavView];
-    
     [self setContentData];
 }
-
-
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _categoryProductsArray.count;

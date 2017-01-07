@@ -28,10 +28,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
-    UIView * viewwwwww = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth *3, kScreenHeight)];
-    [viewwwwww setBackgroundColor:DefaultBackgroundColor];
-    [self.view addSubview:viewwwwww];
+    
+    [self setIsWideNaviView:YES];
+    
+//    UIView * viewwwwww = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth *3, kScreenHeight)];
+//    [viewwwwww setBackgroundColor:DefaultBackgroundColor];
+//    [self.view addSubview:viewwwwww];
     
     _rootScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     [_rootScrollView setBackgroundColor:[UIColor clearColor]];
@@ -51,6 +53,7 @@
     
     [self initFakeData];
 }
+
 
 //初始化推荐页
 -(void)initRecommandViews
@@ -307,61 +310,39 @@
 #pragma mark -初始化导航栏
 -(void)initNaviBar
 {
-//    UIBlurEffect * effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-//    UIVisualEffectView * blurView = [[UIVisualEffectView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Wide_Navi_View_Height)];
-//    [blurView setEffect:effect];
-//    
-//    _naviView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Wide_Navi_View_Height)];
-//    [_naviView setBackgroundColor:RGBA(255, 255, 255, 85)];
-//    [self.view addSubview:_naviView];
-//    
-//    [_naviView addSubview:blurView];
-//    
-//    UIView * lineView = [[UIView alloc]initWithFrame:CGRectMake(0, Wide_Navi_View_Height-1, kScreenWidth, 1)];
-//    [lineView setBackgroundColor:RGBA(0, 0, 0, 5)];
-//    [_naviView addSubview:lineView];
-    
-    
     [self.backBtn setHidden:YES];
-    
     
     _profileBtn = [[UIButton alloc]initWithFrame:CGRectMake(15, 30, 18, 18)];
     [_profileBtn setBackgroundImage:[UIImage imageNamed:@"Navi_Profile"] forState:UIControlStateNormal];
     [_profileBtn addTarget:self action:@selector(profileClick) forControlEvents:UIControlEventTouchUpInside];
-    [_naviView addSubview:_profileBtn];
+    [self.topNavView addSubview:_profileBtn];
     
     _searchBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth -15 -18, 30, 18, 18)];
     [_searchBtn setBackgroundImage:[UIImage imageNamed:@"Navi_Search"] forState:UIControlStateNormal];
     [_searchBtn addTarget:self action:@selector(searchClick) forControlEvents:UIControlEventTouchUpInside];
-    [_naviView addSubview:_searchBtn];
+    [self.topNavView addSubview:_searchBtn];
   
-    _naviBackView = [[UIView alloc]initWithFrame:CGRectMake(20, 64, 90, 25)];
-    [_naviBackView.layer setCornerRadius:12];
-    [_naviBackView.layer setMasksToBounds:YES];
-    [_naviView addSubview:_naviBackView];
-
-    
     _naviSegmentControl = [[LUNSegmentedControl alloc]init];
     _naviSegmentControl.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [_naviView addSubview:_naviSegmentControl];
+    [self.topNavView addSubview:_naviSegmentControl];
     
     //创建左边约束
-    NSLayoutConstraint *leftLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_naviView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:15];
-    [_naviView addConstraint:leftLc];
+    NSLayoutConstraint *leftLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.topNavView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:18];
+    [self.topNavView addConstraint:leftLc];
     
     //创建右边约束
-    NSLayoutConstraint *rightLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_naviView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-15];
-    [_naviView addConstraint:rightLc];
+    NSLayoutConstraint *rightLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.topNavView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-18];
+    [self.topNavView addConstraint:rightLc];
     
     //创建底部约束
-    NSLayoutConstraint *bottomLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_naviView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-8];
-    [_naviView addConstraint:bottomLc];
+    NSLayoutConstraint *bottomLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.topNavView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-10];
+    [self.topNavView addConstraint:bottomLc];
 
     //创建高度约束
-    NSLayoutConstraint *heightLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:28];
-    [_naviView addConstraint: heightLc];
+    NSLayoutConstraint *heightLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:30];
+    [self.topNavView addConstraint: heightLc];
 
+    
     _naviSegmentControl.transitionStyle = LUNSegmentedControlTransitionStyleFade;
     _naviSegmentControl.shapeStyle = LUNSegmentedControlShapeStyleLiquid;
     _naviSegmentControl.selectorViewColor = [UIColor clearColor];
@@ -372,6 +353,8 @@
     [_naviSegmentControl setShadowShowDuration:0.2f];
     [_naviSegmentControl setCornerRadius:14];
     
+    
+    [self.view bringSubviewToFront:self.topNavView];
 }
 
 
@@ -455,14 +438,62 @@
 
 -(void)searchClick
 {
-//    if (!_searchView) {
-//        _searchView = [[VibeSearchView alloc]initWithFrame:self.view.frame];
-//        [_searchView setDelegateee:self];
-//        [self.view addSubview:_searchView];
-//    }
-//    
-//    [_searchView showSearchView];
+    if (!_searchView) {
+        _searchView = [[VibeSearchView alloc]initWithFrame:self.view.frame];
+        [_searchView setDelegateee:self];
+        [self.view addSubview:_searchView];
+    }
+    
+    [_searchView showSearchView];
+    
+    [self hideTopviewSubviews];
 }
+
+#pragma mark -显示/隐藏 导航栏控件
+-(void)hideTopviewSubviews
+{
+    [UIView animateWithDuration:0.15f animations:^{
+        
+        [_profileBtn setAlpha:0.0f];
+        [_searchBtn setAlpha:0.0f];
+        
+        [_naviSegmentControl setAlpha:0.0f];
+    }];
+}
+
+-(void)showTopviewSubviews
+{
+    [UIView animateWithDuration:1.2f animations:^{
+        
+        [_profileBtn setAlpha:1.0f];
+        [_searchBtn setAlpha:1.0f];
+        
+        [_naviSegmentControl setAlpha:1.0f];
+    }];
+}
+
+-(void)searchViewDidHide
+{
+    [self showTopviewSubviews];
+}
+
+
+#pragma mark -点击搜索关键字
+-(void)searchViewDidSearch:(NSString *)keyword
+{
+    [self performSelector:@selector(pushToSearchResultVC:) withObject:keyword afterDelay:0.4f];
+}
+
+-(void)pushToSearchResultVC:(NSString *)searchKeyword
+{
+    SearchResultViewController * resultVC = [[SearchResultViewController alloc]init];
+    resultVC.searchKeyword = searchKeyword;
+    [self.lcNavigationController pushViewController:resultVC];
+
+}
+
+
+
 
 
 #pragma mark -scrollview Delegate

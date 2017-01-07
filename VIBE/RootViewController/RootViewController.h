@@ -28,6 +28,8 @@
 #import "TopicDetailViewController.h"
 #import "ProductDetailViewController.h"
 
+#import "SearchResultViewController.h"
+
 #import "VibeSearchView.h"
 
 typedef enum
@@ -51,7 +53,7 @@ typedef enum
     UIButton            * _profileBtn;
     UIButton            * _searchBtn;
     
-    UIView              * _naviBackView;
+//    UIView              * _naviBackView;
     
     VibeSearchView      * _searchView;
     

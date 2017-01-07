@@ -8,13 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
+#import "VibeSearchBar.h"
+
 @protocol VibeSearchViewDelegate;
 
-@interface VibeSearchView : UIView
+@interface VibeSearchView : UIView<VibeSearchBarDelegate>
 {
     UIVisualEffectView  * _searchBlurBackView;
-    UIView              * _searchBarView;
+    
+    float                 _maxSearchContentHeight;
+
+    UIView              * _searchView;
+    
+    VibeSearchBar       * _searchBar;
+    
+    UIView              * _searchCancleGapLine;
+    UIButton            * _searchCancleBtn;
+    
     UIView              * _searchContentView;
+    
+    
 }
 
 @property (weak, nonatomic) id<VibeSearchViewDelegate> delegateee;
@@ -27,5 +40,7 @@
 @protocol VibeSearchViewDelegate <NSObject>
 
 -(void)searchViewDidHide;
+
+-(void)searchViewDidSearch:(NSString *)keyword;
 
 @end
