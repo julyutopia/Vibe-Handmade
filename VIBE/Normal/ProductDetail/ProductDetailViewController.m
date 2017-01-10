@@ -8,8 +8,6 @@
 
 #import "ProductDetailViewController.h"
 
-#import "LogInViewController.h"
-
 @interface ProductDetailViewController ()
 
 @end
@@ -120,7 +118,7 @@
     
     [self.view bringSubviewToFront:self.backBtn];
     [self.backBtn setBackgroundImage:[UIImage imageNamed:@"Navi_Back"] forState:UIControlStateNormal];
-    self.backBtn.layer.shadowColor = RGBA(0, 0, 0, 80).CGColor;//shadowColor阴影颜色
+    self.backBtn.layer.shadowColor = RGBA(0, 0, 0, 20).CGColor;//shadowColor阴影颜色
     self.backBtn.layer.shadowOffset = CGSizeMake(2,2);
     self.backBtn.layer.shadowOpacity = 0.8;
     self.backBtn.layer.shadowRadius = 4;
@@ -133,9 +131,9 @@
 -(void)favorBtnClicked
 {
     //没有登录状态
-    if ([self checkIsLogIn] == NO) {
+    if ([VibeAppTool isUserLogIn] == NO) {
         
-        LogInViewController * logInVC = [[LogInViewController alloc]init];
+        VibeLogInViewController * logInVC = [[VibeLogInViewController alloc]init];
         logInVC.isPopUp = YES;        
         LCNavigationController * navi = [[LCNavigationController alloc]initWithRootViewController:logInVC];
         [self.lcNavigationController presentViewController:navi animated:YES completion:nil];

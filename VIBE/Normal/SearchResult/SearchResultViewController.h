@@ -10,7 +10,13 @@
 
 #import "VibeSearchView.h"
 
-@interface SearchResultViewController : VibeViewController<VibeSearchViewDelegate, UITableViewDelegate, UITableViewDataSource>
+#import "SearchProductsHeaderTableViewCell.h"
+#import "SearchTopicHeaderTableViewCell.h"
+
+#import "ProductDetailViewController.h"
+#import "TopicDetailViewController.h"
+
+@interface SearchResultViewController : VibeViewController<VibeSearchViewDelegate, UITableViewDelegate, UITableViewDataSource, SearchProductTableViewCellDelegate, SearchProductsAllTableViewCellDelegate, SearchTopicTableViewCellDelegate, SearchTopicAllTableViewCellDelegate>
 {
     VibeSearchView      * _searchView;
     
@@ -19,7 +25,7 @@
 
     UITableView         * _resultsTableView;
     
-    UIView              * _topicHeaderView;
+    UIView              * _sectionFooterView;
 }
 
 @property(retain, nonatomic)NSString * searchKeyword;

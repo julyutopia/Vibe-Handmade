@@ -432,7 +432,9 @@
         [self.lcNavigationController presentViewController:navi animated:YES completion:nil];
     }
     else{
-        
+        MineViewController * mineVC = [[MineViewController alloc]init];
+        LCNavigationController * navi = [[LCNavigationController alloc]initWithRootViewController:mineVC];
+        [self.lcNavigationController presentViewController:navi animated:YES completion:nil];
     }
 }
 

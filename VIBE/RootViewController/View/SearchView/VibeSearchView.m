@@ -45,7 +45,7 @@
         [self addSubview:_searchView];
         
         _searchCancleGapLine = [[UIView alloc]initWithFrame:CGRectMake(40, _maxSearchContentHeight -38, kScreenWidth -80, 2)];
-        [_searchCancleGapLine setBackgroundColor:RGBA(243, 243, 243, 20)];
+        [_searchCancleGapLine setBackgroundColor:RGBA(243, 243, 243, 40)];
         [_searchCancleGapLine.layer setCornerRadius:1];
         [_searchView addSubview:_searchCancleGapLine];
         

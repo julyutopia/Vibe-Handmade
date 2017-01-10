@@ -12,7 +12,9 @@
 
 #import "AnimatedGIFImageSerialization.h"
 
-@interface VibeLogInViewController : VibeViewController<UITextFieldDelegate,UIScrollViewDelegate, UIScrollViewDelegate>
+#import "MoreSettingView.h"
+
+@interface VibeLogInViewController : VibeViewController<UITextFieldDelegate,UIScrollViewDelegate, UIScrollViewDelegate, MoreSettingViewDelegate>
 {
     UIScrollView * _backScrollView;
     
@@ -37,7 +39,9 @@
     UIButton     * _registerBtn;
     UIButton     * _forgetPasswordBtn;
     
-    UIButton    * _wechatLogInBtn;
+    UIButton     * _wechatLogInBtn;
+    
+    MoreSettingView * _moreSettingView;
 }
 
 @end

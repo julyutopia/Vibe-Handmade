@@ -360,7 +360,6 @@
     [_mineProfileModal setUserFollowingNumber:[NSNumber numberWithInteger:12]];
     [_mineProfileModal setUserFollowedNumber:[NSNumber numberWithInteger:5]];
     
-
     
     HomeProductModal * product1 = [[HomeProductModal alloc]init];
     [product1 setProductID:[NSNumber numberWithInteger:1]];

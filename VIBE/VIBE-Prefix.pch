@@ -39,6 +39,8 @@
 
 #import "VibeColor.h"
 
+#import "VibeShowMoneyView.h"
+
 #ifdef __OPTIMIZE__
 # define NSLog(...) {}
 #else

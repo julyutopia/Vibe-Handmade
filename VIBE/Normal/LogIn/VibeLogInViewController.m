@@ -156,6 +156,13 @@
     
     [self.backBtn setBackgroundImage:[UIImage imageNamed:@"Navi_Cancle_White"] forState:UIControlStateNormal];
     [self.view bringSubviewToFront:self.backBtn];
+    
+    [self.rightButton setHidden:NO];
+    [self.rightButton setFrame:CGRectMake(kScreenWidth -15 -18, 30, 18, 18)];
+    [self.rightButton setBackgroundImage:[UIImage imageNamed:@"More_Setting"] forState:UIControlStateNormal];
+    [self.view bringSubviewToFront:self.rightButton];
+
+    
 }
 
 #pragma mark -限制输入手机号的字数
@@ -221,11 +228,31 @@
     [_passwordTextField resignFirstResponder];
 }
 
+#pragma mark -点击设置
+-(void)rightBtnClicked:(id)sender
+{
+    if (!_moreSettingView) {
+        _moreSettingView = [[MoreSettingView alloc]initWithFrame:self.view.frame];
+        [_moreSettingView setDelegateee:self];
+        [self.view addSubview:_moreSettingView];
+    }
+    [_moreSettingView showSettingView];
+}
+
+#pragma mark -取消设置的代理方法
+-(void)moreSettingViewDidHide
+{
+    
+}
+
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
-
 @end
+
+

@@ -25,24 +25,25 @@
     
     
     UIView * viewwwww = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
-    CAGradientLayer * gradientLayer = [CAGradientLayer layer];  // 设置渐变效果
-    gradientLayer.bounds = viewwwww.bounds;
-    gradientLayer.borderWidth = 0;
-    
-    gradientLayer.frame = viewwwww.bounds;
-    gradientLayer.colors = [NSArray arrayWithObjects:
-                            (id)[RGBA(2, 255, 211, 40) CGColor],
-                            (id)[RGBA(68, 201, 255, 60) CGColor],
-                            (id)[RGBA(255, 137, 254, 60) CGColor],
-                            (id)[RGBA(190, 75, 255, 70) CGColor],nil];
-    
-    gradientLayer.locations  = @[@(0.25), @(0.5), @(0.75)];
-    
-    
-    gradientLayer.startPoint = CGPointMake(0, 0);
-    gradientLayer.endPoint = CGPointMake(0, 1.0);
-    
-    [viewwwww.layer insertSublayer:gradientLayer atIndex:0];
+    [viewwwww setBackgroundColor:RGBA(0, 0, 0, 95)];
+//    CAGradientLayer * gradientLayer = [CAGradientLayer layer];  // 设置渐变效果
+//    gradientLayer.bounds = viewwwww.bounds;
+//    gradientLayer.borderWidth = 0;
+//    
+//    gradientLayer.frame = viewwwww.bounds;
+//    gradientLayer.colors = [NSArray arrayWithObjects:
+//                            (id)[RGBA(2, 255, 211, 40) CGColor],
+//                            (id)[RGBA(68, 201, 255, 60) CGColor],
+//                            (id)[RGBA(255, 137, 254, 60) CGColor],
+//                            (id)[RGBA(190, 75, 255, 70) CGColor],nil];
+//    
+//    gradientLayer.locations  = @[@(0.25), @(0.5), @(0.75)];
+//    
+//    
+//    gradientLayer.startPoint = CGPointMake(0, 0);
+//    gradientLayer.endPoint = CGPointMake(0, 1.0);
+//    
+//    [viewwwww.layer insertSublayer:gradientLayer atIndex:0];
 
     
     [self.window addSubview:viewwwww];

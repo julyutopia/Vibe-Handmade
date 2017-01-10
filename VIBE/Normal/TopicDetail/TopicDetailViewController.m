@@ -66,7 +66,7 @@
     
     [self.view bringSubviewToFront:self.backBtn];
     [self.backBtn setBackgroundImage:[UIImage imageNamed:@"Navi_Back"] forState:UIControlStateNormal];
-    self.backBtn.layer.shadowColor = RGBA(0, 0, 0, 80).CGColor;//shadowColor阴影颜色
+    self.backBtn.layer.shadowColor = RGBA(0, 0, 0, 20).CGColor;//shadowColor阴影颜色
     self.backBtn.layer.shadowOffset = CGSizeMake(2,2);
     self.backBtn.layer.shadowOpacity = 0.8;
     self.backBtn.layer.shadowRadius = 4;

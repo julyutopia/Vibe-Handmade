@@ -23,6 +23,8 @@
 #import "DiscoverHotTagModal.h"
 #import "DiscoverTopicModal.h"
 
+#import "MineViewController.h"
+
 #import "WebViewController.h"
 #import "CategoryListViewController.h"
 #import "TopicDetailViewController.h"

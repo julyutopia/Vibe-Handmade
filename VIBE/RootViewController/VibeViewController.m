@@ -112,17 +112,6 @@
 }
 
 
--(BOOL)checkIsLogIn
-{
-    BOOL isLogIn = NO;
-    
-    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"isLogIn"]) {
-        isLogIn = YES;
-    }
-    return isLogIn;
-}
-
-
 -(void)setIsWideNaviView:(BOOL)isWideNaviView
 {
     if (isWideNaviView == YES) {
