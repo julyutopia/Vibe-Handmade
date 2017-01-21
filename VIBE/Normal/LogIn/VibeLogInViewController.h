@@ -22,6 +22,7 @@
     
     UIView       * _maskView;
     
+    float          _contentWidth;
     UIView       * _showContentView;
     
     UIView       * _infoView;

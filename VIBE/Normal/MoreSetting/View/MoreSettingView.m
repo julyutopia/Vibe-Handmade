@@ -17,8 +17,8 @@
         
         [self setHidden:YES];
      
-        _backView = [[UIView alloc]initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight)];
-        [_backView setBackgroundColor:[UIColor redColor]];
+        _backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        [_backView setBackgroundColor:[UIColor clearColor]];
         [_backView setAlpha:0.0f];
         [self addSubview:_backView];
         
@@ -35,25 +35,37 @@
             _singleSettingCellHeight = 60;
         }
         
-        _settingTableHeaderHeight = (kScreenHeight -_singleSettingCellHeight *8)/2;
+        //已登录，显示8条cell，最后一条为‘退出登录’
+        if ([VibeAppTool isUserLogIn]) {
+            _showCellNumbers = 8;
+        }
+        //未登录则不显示
+        else{
+            _showCellNumbers = 7;
+        }
+        
+        _settingTableHeaderHeight = (kScreenHeight -_singleSettingCellHeight *_showCellNumbers)/2;
         
         
-        _settingTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        float headerContentInset = (kScreenHeight -_singleSettingCellHeight *_showCellNumbers)/2;
+        
+        _settingTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight)];
         [_settingTableView setBackgroundView:nil];
         [_settingTableView setBackgroundColor:[UIColor clearColor]];
         [_settingTableView setDelegate:self];
         [_settingTableView setDataSource:self];
         [_settingTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        _settingTableView.contentInset = UIEdgeInsetsMake(Wide_Navi_View_Height, 0, 0, 0);
-        _settingTableView.scrollIndicatorInsets = UIEdgeInsetsMake(Wide_Navi_View_Height, 0, 0, 0);
+        _settingTableView.contentInset = UIEdgeInsetsMake(headerContentInset, 0, 0, 0);
+        _settingTableView.scrollIndicatorInsets = UIEdgeInsetsMake(headerContentInset, 0, 0, 0);
         [self addSubview:_settingTableView];
         
         
-        float cancleBtnWidth = 41;
-        _cancleSettingBtn = [[UIButton alloc]initWithFrame:CGRectMake( (kScreenWidth -cancleBtnWidth)/2, kScreenHeight -cancleBtnWidth -(_settingTableHeaderHeight -cancleBtnWidth)/2, cancleBtnWidth, cancleBtnWidth)];
+        _cancleBtnWidth = 41;
+        _cancleSettingBtn = [[UIButton alloc]initWithFrame:CGRectMake( (kScreenWidth -_cancleBtnWidth)/2, kScreenHeight -_cancleBtnWidth -(_settingTableHeaderHeight -_cancleBtnWidth)/2, _cancleBtnWidth, _cancleBtnWidth)];
         [_cancleSettingBtn setBackgroundImage:[UIImage imageNamed:@"Setting_Cancle"] forState:UIControlStateNormal];
-        [_cancleSettingBtn addTarget:self action:@selector(cancleSettingBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-        [_backView addSubview:_cancleSettingBtn];
+        [_cancleSettingBtn addTarget:self action:@selector(clickToHideSetting) forControlEvents:UIControlEventTouchUpInside];
+        [_cancleSettingBtn setAlpha:0.0f];
+        [self addSubview:_cancleSettingBtn];
         
     }
     return self;
@@ -67,7 +79,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 8;
+    return _showCellNumbers;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,7 +88,12 @@
     if (cell == nil) {
         cell = [[MoreSettingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MoreSettingCellIdentifier"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell setBackgroundColor:[UIColor clearColor]];
+        [cell setBackgroundView:nil];
     }
+    
+    [cell setMoreSettingCellWithIndex:indexPath.row];
+    
     return cell;
 }
 
@@ -90,40 +107,63 @@
 {
     [self setHidden:NO];
 
-    [UIView animateWithDuration:0.8f animations:^{
+    [UIView animateWithDuration:0.5f animations:^{
         
         [_backView setAlpha:1.0f];
-        [_backView setFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+
+        [_settingTableView setAlpha:1.0f];
+        [_settingTableView setFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         
     } completion:^(BOOL finished) {
         
+        [UIView animateWithDuration:0.15f animations:^{
+            
+            [_cancleSettingBtn setAlpha:1.0f];
+            
+        }];
+        
     }];
+}
+
+
+#pragma mark -点击隐藏设置页面
+-(void)clickToHideSetting
+{
+    [self hideSettingView];
+    
+    [self performSelector:@selector(operateDelegate) withObject:nil afterDelay:0.4f];
 }
 
 -(void)hideSettingView
 {
-    [UIView animateWithDuration:0.8f animations:^{
+    [UIView animateWithDuration:0.15f animations:^{
         
-        [_backView setAlpha:0.0f];
-        [_backView setFrame:CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight)];
+        [_cancleSettingBtn setAlpha:0.0f];
         
     } completion:^(BOOL finished) {
         
-        [self setHidden:YES];
-        
-        if ([_delegateee respondsToSelector:@selector(moreSettingViewDidHide)]) {
-            [_delegateee moreSettingViewDidHide];
-        }
+        [UIView animateWithDuration:0.5f animations:^{
+            
+            [_backView setAlpha:0.0f];
+            [_settingTableView setAlpha:0.0f];
+            [_settingTableView setFrame:CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight)];
+            
+        }completion:^(BOOL finished) {
+            
+            [self setHidden:YES];
+            
+        }];
         
     }];
 }
 
-
-#pragma mark -点击取消
--(void)cancleSettingBtnClicked
+-(void)operateDelegate
 {
-    [self hideSettingView];
+    if ([_delegateee respondsToSelector:@selector(moreSettingViewDidHide)]) {
+        [_delegateee moreSettingViewDidHide];
+    }
 }
+
 
 
 @end

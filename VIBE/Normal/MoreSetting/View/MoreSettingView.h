@@ -18,6 +18,10 @@
     
     float         _settingTableHeaderHeight;
     
+    float         _cancleBtnWidth;
+
+    NSInteger     _showCellNumbers;//显示设置的cell数量
+    
     UIView      * _backView;
     UITableView * _settingTableView;
     UIButton    * _cancleSettingBtn;

@@ -21,13 +21,14 @@
     
     [self.topNavView setHidden:YES];
     
-    UIImageView * backImgview = [[UIImageView alloc]initWithFrame:CGRectMake(0, -5, kScreenWidth, kScreenHeight+10)];
-    [backImgview setBackgroundColor:[UIColor whiteColor]];
-//    [backImgview setImage:[UIImage imageNamed:@"Register_Bg"]];
-    [backImgview setContentMode:UIViewContentModeScaleToFill];
-    [self.view addSubview:backImgview];
+ 
+    _backgroundGifView = [[UIImageView alloc]initWithFrame:self.view.frame];
+    [_backgroundGifView setBackgroundColor:[UIColor redColor]];
+    _backgroundGifView.contentMode = UIViewContentModeScaleAspectFill;
+    _backgroundGifView.image = [UIImage imageNamed:@"Register_Gif.gif"];
+    [self.view addSubview:_backgroundGifView];
     
-    
+
     _maskView = [[UIView alloc]initWithFrame:self.view.frame];
     [_maskView setBackgroundColor:RGBA(0, 0, 0, 20)];
     [self.view addSubview:_maskView];
@@ -51,9 +52,10 @@
     
     [self.backBtn setHidden:YES];
     [self.view bringSubviewToFront:self.beforeBtn];
+    
     [self.view bringSubviewToFront:self.titleLabel];
     [self.titleLabel setText:@"注册账号"];
-    
+    [self.titleLabel setTextColor:[UIColor whiteColor]];
     
 }
 

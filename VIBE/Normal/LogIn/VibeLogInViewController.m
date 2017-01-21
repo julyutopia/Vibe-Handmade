@@ -43,13 +43,13 @@
     [_backScrollView addGestureRecognizer:tapppp];
     
     
-    float contentWidht = 297;
+    _contentWidth = 297;
     
-    _showContentView = [[UIView alloc]initWithFrame:CGRectMake( (kScreenWidth -contentWidht)/2, (kScreenHeight -270 -64)/2 -20, contentWidht, 270)];
+    _showContentView = [[UIView alloc]initWithFrame:CGRectMake( (kScreenWidth -_contentWidth)/2, (kScreenHeight -270 -64)/2 -20, _contentWidth, 270)];
     [_showContentView setBackgroundColor:[UIColor clearColor]];
     [_backScrollView addSubview:_showContentView];
     
-    _infoView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, contentWidht, 97)];
+    _infoView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _contentWidth, 97)];
     [_infoView setBackgroundColor:[UIColor whiteColor]];
     [_infoView.layer setCornerRadius:4.0f];
     [_infoView.layer setMasksToBounds:YES];
@@ -59,11 +59,11 @@
     _infoView.layer.shadowRadius = 14;
     [_showContentView addSubview:_infoView];
     
-    UIView * lineView = [[UIView alloc]initWithFrame:CGRectMake(15, 48, contentWidht -30, 1)];
+    UIView * lineView = [[UIView alloc]initWithFrame:CGRectMake(15, 48, _contentWidth -30, 1)];
     [lineView setBackgroundColor:RGBA(234, 234, 234, 90)];
     [_infoView addSubview:lineView];
     
-    _userNameView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, contentWidht, 48)];
+    _userNameView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _contentWidth, 48)];
     [_userNameView setBackgroundColor:[UIColor clearColor]];
     [_infoView addSubview:_userNameView];
     
@@ -74,7 +74,7 @@
     [_userNameView addSubview:_userNameImgView];
     
     //用户电话
-    _userNameTextField = [[UITextField alloc]initWithFrame:CGRectMake(40, 0, contentWidht -40 -15, 48)];
+    _userNameTextField = [[UITextField alloc]initWithFrame:CGRectMake(40, 0, _contentWidth -40 -15, 48)];
     [_userNameTextField setDelegate:self];
     [_userNameTextField setBackgroundColor:[UIColor clearColor]];
     [_userNameTextField setTextAlignment:NSTextAlignmentLeft];
@@ -89,7 +89,7 @@
     [_userNameView addSubview:_userNameTextField];
 
     
-    _passwordView = [[UIView alloc]initWithFrame:CGRectMake(0, 48 +1, contentWidht, 48)];
+    _passwordView = [[UIView alloc]initWithFrame:CGRectMake(0, 48 +1, _contentWidth, 48)];
     [_passwordView setBackgroundColor:[UIColor clearColor]];
     [_infoView addSubview:_passwordView];
     
@@ -98,7 +98,7 @@
     [_passwordView addSubview:_passwordImgView];
     
     //登录密码
-    _passwordTextField = [[UITextField alloc]initWithFrame:CGRectMake(40, 0, contentWidht -40 -15, 48)];
+    _passwordTextField = [[UITextField alloc]initWithFrame:CGRectMake(40, 0, _contentWidth -40 -15, 48)];
     [_passwordTextField setDelegate:self];
     [_passwordTextField setBackgroundColor:[UIColor clearColor]];
     [_passwordTextField setSecureTextEntry:YES];
@@ -125,7 +125,7 @@
     [_registerBtn addTarget:self action:@selector(registerBtnDidTap) forControlEvents:UIControlEventTouchUpInside];
     [_showContentView addSubview:_registerBtn];
     
-    _forgetPasswordBtn = [[UIButton alloc]initWithFrame:CGRectMake(contentWidht -65 -2, 97 +20 +70, 65, 27)];
+    _forgetPasswordBtn = [[UIButton alloc]initWithFrame:CGRectMake(_contentWidth -65 -2, 97 +20 +70, 65, 27)];
     [_forgetPasswordBtn setBackgroundImage:[UIImage imageNamed:@"LogIn_Forget"] forState:UIControlStateNormal];
     [_forgetPasswordBtn setBackgroundImage:[UIImage imageNamed:@"LogIn_Forget_Highlight"] forState:UIControlStateHighlighted];
     [_forgetPasswordBtn addTarget:self action:@selector(forgetBtnDidTap) forControlEvents:UIControlEventTouchUpInside];
@@ -134,24 +134,24 @@
     float wechatWidth = 126;
     float wechatHeight = 22;
     
-    _wechatLogInBtn = [[UIButton alloc]initWithFrame:CGRectMake( (contentWidht -wechatWidth)/2,  97 +20 +70 +27 +30, wechatWidth, wechatHeight)];
+    _wechatLogInBtn = [[UIButton alloc]initWithFrame:CGRectMake( (_contentWidth -wechatWidth)/2,  97 +20 +70 +27 +30, wechatWidth, wechatHeight)];
     [_wechatLogInBtn setBackgroundImage:[UIImage imageNamed:@"Login_Wechat_Normal"] forState:UIControlStateNormal];
     [_wechatLogInBtn setBackgroundImage:[UIImage imageNamed:@"Login_Wechat_Highlight"] forState:UIControlStateHighlighted];
     [_showContentView addSubview:_wechatLogInBtn];
     
-    UIView * line1 = [[UIView alloc]initWithFrame:CGRectMake(10, 97 +20 +70 +27 +30 +10.5, (contentWidht -wechatWidth)/2 -20, 1)];
+    UIView * line1 = [[UIView alloc]initWithFrame:CGRectMake(10, 97 +20 +70 +27 +30 +10.5, (_contentWidth -wechatWidth)/2 -20, 1)];
     [line1 setBackgroundColor:[UIColor whiteColor]];
     [line1.layer setCornerRadius:0.5];
     [_showContentView addSubview:line1];
     
-    UIView * line2 = [[UIView alloc]initWithFrame:CGRectMake( (contentWidht -wechatWidth)/2 +wechatWidth +10, 97 +20 +70 +27 +30 +10.5, (contentWidht -wechatWidth)/2 -20, 1)];
+    UIView * line2 = [[UIView alloc]initWithFrame:CGRectMake( (_contentWidth -wechatWidth)/2 +wechatWidth +10, 97 +20 +70 +27 +30 +10.5, (_contentWidth -wechatWidth)/2 -20, 1)];
     [line2 setBackgroundColor:[UIColor whiteColor]];
     [line2.layer setCornerRadius:0.5];
     [_showContentView addSubview:line2];
     
     
-    [self.titleLabel setFrame:CGRectMake( (kScreenWidth -200)/2, height_headerview - 35, 200, 30)];
     [self.titleLabel setText:@"登录VIBE"];
+    [self.titleLabel setTextColor:[UIColor whiteColor]];
     [self.view bringSubviewToFront:self.titleLabel];
     
     [self.backBtn setBackgroundImage:[UIImage imageNamed:@"Navi_Cancle_White"] forState:UIControlStateNormal];
@@ -236,12 +236,42 @@
         [_moreSettingView setDelegateee:self];
         [self.view addSubview:_moreSettingView];
     }
+    
+    [self.titleLabel setText:@"更多设置"];
+    
     [_moreSettingView showSettingView];
+    
+    [UIView animateWithDuration:0.5f animations:^{
+        
+        [_showContentView setFrame:CGRectMake( (kScreenWidth -_contentWidth)/2, kScreenHeight, _contentWidth, 270)];
+        [_showContentView setAlpha:0.0f];
+        
+        [self.backBtn setAlpha:0.0f];
+        [self.rightButton setAlpha:0.0f];
+        
+    } completion:^(BOOL finished) {
+        
+
+    }];
+    
 }
 
 #pragma mark -取消设置的代理方法
 -(void)moreSettingViewDidHide
 {
+    [self.titleLabel setText:@"登录VIBE"];
+
+    [UIView animateWithDuration:0.5f animations:^{
+       
+        [_showContentView setFrame:CGRectMake( (kScreenWidth -_contentWidth)/2, (kScreenHeight -270 -64)/2 -20, _contentWidth, 270)];
+        [_showContentView setAlpha:1.0f];
+        
+        [self.backBtn setAlpha:1.0f];
+        [self.rightButton setAlpha:1.0f];
+        
+    } completion:^(BOOL finished) {
+        
+    }];
     
 }
 

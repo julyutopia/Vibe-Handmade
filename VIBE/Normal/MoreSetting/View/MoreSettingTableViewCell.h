@@ -19,7 +19,7 @@
     
     UILabel         * _settingLabel;
     
-    UISwitch        * notificationSwitch;
+    UISwitch        * _notificationSwitch;
     UIImageView     * _arrowImgView;
     UILabel         * _cacheNumberLabel;
     
