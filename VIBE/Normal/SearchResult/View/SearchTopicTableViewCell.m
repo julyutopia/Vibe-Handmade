@@ -24,9 +24,9 @@
         _topicView = [[RecommandTopicView alloc]initWithFrame:CGRectMake(10, 0, kScreenWidth -40, _contentHeight)];
         [_backView addSubview:_topicView];
         
-        GLImageView * topicImgView = [[GLImageView alloc]initWithFrame:CGRectMake(10, 0, kScreenWidth -40, _contentHeight)];
-        [topicImgView addTarget:self action:@selector(didTapTopic) forControlEvents:UIControlEventTouchUpInside];
-        [_backView addSubview:topicImgView];
+        _topicImgView = [[GLImageView alloc]initWithFrame:CGRectMake(10, 0, kScreenWidth -40, _contentHeight)];
+        [_topicImgView addTarget:self action:@selector(didTapTopic) forControlEvents:UIControlEventTouchUpInside];
+        [_backView addSubview:_topicImgView];
     }
     
     return self;
@@ -35,14 +35,30 @@
 
 -(void)setSearchTopicCellWithModal:(VibeTopicModal *)modal IsLast:(BOOL )isLast
 {
+//    //第一行cell
+//    if (self.isFirstCell) {
+//        if (!_maskLayer) {
+//            _maskLayer =[[CAShapeLayer alloc] init];
+//        }
+//        
+//        [_backView setFrame:CGRectMake(10, 0, kScreenWidth -20, _contentHeight +20)];
+//        [_topicView setFrame:CGRectMake(10, 10, kScreenWidth -40, _contentHeight)];
+//        [_topicImgView setFrame:CGRectMake(10, 10, kScreenWidth -40, _contentHeight)];
+//        
+//        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_backView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(4, 4)];
+//        _maskLayer.frame = _backView.bounds;
+//        _maskLayer.path = maskPath.CGPath;
+//        _backView.layer.mask = _maskLayer;
+//    }
+    
     if (isLast == YES) {
         if (!_maskLayer) {
             _maskLayer =[[CAShapeLayer alloc] init];
-            UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_backView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(4, 4)];
-            _maskLayer.frame = _backView.bounds;
-            _maskLayer.path = maskPath.CGPath;
-            _backView.layer.mask = _maskLayer;
         }
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_backView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(4, 4)];
+        _maskLayer.frame = _backView.bounds;
+        _maskLayer.path = maskPath.CGPath;
+        _backView.layer.mask = _maskLayer;
     }
     
     _topicID = [modal.topicID integerValue];

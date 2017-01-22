@@ -31,6 +31,8 @@
 {
     [self.backBtn setHidden:NO];
     
+    [self.titleLabel setText:[NSString stringWithFormat:@"关于'%@'的搜索结果",self.searchKeyword]];
+    
     [self.rightButton setHidden:NO];
     [self.rightButton setFrame:CGRectMake(kScreenWidth -15 -18, 30, 18, 18)];
     [self.rightButton setBackgroundImage:[UIImage imageNamed:@"Navi_Search"] forState:UIControlStateNormal];
@@ -49,7 +51,6 @@
     _resultsTableView.scrollIndicatorInsets = UIEdgeInsetsMake(height_headerview +10, 0, 0, 0);
     [self.view insertSubview:_resultsTableView belowSubview:self.topNavView];
 
-    
     _sectionFooterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 15)];
 }
 
@@ -224,6 +225,9 @@
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell setBackgroundView:nil];
                 }
+                
+                [cell setDelegateee:self];
+                
                 return cell;
             }
             
@@ -237,6 +241,7 @@
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell setBackgroundView:nil];
                 }
+                
                 VibeProductModal * modal = [_productsArray objectAtIndex:indexPath.row -1];
                 [cell setProductCellWithModal:modal WithIndex:indexPath.row-1 IsLastCell:NO];
                 [cell setDelegateee:self];
@@ -273,6 +278,9 @@
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell setBackgroundView:nil];
                 }
+                
+                [cell setDelegateee:self];
+                
                 return cell;
                 
             }
@@ -433,7 +441,9 @@
 #pragma mark -显示全部搜索商品的代理方法
 -(void)searchProductShowAllResults
 {
-    
+    SearchShowProductsViewController * showProductsVC = [[SearchShowProductsViewController alloc]init];
+    showProductsVC.searchKeyword = self.searchKeyword;
+    [self.lcNavigationController pushViewController:showProductsVC];
 }
 
 #pragma mark -点击搜索专题的代理方法
@@ -445,7 +455,9 @@
 #pragma mark -显示全部搜索专题的代理方法
 -(void)searchTopicsShowAllResults
 {
-    
+    SearchShowTopicsViewController * showTopicsVC = [[SearchShowTopicsViewController alloc]init];
+    showTopicsVC.searchKeyword = self.searchKeyword;
+    [self.lcNavigationController pushViewController:showTopicsVC];
 }
 
 
@@ -513,7 +525,13 @@
     
     
     [_resultsTableView reloadData];
-    
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 @end

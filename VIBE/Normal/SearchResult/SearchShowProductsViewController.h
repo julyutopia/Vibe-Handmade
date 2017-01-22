@@ -8,7 +8,11 @@
 
 #import "VibeViewController.h"
 
-@interface SearchShowProductsViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource>
+#import "SearchProductTableViewCell.h"
+
+#import "ProductDetailViewController.h"
+
+@interface SearchShowProductsViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource, SearchProductTableViewCellDelegate>
 {
     NSMutableArray      * _productsArray;
     UITableView         * _resultsTableView;

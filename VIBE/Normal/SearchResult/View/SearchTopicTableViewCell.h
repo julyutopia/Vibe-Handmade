@@ -18,14 +18,18 @@
     
     float   _contentHeight;
 
-    UIView * _backView;
+    UIView              * _backView;
 
     CAShapeLayer        * _maskLayer;
 
-    RecommandTopicView * _topicView;
+    RecommandTopicView  * _topicView;
+    
+    GLImageView         * _topicImgView;
 }
 
 @property (weak, nonatomic) id<SearchTopicTableViewCellDelegate> delegate;
+
+@property (assign, nonatomic) BOOL isFirstCell;
 
 -(void)setSearchTopicCellWithModal:(VibeTopicModal *)modal IsLast:(BOOL )isLast;
 

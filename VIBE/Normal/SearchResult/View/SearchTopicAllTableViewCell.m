@@ -28,7 +28,7 @@
         _backView.layer.mask = maskLayer;
         
         _showAllTopicBtn = [[UIButton alloc]initWithFrame:CGRectMake( (kScreenWidth -20 -148)/2, 5, 148, 26)];
-        [_showAllTopicBtn setBackgroundImage:[UIImage imageNamed:@"Search_Result_Products_All"] forState:UIControlStateNormal];
+        [_showAllTopicBtn setBackgroundImage:[UIImage imageNamed:@"Search_Result_Topic_All"] forState:UIControlStateNormal];
         [_showAllTopicBtn addTarget:self action:@selector(showAllSearchTopic) forControlEvents:UIControlEventTouchUpInside];
         [_backView addSubview:_showAllTopicBtn];
     }

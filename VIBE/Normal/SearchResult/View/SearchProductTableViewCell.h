@@ -42,6 +42,8 @@
 
 @property (weak, nonatomic) id<SearchProductTableViewCellDelegate> delegateee;
 
+@property (assign, nonatomic) BOOL isFirstCell;
+
 -(void)setProductCellWithModal:(VibeProductModal *)modal WithIndex:(NSInteger )index IsLastCell:(BOOL )last;
 
 @end

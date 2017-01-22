@@ -16,6 +16,9 @@
 #import "ProductDetailViewController.h"
 #import "TopicDetailViewController.h"
 
+#import "SearchShowProductsViewController.h"
+#import "SearchShowTopicsViewController.h"
+
 @interface SearchResultViewController : VibeViewController<VibeSearchViewDelegate, UITableViewDelegate, UITableViewDataSource, SearchProductTableViewCellDelegate, SearchProductsAllTableViewCellDelegate, SearchTopicTableViewCellDelegate, SearchTopicAllTableViewCellDelegate>
 {
     VibeSearchView      * _searchView;

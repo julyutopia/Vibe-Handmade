@@ -76,7 +76,6 @@
         [_favorCountLabel setTextColor:RGBA(155, 155, 155, 40)];
         [_favorCountLabel setFont:[UIFont fontWithName:Default_Number_Font size:12]];
         [_showFavorView addSubview:_favorCountLabel];
-        
     }
     
     return self;
@@ -84,17 +83,29 @@
 
 -(void)setProductCellWithModal:(VibeProductModal *)modal WithIndex:(NSInteger )index IsLastCell:(BOOL )last
 {
+    //第一行cell
+    if (self.isFirstCell) {
+        if (!_maskLayer) {
+            _maskLayer =[[CAShapeLayer alloc] init];
+        }
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_backView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(4, 4)];
+        _maskLayer.frame = _backView.bounds;
+        _maskLayer.path = maskPath.CGPath;
+        _backView.layer.mask = _maskLayer;
+    }
+    
+    //最后一行cell
     if (last == YES) {
         [_productLine setHidden:YES];
         [_backView setFrame: CGRectMake(10, 0, _productViewWidth, _productViewHeight)];
         
         if (!_maskLayer) {
             _maskLayer =[[CAShapeLayer alloc] init];
-            UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_backView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(4, 4)];
-            _maskLayer.frame = _backView.bounds;
-            _maskLayer.path = maskPath.CGPath;
-            _backView.layer.mask = _maskLayer;
         }
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_backView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(4, 4)];
+        _maskLayer.frame = _backView.bounds;
+        _maskLayer.path = maskPath.CGPath;
+        _backView.layer.mask = _maskLayer;
     }
     
     _productID = [modal.productID integerValue];

@@ -328,6 +328,8 @@
 		86FA2FC31D83149C001F72AC /* Register_Next_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FA2FC11D83149C001F72AC /* Register_Next_Normal.png */; };
 		86FE74D71E1A3EE100C9AC15 /* Search_Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FE74D61E1A3EE100C9AC15 /* Search_Placeholder.png */; };
 		86FE74D91E1A4DDE00C9AC15 /* Search_Delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FE74D81E1A4DDE00C9AC15 /* Search_Delete.png */; };
+		86FEAF601E3469CF00C43720 /* SearchShowTopicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FEAF5F1E3469CF00C43720 /* SearchShowTopicsViewController.m */; };
+		86FEAF631E3474AC00C43720 /* SearchTopicRoundHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FEAF621E3474AC00C43720 /* SearchTopicRoundHeaderTableViewCell.m */; };
 		B13CE9842A808EC893F1C6EF /* libPods-VIBETests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E2570324716123D31B88D5 /* libPods-VIBETests.a */; };
 		B24AB7C8B03A9E20BFAF1874 /* libPods-VIBEUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9093AB3D28E066BB01208E30 /* libPods-VIBEUITests.a */; };
 		FCA8B19C1B005C869587C65E /* libPods-VIBE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8EC6D55303F8C612395B80 /* libPods-VIBE.a */; };
@@ -826,6 +828,10 @@
 		86FA2FC11D83149C001F72AC /* Register_Next_Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Register_Next_Normal.png; path = Resource/Temp/Register_Next_Normal.png; sourceTree = "<group>"; };
 		86FE74D61E1A3EE100C9AC15 /* Search_Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Search_Placeholder.png; path = Resource/Temp/Search_Placeholder.png; sourceTree = "<group>"; };
 		86FE74D81E1A4DDE00C9AC15 /* Search_Delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Search_Delete.png; path = Resource/Temp/Search_Delete.png; sourceTree = "<group>"; };
+		86FEAF5E1E3469CF00C43720 /* SearchShowTopicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchShowTopicsViewController.h; path = Normal/SearchResult/SearchShowTopicsViewController.h; sourceTree = "<group>"; };
+		86FEAF5F1E3469CF00C43720 /* SearchShowTopicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchShowTopicsViewController.m; path = Normal/SearchResult/SearchShowTopicsViewController.m; sourceTree = "<group>"; };
+		86FEAF611E3474AC00C43720 /* SearchTopicRoundHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTopicRoundHeaderTableViewCell.h; path = Normal/SearchResult/View/SearchTopicRoundHeaderTableViewCell.h; sourceTree = "<group>"; };
+		86FEAF621E3474AC00C43720 /* SearchTopicRoundHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTopicRoundHeaderTableViewCell.m; path = Normal/SearchResult/View/SearchTopicRoundHeaderTableViewCell.m; sourceTree = "<group>"; };
 		9093AB3D28E066BB01208E30 /* libPods-VIBEUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VIBEUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E2570324716123D31B88D5 /* libPods-VIBETests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VIBETests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9905D5CC39D555B171B7607F /* Pods-VIBETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIBETests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VIBETests/Pods-VIBETests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1496,6 +1502,8 @@
 				86B281391E1F9C31007470ED /* SearchResultViewController.m */,
 				865242FC1E335D0D00144E73 /* SearchShowProductsViewController.h */,
 				865242FD1E335D0D00144E73 /* SearchShowProductsViewController.m */,
+				86FEAF5E1E3469CF00C43720 /* SearchShowTopicsViewController.h */,
+				86FEAF5F1E3469CF00C43720 /* SearchShowTopicsViewController.m */,
 			);
 			name = SearchResult;
 			sourceTree = "<group>";
@@ -1515,6 +1523,8 @@
 				8682D33D1E20941400F12541 /* SearchTopicTableViewCell.m */,
 				8682D33F1E20942600F12541 /* SearchTopicAllTableViewCell.h */,
 				8682D3401E20942600F12541 /* SearchTopicAllTableViewCell.m */,
+				86FEAF611E3474AC00C43720 /* SearchTopicRoundHeaderTableViewCell.h */,
+				86FEAF621E3474AC00C43720 /* SearchTopicRoundHeaderTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2439,6 +2449,7 @@
 				86AB161D1DACCF8E001615A6 /* RecommandBannerModal.m in Sources */,
 				8684B8C41E14AA87009E0DD5 /* VibeSearchView.m in Sources */,
 				8617E7F91D530C5900872EFE /* AMBlurView.m in Sources */,
+				86FEAF631E3474AC00C43720 /* SearchTopicRoundHeaderTableViewCell.m in Sources */,
 				8617E7C01D52EC0C00872EFE /* UIImage+BoxBlur.m in Sources */,
 				860714BB1D5F1715001A75E6 /* MineFavorTopicsTableViewCell.m in Sources */,
 				86E6278B1DB2731D002AAE7A /* QBVideoIndicatorView.m in Sources */,
@@ -2469,6 +2480,7 @@
 				86ABE36D1D7EB998009DCABD /* UIImage+TDAdditions.m in Sources */,
 				86E6278F1DB2731D002AAE7A /* SimpleImagePreviewView.m in Sources */,
 				864A72741D5C641E00D3D3F2 /* CategoryHotTableViewCell.m in Sources */,
+				86FEAF601E3469CF00C43720 /* SearchShowTopicsViewController.m in Sources */,
 				86A699B01D5853B800028109 /* UIViewExt.m in Sources */,
 				862420611D5E00B900A3EEFF /* UIImageViewModeScaleAspect.m in Sources */,
 				8650FA431DAE155C004BBDAB /* DiscoverTopicModal.m in Sources */,
