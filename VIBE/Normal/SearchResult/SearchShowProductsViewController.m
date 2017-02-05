@@ -29,7 +29,7 @@
 -(void)initNaviBar
 {
     [self.backBtn setHidden:NO];
-    [self.titleLabel setText:[NSString stringWithFormat:@"关于'%@'的商品搜索结果",self.searchKeyword]];
+    [self.titleLabel setText:[NSString stringWithFormat:@"'%@'的商品搜索结果",self.searchKeyword]];
 }
 
 

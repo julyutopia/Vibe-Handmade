@@ -477,6 +477,7 @@
 -(void)searchViewDidHide
 {
     [self showTopviewSubviews];
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 }
 
 
@@ -491,7 +492,6 @@
     SearchResultViewController * resultVC = [[SearchResultViewController alloc]init];
     resultVC.searchKeyword = searchKeyword;
     [self.lcNavigationController pushViewController:resultVC];
-
 }
 
 

@@ -18,6 +18,9 @@
     float             _searchTextFieldWidth;
     
     UIView          * _searchBarBackView;
+    
+//    UIImageView     * _searchBtnImgView;
+
     UIImageView     * _searchBarIconImgView;
     UITextField     * _searchBarTextField;
     UIButton        * _searchBarClearBtn;

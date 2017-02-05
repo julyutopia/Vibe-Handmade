@@ -31,7 +31,7 @@
 {
     [self.backBtn setHidden:NO];
     
-    [self.titleLabel setText:[NSString stringWithFormat:@"关于'%@'的搜索结果",self.searchKeyword]];
+    [self.titleLabel setText:[NSString stringWithFormat:@"'%@'的搜索结果",self.searchKeyword]];
     
     [self.rightButton setHidden:NO];
     [self.rightButton setFrame:CGRectMake(kScreenWidth -15 -18, 30, 18, 18)];
@@ -385,7 +385,6 @@
         [_searchView setDelegateee:self];
         [self.view addSubview:_searchView];
     }
-    
     [_searchView showSearchView];
     
     [self hideTopviewSubviews];
@@ -415,6 +414,7 @@
 -(void)searchViewDidHide
 {
     [self showTopviewSubviews];
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 }
 
 #pragma mark -点击搜索关键字

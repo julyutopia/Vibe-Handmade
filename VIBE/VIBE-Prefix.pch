@@ -154,100 +154,10 @@
 #define RGBA(x,y,z,a) [UIColor colorWithRed:x/255.0 green:y/255.0 blue:z/255.0 alpha:a / 100.0]
 
 
-//#pragma mark - 微信
-//#define WeixinAppID         @"wx2706878112cd2a51"
-//#define WeixinAppSecret     @"7fa452905b5d292d2f318b1777c64ff4"
-//
-//#define WeixinPayMCH_ID         @"1236272702"
-//#define WeixinPayPARTNER_ID     @"9f9b84df507ff591308a380f43939d66"
-//
-//
-//#pragma mark - 微博
-//#define kSinaAppKey         @"1699401936"
-//#define kSinaAppSecret      @"f02074e90a22c03af33a9e88ff31b47c"
-//#define kSinaRedirectURI    @"http://www.qyer.com"
-//
-//#pragma mark - QQ
-//#define QQAppId             @"100737787"
-//#define QQAppKey            @"13d1b09564e4c0cc10ef2ed7468da21e"
-//
-//#define SystemURL           @"http://www.qyer.com"
-//
-//#define AppStoreId          @"658779759"
-//
-//#define Device_IDFA_Token   @"Device_IDFA_Token"
-//
-////预订说明
-//#define kDirection_Url      @"http://m.qyer.com/z/clause?source=app"
-////网签条款
-//#define kNeSignTheAgreement @"http://m.qyer.com/z/contract?source=app"
-//
-//#define appChannel_UMeng    @"App Store"//App Store
-//#define Net_NotAvilable     100000000
-//
-//#define Setting_Access_Token                  @"user_access_token"
-////ra ra_referer Key
-//#define Setting_Ra_Referer                 @"key_ra_referer"
-////记录首次打开的时间(视为app的安装时间)
-//#define Setting_AppInstalltime                @"appInstalltime_sec"
-//
-//#define APPID           @"38"
-//
-//#define kClientId       @"qyer_discount_ios"
-//#define kClientSecret   @"44c86dbde623340b5e0a"
-//#define kprivateKey  @"5fda148f7097bb83469d4d4beb2c2813"
-//
-//#define APIHost             @"http://open.qyer.com"     // 正式环境
-//#define Request_TimeOut     15
-//
-////支付宝 scheme
-//#define kAlipayOrgAppScheme   @"alipays"
-//#define kAlipayAppScheme      @"LastMinuteAlipayScheme"
-//#define kAlipayCallBackUrl    @"http://api.qyer.com/m/appalipaynotify.php"//正式
-//#define kAlipayHtml5URI       @"http://open.qyer.com/lastminute/app_alipay"
-//
-//
-////本地记录订单信息
-//#define UserOderLastMinuteTitle   @"userOderLastMinuteTitle"
-//#define UserOderID                @"userOderID"
-//
-//
-////判断WebViewController是否显示
-//#define Setting_Is_WebView_Show               @"Setting_Is_WebView_Show"
-//
-//
-////Settings category refresh
-//#define Setting_Category_IsRefreshed          @"Setting_Category_IsRefreshed"
-//#define Setting_Category_Total_IsRefreshed    @"Setting_Category_Total_IsRefreshed"
-//
-////file name
-//#define FileName_LastMinute_Category                  @"LastMinute_Category"
-//#define FileName_LastMinute_Category_Total            @"LastMinute_Category_Total"
-//#define FileName_LastMinute_Operation_Image           @"LastMinute_Operation_Image.png"
-//#define FileName_WebCache                             @"WebCache"
-//#define FileName_LastMinute_Search_Place_Holder       @"LastMinute_Search_Place_Holder"
-//#define FileName_LastMinute_Search_White_List_MD5     @"LastMinute_Search_White_List_MD5"
-//#define FileName_LastMinute_Search_White_List_Dict     @"LastMinute_Search_White_List_Dict"
+//搜索
+#define HotSearchWords      @"HotSearchWords"
+#define RecentSearchWords   @"RecentSearchWords"
 
-
-
-//typedef enum {
-//    SettingCallBackTypeNone = 0,//None
-//    SettingCallBackTypeAlipay = 1,//支付宝
-//    SettingCallBackTypeTencent = 2,//Qzone
-//    SettingCallBackTypeWeibo = 3//微博
-//} SettingCallBackType;
-//
-//
-//
-////消息类型
-//typedef enum {
-//    AllMessage = 1,
-//    SalesMessage  = 1 << 1,
-//    OrderMessage  = 1 << 2,
-//    RemindMessage = 1 << 3,
-//    CouponMessage = 1 << 4,
-//} MessageType;
 
 
 

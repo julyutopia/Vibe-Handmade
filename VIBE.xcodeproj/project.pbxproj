@@ -21,6 +21,8 @@
 		860714B51D5F1683001A75E6 /* MineFavorProductsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 860714B41D5F1683001A75E6 /* MineFavorProductsTableViewCell.m */; };
 		860714B81D5F16D3001A75E6 /* MineFavorStoresTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 860714B71D5F16D3001A75E6 /* MineFavorStoresTableViewCell.m */; };
 		860714BB1D5F1715001A75E6 /* MineFavorTopicsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 860714BA1D5F1715001A75E6 /* MineFavorTopicsTableViewCell.m */; };
+		8607E6551E35EE9C00726E50 /* Search_Clean_Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 8607E6531E35EE9C00726E50 /* Search_Clean_Highlight.png */; };
+		8607E6561E35EE9C00726E50 /* Search_Clean.png in Resources */ = {isa = PBXBuildFile; fileRef = 8607E6541E35EE9C00726E50 /* Search_Clean.png */; };
 		86125FB51DB8F8D2008FC627 /* ProductDetailHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86125FB41DB8F8D2008FC627 /* ProductDetailHeaderTableViewCell.m */; };
 		8613ECD31E1F426C0067C6CF /* Search_Cancle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8613ECD21E1F426C0067C6CF /* Search_Cancle.png */; };
 		8617E7981D52E40500872EFE /* VibeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8617E7971D52E40500872EFE /* VibeTableView.m */; };
@@ -326,6 +328,7 @@
 		86FA2FBF1D82A299001F72AC /* Register_Word.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FA2FBC1D82A299001F72AC /* Register_Word.png */; };
 		86FA2FC21D83149C001F72AC /* Register_Next_HighLight.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FA2FC01D83149C001F72AC /* Register_Next_HighLight.png */; };
 		86FA2FC31D83149C001F72AC /* Register_Next_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FA2FC11D83149C001F72AC /* Register_Next_Normal.png */; };
+		86FE599D1E34F5DA00284EE6 /* VibeSearchTagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FE599C1E34F5DA00284EE6 /* VibeSearchTagsView.m */; };
 		86FE74D71E1A3EE100C9AC15 /* Search_Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FE74D61E1A3EE100C9AC15 /* Search_Placeholder.png */; };
 		86FE74D91E1A4DDE00C9AC15 /* Search_Delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FE74D81E1A4DDE00C9AC15 /* Search_Delete.png */; };
 		86FEAF601E3469CF00C43720 /* SearchShowTopicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FEAF5F1E3469CF00C43720 /* SearchShowTopicsViewController.m */; };
@@ -377,6 +380,8 @@
 		860714B71D5F16D3001A75E6 /* MineFavorStoresTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineFavorStoresTableViewCell.m; path = Normal/Mine/View/MineFavorStoresTableViewCell.m; sourceTree = "<group>"; };
 		860714B91D5F1715001A75E6 /* MineFavorTopicsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineFavorTopicsTableViewCell.h; path = Normal/Category/View/MineFavorTopicsTableViewCell.h; sourceTree = "<group>"; };
 		860714BA1D5F1715001A75E6 /* MineFavorTopicsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineFavorTopicsTableViewCell.m; path = Normal/Category/View/MineFavorTopicsTableViewCell.m; sourceTree = "<group>"; };
+		8607E6531E35EE9C00726E50 /* Search_Clean_Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Search_Clean_Highlight.png; path = Resource/Icons/Search_Clean_Highlight.png; sourceTree = "<group>"; };
+		8607E6541E35EE9C00726E50 /* Search_Clean.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Search_Clean.png; path = Resource/Icons/Search_Clean.png; sourceTree = "<group>"; };
 		86125FB31DB8F8D2008FC627 /* ProductDetailHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductDetailHeaderTableViewCell.h; path = Normal/ProductDetail/View/ProductDetailHeaderTableViewCell.h; sourceTree = "<group>"; };
 		86125FB41DB8F8D2008FC627 /* ProductDetailHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductDetailHeaderTableViewCell.m; path = Normal/ProductDetail/View/ProductDetailHeaderTableViewCell.m; sourceTree = "<group>"; };
 		8613ECD21E1F426C0067C6CF /* Search_Cancle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Search_Cancle.png; path = Resource/Icons/Search_Cancle.png; sourceTree = "<group>"; };
@@ -826,6 +831,8 @@
 		86FA2FBC1D82A299001F72AC /* Register_Word.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Register_Word.png; path = Resource/Temp/Register_Word.png; sourceTree = "<group>"; };
 		86FA2FC01D83149C001F72AC /* Register_Next_HighLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Register_Next_HighLight.png; path = Resource/Temp/Register_Next_HighLight.png; sourceTree = "<group>"; };
 		86FA2FC11D83149C001F72AC /* Register_Next_Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Register_Next_Normal.png; path = Resource/Temp/Register_Next_Normal.png; sourceTree = "<group>"; };
+		86FE599B1E34F5DA00284EE6 /* VibeSearchTagsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VibeSearchTagsView.h; path = View/VibeSearchTagsView.h; sourceTree = "<group>"; };
+		86FE599C1E34F5DA00284EE6 /* VibeSearchTagsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VibeSearchTagsView.m; path = View/VibeSearchTagsView.m; sourceTree = "<group>"; };
 		86FE74D61E1A3EE100C9AC15 /* Search_Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Search_Placeholder.png; path = Resource/Temp/Search_Placeholder.png; sourceTree = "<group>"; };
 		86FE74D81E1A4DDE00C9AC15 /* Search_Delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Search_Delete.png; path = Resource/Temp/Search_Delete.png; sourceTree = "<group>"; };
 		86FEAF5E1E3469CF00C43720 /* SearchShowTopicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchShowTopicsViewController.h; path = Normal/SearchResult/SearchShowTopicsViewController.h; sourceTree = "<group>"; };
@@ -964,6 +971,8 @@
 				86AB15F11DAC9E8D001615A6 /* VibeShowMoneyView.m */,
 				868F59DE1DB48D2000C3832D /* AnimatedGradientView.h */,
 				868F59DF1DB48D2000C3832D /* AnimatedGradientView.m */,
+				86FE599B1E34F5DA00284EE6 /* VibeSearchTagsView.h */,
+				86FE599C1E34F5DA00284EE6 /* VibeSearchTagsView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1292,6 +1301,8 @@
 		868BC1161DA642790024A6D9 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				8607E6531E35EE9C00726E50 /* Search_Clean_Highlight.png */,
+				8607E6541E35EE9C00726E50 /* Search_Clean.png */,
 				869219C61E2EF10D00F6A8EE /* Setting_Clean.png */,
 				869219C71E2EF10D00F6A8EE /* Setting_Clock.png */,
 				869219C81E2EF10D00F6A8EE /* Setting_Flag.png */,
@@ -2229,12 +2240,14 @@
 				86D159831D5B0E39001D31C1 /* Green_Header.png in Resources */,
 				86E627741DB27311002AAE7A /* selected@2x.png in Resources */,
 				86AA38151D6AED3B00C385A9 /* Navi_Share.png in Resources */,
+				8607E6551E35EE9C00726E50 /* Search_Clean_Highlight.png in Resources */,
 				86A6047C1D7E6BEC00369AD0 /* Mine_Background_Image.png in Resources */,
 				860714AE1D5EF29E001A75E6 /* Mine_Fans.png in Resources */,
 				867A3A9C1DB384B7007C6CA7 /* Navi_Cancle_Black.png in Resources */,
 				86D159951D5B2DBE001D31C1 /* Category_Top_Icon.png in Resources */,
 				86E104B81DE71F8800282B82 /* Detail_Guess_Header.png in Resources */,
 				86C8459E1D61B3D300CD5090 /* Favor_Shop.png in Resources */,
+				8607E6561E35EE9C00726E50 /* Search_Clean.png in Resources */,
 				8682D32F1E20932000F12541 /* Search_Result_Topic_All.png in Resources */,
 				867A3A9D1DB384B7007C6CA7 /* Navi_Cancle_White.png in Resources */,
 				860162041D5C86AE00E62CFA /* Category_Store_Owner.png in Resources */,
@@ -2496,6 +2509,7 @@
 				86BF43C01D519E7000CD74AD /* SBJsonParser.m in Sources */,
 				86464BD41E07961C004CA5DF /* TopicDetailShowTableViewCell.m in Sources */,
 				86AB16081DACCC71001615A6 /* RecommandCategoryTableViewCell.m in Sources */,
+				86FE599D1E34F5DA00284EE6 /* VibeSearchTagsView.m in Sources */,
 				86E53D011DAF7A150093B168 /* DiscoverHotTagView.m in Sources */,
 				86BF43BF1D519E7000CD74AD /* SBJsonBase.m in Sources */,
 				86AB16121DACCC8F001615A6 /* CreatorTableView.m in Sources */,

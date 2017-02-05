@@ -10,24 +10,41 @@
 
 #import "VibeSearchBar.h"
 
+#import "VibeSearchTagsView.h"
+
 @protocol VibeSearchViewDelegate;
 
-@interface VibeSearchView : UIView<VibeSearchBarDelegate>
+@interface VibeSearchView : UIView<VibeSearchBarDelegate, VibeSearchTagsViewDelegate>
 {
-    UIVisualEffectView  * _searchBlurBackView;
+    UIERealTimeBlurView  * _searchBlurBackView;
     
     float                 _maxSearchContentHeight;
 
     UIView              * _searchView;
-    
+        
     VibeSearchBar       * _searchBar;
+    
+    UIImageView         * _searchBtnImgView;
     
     UIView              * _searchCancleGapLine;
     UIButton            * _searchCancleBtn;
     
-    UIView              * _searchContentView;
+    UIScrollView        * _searchContentView;
     
+    NSMutableArray      * _recentSearchArray;
+    NSMutableArray      * _hotSearchArray;
     
+    UILabel             * _recentSearchTitleLabel;
+    UIButton            * _cleanRecentSearchBtn;
+    
+    VibeSearchTagsView  * _recentSearchTagView;
+    
+    UILabel             * _hotSearchTitleLabel;
+    
+    float                 _showHotSearchOriginY;
+    float                 _showHotSearchContentHeight;
+        
+    VibeSearchTagsView  * _hotSearchTagView;
 }
 
 @property (weak, nonatomic) id<VibeSearchViewDelegate> delegateee;

@@ -20,14 +20,14 @@
         
         _searchTextFieldWidth = _searchBarWidth -28 -30;
         
-        _searchBarBackView = [[UIView alloc]initWithFrame:CGRectMake(kScreenWidth/2, 0, 0, _searchBarHeight)];
+        _searchBarBackView = [[UIView alloc]initWithFrame:CGRectMake(_searchBarWidth, 0, 0, _searchBarHeight)];
         [_searchBarBackView setBackgroundColor:RGBA(248, 248, 248, 90)];
         [_searchBarBackView.layer setCornerRadius:4.0f];
         [_searchBarBackView.layer setMasksToBounds:YES];
-        [_searchBarBackView setAlpha:0.0f];
+        [_searchBarBackView setAlpha:0.2f];
         [self addSubview:_searchBarBackView];
         
-        
+            
         _searchBarIconImgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, (_searchBarHeight -13)/2, 13, 13)];
         [_searchBarIconImgView setImage:[UIImage imageNamed:@"Search_Placeholder"]];
         [_searchBarIconImgView setAlpha:0.0f];
@@ -88,6 +88,17 @@
         }
         else{
             [self showClearBtn];
+            
+            //限制搜索字数
+            if (textField.text.length > 10) {
+                UITextRange *markedRange = [textField markedTextRange];
+                if (markedRange)
+                {
+            　　  return;
+                }
+                NSRange range = [textField.text rangeOfComposedCharacterSequenceAtIndex:10];
+                textField.text = [textField.text substringToIndex:range.location];
+            }
         }
     }
 }
@@ -102,23 +113,24 @@
 
 -(void)showSearchBar
 {
-    [UIView animateWithDuration:0.2f animations:^{
+    [UIView animateWithDuration:0.45f animations:^{
         
         [_searchBarBackView setAlpha:1.0f];
         [_searchBarBackView setFrame:CGRectMake(0, 0, _searchBarWidth, _searchBarHeight)];
         
     }completion:^(BOOL finished) {
         
-        [UIView animateWithDuration:0.1f animations:^{
-        
-            [_searchBarIconImgView setAlpha:1.0f];
-        
-        } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.20f animations:^{
             
+            [_searchBarIconImgView setAlpha:1.0f];
             [_searchBarTextField setAlpha:1.0f];
+            
+        }completion:^(BOOL finished) {
+            
             [_searchBarTextField becomeFirstResponder];
             
         }];
+       
     }];
 }
 
@@ -135,7 +147,7 @@
     [UIView animateWithDuration:0.6f animations:^{
         
         [_searchBarBackView setAlpha:0.0f];
-        [_searchBarBackView setFrame:CGRectMake(kScreenWidth/2, 0, 0, _searchBarHeight)];
+        [_searchBarBackView setFrame:CGRectMake(_searchBarWidth, 0, 0, _searchBarHeight)];
         
     }completion:^(BOOL finished) {
         //隐藏清空按钮
@@ -147,14 +159,14 @@
 
 -(void)hideClearBtn
 {
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:0.25f animations:^{
         [_searchBarClearBtn setAlpha:0.0f];
     }];
 }
 
 -(void)showClearBtn
 {
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:0.25f animations:^{
         [_searchBarClearBtn setAlpha:1.0f];
     }];
 }
