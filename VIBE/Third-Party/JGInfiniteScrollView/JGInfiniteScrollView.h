@@ -19,10 +19,8 @@
 @interface JGInfiniteScrollView : UIView
 {
     BOOL _canClickScroll;
-
-    UIView * _showIndexView;
-    UILabel * _showIndexLabel;
 }
+
 -(void)scrollLeft;
 -(void)scrollRight;
 

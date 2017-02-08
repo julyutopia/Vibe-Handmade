@@ -9,39 +9,30 @@
 #import "VibeViewController.h"
 
 #import "MineProfileModal.h"
-#import "HomeProductModal.h"
-#import "CategoryStoreModal.h"
-#import "HomeTopicModal.h"
 
-#import "MineInfoTableViewCell.h"
+#import "VibeProductModal.h"
+#import "VibeTopicModal.h"
 
-#import "MineFavorProductsTopTableViewCell.h"
-#import "MineFavorProductsTableViewCell.h"
-
-#import "MineFavorStoresTopTableViewCell.h"
-#import "MineFavorStoresTableViewCell.h"
-
-#import "MineFavorTopicsTableViewCell.h"
-
-
-@interface MineViewController : VibeViewController<MineInfoTableViewCellDelegate, MineFavorProductsTableViewCellDelegate, MineFavorStoresTableViewCellDelegate, MineFavorTopicsTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface MineViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource>
 {
-    UIImageView * _backImgView;
-    UIView      * _backBlurView;
+    MineProfileModal    * _userProfileModal;
+    
+    UIImageView         * _backImgView;
 
-    UIView      * _headerView;
+    float                 _headerViewHeight;
     
-    UITableView * _mineTableView;
-
-    float         _infoCellHeight;
+    UIView              * _headerBackView;
+    UIView              * _tableBackView;
     
-    UIView  * _foorerView;
+    GLImageView         * _avatarImgView;
+    UILabel             * _userNameLabel;
+    UILabel             * _signatureLabel;
     
-    MineProfileModal * _mineProfileModal;
+    //个人主页table
+    UITableView         * _profileTableView;
     
-    NSMutableArray * _favorProductsArray;
-    NSMutableArray * _favorStoressArray;
-    NSMutableArray * _favorTopicsArray;
+    NSMutableArray      * _favorProductsArray;
+    NSMutableArray      * _favorTopicsArray;
 }
 
 @property(nonatomic, retain) UIViewController  *currentVC;

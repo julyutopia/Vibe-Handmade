@@ -13,18 +13,9 @@
 
 @interface ProductDetailInfoTableViewCell : UITableViewCell
 {
-    float _priceLabelHeight;
-    
-    UIView      * _backView;
-    
-//    VibeShowMoneyView   * _showmoneyView;
-    GradientTagCloudView* _gradientTagView;
-    
-//    UIButton    * _favorBtn;
-//    UIButton    * _shareBtn;
+    UIView      * _backView;    
     UIImageView * _infoImgView;
 }
 
--(void)setInfoCellWithPrice:(NSString *)price AndTags:(NSArray *)tagsArray;
 
 @end

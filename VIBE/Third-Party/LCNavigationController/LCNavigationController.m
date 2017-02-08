@@ -265,8 +265,6 @@ typedef enum : NSUInteger {
 
             self.animationing = NO;
             
-            NSLog(@"~~~~~~ %d ~~~~~~",self.canDragPop);
-            
             if (self.canDragPop == NO) {
                 return;
             }

@@ -18,14 +18,19 @@
         _imageViewHeight = 60;
         _imageViewWidth = _imageViewHeight/9 *16;
         
-        _backView = [[GLImageView alloc]initWithFrame:CGRectMake(20, 0, kScreenWidth -40, _imageViewHeight +20)];
-        [_backView setBackgroundColor:RGBA(245, 245, 245, 90)];
+        _backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth -20, _imageViewHeight +20)];
+        [_backView setBackgroundColor:[UIColor whiteColor]];
         [self addSubview:_backView];
+        
+        _productBackView = [[GLImageView alloc]initWithFrame:CGRectMake(10, 0, kScreenWidth -40, _imageViewHeight +20)];
+        [_productBackView setBackgroundColor:RGBA(245, 245, 245, 90)];
+        [_backView addSubview:_productBackView];
+        
         
         _productImgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, _imageViewWidth, _imageViewHeight)];
         [_productImgView setContentMode:UIViewContentModeScaleAspectFill];
         [_productImgView.layer setMasksToBounds:YES];
-        [_backView addSubview:_productImgView];
+        [_productBackView addSubview:_productImgView];
         
         _rightViewWidth = kScreenWidth -40 -10 - _imageViewWidth -10 -10;
         
@@ -33,25 +38,25 @@
         [_productTitleLabel setTextColor:DefaultQYTextColor60];
         [_productTitleLabel setFont:[VibeFont fontWithName:Default_Font size:13]];
         [_productTitleLabel setNumberOfLines:0];
-        [_backView addSubview:_productTitleLabel];
+        [_productBackView addSubview:_productTitleLabel];
         
         _showMoneyView = [[VibeShowMoneyView alloc]init];
         _showMoneyView.isShowMoneyMiddle = YES;
-        [_backView addSubview:_showMoneyView];
+        [_productBackView addSubview:_showMoneyView];
         
         _favorIcon = [[UIImageView alloc]init];
         [_favorIcon setImage:[UIImage imageNamed:@"Product_Favor_Icon"]];
-        [_backView addSubview:_favorIcon];
+        [_productBackView addSubview:_favorIcon];
         
         _favorCountLabel = [[UILabel alloc]init];
         [_favorCountLabel setTextAlignment:NSTextAlignmentRight];
         [_favorCountLabel setTextColor:RGBA(155, 155, 155, 40)];
         [_favorCountLabel setFont:[UIFont fontWithName:Default_Number_Font size:12]];
-        [_backView addSubview:_favorCountLabel];
+        [_productBackView addSubview:_favorCountLabel];
 
         _lineView = [[UIView alloc]initWithFrame:CGRectMake(10, 20 +_imageViewHeight -0.5, kScreenWidth -40 -20, 0.5)];
         [_lineView setBackgroundColor:RGBA(220, 220, 220, 50)];
-        [_backView addSubview:_lineView];
+        [_productBackView addSubview:_lineView];
     }
     
     return self;
@@ -79,19 +84,22 @@
     
     [_favorIcon setFrame:CGRectMake(kScreenWidth -40 -10 -favorWidth -14, 10 +_imageViewHeight - 12.5, 12, 12)];
     
-    
     if (last == YES) {
         
+        [_backView setFrame:CGRectMake(0, 0, kScreenWidth -20, _imageViewHeight +20 +5)];
+        [_productBackView setFrame:CGRectMake(10, 0, kScreenWidth -40, _imageViewHeight +20 +5)];
+
+        [_lineView setHidden:YES];
+
         if (!_maskLayer) {
-            UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_backView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(4, 4)];
+            UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_productBackView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(4, 4)];
             _maskLayer = [[CAShapeLayer alloc] init];
             _maskLayer.frame = _backView.bounds;
             _maskLayer.path = maskPath.CGPath;
-            _backView.layer.mask = _maskLayer;
+            _productBackView.layer.mask = _maskLayer;
         }
-        [_backView setFrame:CGRectMake(20, 0, kScreenWidth -40, _imageViewHeight +20 +5)];
-        [_lineView setHidden:YES];
     }
+
     else{
         [_lineView setHidden:NO];
     }

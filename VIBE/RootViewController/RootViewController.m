@@ -323,15 +323,16 @@
     [self.topNavView addSubview:_searchBtn];
   
     _naviSegmentControl = [[LUNSegmentedControl alloc]init];
+    [_naviSegmentControl setBackgroundColor:RGBA(250, 250, 250, 90)];
     _naviSegmentControl.translatesAutoresizingMaskIntoConstraints = NO;
     [self.topNavView addSubview:_naviSegmentControl];
     
     //创建左边约束
-    NSLayoutConstraint *leftLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.topNavView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:18];
+    NSLayoutConstraint *leftLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.topNavView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:22];
     [self.topNavView addConstraint:leftLc];
     
     //创建右边约束
-    NSLayoutConstraint *rightLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.topNavView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-18];
+    NSLayoutConstraint *rightLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.topNavView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-22];
     [self.topNavView addConstraint:rightLc];
     
     //创建底部约束
@@ -339,7 +340,7 @@
     [self.topNavView addConstraint:bottomLc];
 
     //创建高度约束
-    NSLayoutConstraint *heightLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:30];
+    NSLayoutConstraint *heightLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:29];
     [self.topNavView addConstraint: heightLc];
 
     
@@ -422,20 +423,21 @@
 
 -(void)profileClick
 {
-    BOOL isLogIn = [VibeAppTool isUserLogIn];
-    
-    if (!isLogIn) {
-        VibeLogInViewController * logInVC = [[VibeLogInViewController alloc]init];
-        logInVC.isPopUp = YES;
-        LCNavigationController * navi = [[LCNavigationController alloc]initWithRootViewController:logInVC];
-        [navi setCanDragPop:NO];
-        [self.lcNavigationController presentViewController:navi animated:YES completion:nil];
-    }
-    else{
+//    BOOL isLogIn = [VibeAppTool isUserLogIn];
+//    
+//    if (!isLogIn) {
+//        VibeLogInViewController * logInVC = [[VibeLogInViewController alloc]init];
+//        logInVC.isPopUp = YES;
+//        LCNavigationController * navi = [[LCNavigationController alloc]initWithRootViewController:logInVC];
+//        [navi setCanDragPop:NO];
+//        [self.lcNavigationController presentViewController:navi animated:YES completion:nil];
+//    }
+//    else{
         MineViewController * mineVC = [[MineViewController alloc]init];
+        mineVC.isPopUp =YES;
         LCNavigationController * navi = [[LCNavigationController alloc]initWithRootViewController:mineVC];
         [self.lcNavigationController presentViewController:navi animated:YES completion:nil];
-    }
+//    }
 }
 
 -(void)searchClick
@@ -549,11 +551,19 @@
 //点击单品
 -(void)recommandTableDidClickProductWithIndex:(NSInteger)index
 {
-    ProductDetailViewController * productDetailVC = [[ProductDetailViewController alloc]init];
+    
+//    ProductDetailViewController * productDetailVC = [[ProductDetailViewController alloc]init];
+//    NSArray * arrayyy =  [_recommandInfoDict objectForKey:@"product"];
+//    VibeProductModal * productModal = [arrayyy objectAtIndex:index];
+//    productDetailVC.productDetailModal = productModal;
+//    [self.lcNavigationController pushViewController:productDetailVC];
+    
+    NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
     NSArray * arrayyy =  [_recommandInfoDict objectForKey:@"product"];
     VibeProductModal * productModal = [arrayyy objectAtIndex:index];
     productDetailVC.productDetailModal = productModal;
     [self.lcNavigationController pushViewController:productDetailVC];
+    
 }
 
 

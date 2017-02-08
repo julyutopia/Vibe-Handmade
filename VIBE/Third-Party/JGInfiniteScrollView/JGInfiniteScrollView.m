@@ -11,8 +11,10 @@
 static int const ImageViewCount = 3;
 
 @interface JGInfiniteScrollView() <UIScrollViewDelegate>
+
 @property (weak, nonatomic) UIScrollView *scrollView;
 @property (weak, nonatomic) NSTimer *timer;
+
 @end
 
 @implementation JGInfiniteScrollView
@@ -22,6 +24,7 @@ static int const ImageViewCount = 3;
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        
         // 滚动视图
         UIScrollView *scrollView = [[UIScrollView alloc] init];
         scrollView.showsHorizontalScrollIndicator = NO;
@@ -39,27 +42,17 @@ static int const ImageViewCount = 3;
             [scrollView addSubview:imageView];
         }
         
-        _showIndexView = [[UIView alloc]init];
-        [_showIndexView.layer setCornerRadius:14];
-        [_showIndexView.layer setMasksToBounds:YES];
-        [_showIndexView setHidden:YES];
-        [self addSubview:_showIndexView];
-        
-        _showIndexLabel = [[UILabel alloc]init];
-        [_showIndexLabel setTextAlignment:NSTextAlignmentCenter];
-        [_showIndexLabel setFont:[UIFont fontWithName:Default_Font_Bold size:11]];
-        [_showIndexLabel setTextColor:RGBA(252, 252, 252, 80)];
-        [_showIndexLabel setHidden:YES];
-        [self addSubview:_showIndexLabel];
-
-        
         // 页码视图
         UIPageControl *pageControl = [[UIPageControl alloc] init];
+        pageControl.currentPageIndicatorTintColor = DefaultGreen;
+        pageControl.pageIndicatorTintColor = RGBA(213, 213, 213, 70);
         [self addSubview:pageControl];
         _pageControl = pageControl;
+        
     }
     return self;
 }
+
 
 - (void)layoutSubviews
 {
@@ -67,31 +60,12 @@ static int const ImageViewCount = 3;
     
     self.scrollView.frame = self.bounds;
     
-    float width = self.scrollView.frame.size.width;
-    float heightt = self.scrollView.frame.size.height;
-    
-    [_showIndexView setFrame:CGRectMake(width -36, heightt -36, 28, 28)];
-    
-    CAGradientLayer * tagViewLayer = [CAGradientLayer layer];
-    tagViewLayer.frame = CGRectMake(0, 0, 30, 30);
-    tagViewLayer.startPoint = CGPointMake(0.5, 0);
-    tagViewLayer.endPoint = CGPointMake(0.5, 1.0);
-    tagViewLayer.colors = @[
-                            (id)RGBA(160, 241, 200, 90).CGColor,
-                            (id)RGBA(98, 219, 223, 90).CGColor,
-                            ];
-    [_showIndexView.layer addSublayer:tagViewLayer];
-
-    [_showIndexLabel setFrame:_showIndexView.frame];
-    
-    
     self.scrollView.contentSize = CGSizeMake(ImageViewCount * self.scrollView.frame.size.width, 0);
     
     for (int i = 0; i<ImageViewCount; i++) {
         GLImageView *imageView = self.scrollView.subviews[i];
         imageView.frame = CGRectMake(i * self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     }
-  
     
     if (self.pageControlPostion == 1) {
         CGFloat pageW = 80;
@@ -106,14 +80,6 @@ static int const ImageViewCount = 3;
         CGFloat pageX = self.scrollView.frame.size.width - pageW;
         CGFloat pageY = self.scrollView.frame.size.height - pageH;
         self.pageControl.frame = CGRectMake(pageX, pageY, pageW, pageH);
-    }
-    
-    
-    if (self.isShowIndex == YES) {
-        [self.pageControl setHidden:YES];
-        [_showIndexView setHidden:NO];
-        [_showIndexLabel setHidden:NO];
-        [_showIndexLabel setText:[NSString stringWithFormat:@"1/%d",ImageViewCount +1]];
     }
     
 }
@@ -156,10 +122,6 @@ static int const ImageViewCount = 3;
     }
     
     self.pageControl.currentPage = page;
-
-    if (self.isShowIndex == YES) {
-        [_showIndexLabel setText:[NSString stringWithFormat:@"%ld/%d",page +1,ImageViewCount +1]];
-    }
     
 }
 

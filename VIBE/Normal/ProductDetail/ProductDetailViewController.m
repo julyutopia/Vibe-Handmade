@@ -220,9 +220,7 @@
             [cell setBackgroundColor:[UIColor clearColor]];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        
-        [cell setInfoCellWithPrice:_productDetailModal.productPrice AndTags:_productDetailModal.productTagsArray];
-        
+                
         return cell;
     }
     

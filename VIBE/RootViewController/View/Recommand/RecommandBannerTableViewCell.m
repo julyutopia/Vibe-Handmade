@@ -38,8 +38,6 @@
         _autoScrollView = [[JGInfiniteScrollView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth -20, autoScrollViewHeight)];
         [_autoScrollView setBackgroundColor:[UIColor whiteColor]];
         _autoScrollView.pageControlPostion = 1;
-        _autoScrollView.pageControl.currentPageIndicatorTintColor = DefaultGreen;
-        _autoScrollView.pageControl.pageIndicatorTintColor = [UIColor grayColor];
         _autoScrollView.delegate = self;
         [_autoScrollView.layer setMasksToBounds:YES];
         [_showBannerView addSubview:_autoScrollView];

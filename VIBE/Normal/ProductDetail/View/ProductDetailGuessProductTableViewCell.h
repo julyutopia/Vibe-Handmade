@@ -12,18 +12,20 @@
 
 @interface ProductDetailGuessProductTableViewCell : UITableViewCell
 {
-    GLImageView      * _backView;
+    UIView              * _backView;
+    
+    GLImageView         * _productBackView;
     
     CAShapeLayer        * _maskLayer;
     
-    UIImageView * _productImgView;
+    UIImageView         * _productImgView;
  
-    float       _imageViewWidth;
-    float       _imageViewHeight;
+    float                 _imageViewWidth;
+    float                 _imageViewHeight;
     
-    float       _rightViewWidth;
+    float                 _rightViewWidth;
     
-    UILabel     * _productTitleLabel;
+    UILabel             * _productTitleLabel;
     
     VibeShowMoneyView   * _showMoneyView;
     

@@ -29,6 +29,7 @@
 #import "CategoryListViewController.h"
 #import "TopicDetailViewController.h"
 #import "ProductDetailViewController.h"
+#import "NewProductDetailViewController.h"
 
 #import "SearchResultViewController.h"
 

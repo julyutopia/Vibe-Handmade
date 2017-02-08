@@ -16,29 +16,53 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        _width = kScreenWidth;
+        _width = kScreenWidth -20;
         _height = _width/16 *9;
         
         _headerBackView = [[UIView alloc]init];
         [_headerBackView setBackgroundColor:[UIColor whiteColor]];
         [self addSubview:_headerBackView];
         
-        _bannerImgsArray = [[NSMutableArray alloc]init];
         
+        _productTitleLabel = [[UILabel alloc]init];
+        [_productTitleLabel setNumberOfLines:0];
+        [_productTitleLabel setTextColor:RGBA(25, 33, 58, 70)];
+        [_productTitleLabel setFont:[VibeFont fontWithName:Default_Font_Middle size:15]];
+        [_headerBackView addSubview:_productTitleLabel];
+        
+        
+        //显示阴影的View
+        UIView * shadowView = [[UIView alloc]initWithFrame:CGRectMake(0, _height -2, _width, 1)];
+        [shadowView setBackgroundColor:[UIColor whiteColor]];
+        [self addSubview:shadowView];
+        [shadowView.layer setShadowOffset:CGSizeMake(0, 2)];
+        [shadowView.layer setShadowColor:RGBA(80, 80, 162, 90).CGColor];
+        [shadowView.layer setShadowRadius:2.0f];
+        [shadowView.layer setShadowOpacity:1.0f];
+
+        
+        //滚动的背景
+        _scrollBackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _width, _height)];
+        [_scrollBackView setBackgroundColor:[UIColor clearColor]];
+        [_scrollBackView.layer setMasksToBounds:YES];
+        [self addSubview:_scrollBackView];
+        UIBezierPath *scrollBackViewMaskPath = [UIBezierPath bezierPathWithRoundedRect:_scrollBackView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(8, 8)];
+        CAShapeLayer *scrollBackViewMaskLayer = [[CAShapeLayer alloc] init];
+        scrollBackViewMaskLayer.frame = _scrollBackView.bounds;
+        scrollBackViewMaskLayer.path = scrollBackViewMaskPath.CGPath;
+        _scrollBackView.layer.mask = scrollBackViewMaskLayer;
+
+        
+        //滚动图
         _autoScrollView = [[JGInfiniteScrollView alloc]initWithFrame:CGRectMake(0, 0, _width, _height)];
         [_autoScrollView setBackgroundColor:[UIColor whiteColor]];
-        _autoScrollView.pageControlPostion = 2;
-        _autoScrollView.isShowIndex = YES;
+        _autoScrollView.pageControlPostion = 1;
         _autoScrollView.delegate = self;
-        [_autoScrollView.layer setMasksToBounds:YES];
-        [_headerBackView addSubview:_autoScrollView];
+        [_scrollBackView addSubview:_autoScrollView];
         
-        _productNameLabel = [[UILabel alloc]init];
-        [_productNameLabel setNumberOfLines:0];
-        [_productNameLabel setTextColor:DefaultQYTextColor70];
-        [_productNameLabel setFont:[VibeFont fontWithName:Default_Font_Middle size:16]];
-        [_headerBackView addSubview:_productNameLabel];
-        
+     
+        _bannerImgsArray = [[NSMutableArray alloc]init];
+
     }
     
     return self;
@@ -59,13 +83,18 @@
         [_autoScrollView setImages:_bannerImgsArray];
         
         NSString * productName = modal.productTitle;
-        CGSize nameSize = [productName getSizeWithLimitSize:CGSizeMake(kScreenWidth -30, 100) withFont:_productNameLabel.font];
-        [_productNameLabel setFrame:CGRectMake(15, _height +15, kScreenWidth -30, nameSize.height +1)];
-        [_productNameLabel setText:productName];
         
-        [_headerBackView setFrame:CGRectMake(0, 0, kScreenWidth, _height +15 +nameSize.height +10)];
-    }
 
+        CGSize nameSize = [productName getSizeWithLimitSize:CGSizeMake(kScreenWidth -30, 100) withFont:_productTitleLabel.font];
+        [_productTitleLabel setFrame:CGRectMake(15, 15, kScreenWidth -50, nameSize.height +1)];
+        [_productTitleLabel setText:productName];
+       
+        [_headerBackView setFrame:CGRectMake(0, _height, _width, 15 + nameSize.height +10)];
+   
+    }
+    
+    
+  
     
 }
 

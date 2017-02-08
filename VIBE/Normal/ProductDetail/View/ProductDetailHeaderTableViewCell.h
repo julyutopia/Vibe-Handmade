@@ -17,14 +17,14 @@
     float                   _height;
     
     UIView                  * _headerBackView;
+
+    CAShapeLayer            * _maskLayer;
     
-    NSMutableArray          * _bannerImgsArray;
+    UIView                  * _scrollBackView;
     JGInfiniteScrollView    * _autoScrollView;
+    NSMutableArray          * _bannerImgsArray;
     
-    UIView                  * _avatarBackView;
-    UIImageView             * _avatarImgView;
-    
-    UILabel                 * _productNameLabel;
+    UILabel                 * _productTitleLabel;
 }
 
 -(void)setProductDetailHeaderCellWithModal:(VibeProductModal *)modal;

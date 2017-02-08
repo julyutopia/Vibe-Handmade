@@ -12,9 +12,6 @@
 {
     UIView  * _backView;
     UILabel * _detailInfoLabel;
-    GLImageView * _detailImgView;
-    
-    UIActivityIndicatorView * _activityIndicatorView;
 }
 
 @property(assign, nonatomic) BOOL didLoadImage;
