@@ -172,4 +172,10 @@
 }
 
 
+-(void)resignSearchTextField
+{
+    [_searchBarTextField resignFirstResponder];
+}
+
+
 @end

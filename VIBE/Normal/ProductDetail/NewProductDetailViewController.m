@@ -251,7 +251,9 @@
             if (indexPath.row == _productDetailModal.productGuessProductArray.count -1) {
                 isLast = YES;
             }
-            [cell setGuessProductWithModal:modal IsLast:isLast];
+            
+            [cell setDelegate:self];
+            [cell setGuessProductWithModal:modal WithIndex:indexPath.row IsLast:isLast];
             
             return cell;
         }
@@ -352,6 +354,14 @@
 }
 
 
+#pragma mark - 点击相似推荐
+-(void)productDetailGuessClickWithIndex:(NSInteger)index
+{
+    VibeProductModal * modal = [_productDetailModal.productGuessProductArray objectAtIndex:index];
+    NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
+    productDetailVC.productDetailModal = modal;
+    [self.lcNavigationController pushViewController:productDetailVC];
+}
 
 
 #pragma mark - 设置数据

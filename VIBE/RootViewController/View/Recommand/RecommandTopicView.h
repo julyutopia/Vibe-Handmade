@@ -36,6 +36,8 @@
     UILabel             * _favorLabel;
 }
 
+@property(retain, nonatomic)UILabel *  topicTitleLabel;
+
 -(void)setTopicViewWithTopic:(VibeTopicModal *)modal;
 
 @end

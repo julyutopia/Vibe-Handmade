@@ -15,6 +15,9 @@
 //单例
 +(VibeAppTool *)sharedInstance;
 
+//设置用户是否登录
++(void)setUserLogin:(BOOL )logIn;
+
 //判断用户是否已登录
 +(BOOL)isUserLogIn;
 

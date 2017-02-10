@@ -420,14 +420,15 @@
 #pragma mark -点击搜索关键字
 -(void)searchViewDidSearch:(NSString *)keyword
 {
-    NSLog(@"搜索列表页点击搜索");
+    self.searchKeyword = keyword;
+    [self.titleLabel setText:[NSString stringWithFormat:@"'%@'的搜索结果",self.searchKeyword]];
 }
 
 
 #pragma mark -点击搜索商品的代理方法
 -(void)searchProductCellClickWithProductID:(NSInteger )productID
 {
-    ProductDetailViewController * productDetailVC = [[ProductDetailViewController alloc]init];
+    NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
     VibeProductModal * productModal;
     for (VibeProductModal *modal in _productsArray) {
         if ([modal.productID integerValue] == productID) {
@@ -449,7 +450,17 @@
 #pragma mark -点击搜索专题的代理方法
 -(void)searchTopicCellClickWithTopicID:(NSInteger)topicID
 {
+    VibeTopicModal * topicModal;
 
+    for (VibeTopicModal * modal in _topicsArray) {
+        if ([modal.topicID integerValue] == topicID) {
+            topicModal = modal;
+        }
+    }
+    
+    TopicDetailViewController * topicDetailVC = [[TopicDetailViewController alloc]init];
+    topicDetailVC.topicModal = topicModal;
+    [self.lcNavigationController pushViewController:topicDetailVC];
 }
 
 #pragma mark -显示全部搜索专题的代理方法

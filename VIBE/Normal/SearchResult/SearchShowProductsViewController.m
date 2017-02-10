@@ -126,7 +126,7 @@
 #pragma mark -productCell代理方法
 -(void)searchProductCellClickWithProductID:(NSInteger)productID
 {
-    ProductDetailViewController * productDetailVC = [[ProductDetailViewController alloc]init];
+    NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
     VibeProductModal * productModal;
     for (VibeProductModal *modal in _productsArray) {
         if ([modal.productID integerValue] == productID) {

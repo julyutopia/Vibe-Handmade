@@ -20,12 +20,17 @@ static VibeAppTool* sharedInstance;
     return sharedInstance;
 }
 
++(void)setUserLogin:(BOOL )logIn
+{
+    [[NSUserDefaults standardUserDefaults] setBool:logIn forKey:@"isUserLogIn"];
+}
+
 //判断用户是否已登录
 +(BOOL)isUserLogIn
 {
     BOOL isLogIn = NO;
     
-    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"isLogIn"]) {
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"isUserLogIn"]) {
         isLogIn = YES;
     }
     return isLogIn;

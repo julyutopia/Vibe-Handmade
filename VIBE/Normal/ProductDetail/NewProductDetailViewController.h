@@ -16,7 +16,7 @@
 #import "ProductDetailGuessHeaderTableViewCell.h"
 #import "ProductDetailGuessProductTableViewCell.h"
 
-@interface NewProductDetailViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource>
+@interface NewProductDetailViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource, ProductDetailGuessProductTableViewCellDelegate>
 {
     VibeProductModal    * _productDetailModal;
 

@@ -13,12 +13,25 @@
 #import "VibeProductModal.h"
 #import "VibeTopicModal.h"
 
-@interface MineViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource>
+#import "LUNSegmentedControl.h"
+
+#import "MineFavorProductTableViewCell.h"
+#import "MineFavorTopicTableViewCell.h"
+
+#import "NewProductDetailViewController.h"
+#import "TopicDetailViewController.h"
+
+#import "MoreSettingView.h"
+
+@interface MineViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource, LUNSegmentedControlDataSource, LUNSegmentedControlDelegate, MineFavorProductTableViewCellDelegate, MineFavorTopicTableViewCellDelegate, MoreSettingViewDelegate>
 {
     MineProfileModal    * _userProfileModal;
     
     UIImageView         * _backImgView;
-
+    
+    //显示元素的背景View
+    UIView              * _contentBackView;
+    
     float                 _headerViewHeight;
     
     UIView              * _headerBackView;
@@ -28,11 +41,32 @@
     UILabel             * _userNameLabel;
     UILabel             * _signatureLabel;
     
-    //个人主页table
-    UITableView         * _profileTableView;
+    LUNSegmentedControl * _headerSegmentControl;
+    
+    //sengment显示的View
+    UIView              * _favorProductViewNormal;
+    
+    UIImageView         * _favorProductNormal;
+    UIImageView         * _favorProductSelected;
+    UIImageView         * _favorTopicNormal;
+    UIImageView         * _favorTopicSelected;
+    
+    //左右滑动的scrollView
+    UIScrollView        * _profileScrollView;
+    
+    //收藏商品table
+    UIView              * _favorProductsBackView;
+    UITableView         * _favorProductsTableView;
+    //收藏专题table
+    UIView              * _favorTopicsBackView;
+    UITableView         * _favorTopicsTableView;
+    
     
     NSMutableArray      * _favorProductsArray;
     NSMutableArray      * _favorTopicsArray;
+    
+    //显示更多设置的View
+    MoreSettingView     * _moreSettingView;
 }
 
 @property(nonatomic, retain) UIViewController  *currentVC;

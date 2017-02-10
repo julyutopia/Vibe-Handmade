@@ -350,10 +350,13 @@
     _naviSegmentControl.applyCornerRadiusToSelectorView = YES;
     [_naviSegmentControl setDataSource:self];
     [_naviSegmentControl setDelegate:self];
-    [_naviSegmentControl setShadowHideDuration:0.2];
-    [_naviSegmentControl setShadowShowDuration:0.2f];
+    [_naviSegmentControl setShadowHideDuration:0.1f];
+    [_naviSegmentControl setShadowShowDuration:0.1f];
+    [_naviSegmentControl showLoading];
     [_naviSegmentControl setCornerRadius:14];
     
+    [_naviSegmentControl reloadData];
+    [_naviSegmentControl dismissLoading];
     
     [self.view bringSubviewToFront:self.topNavView];
 }
@@ -416,28 +419,26 @@
 }
 
 
-
-
-
-
-
 -(void)profileClick
 {
-//    BOOL isLogIn = [VibeAppTool isUserLogIn];
-//    
-//    if (!isLogIn) {
-//        VibeLogInViewController * logInVC = [[VibeLogInViewController alloc]init];
-//        logInVC.isPopUp = YES;
-//        LCNavigationController * navi = [[LCNavigationController alloc]initWithRootViewController:logInVC];
-//        [navi setCanDragPop:NO];
-//        [self.lcNavigationController presentViewController:navi animated:YES completion:nil];
-//    }
-//    else{
+    [VibeAppTool setUserLogin:YES];
+    
+    BOOL isLogIn = [VibeAppTool isUserLogIn];
+    
+    if (!isLogIn) {
+        VibeLogInViewController * logInVC = [[VibeLogInViewController alloc]init];
+        logInVC.isPopUp = YES;
+        LCNavigationController * navi = [[LCNavigationController alloc]initWithRootViewController:logInVC];
+        [navi setCanDragPop:NO];
+        [self.lcNavigationController presentViewController:navi animated:YES completion:nil];
+    }
+    else{
         MineViewController * mineVC = [[MineViewController alloc]init];
         mineVC.isPopUp =YES;
         LCNavigationController * navi = [[LCNavigationController alloc]initWithRootViewController:mineVC];
         [self.lcNavigationController presentViewController:navi animated:YES completion:nil];
-//    }
+    }
+    
 }
 
 -(void)searchClick
@@ -497,9 +498,6 @@
 }
 
 
-
-
-
 #pragma mark -scrollview Delegate
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
@@ -551,19 +549,11 @@
 //点击单品
 -(void)recommandTableDidClickProductWithIndex:(NSInteger)index
 {
-    
-//    ProductDetailViewController * productDetailVC = [[ProductDetailViewController alloc]init];
-//    NSArray * arrayyy =  [_recommandInfoDict objectForKey:@"product"];
-//    VibeProductModal * productModal = [arrayyy objectAtIndex:index];
-//    productDetailVC.productDetailModal = productModal;
-//    [self.lcNavigationController pushViewController:productDetailVC];
-    
     NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
     NSArray * arrayyy =  [_recommandInfoDict objectForKey:@"product"];
     VibeProductModal * productModal = [arrayyy objectAtIndex:index];
     productDetailVC.productDetailModal = productModal;
     [self.lcNavigationController pushViewController:productDetailVC];
-    
 }
 
 

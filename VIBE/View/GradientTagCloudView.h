@@ -10,7 +10,9 @@
 
 @interface GradientTagCloudView : UIView
 {
-    UIView * _gtadientTagBackView;
+    UIView          * _gtadientTagBackView;
+    
+    NSMutableArray  * _tagsArray;
 }
 
 -(void)setGradientTagCloudWithMaxWidth:(float )maxWidth MaxHeight:(float )height WithFont:(UIFont *)font AndTags:(NSArray *)tagArray;

@@ -279,8 +279,8 @@
 -(void)categoryListProductCellClickWithIndex:(NSInteger)index
 {
     VibeProductModal * productModal = [_categoryProductsArray objectAtIndex:index];
-    ProductDetailViewController * productDetailVC = [[ProductDetailViewController alloc]init];
-    productDetailVC.productID = [productModal.productID integerValue];
+    NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
+    productDetailVC.productDetailModal = productModal;
     [self.lcNavigationController pushViewController:productDetailVC];
 }
 

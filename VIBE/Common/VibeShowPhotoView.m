@@ -29,12 +29,8 @@
     
     if (self) {
         
-//        _blurBackView = [[UIERealTimeBlurView alloc]initWithFrame:frame];
-//        [_blurBackView setHidden:YES];
-//        [self addSubview:_blurBackView];
-        
         _detailPhotoBackView = [[UIView alloc]initWithFrame:frame];
-        [_detailPhotoBackView setBackgroundColor:RGBA(0, 0, 0, 80)];
+        [_detailPhotoBackView setBackgroundColor:RGBA(0, 0, 0, 85)];
         [_detailPhotoBackView setHidden:YES];
         [self addSubview:_detailPhotoBackView];
         
@@ -74,15 +70,13 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
     
-    [UIView animateWithDuration:0.5f
+    [UIView animateWithDuration:0.25f
                      animations:^{
                          
-//                         [_blurBackView setAlpha:0.0f];
                          [_detailPhotoBackView setAlpha:0.0f];
                          
                      } completion:^(BOOL finished) {
                          
-//                         [_blurBackView setHidden:YES];
                          [_detailPhotoBackView setHidden:YES];
                          
                          VIPhotoView * detailPhotoView = (VIPhotoView *)[_detailPhotoBackView viewWithTag:223344];
@@ -91,7 +85,6 @@
                          [self removeFromSuperview];
                          
                      }];
-    
 }
 
 -(void)doubleTapClick:(UITapGestureRecognizer *)tappp
@@ -100,19 +93,16 @@
 }
 
 
-
 #pragma mark ----  Show ActionSheet
 
 -(void)showWithImageURL:(NSString *)url WithView:(UIView *)view
 {
     [view addSubview:self];
  
-//    [_blurBackView setHidden:NO];
     [_detailPhotoBackView setHidden:NO];
     
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:0.2f animations:^{
         
-//        [_blurBackView setAlpha:1.0f];
         [_detailPhotoBackView setAlpha:1.0f];
         
     } completion:^(BOOL finished) {

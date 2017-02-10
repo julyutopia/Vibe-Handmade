@@ -24,9 +24,10 @@
         
         _productBackView = [[GLImageView alloc]initWithFrame:CGRectMake(10, 0, kScreenWidth -40, _imageViewHeight +20)];
         [_productBackView setBackgroundColor:RGBA(245, 245, 245, 90)];
+        [_productBackView addTarget:self action:@selector(didTapBackView) forControlEvents:UIControlEventTouchUpInside];
         [_backView addSubview:_productBackView];
         
-        
+
         _productImgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, _imageViewWidth, _imageViewHeight)];
         [_productImgView setContentMode:UIViewContentModeScaleAspectFill];
         [_productImgView.layer setMasksToBounds:YES];
@@ -62,8 +63,11 @@
     return self;
 }
 
--(void)setGuessProductWithModal:(VibeProductModal *)modal IsLast:(BOOL )last
+
+-(void)setGuessProductWithModal:(VibeProductModal *)modal WithIndex:(NSInteger )index IsLast:(BOOL )last
 {
+    _guessIndex = index;
+    
     [_productImgView sd_setImageWithURL:[NSURL URLWithString:modal.productImgURL] placeholderImage:nil];
  
     NSString * title = modal.productTitle;
@@ -104,5 +108,15 @@
         [_lineView setHidden:NO];
     }
 }
+
+
+-(void)didTapBackView
+{
+    if ([_delegate respondsToSelector:@selector(productDetailGuessClickWithIndex:)]) {
+        [_delegate productDetailGuessClickWithIndex:_guessIndex];
+    }
+}
+
+
 
 @end

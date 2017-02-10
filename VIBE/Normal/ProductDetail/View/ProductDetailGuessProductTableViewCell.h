@@ -10,8 +10,12 @@
 
 #import "VibeShowMoneyView.h"
 
+@protocol ProductDetailGuessProductTableViewCellDelegate;
+
 @interface ProductDetailGuessProductTableViewCell : UITableViewCell
 {
+    NSInteger             _guessIndex;
+    
     UIView              * _backView;
     
     GLImageView         * _productBackView;
@@ -37,6 +41,15 @@
     
 }
 
--(void)setGuessProductWithModal:(VibeProductModal *)modal IsLast:(BOOL )last;
+@property (weak, nonatomic) id<ProductDetailGuessProductTableViewCellDelegate> delegate;
+
+-(void)setGuessProductWithModal:(VibeProductModal *)modal WithIndex:(NSInteger )index IsLast:(BOOL )last;
 
 @end
+
+@protocol ProductDetailGuessProductTableViewCellDelegate <NSObject>
+
+-(void)productDetailGuessClickWithIndex:(NSInteger )index;
+
+@end
+

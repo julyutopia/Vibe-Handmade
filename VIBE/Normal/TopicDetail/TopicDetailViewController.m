@@ -250,8 +250,10 @@
         if (indexPath.row == _topicModal.topicRelatedProductArray.count -1) {
             isLast = YES;
         }
+        [cell setDelegateee:self];
+        
         VibeProductModal * modal = [_topicModal.topicRelatedProductArray objectAtIndex:indexPath.row];
-        [cell setGuessProductWithModal:modal IsLast:isLast];
+        [cell setGuessProductWithModal:modal WithIndex:indexPath.row IsLast:isLast];
         
         return cell;
     }
@@ -358,6 +360,14 @@
 }
 
 
+#pragma mark - 相关推荐cell代理方法
+-(void)topicDetailRelatedProductCellClickWithIndex:(NSInteger)index
+{
+    VibeProductModal * modal = [_topicModal.topicRelatedProductArray objectAtIndex:index];
+    NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
+    productDetailVC.productDetailModal = modal;
+    [self.lcNavigationController pushViewController:productDetailVC];
+}
 
 #pragma mark -设置假数据
 -(void)setContent

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "NewProductDetailViewController.h"
+
 #import "GradientTagCloudView.h"
 #import "VibeTopicModal.h"
 #import "TopicDetailShowTableViewCell.h"
@@ -17,7 +19,7 @@
 
 #import "VibeShowPhotoView.h"
 
-@interface TopicDetailViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource, TopicDetailShowTableViewCellDelegate>
+@interface TopicDetailViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource, TopicDetailShowTableViewCellDelegate, TopicDetailRelatedProductTableViewCellDelegate>
 {
     VibeTopicModal      * _topicModal;
     

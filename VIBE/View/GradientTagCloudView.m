@@ -20,6 +20,8 @@
         [_gtadientTagBackView setBackgroundColor:[UIColor clearColor]];
         [_gtadientTagBackView.layer setMasksToBounds:YES];
         [self addSubview:_gtadientTagBackView];
+        
+        _tagsArray = [[NSMutableArray alloc]init];
     }
     
     return self;
@@ -29,6 +31,12 @@
 -(void)setGradientTagCloudWithMaxWidth:(float )maxWidth MaxHeight:(float )maxHeight WithFont:(UIFont *)font AndTags:(NSArray *)tagArray
 {
     [_gtadientTagBackView setFrame:CGRectMake(0, 0, maxWidth, maxHeight)];
+    
+    if (_tagsArray.count) {
+        return;
+    }
+    
+    [_tagsArray addObjectsFromArray:tagArray];
     
     NSString * testString = @"测试";
     float singleHeight = [testString getSizeWithLimitSize:CGSizeMake(200, 20) withFont:font].height;

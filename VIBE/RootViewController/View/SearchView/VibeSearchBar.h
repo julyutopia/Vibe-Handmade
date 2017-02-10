@@ -31,6 +31,8 @@
 -(void)showSearchBar;
 -(void)hideSearchBar;
 
+-(void)resignSearchTextField;
+
 @end
 
 @protocol VibeSearchBarDelegate <NSObject>

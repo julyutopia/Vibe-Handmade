@@ -329,7 +329,12 @@
 #pragma mark -点击SearchTagView的代理方法
 -(void)didClickSearchKeyWord:(NSString *)searchWord
 {
-    NSLog(@"_____%@_____",searchWord);
+    [_searchBar resignSearchTextField];
+    
+    if ([_delegateee respondsToSelector:@selector(searchViewDidSearch:)]) {
+        [_delegateee searchViewDidSearch:searchWord];
+    }
+    [self hideSearchView];
 }
 
 

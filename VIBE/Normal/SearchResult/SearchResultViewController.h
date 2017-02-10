@@ -13,7 +13,7 @@
 #import "SearchProductsHeaderTableViewCell.h"
 #import "SearchTopicHeaderTableViewCell.h"
 
-#import "ProductDetailViewController.h"
+#import "NewProductDetailViewController.h"
 #import "TopicDetailViewController.h"
 
 #import "SearchShowProductsViewController.h"

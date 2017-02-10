@@ -10,7 +10,7 @@
 
 #import "SearchProductTableViewCell.h"
 
-#import "ProductDetailViewController.h"
+#import "NewProductDetailViewController.h"
 
 @interface SearchShowProductsViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource, SearchProductTableViewCellDelegate>
 {

@@ -55,7 +55,7 @@
       
         _topicTitleLabel = [[UILabel alloc]init];
         [_topicTitleLabel setTextColor:[UIColor whiteColor]];
-        [_topicTitleLabel setFont:[VibeFont fontWithName:Default_Font_Bold size:16]];
+        [_topicTitleLabel setFont:[VibeFont fontWithName:Default_Font_Bold size:15]];
         [_topicTitleLabel setNumberOfLines:0];
         _topicTitleLabel.layer.shadowColor = RGBA(132, 132, 132, 50).CGColor;
         _topicTitleLabel.layer.shadowOffset = CGSizeMake(0,3);
@@ -111,7 +111,6 @@
                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                 [_backImgView setImage:image];
     }];
-    
     
     
     //设置标题
