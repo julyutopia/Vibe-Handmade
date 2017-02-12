@@ -526,8 +526,7 @@
     [_favorTopicsArray addObject:topicModal2];
     [_favorTopicsArray addObject:topicModal3];
 
-    
-    [_favorProductsTableView reloadData];
+    [_favorProductsTableView reloadData];    
 }
 
 

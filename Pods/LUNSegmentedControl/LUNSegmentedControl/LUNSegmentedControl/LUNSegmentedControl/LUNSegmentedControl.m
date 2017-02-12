@@ -83,7 +83,7 @@
     self.transitionStyle = LUNSegmentedControlTransitionStyleFade;
     self.shapeStyle = LUNSegmentedControlShapeStyleLiquid;
     self.applyCornerRadiusToSelectorView = NO;
-    self.gradientBounceColor = [UIColor redColor];
+    self.gradientBounceColor = [UIColor clearColor];
     self.gradientBackVelocity = 1;
     self.shadowsEnabled = YES;
     self.shadowHideDuration = 0.8;
