@@ -12,7 +12,7 @@
 
 @protocol MoreSettingViewDelegate;
 
-@interface MoreSettingView : UIView<UITableViewDelegate, UITableViewDataSource>
+@interface MoreSettingView : UIView<UITableViewDelegate, UITableViewDataSource, MoreSettingTableViewCellDelegate>
 {
     float         _singleSettingCellHeight;
     

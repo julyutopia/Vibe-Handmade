@@ -539,9 +539,6 @@
         [self.view addSubview:_moreSettingView];
     }
     
-    [self.titleLabel setHidden:NO];
-    [self.titleLabel setText:@"更多设置"];
-    
     [_moreSettingView showSettingView];
     
     [UIView animateWithDuration:0.5f animations:^{
@@ -554,7 +551,10 @@
         
     } completion:^(BOOL finished) {
         
-        
+        [self.titleLabel setHidden:NO];
+        [self.titleLabel setTextColor:[UIColor whiteColor]];
+        [self.titleLabel setText:@"更多设置"];
+
     }];
 }
 

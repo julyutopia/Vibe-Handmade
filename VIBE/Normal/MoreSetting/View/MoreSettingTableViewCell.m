@@ -28,9 +28,17 @@
             _singleSettingCellHeight = 60;
         }
         
-        _backView = [[GLImageView alloc]initWithFrame:CGRectMake(20, 0, kScreenWidth -20 *2, _singleSettingCellHeight)];
+        _backView = [[UIView alloc]initWithFrame:CGRectMake(20, 0, kScreenWidth -20 *2, _singleSettingCellHeight)];
         [_backView setBackgroundColor:RGBA(255, 255, 255, 100)];
         [self addSubview:_backView];
+        
+        
+        //点击的View
+        _tapView = [[GLImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth -20 *2, _singleSettingCellHeight)];
+        [_tapView setHidden:YES];
+        [_tapView addTarget:self action:@selector(didTapCellView:) forControlEvents:UIControlEventTouchUpInside];
+        [_backView addSubview:_tapView];
+        
         
         float iconWidth = 15;
         
@@ -74,6 +82,13 @@
         [_cacheNumberLabel setHidden:YES];
         [_backView addSubview:_cacheNumberLabel];
         
+        
+        _logOutBtn = [[UIButton alloc]initWithFrame:CGRectMake((_backView.frame.size.width -180)/2, (_singleSettingCellHeight -25)/2, 180, 25)];
+        [_logOutBtn setBackgroundImage:[UIImage imageNamed:@"Setting_Log_Out"] forState:UIControlStateNormal];
+        [_logOutBtn addTarget:self action:@selector(logOutBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+        [_logOutBtn setHidden:YES];
+        [_backView addSubview:_logOutBtn];
+        
     }
     
     return self;
@@ -81,6 +96,7 @@
 
 -(void)setMoreSettingCellWithIndex:(NSInteger )index
 {
+    [_tapView setTag:1000 +index];
     
     switch (index) {
         case 0:
@@ -101,6 +117,8 @@
             
         case 1:
             
+            [_tapView setHidden:NO];
+
             [_iconImgView setImage:[UIImage imageNamed:@"Setting_Message"]];
             [_settingLabel setText:@"意见反馈"];
             [_arrowImgView setHidden:NO];
@@ -118,9 +136,9 @@
             break;
             
         case 3:
+            [_tapView setHidden:NO];
             
             [_iconImgView setImage:[UIImage imageNamed:@"Setting_Rate"]];
-
             [_settingLabel setText:@"前往AppStore评分"];
             [_arrowImgView setHidden:NO];
 
@@ -128,8 +146,9 @@
             
         case 4:
             
-            [_iconImgView setImage:[UIImage imageNamed:@"Setting_Light"]];
+            [_tapView setHidden:NO];
 
+            [_iconImgView setImage:[UIImage imageNamed:@"Setting_Light"]];
             [_settingLabel setText:@"关于VIBE"];
             [_arrowImgView setHidden:NO];
 
@@ -137,8 +156,9 @@
             
         case 5:
             
-            [_iconImgView setImage:[UIImage imageNamed:@"Setting_Share"]];
+            [_tapView setHidden:NO];
 
+            [_iconImgView setImage:[UIImage imageNamed:@"Setting_Share"]];
             [_settingLabel setText:@"分享应用"];
             [_arrowImgView setHidden:NO];
 
@@ -156,6 +176,8 @@
                     _backView.layer.mask = _maskLayer;
                 }
             }
+            [_tapView setHidden:NO];
+            
             [_iconImgView setImage:[UIImage imageNamed:@"Setting_Flag"]];
             [_settingLabel setText:@"VIBE公众号"];
             [_arrowImgView setHidden:NO];
@@ -172,6 +194,8 @@
                 _maskLayer.path = maskPath.CGPath;
                 _backView.layer.mask = _maskLayer;
             }
+            
+            [_logOutBtn setHidden:NO];
     
             break;
             
@@ -201,6 +225,23 @@
     return sizeString;
 }
 
+#pragma mark -点击cell背景
+-(void)didTapCellView:(GLImageView *)tapView
+{
+    NSInteger cellIndex = tapView.tag -1000;
+    
+    if ([_delegate respondsToSelector:@selector(moreSettingViewCellTapWithIndex:)]) {
+        [_delegate moreSettingViewCellTapWithIndex:cellIndex];
+    }
+}
+
+#pragma mark -点击退出登录
+-(void)logOutBtnClicked
+{
+    if ([_delegate respondsToSelector:@selector(moreSettingViewCellDidLogout)]) {
+        [_delegate moreSettingViewCellDidLogout];
+    }
+}
 
 @end
 

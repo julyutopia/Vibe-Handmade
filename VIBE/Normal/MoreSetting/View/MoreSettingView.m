@@ -60,13 +60,13 @@
         [self addSubview:_settingTableView];
         
         
+        //关闭按钮
         _cancleBtnWidth = 41;
         _cancleSettingBtn = [[UIButton alloc]initWithFrame:CGRectMake( (kScreenWidth -_cancleBtnWidth)/2, kScreenHeight -_cancleBtnWidth -(_settingTableHeaderHeight -_cancleBtnWidth)/2, _cancleBtnWidth, _cancleBtnWidth)];
         [_cancleSettingBtn setBackgroundImage:[UIImage imageNamed:@"Setting_Cancle"] forState:UIControlStateNormal];
         [_cancleSettingBtn addTarget:self action:@selector(clickToHideSetting) forControlEvents:UIControlEventTouchUpInside];
         [_cancleSettingBtn setAlpha:0.0f];
         [self addSubview:_cancleSettingBtn];
-        
     }
     return self;
 }
@@ -91,6 +91,7 @@
         [cell setBackgroundColor:[UIColor clearColor]];
         [cell setBackgroundView:nil];
     }
+    [cell setDelegate:self];
     
     [cell setMoreSettingCellWithIndex:indexPath.row];
     
@@ -164,6 +165,15 @@
     }
 }
 
+#pragma mark -SettingCell代理方法
+-(void)moreSettingViewCellTapWithIndex:(NSInteger)index
+{
+    NSLog(@"====== %ld ======",index);
+}
 
+-(void)moreSettingViewCellDidLogout
+{
+    NSLog(@"点击注销");
+}
 
 @end
