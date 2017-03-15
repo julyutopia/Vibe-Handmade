@@ -16,15 +16,16 @@
     
     if (self) {
 
+        _tagViewIndex = index;
+        
         float width = frame.size.width;
         float height = frame.size.height;
         
-
-        
-        _backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width, height)];
+        _backView = [[GLImageView alloc]initWithFrame:CGRectMake(0, 0, width, height)];
         [_backView setBackgroundColor:[UIColor whiteColor]];
         [_backView.layer setCornerRadius:1.0f];
         [_backView.layer setMasksToBounds:YES];
+        [_backView addTarget:self action:@selector(didTapBackView:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_backView];
         
         _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, width, height)];
@@ -91,8 +92,21 @@
 -(void)setDiscoverHotTagViewWithModal:(DiscoverHotTagModal *)modal
 {
     [_imgView sd_setImageWithURL:[NSURL URLWithString:modal.discoverHotTagImgUrl] placeholderImage:nil];
-    [_tagLabel setText:modal.discoverHotTagTitle];
+    [_tagLabel setText:[NSString stringWithFormat:@"#%@",modal.discoverHotTagTitle]];
 }
 
+
+-(void)didTapBackView:(GLImageView *)backView
+{
+    NSDictionary * userInfoDict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:_tagViewIndex] forKey:@"HotTagViewIndex"];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:DiscoverTapHotTagView object:nil userInfo:userInfoDict];
+    
+    /*
+    if ([_delegate respondsToSelector:@selector(didClickTagViewWithIndex:)]) {
+        [_delegate didClickTagViewWithIndex:_tagViewIndex];
+    }
+    */
+}
 
 @end

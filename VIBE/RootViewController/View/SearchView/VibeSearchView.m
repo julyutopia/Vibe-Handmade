@@ -52,6 +52,7 @@
                                      ];
         [_searchView.layer addSublayer:gradientViewLayer];
         
+        
         //设置阴影
         [_searchView.layer setShadowColor:RGBA(117, 184, 158, 80).CGColor];
         [_searchView.layer setShadowOffset:CGSizeMake(0, 1)];

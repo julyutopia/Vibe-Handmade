@@ -31,6 +31,7 @@
 #import "NewProductDetailViewController.h"
 
 #import "SearchResultViewController.h"
+#import "SearchShowProductsViewController.h"
 
 #import "VibeSearchView.h"
 
@@ -76,7 +77,7 @@ typedef enum
     //探索发现
     UIView              * _discoverView;
     DiscoverTableView   * _discoverTableView;
-    NSMutableDictionary        * _discoverContentDict;
+    NSMutableDictionary * _discoverContentDict;
 }
 
 

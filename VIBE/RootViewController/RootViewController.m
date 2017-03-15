@@ -100,6 +100,8 @@
     [_discoverView addSubview:_discoverTableView];
     
     _discoverContentDict = [[NSMutableDictionary alloc]init];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(discoverDidTapHotTagWithIndex:) name:DiscoverTapHotTagView object:nil];
 }
 
 
@@ -250,31 +252,30 @@
     NSMutableArray * hotTagsArray = [[NSMutableArray alloc]init];
     
     DiscoverHotTagModal * hotTagModal1 = [[DiscoverHotTagModal alloc]init];
-    [hotTagModal1 setDiscoverHotTagTitle:@"#水晶首饰"];
+    [hotTagModal1 setDiscoverHotTagTitle:@"水晶首饰"];
     [hotTagModal1 setDiscoverHotTagImgUrl:@"http://7xrn7f.com1.z0.glb.clouddn.com/16-10-13/36792848.jpg"];
     [hotTagsArray addObject:hotTagModal1];
     DiscoverHotTagModal * hotTagModal2 = [[DiscoverHotTagModal alloc]init];
-    [hotTagModal2 setDiscoverHotTagTitle:@"#BOHO"];
+    [hotTagModal2 setDiscoverHotTagTitle:@"BOHO"];
     [hotTagModal2 setDiscoverHotTagImgUrl:@"http://p1.bqimg.com/567571/ddc117c4e327b9e3.jpg"];
     [hotTagsArray addObject:hotTagModal2];
     DiscoverHotTagModal * hotTagModal3 = [[DiscoverHotTagModal alloc]init];
-    [hotTagModal3 setDiscoverHotTagTitle:@"#美食与爱"];
+    [hotTagModal3 setDiscoverHotTagTitle:@"美食与爱"];
     [hotTagModal3 setDiscoverHotTagImgUrl:@"http://p1.bqimg.com/567571/e7d28504df6a49d3.jpg"];
     [hotTagsArray addObject:hotTagModal3];
     DiscoverHotTagModal * hotTagModal4 = [[DiscoverHotTagModal alloc]init];
-    [hotTagModal4 setDiscoverHotTagTitle:@"#印第安纳瓦霍"];
+    [hotTagModal4 setDiscoverHotTagTitle:@"印第安纳瓦霍"];
     [hotTagModal4 setDiscoverHotTagImgUrl:@"http://p1.bqimg.com/567571/ae33cd40f6f737af.jpg"];
     [hotTagsArray addObject:hotTagModal4];
     DiscoverHotTagModal * hotTagModal5 = [[DiscoverHotTagModal alloc]init];
-    [hotTagModal5 setDiscoverHotTagTitle:@"#服饰配件"];
+    [hotTagModal5 setDiscoverHotTagTitle:@"服饰配件"];
     [hotTagModal5 setDiscoverHotTagImgUrl:@"http://p1.bqimg.com/567571/23f4947111d77752.jpg"];
     [hotTagsArray addObject:hotTagModal5];
     DiscoverHotTagModal * hotTagModal6 = [[DiscoverHotTagModal alloc]init];
-    [hotTagModal6 setDiscoverHotTagTitle:@"#传统手工"];
+    [hotTagModal6 setDiscoverHotTagTitle:@"传统手工"];
     [hotTagModal6 setDiscoverHotTagImgUrl:@"http://p1.bqimg.com/567571/28fce986ba30f060.jpg"];
     [hotTagsArray addObject:hotTagModal6];
     [_discoverContentDict setObject:hotTagsArray forKey:@"tags"];
-    
     
     
     NSMutableArray  * albumsArray = [[NSMutableArray alloc]init];
@@ -302,6 +303,8 @@
     [discoverAlbumModal3 setDiscoverTopicFavorNumber:[NSNumber numberWithInteger:76]];
     discoverAlbumModal3.discoverTopicTagArray = [[NSArray alloc]initWithObjects:@"生活美物", @"家居", @"Kilim", nil];
     [albumsArray addObject:discoverAlbumModal3];
+    
+    [_discoverContentDict setObject:hotTagsArray forKey:@"albums"];
     
     [_discoverTableView setDiscoverTableWithHotTagsArray:hotTagsArray AlbumsArray:albumsArray];
 }
@@ -441,6 +444,7 @@
     
 }
 
+
 -(void)searchClick
 {
     if (!_searchView) {
@@ -483,7 +487,6 @@
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 }
 
-
 #pragma mark -点击搜索关键字
 -(void)searchViewDidSearch:(NSString *)keyword
 {
@@ -495,6 +498,23 @@
     SearchResultViewController * resultVC = [[SearchResultViewController alloc]init];
     resultVC.searchKeyword = searchKeyword;
     [self.lcNavigationController pushViewController:resultVC];
+}
+
+
+#pragma mark -点击发现页热门标签
+-(void)discoverDidTapHotTagWithIndex:(NSNotification *)notification
+{
+    NSDictionary * dict = notification.userInfo;
+    NSInteger hotTagViewIndex = [[dict objectForKey:@"HotTagViewIndex"] integerValue];
+    
+    NSArray * tagsArray = [_discoverContentDict objectForKey:@"tags"];
+    DiscoverHotTagModal * tagModal = [tagsArray objectAtIndex:hotTagViewIndex];
+    
+    SearchShowProductsViewController * showProductsVC = [[SearchShowProductsViewController alloc]init];
+    showProductsVC.searchKeyword = tagModal.discoverHotTagTitle;
+    [self.lcNavigationController pushViewController:showProductsVC];
+    
+    NSLog(@"******  %@  *******",tagModal.discoverHotTagTitle);
 }
 
 

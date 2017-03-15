@@ -41,6 +41,8 @@
 
 #import "VibeShowMoneyView.h"
 
+#import "FTIndicator.h"
+
 #ifdef __OPTIMIZE__
 # define NSLog(...) {}
 #else
@@ -154,9 +156,12 @@
 #define RGBA(x,y,z,a) [UIColor colorWithRed:x/255.0 green:y/255.0 blue:z/255.0 alpha:a / 100.0]
 
 
+//探索发现 通知
+#define DiscoverTapHotTagView   @"DiscoverTapHotTagView"
+
 //搜索
-#define HotSearchWords      @"HotSearchWords"
-#define RecentSearchWords   @"RecentSearchWords"
+#define HotSearchWords          @"HotSearchWords"
+#define RecentSearchWords       @"RecentSearchWords"
 
 
 

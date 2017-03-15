@@ -53,12 +53,17 @@
                 
         DiscoverHotTagView * tagView = [[DiscoverHotTagView alloc]initWithFrame:CGRectMake( i%3 *(_singTagViewWidth +5), i/3 *(_singTagViewHeight +5), _singTagViewWidth, _singTagViewHeight) AndIndex:i];
         [_showHotTagsView addSubview:tagView];
-        
         DiscoverHotTagModal * modal = [_hotTagArray objectAtIndex:i];
         [tagView setDiscoverHotTagViewWithModal:modal];
     }
     
 }
+
+
+#pragma mark -TagViewDelegate
+-(void)didClickTagViewWithIndex:(NSInteger )index
+{
+  }
 
 
 @end

@@ -39,4 +39,6 @@
 
 -(void)moreSettingViewDidHide;
 
+-(void)moreSettingDidTapIndex:(NSInteger )index;
+
 @end

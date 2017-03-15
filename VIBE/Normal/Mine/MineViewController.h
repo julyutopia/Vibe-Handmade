@@ -23,6 +23,8 @@
 
 #import "MoreSettingView.h"
 
+#import "FeedBackViewController.h"
+
 @interface MineViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource, LUNSegmentedControlDataSource, LUNSegmentedControlDelegate, MineFavorProductTableViewCellDelegate, MineFavorTopicTableViewCellDelegate, MoreSettingViewDelegate>
 {
     MineProfileModal    * _userProfileModal;

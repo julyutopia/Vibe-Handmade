@@ -577,6 +577,17 @@
 }
 
 
+#pragma mark -点击‘更多设置’
+-(void)moreSettingDidTapIndex:(NSInteger)index
+{
+    if (index == 1) {
+        FeedBackViewController * feedbackVC = [[FeedBackViewController alloc]init];
+        [self.lcNavigationController pushViewController:feedbackVC];
+    }
+
+}
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];

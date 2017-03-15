@@ -42,6 +42,10 @@ pod 'AVOSCloud'               # 数据存储、短信、云引擎调用等基础
 pod 'AVOSCloudIM'             # 实时通信模块
 pod 'AVOSCloudCrashReporting' # 错误报告模块
 
+pod 'FTIndicator'		#Toast弹窗
+
+pod 'CRToast', '~> 0.0.7'
+
 end
 
 

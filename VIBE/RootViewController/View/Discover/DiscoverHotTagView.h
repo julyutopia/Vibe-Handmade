@@ -10,16 +10,31 @@
 
 #import "DiscoverHotTagModal.h"
 
+//@protocol DiscoverHotTagViewDelegate;
+
 @interface DiscoverHotTagView : UIView
 {
-    UIView      * _backView;
-    UIImageView * _imgView;
-    UIView      * _maskView;
-    UILabel     * _tagLabel;
+    NSInteger         _tagViewIndex;
+    
+    GLImageView     * _backView;
+    UIImageView     * _imgView;
+    UIView          * _maskView;
+    UILabel         * _tagLabel;
 }
+
+//@property (weak, nonatomic) id<DiscoverHotTagViewDelegate> delegate;
 
 -(id)initWithFrame:(CGRect)frame AndIndex:(NSInteger )index;
 
 -(void)setDiscoverHotTagViewWithModal:(DiscoverHotTagModal *)modal;
 
 @end
+
+
+/*
+@protocol DiscoverHotTagViewDelegate <NSObject>
+
+-(void)didClickTagViewWithIndex:(NSInteger )index;
+
+@end
+*/

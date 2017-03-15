@@ -168,7 +168,10 @@
 #pragma mark -SettingCell代理方法
 -(void)moreSettingViewCellTapWithIndex:(NSInteger)index
 {
-    NSLog(@"====== %ld ======",index);
+    if ([_delegateee respondsToSelector:@selector(moreSettingDidTapIndex:)]) {
+        
+        [_delegateee moreSettingDidTapIndex:index];
+    }
 }
 
 -(void)moreSettingViewCellDidLogout

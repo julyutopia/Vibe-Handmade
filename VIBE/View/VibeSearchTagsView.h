@@ -12,7 +12,6 @@
 
 @interface VibeSearchTagsView : UIView
 
-
 @property (strong, nonatomic) NSMutableArray *selectedButtonArray;
 @property (strong, nonatomic) NSArray        *allButtonArray;
 
