@@ -19,7 +19,6 @@
     [super viewDidLoad];
     
     [self.view setBackgroundColor:DefaultBackgroundColor];
-    [self.topNavView setAlpha:0.0f];
     
     //毛玻璃背景
     _backImgView = [[UIImageView alloc]initWithFrame:self.view.frame];
@@ -48,88 +47,74 @@
     [_topicDetailTable setTableFooterView:tableFooterView];
 
     
-    //导航栏
-    UIBlurEffect * effect1 = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView * blurView1 = [[UIVisualEffectView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
-    [blurView1 setEffect:effect1];
+//    //导航栏
+//    UIBlurEffect * effect1 = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+//    UIVisualEffectView * blurView1 = [[UIVisualEffectView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
+//    [blurView1 setEffect:effect1];
+//    
+//    _naviView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)];
+//    [_naviView setBackgroundColor:RGBA(255, 255, 255, 85)];
+//    [_naviView setAlpha:0.0f];
+//    [self.view addSubview:_naviView];
+//    [_naviView addSubview:blurView1];
+//    
+//    UIView * lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 20-1, kScreenWidth, 1)];
+//    [lineView setBackgroundColor:RGBA(0, 0, 0, 5)];
+//    [_naviView addSubview:lineView];
     
-    _naviView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)];
-    [_naviView setBackgroundColor:RGBA(255, 255, 255, 85)];
-    [_naviView setAlpha:0.0f];
-    [self.view addSubview:_naviView];
-    [_naviView addSubview:blurView1];
+//    _favorBtn = [[UIButton alloc]initWithFrame:CGRectMake( kScreenWidth -30 -7, 27, 30, 30)];
+//    [_favorBtn setBackgroundImage:[UIImage imageNamed:@"Topic_Detail_Favor"] forState:UIControlStateNormal];
+//    _favorBtn.layer.shadowColor = RGBA(0, 0, 0, 80).CGColor;//shadowColor阴影颜色
+//    _favorBtn.layer.shadowOffset = CGSizeMake(2,2);
+//    _favorBtn.layer.shadowOpacity = 0.5;
+//    _favorBtn.layer.shadowRadius = 4;
+//    [_favorBtn addTarget:self action:@selector(addFavorClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:_favorBtn];
+//    
+//    _favorBtnView = [[UIView alloc]initWithFrame:CGRectMake(kScreenWidth -30 -8, 26, 32, 32)];
+//    [_favorBtnView setBackgroundColor:RGBA(255, 255, 255, 95)];
+//    [_favorBtnView.layer setCornerRadius:16];
+//    [_favorBtnView.layer setMasksToBounds:YES];
+//    [_favorBtnView.layer setBorderColor:RGBA(0, 0, 0, 10).CGColor];
+//    [_favorBtnView.layer setBorderWidth:0.5f];
+//    [_favorBtnView setAlpha:0.0f];
+//    [self.view addSubview:_favorBtnView];
+//    
+//    UIVisualEffectView * favorBackBtnBlurView = [[UIVisualEffectView alloc]initWithFrame:CGRectMake(0, 0, 32, 32)];
+//    [favorBackBtnBlurView setEffect:blackBackBtnEffect];
+//    [_favorBtnView addSubview:favorBackBtnBlurView];
+//
+//    UIButton * blackFavorBtn = [[UIButton alloc]initWithFrame:CGRectMake(2, 2, 28, 28)];
+//    [blackFavorBtn setBackgroundImage:[UIImage imageNamed:@"Topic_Detail_Favor_Black"] forState:UIControlStateNormal];
+//    [blackFavorBtn addTarget:self action:@selector(addFavorClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [_favorBtnView addSubview:blackFavorBtn];
     
-    UIView * lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 20-1, kScreenWidth, 1)];
-    [lineView setBackgroundColor:RGBA(0, 0, 0, 5)];
-    [_naviView addSubview:lineView];
+
+    [self.topNavView setAlpha:0.0f];
+    [self.topNavView setFrame:CGRectMake(0, 0, kScreenWidth, 0)];
+    [self.view bringSubviewToFront:self.topNavView];
     
-    
-    [self.view bringSubviewToFront:self.backBtn];
     [self.backBtn setBackgroundImage:[UIImage imageNamed:@"Navi_Back"] forState:UIControlStateNormal];
-    self.backBtn.layer.shadowColor = RGBA(0, 0, 0, 20).CGColor;//shadowColor阴影颜色
+    self.backBtn.layer.shadowColor = RGBA(0, 0, 0, 80).CGColor;//shadowColor阴影颜色
     self.backBtn.layer.shadowOffset = CGSizeMake(2,2);
     self.backBtn.layer.shadowOpacity = 0.8;
     self.backBtn.layer.shadowRadius = 4;
+    [self.view bringSubviewToFront:self.backBtn];
     
     
-    UIBlurEffect * blackBackBtnEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
-    UIVisualEffectView * blackBackBtnBlurView = [[UIVisualEffectView alloc]initWithFrame:CGRectMake(0, 0, 32, 32)];
-    [blackBackBtnBlurView setEffect:blackBackBtnEffect];
-  
-    _blackBackBtnView = [[UIView alloc]initWithFrame:CGRectMake(4, 26, 32, 32)];
-    [_blackBackBtnView setBackgroundColor:RGBA(255, 255, 255, 95)];
-    [_blackBackBtnView.layer setCornerRadius:16];
-    [_blackBackBtnView.layer setMasksToBounds:YES];
-    [_blackBackBtnView.layer setBorderColor:RGBA(0, 0, 0, 10).CGColor];
-    [_blackBackBtnView.layer setBorderWidth:0.5f];
-    [_blackBackBtnView setAlpha:0.0f];
-    [self.view addSubview:_blackBackBtnView];
-    [_blackBackBtnView addSubview:blackBackBtnBlurView];
+    [self.rightButton setHidden:NO];
+    [self.rightButton setFrame:CGRectMake( kScreenWidth -30 -7, 27, 30, 30)];
+    [self.rightButton setBackgroundImage:[UIImage imageNamed:@"Topic_Detail_Favor"] forState:UIControlStateNormal];
+    self.rightButton.layer.shadowColor = RGBA(0, 0, 0, 80).CGColor;//shadowColor阴影颜色
+    self.rightButton.layer.shadowOffset = CGSizeMake(2,2);
+    self.rightButton.layer.shadowOpacity = 0.5;
+    self.rightButton.layer.shadowRadius = 4;
+    [self.view bringSubviewToFront:self.rightButton];
     
-    UIButton * blackBackBtn = [[UIButton alloc]initWithFrame:CGRectMake(2, 2, 28, 28)];
-    [blackBackBtn setBackgroundImage:[UIImage imageNamed:@"Navi_Back_Black"] forState:UIControlStateNormal];
-    [blackBackBtn addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
-    [_blackBackBtnView addSubview:blackBackBtn];
-    
-    
-    _favorBtn = [[UIButton alloc]initWithFrame:CGRectMake( kScreenWidth -30 -7, 27, 30, 30)];
-    [_favorBtn setBackgroundImage:[UIImage imageNamed:@"Topic_Detail_Favor"] forState:UIControlStateNormal];
-    _favorBtn.layer.shadowColor = RGBA(0, 0, 0, 80).CGColor;//shadowColor阴影颜色
-    _favorBtn.layer.shadowOffset = CGSizeMake(2,2);
-    _favorBtn.layer.shadowOpacity = 0.5;
-    _favorBtn.layer.shadowRadius = 4;
-    [_favorBtn addTarget:self action:@selector(addFavorClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_favorBtn];
-    
-    _favorBtnView = [[UIView alloc]initWithFrame:CGRectMake(kScreenWidth -30 -8, 26, 32, 32)];
-    [_favorBtnView setBackgroundColor:RGBA(255, 255, 255, 95)];
-    [_favorBtnView.layer setCornerRadius:16];
-    [_favorBtnView.layer setMasksToBounds:YES];
-    [_favorBtnView.layer setBorderColor:RGBA(0, 0, 0, 10).CGColor];
-    [_favorBtnView.layer setBorderWidth:0.5f];
-    [_favorBtnView setAlpha:0.0f];
-    [self.view addSubview:_favorBtnView];
-    
-    UIVisualEffectView * favorBackBtnBlurView = [[UIVisualEffectView alloc]initWithFrame:CGRectMake(0, 0, 32, 32)];
-    [favorBackBtnBlurView setEffect:blackBackBtnEffect];
-    [_favorBtnView addSubview:favorBackBtnBlurView];
-
-    UIButton * blackFavorBtn = [[UIButton alloc]initWithFrame:CGRectMake(2, 2, 28, 28)];
-    [blackFavorBtn setBackgroundImage:[UIImage imageNamed:@"Topic_Detail_Favor_Black"] forState:UIControlStateNormal];
-    [blackFavorBtn addTarget:self action:@selector(addFavorClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [_favorBtnView addSubview:blackFavorBtn];
-    
-    
-    [self.view bringSubviewToFront:self.titleLabel];
     [self.titleLabel setTextColor:DefaultQYTextColor80];
+    [self.titleLabel setFont:[UIFont fontWithName:Default_Font_Middle size:16]];
     [self.titleLabel setAlpha:0.0f];
-    [self.titleLabel setFrame:CGRectMake( kScreenWidth/2, height_headerview - 35, 0, 30)];
-    
-    
-    [self.view bringSubviewToFront:self.topNavView];
-    
-    [self.titleImgView setHidden:YES];
-    [self.rightButton setHidden:YES];
+    [self.view bringSubviewToFront:self.titleLabel];
     
     [self setContent];
 }
@@ -158,17 +143,10 @@
             _headerInfoView.frame = headerInfoViewFrame;
         }
         
-        if (offsetY >= -kScreenWidth/16 *9 +30) {
-            if (_blackBackBtnView.alpha >0.0f)
-            {
-                return;
-            }
+        if (offsetY >= -kScreenWidth/16 *9 +80) {
             [self showNaviViewAnimation];
-        }else {
-            if (_blackBackBtnView.alpha <1.0f)
-            {
-                return;
-            }
+        }
+        else {
             [self hideNaviViewAnimation];
         }
         
@@ -561,17 +539,21 @@
 -(void)showNaviViewAnimation
 {
     [UIView animateWithDuration:0.3 animations:^{
-        [_naviView setAlpha:1.0f];
-        [_naviView setFrame:CGRectMake(0, 0, kScreenWidth, 20)];
-    } completion:^(BOOL finished) {
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    }];
     
-    [UIView animateWithDuration:0.6 animations:^{
-        [self.backBtn setAlpha:0.0f];
+        [self.topNavView setAlpha:1.0f];
+        [self.topNavView setFrame:CGRectMake(0, 0, kScreenWidth, height_headerview)];
+    
+    } completion:^(BOOL finished) {
         
-        [_blackBackBtnView setAlpha:1.0f];
-        [_favorBtnView setAlpha:1.0f];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+        [self.titleLabel setAlpha:1.0f];
+        
+        [self.backBtn setBackgroundImage:[UIImage imageNamed:@"Navi_Back_Black"] forState:UIControlStateNormal];
+        self.backBtn.layer.shadowOpacity = 0.0;
+        
+        [self.rightButton setBackgroundImage:[UIImage imageNamed:@"Topic_Detail_Favor_Black"] forState:UIControlStateNormal];
+        self.rightButton.layer.shadowOpacity = 0.0;
+        
     }];
 }
 
@@ -579,19 +561,21 @@
 {
     [UIView animateWithDuration:0.3 animations:^{
         
-        [_naviView setAlpha:0.0f];
-        [_naviView setFrame:CGRectMake(0, 0, kScreenWidth, 0)];
+        [self.topNavView setAlpha:0.0f];
+        [self.topNavView setFrame:CGRectMake(0, 0, kScreenWidth, 0)];
+    
     } completion:^(BOOL finished) {
+    
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        [self.titleLabel setAlpha:0.0f];
+        
+        [self.backBtn setBackgroundImage:[UIImage imageNamed:@"Navi_Back"] forState:UIControlStateNormal];
+        self.backBtn.layer.shadowOpacity = 0.8;
+
+        [self.rightButton setBackgroundImage:[UIImage imageNamed:@"Topic_Detail_Favor"] forState:UIControlStateNormal];
+        self.rightButton.layer.shadowOpacity = 0.8;
     }];
     
-    [UIView animateWithDuration:0.6 animations:^{
-        
-        [self.backBtn setAlpha:1.0f];
-        
-        [_blackBackBtnView setAlpha:0.0f];
-        [_favorBtnView setAlpha:0.0f];
-    }];
 }
 
 

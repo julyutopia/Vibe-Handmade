@@ -169,4 +169,15 @@ static VibeAppTool* sharedInstance;
     return size.height;
 }
 
+
+//判断是否开启推送通知
+-(BOOL)isNotificationOpen
+{
+    BOOL isNotificationOpen;
+    
+    return isNotificationOpen;
+}
+
 @end
+
+

@@ -27,6 +27,8 @@
     UIButton    * _cancleSettingBtn;
 }
 
+@property(retain, nonatomic)UITableView * settingTableView;
+
 @property (weak, nonatomic) id<MoreSettingViewDelegate> delegateee;
 
 -(void)showSettingView;

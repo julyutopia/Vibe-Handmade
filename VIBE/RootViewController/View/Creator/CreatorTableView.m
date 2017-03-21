@@ -71,8 +71,10 @@
             [cell setBackgroundColor:[UIColor clearColor]];
         }
         
+        [cell setDelegate:self];
+        
         CreatorCoverModal * modal = [_creatorArray objectAtIndex:indexPath.row];
-        [cell setCreatorCellWithModal:modal];
+        [cell setCreatorCellWithModal:modal WithIndex:indexPath.row];
         
         return cell;
     }
@@ -93,6 +95,14 @@
     return (kScreenWidth -20)/16 *9 +10;
 }
 
+
+#pragma mark -点击Cell的代理方法
+-(void)creatorCoverCellTapIndex:(NSInteger)index
+{
+    if ([_delegateee respondsToSelector:@selector(creatorTableViewTapWithIndex:)]) {
+        [_delegateee creatorTableViewTapWithIndex:index];
+    }
+}
 
 @end
 

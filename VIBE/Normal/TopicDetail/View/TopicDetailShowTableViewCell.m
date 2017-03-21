@@ -67,7 +67,7 @@
         [_detailInfoLabel setHidden:NO];
         [_detailImgView setHidden:YES];
         
-        [self setCellTextLabelWithFont:[VibeFont fontWithName:Default_Font_Small size:14] Color:RGBA(152, 160, 171, 100) Text:content LineSpace:5.0];
+        [self setCellTextLabelWithFont:[VibeFont fontWithName:Default_Font_Small size:14] Color:RGBA(60, 77, 102, 100) Text:content LineSpace:5.0];
     }
     
     else if ([type isEqualToString:@"text_Middle"]) {

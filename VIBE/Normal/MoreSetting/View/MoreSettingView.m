@@ -169,7 +169,6 @@
 -(void)moreSettingViewCellTapWithIndex:(NSInteger)index
 {
     if ([_delegateee respondsToSelector:@selector(moreSettingDidTapIndex:)]) {
-        
         [_delegateee moreSettingDidTapIndex:index];
     }
 }

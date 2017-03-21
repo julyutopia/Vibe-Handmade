@@ -82,6 +82,7 @@
     _creatorTableView = [[CreatorTableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
     _creatorTableView.contentInset = UIEdgeInsetsMake(Wide_Navi_View_Height +10, 0, 0, 0);
     _creatorTableView.scrollIndicatorInsets = UIEdgeInsetsMake(Wide_Navi_View_Height +10, 0, 0, 0);
+    [_creatorTableView setDelegateee:self];
     [_creatorView addSubview:_creatorTableView];
     
     _creatorArray = [[NSMutableArray alloc]init];
@@ -424,6 +425,7 @@
 
 -(void)profileClick
 {
+    //手动设置用户是否已登录
     [VibeAppTool setUserLogin:YES];
     
     BOOL isLogIn = [VibeAppTool isUserLogIn];
@@ -490,6 +492,11 @@
 #pragma mark -点击搜索关键字
 -(void)searchViewDidSearch:(NSString *)keyword
 {
+    //仅输入空格
+    if ([VibeAppTool isStringEmpty:keyword]) {
+        [FTIndicator showErrorWithMessage:@"搜索内容不能为空." userInteractionEnable:NO];
+        return;
+    }
     [self performSelector:@selector(pushToSearchResultVC:) withObject:keyword afterDelay:0.4f];
 }
 
@@ -575,6 +582,15 @@
     productDetailVC.productDetailModal = productModal;
     [self.lcNavigationController pushViewController:productDetailVC];
 }
+
+
+#pragma mark -造物者说Table的代理方法
+-(void)creatorTableViewTapWithIndex:(NSInteger)index
+{
+    CreatorDetailViewController * creatorDetailVC = [[CreatorDetailViewController alloc]init];
+    [self.lcNavigationController pushViewController:creatorDetailVC];
+}
+
 
 
 #pragma mark

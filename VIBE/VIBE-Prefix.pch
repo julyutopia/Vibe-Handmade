@@ -78,6 +78,13 @@
 #define Default_Money_Font @"HelveticaNeue-Light"
 #define Default_Price_Font @"HelveticaNeue-Light"
 
+
+#define Detail_Show_Text_Bold   @"Show_Detail_Info_Bold"
+#define Detail_Show_Text_Middle @"Show_Detail_Info_Middle"
+#define Detail_Show_Text_Small  @"Show_Detail_Info_Small"
+#define Detail_Show_Image       @"Show_Detail_Image"
+
+
 #pragma mark - 定义全局颜色
 
 #define DefaultWhite        RGB(255, 255,  255)

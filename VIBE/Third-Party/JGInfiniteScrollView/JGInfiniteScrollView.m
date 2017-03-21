@@ -44,12 +44,13 @@ static int const ImageViewCount = 3;
         
         // 页码视图
         UIPageControl *pageControl = [[UIPageControl alloc] init];
-        pageControl.currentPageIndicatorTintColor = DefaultGreen;
+        pageControl.currentPageIndicatorTintColor = RGBA(245, 245, 245, 90);
         pageControl.pageIndicatorTintColor = RGBA(213, 213, 213, 70);
         [self addSubview:pageControl];
         _pageControl = pageControl;
         
     }
+    
     return self;
 }
 

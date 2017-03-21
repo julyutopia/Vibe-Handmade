@@ -298,13 +298,13 @@
         NSString * content = [NSString stringWithFormat:@"%@",[dict objectForKey:@"content"]];
         
         if ([type isEqualToString:@"text_Small"]) {
-            return [self calculateCellTextHeightWithFont:[VibeFont fontWithName:Default_Font_Small size:12] Content:content LineSpace:5.0];
+            return [self calculateCellTextHeightWithFont:[VibeFont fontWithName:Default_Font_Small size:14] Content:content LineSpace:4.0];
         }
         else if ([type isEqualToString:@"text_Middle"]) {
-            return [self calculateCellTextHeightWithFont:[VibeFont fontWithName:Default_Font size:13] Content:content LineSpace:5.0];
+            return [self calculateCellTextHeightWithFont:[VibeFont fontWithName:Default_Font size:14] Content:content LineSpace:4.0];
         }
         else if ([type isEqualToString:@"text_Bold"]) {
-            return [self calculateCellTextHeightWithFont:[VibeFont fontWithName:Default_Font size:14] Content:content LineSpace:6.0];
+            return [self calculateCellTextHeightWithFont:[VibeFont fontWithName:Default_Font size:16] Content:content LineSpace:5.0];
         }
         
         return 0;

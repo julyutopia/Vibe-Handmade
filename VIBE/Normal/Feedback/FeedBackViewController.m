@@ -38,17 +38,14 @@
     [backView.layer addSublayer:gradientViewLayer];
     
     
-    [self.topNavView setBackgroundColor:RGBA(255, 255, 255, 85)];
+    [self.topNavView setBackgroundColor:RGBA(255, 255, 255, 100)];
     [self.topNavView setHidden:NO];
     [self.view bringSubviewToFront:self.topNavView];
     
-    
-//    [self.titleLabel setTextColor:[UIColor whiteColor]];
     [self.titleLabel setText:@"意见反馈"];
     [self.view bringSubviewToFront:self.titleLabel];
     
     //返回键
-//    [self.backBtn setBackgroundImage:[UIImage imageNamed:@"Navi_Back"] forState:UIControlStateNormal];
     [self.view bringSubviewToFront:self.backBtn];
 
     
@@ -65,8 +62,8 @@
     }
     
     
-    _feedbackView = [[UIView alloc]initWithFrame:CGRectMake(15, height_headerview +10, kScreenWidth -30, kScreenHeight -maxKeyBoardHeight -(height_headerview +10) -30)];
-    [_feedbackView setBackgroundColor:RGBA(255, 255, 255, 95)];
+    _feedbackView = [[UIView alloc]initWithFrame:CGRectMake(15, height_headerview +20, kScreenWidth -30, kScreenHeight -maxKeyBoardHeight -(height_headerview +20) -30)];
+    [_feedbackView setBackgroundColor:RGBA(255, 255, 255, 100)];
     [_feedbackView.layer setCornerRadius:4];
     [_feedbackView.layer setMasksToBounds:YES];
     [backView addSubview:_feedbackView];
@@ -82,14 +79,14 @@
     [_feedbackTextView setDelegate:self];
     _feedbackTextView.textContainerInset = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
     [_feedbackTextView setPlaceholder:@"请输入你对VIBE的任何意见和建议"];
-    [_feedbackTextView performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:2.0f];
+    [_feedbackTextView performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:1.0f];
     [_feedbackView addSubview:_feedbackTextView];
     
     
     float bottomRightViewWidth = 136;
     
     UIView * bottomLeftView = [[UIView alloc]initWithFrame:CGRectMake(0, _feedbackView.frame.size.height -toolBarHeight, _feedbackView.frame.size.width -bottomRightViewWidth, toolBarHeight)];
-    [bottomLeftView setBackgroundColor:RGBA(249, 249, 249, 100)];
+    [bottomLeftView setBackgroundColor:RGBA(245, 245, 245, 100)];
     [_feedbackView addSubview:bottomLeftView];
     
     
@@ -102,6 +99,7 @@
     
 }
 
+
 #pragma mark -点击发送
 -(void)didClickSendBtn
 {
@@ -109,8 +107,8 @@
     
     //仅输入空格
     if ([VibeAppTool isStringEmpty:contentText]) {
-        
-        [FTIndicator showInfoWithMessage:@"发送内容不能为空."];
+        [FTIndicator showErrorWithMessage:@"发送内容不能为空." userInteractionEnable:NO];
+        return;
     }
 }
 
@@ -120,33 +118,26 @@
 {
     NSInteger inputWordCount = textView.text.length;
  
-    NSLog(@"__________ %ld __________",inputWordCount);
-
     if (inputWordCount == 0) {
         [_sendBtn setEnabled:NO];
     }
     else{
         [_sendBtn setEnabled:YES];
     }
-    
 }
 
-
-//-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-//{
-//    NSString *temp = [textView.text stringByReplacingCharactersInRange:range withString:text];
-//    NSInteger inputWordCount = temp.length;
-//    
-//    NSLog(@"~~~~~~~~~ %ld ~~~~~~~~~",inputWordCount);
-//    
-//    return YES;
-//}
 
 #pragma mark -ViewWillApear
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+    [_feedbackTextView resignFirstResponder];
 }
 
 -(void)didReceiveMemoryWarning

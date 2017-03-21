@@ -11,13 +11,28 @@
 #import "CreatorCoverModal.h"
 #import "CreatorTableViewCell.h"
 
-@interface CreatorTableView : UITableView<UITableViewDelegate, UITableViewDataSource>
+@protocol CreatorTableViewDelegate;
+
+@interface CreatorTableView : UITableView<UITableViewDelegate, UITableViewDataSource,CreatorTableViewCellDelegate>
 {
     UIView  * _sectionFooterView;
 }
+
+@property (weak, nonatomic) id<CreatorTableViewDelegate> delegateee;
 
 @property(retain, nonatomic)NSMutableArray  * creatorArray;
 
 -(void)setCreatorTableWithContent:(NSArray *)array;
 
 @end
+
+@protocol CreatorTableViewDelegate <NSObject>
+
+-(void)creatorTableViewTapWithIndex:(NSInteger )index;
+
+
+@end
+
+
+
+

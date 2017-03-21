@@ -125,13 +125,24 @@
             
             break;
             
-        case 2:
-            
+        case 2:            
+
             [_iconImgView setImage:[UIImage imageNamed:@"Setting_Clean"]];
             [_settingLabel setText:@"清理缓存"];
 
             [_cacheNumberLabel setHidden:NO];
-            [_cacheNumberLabel setText:[self getCacheDataContent]];
+
+            //无缓存
+            if ([[self getCacheDataContent] isEqualToString:@"0.00"]) {
+                
+                [_tapView setHidden:YES];
+                [_cacheNumberLabel setText:@"无缓存内容"];
+            }
+            else{
+                [_tapView setHidden:NO];
+                [_cacheNumberLabel setText:[NSString stringWithFormat:@"%@ MB",[self getCacheDataContent]]];
+            }
+            
             
             break;
             
@@ -206,7 +217,6 @@
 }
 
 
-
 -(NSString *)getCacheDataContent
 {
     int cacheSize = (int)[[SDImageCache sharedImageCache] getSize];
@@ -220,7 +230,7 @@
     if (sizeString.length >5) {
         sizeString = [sizeString substringToIndex:4];
     }
-    sizeString = [NSString stringWithFormat:@"%@ MB",sizeString];
+    sizeString = [NSString stringWithFormat:@"%@",sizeString];
     
     return sizeString;
 }

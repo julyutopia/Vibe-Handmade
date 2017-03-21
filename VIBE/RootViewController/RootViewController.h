@@ -33,6 +33,8 @@
 #import "SearchResultViewController.h"
 #import "SearchShowProductsViewController.h"
 
+#import "CreatorDetailViewController.h"
+
 #import "VibeSearchView.h"
 
 typedef enum
@@ -42,7 +44,7 @@ typedef enum
     discover_state = 2,     //探索发现页
 } Selected_Tab_State;
 
-@interface RootViewController : VibeViewController <UIScrollViewDelegate,RecommandTableViewDelegate, LUNSegmentedControlDataSource, LUNSegmentedControlDelegate, VibeSearchViewDelegate>
+@interface RootViewController : VibeViewController <UIScrollViewDelegate,RecommandTableViewDelegate, CreatorTableViewDelegate,LUNSegmentedControlDataSource, LUNSegmentedControlDelegate, VibeSearchViewDelegate>
 {    
     NSInteger             _selectedIndex;
     

@@ -22,8 +22,10 @@
         _backView = [[GLImageView alloc]initWithFrame:CGRectMake(10, 0, _viewWidth,_viewHeight)];
         [_backView.layer setMasksToBounds:YES];
         [_backView.layer setCornerRadius:4];
+        [_backView addTarget:self action:@selector(creatorCoverCellTap) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_backView];
 
+        
         _creatorImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, _viewWidth, _viewHeight)];
         [_creatorImgView setContentMode:UIViewContentModeScaleAspectFill];
         [_backView addSubview:_creatorImgView];
@@ -93,8 +95,11 @@
 }
 
 
--(void)setCreatorCellWithModal:(CreatorCoverModal *)modal
+-(void)setCreatorCellWithModal:(CreatorCoverModal *)modal WithIndex:(NSInteger)index
 {
+    _cellIndex = index;
+    
+    
     [_creatorImgView sd_setImageWithURL:[NSURL URLWithString:modal.creatorImgURL] placeholderImage:nil];
 
     NSString * creatorTitle = modal.creatorTitle;
@@ -122,6 +127,13 @@
     [_lookIcon setFrame:CGRectMake(showInfoWidth -favorCountWidth -4 -14 - 8 -lookCountWidth -4 -14, 2, 14, 14)];
 }
 
+
+-(void)creatorCoverCellTap
+{
+    if ([_delegate respondsToSelector:@selector(creatorCoverCellTapIndex:)]) {
+        [_delegate creatorCoverCellTapIndex:_cellIndex];
+    }
+}
 
 
 @end

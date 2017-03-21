@@ -10,8 +10,12 @@
 
 #import "CreatorCoverModal.h"
 
+@protocol CreatorTableViewCellDelegate;
+
 @interface CreatorTableViewCell : UITableViewCell
 {
+    NSInteger     _cellIndex;
+    
     float         _viewWidth;
     float         _viewHeight;
     
@@ -32,6 +36,18 @@
     UILabel             * _favorLabel;
 }
 
--(void)setCreatorCellWithModal:(CreatorCoverModal *)modal;
+@property (weak, nonatomic) id<CreatorTableViewCellDelegate> delegate;
+
+-(void)setCreatorCellWithModal:(CreatorCoverModal *)modal WithIndex:(NSInteger )index;
 
 @end
+
+@protocol CreatorTableViewCellDelegate <NSObject>
+
+-(void)creatorCoverCellTapIndex:(NSInteger )index;
+@end
+
+
+
+
+

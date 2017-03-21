@@ -52,17 +52,17 @@
 
     if ([type isEqualToString:@"text_Small"]) {
         
-        [self setCellTextLabelWithFont:[VibeFont fontWithName:Default_Font_Small size:12] Color:RGBA(91, 97, 118, 50) Text:content LineSpace:5.0];
+        [self setCellTextLabelWithFont:[VibeFont fontWithName:Default_Font_Small size:14] Color:RGBA(60, 77, 102, 100) Text:content LineSpace:4.0];
     }
     
     else if ([type isEqualToString:@"text_Middle"]) {
         
-        [self setCellTextLabelWithFont:[VibeFont fontWithName:Default_Font size:13] Color:RGBA(107, 114, 138, 70) Text:content  LineSpace:5.0];
+        [self setCellTextLabelWithFont:[VibeFont fontWithName:Default_Font size:14] Color:RGBA(107, 114, 138, 70) Text:content  LineSpace:4.0];
     }
     
     else if ([type isEqualToString:@"text_Bold"]) {
         
-        [self setCellTextLabelWithFont:[VibeFont fontWithName:Default_Font size:14] Color:RGBA(53, 64, 101, 50) Text:content  LineSpace:6.0];
+        [self setCellTextLabelWithFont:[VibeFont fontWithName:Default_Font size:16] Color:RGBA(53, 64, 101, 50) Text:content  LineSpace:5.0];
     }
     
 }

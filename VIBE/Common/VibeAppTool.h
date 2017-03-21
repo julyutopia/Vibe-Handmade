@@ -44,6 +44,10 @@
 //计算UILabel的高度(带有行间距的情况)
 -(CGFloat)getSpaceLabelHeight:(NSString*)str withFont:(UIFont*)font withWidth:(CGFloat)width withLineSpacing:(CGFloat )lineSpce;
 
+//判断是否开启推送通知
+-(BOOL)isNotificationOpen;
+
+
 @end
 
 

@@ -26,7 +26,13 @@
     [_backImgView setImage:[UIImage imageNamed:@"Mine_Background_Image"]];
     [self.view addSubview:_backImgView];
     
+    
+    _userAvatarBackImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+    [_userAvatarBackImgView setContentMode:UIViewContentModeScaleToFill];
+    [_userAvatarBackImgView setAlpha:0.0f];
+    [self.view addSubview:_userAvatarBackImgView];
 
+    
     UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     UIVisualEffectView * backView = [[UIVisualEffectView alloc]initWithFrame:self.view.frame];
     [backView setEffect:blurEffect];
@@ -57,7 +63,7 @@
     float tableBackViewHeight = (float)_headerViewOriginY/2;
     
     _tableBackView = [[UIView alloc]initWithFrame:CGRectMake(10, _headerViewOriginY +_headerViewHeight, kScreenWidth -20, kScreenHeight -_headerViewOriginY -_headerViewHeight -tableBackViewHeight)];
-    [_tableBackView setBackgroundColor:RGBA(255, 255, 255, 83)];
+    [_tableBackView setBackgroundColor:RGBA(255, 255, 255, 85)];
     [_contentBackView addSubview:_tableBackView];
     
     UIBezierPath *tableMaskPath = [UIBezierPath bezierPathWithRoundedRect:_tableBackView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(8, 8)];
@@ -146,17 +152,17 @@
     
     
     UIView  * avatarBackView = [[UIView alloc]initWithFrame:CGRectMake( (kScreenWidth -avatarWidth -4)/2, avatarOriginY -2, avatarWidth +4, avatarWidth +4)];
-     [avatarBackView setBackgroundColor:RGBA(255, 255, 255, 98)];
-    [avatarBackView.layer setCornerRadius:(avatarWidth +4)/2];
+     [avatarBackView setBackgroundColor:RGBA(255, 255, 255, 85)];
+    [avatarBackView.layer setCornerRadius:(avatarWidth +2)/2];
     [_contentBackView addSubview:avatarBackView];
     [avatarBackView.layer setShadowColor:RGBA(104, 104, 104, 50).CGColor];
     [avatarBackView.layer setShadowOffset:CGSizeMake(2, 2)];
-    [avatarBackView.layer setShadowOpacity:0.8];
-    [avatarBackView.layer setShadowRadius:3.0f];
+    [avatarBackView.layer setShadowOpacity:0.6];
+    [avatarBackView.layer setShadowRadius:4.0f];
     
     
     _avatarImgView = [[GLImageView alloc]initWithFrame:CGRectMake( (kScreenWidth -avatarWidth)/2, avatarOriginY, avatarWidth, avatarWidth)];
-    [_avatarImgView setContentMode:UIViewContentModeScaleToFill];
+    [_avatarImgView setContentMode:UIViewContentModeScaleAspectFill];
     [_avatarImgView.layer setCornerRadius:avatarWidth/2];
     [_avatarImgView.layer setMasksToBounds:YES];
     [_contentBackView addSubview:_avatarImgView];
@@ -431,13 +437,14 @@
 }
 
 
+#pragma mark -设置假数据
 -(void)setContentData
 {
     if (!_userProfileModal) {
         _userProfileModal = [[MineProfileModal alloc]init];
     }
     
-    [_userProfileModal setUserAvatarImgURL:@"http://img.xiami.net/images/artistlogo/37/14701379266237_2.jpg"];
+    [_userProfileModal setUserAvatarImgURL:@"https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1489653273&di=20dc18f337119f3036a5fd1482b42694&src=http://easyread.ph.126.net/pRj-9MtJUSNo0jnM-BDD3A==/7917043371407872049.jpg"];
     [_userProfileModal setUserName:@"里海Lihaii"];
     [_userProfileModal setUserDescribe:@"每个不曾起舞的日子，都是对生命的辜负"];
 
@@ -526,7 +533,21 @@
     [_favorTopicsArray addObject:topicModal2];
     [_favorTopicsArray addObject:topicModal3];
 
-    [_favorProductsTableView reloadData];    
+    [_favorProductsTableView reloadData];
+    
+    
+    
+    [_userAvatarBackImgView sd_setImageWithURL:[NSURL URLWithString:_userProfileModal.userAvatarImgURL] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+       
+        [UIView animateWithDuration:0.5f animations:^{
+            
+            [_backImgView setAlpha:0.0f];
+            [_userAvatarBackImgView setAlpha:1.0f];
+            
+        }];
+        
+    }];
+    
 }
 
 
@@ -580,11 +601,18 @@
 #pragma mark -点击‘更多设置’
 -(void)moreSettingDidTapIndex:(NSInteger)index
 {
+    //意见反馈
     if (index == 1) {
         FeedBackViewController * feedbackVC = [[FeedBackViewController alloc]init];
         [self.lcNavigationController pushViewController:feedbackVC];
     }
-
+    //清理缓存
+    if (index ==2) {
+        [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+            [_moreSettingView.settingTableView reloadData];
+            [FTIndicator showInfoWithMessage:@"已清空缓存内容" userInteractionEnable:NO];
+        }];
+    }
 }
 
 

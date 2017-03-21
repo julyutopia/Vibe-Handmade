@@ -25,11 +25,16 @@
 
 #import "FeedBackViewController.h"
 
+#import "CRToastConfig.h"
+
 @interface MineViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource, LUNSegmentedControlDataSource, LUNSegmentedControlDelegate, MineFavorProductTableViewCellDelegate, MineFavorTopicTableViewCellDelegate, MoreSettingViewDelegate>
 {
     MineProfileModal    * _userProfileModal;
     
     UIImageView         * _backImgView;
+    
+    //以用户头像作为毛玻璃背景
+    UIImageView         * _userAvatarBackImgView;
     
     //显示元素的背景View
     UIView              * _contentBackView;

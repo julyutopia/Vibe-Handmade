@@ -420,6 +420,11 @@
 #pragma mark -点击搜索关键字
 -(void)searchViewDidSearch:(NSString *)keyword
 {
+    //仅输入空格
+    if ([VibeAppTool isStringEmpty:keyword]) {
+        [FTIndicator showErrorWithMessage:@"搜索内容不能为空." userInteractionEnable:NO];
+        return;
+    }
     self.searchKeyword = keyword;
     [self.titleLabel setText:[NSString stringWithFormat:@"'%@'的搜索结果",self.searchKeyword]];
 }

@@ -32,12 +32,6 @@
     UIImageView         * _headerImgView;
     UIView              * _headerInfoView;
     GradientTagCloudView* _gradientTagView;
-
-    UIView              * _naviView;
-    UIView              * _blackBackBtnView;
-    
-    UIButton            * _favorBtn;
-    UIView              * _favorBtnView;
     
     
     UITableView         * _topicDetailTable;

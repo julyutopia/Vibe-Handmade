@@ -46,6 +46,7 @@
 		861A05D21D801DFF00D189F6 /* Navi_Cancle.png in Resources */ = {isa = PBXBuildFile; fileRef = 861A05D11D801DFF00D189F6 /* Navi_Cancle.png */; };
 		861E4ADE1E10C5C200964074 /* YUMixtureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 861E4ADB1E10C5C200964074 /* YUMixtureView.m */; };
 		861E4ADF1E10C5C200964074 /* YUSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 861E4ADD1E10C5C200964074 /* YUSegment.m */; };
+		861F46951E7A657A000D7FCC /* AboutVibeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861F46941E7A657A000D7FCC /* AboutVibeViewController.m */; };
 		8624205D1D5D88D600A3EEFF /* Category_Store_Title.png in Resources */ = {isa = PBXBuildFile; fileRef = 8624205C1D5D88D600A3EEFF /* Category_Store_Title.png */; };
 		862420611D5E00B900A3EEFF /* UIImageViewModeScaleAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = 862420601D5E00B900A3EEFF /* UIImageViewModeScaleAspect.m */; };
 		8627F49C1D6EDBFC00DDA80C /* LCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8627F49B1D6EDBFC00DDA80C /* LCNavigationController.m */; };
@@ -116,6 +117,10 @@
 		866FF8BD1D713CB5007E81CB /* Detail_Stock_Warn.png in Resources */ = {isa = PBXBuildFile; fileRef = 866FF8BC1D713CB5007E81CB /* Detail_Stock_Warn.png */; };
 		866FF8BF1D713D67007E81CB /* Detail_StockFull.png in Resources */ = {isa = PBXBuildFile; fileRef = 866FF8BE1D713D67007E81CB /* Detail_StockFull.png */; };
 		867062A31E4C8B2500820CFE /* MineFavorTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 867062A21E4C8B2500820CFE /* MineFavorTopicTableViewCell.m */; };
+		8672DEBA1E80DBF9009E2642 /* CreatorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8672DEB91E80DBF9009E2642 /* CreatorDetailViewController.m */; };
+		8672DEBF1E80E115009E2642 /* CreatorDetailModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 8672DEBE1E80E115009E2642 /* CreatorDetailModal.m */; };
+		8672DEC21E810C63009E2642 /* CreatorHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8672DEC11E810C63009E2642 /* CreatorHeaderTableViewCell.m */; };
+		8672DEC51E814DB4009E2642 /* CreatorTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8672DEC41E814DB4009E2642 /* CreatorTitleTableViewCell.m */; };
 		86730F911DA7D0150068AC65 /* VibeTopicModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 86730F901DA7D0150068AC65 /* VibeTopicModal.m */; };
 		867983AC1D72B3AD00F92BD8 /* Detail_Info_Title.png in Resources */ = {isa = PBXBuildFile; fileRef = 867983AB1D72B3AD00F92BD8 /* Detail_Info_Title.png */; };
 		867983B01D72C18700F92BD8 /* Detail_Add_Favor.png in Resources */ = {isa = PBXBuildFile; fileRef = 867983AD1D72C18700F92BD8 /* Detail_Add_Favor.png */; };
@@ -407,6 +412,8 @@
 		861E4ADB1E10C5C200964074 /* YUMixtureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YUMixtureView.m; path = "Third-Party/YUSegment/YUMixtureView.m"; sourceTree = "<group>"; };
 		861E4ADC1E10C5C200964074 /* YUSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YUSegment.h; path = "Third-Party/YUSegment/YUSegment.h"; sourceTree = "<group>"; };
 		861E4ADD1E10C5C200964074 /* YUSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YUSegment.m; path = "Third-Party/YUSegment/YUSegment.m"; sourceTree = "<group>"; };
+		861F46931E7A657A000D7FCC /* AboutVibeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutVibeViewController.h; path = Normal/About/AboutVibeViewController.h; sourceTree = "<group>"; };
+		861F46941E7A657A000D7FCC /* AboutVibeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutVibeViewController.m; path = Normal/About/AboutVibeViewController.m; sourceTree = "<group>"; };
 		8624205C1D5D88D600A3EEFF /* Category_Store_Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Category_Store_Title.png; path = Resource/Temp/Category_Store_Title.png; sourceTree = "<group>"; };
 		8624205F1D5E00B900A3EEFF /* UIImageViewModeScaleAspect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageViewModeScaleAspect.h; path = "Third-Party/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.h"; sourceTree = "<group>"; };
 		862420601D5E00B900A3EEFF /* UIImageViewModeScaleAspect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageViewModeScaleAspect.m; path = "Third-Party/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.m"; sourceTree = "<group>"; };
@@ -502,6 +509,14 @@
 		866FF8BE1D713D67007E81CB /* Detail_StockFull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Detail_StockFull.png; path = Resource/Temp/Detail_StockFull.png; sourceTree = "<group>"; };
 		867062A11E4C8B2500820CFE /* MineFavorTopicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineFavorTopicTableViewCell.h; path = Normal/Mine/View/MineFavorTopicTableViewCell.h; sourceTree = "<group>"; };
 		867062A21E4C8B2500820CFE /* MineFavorTopicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineFavorTopicTableViewCell.m; path = Normal/Mine/View/MineFavorTopicTableViewCell.m; sourceTree = "<group>"; };
+		8672DEB81E80DBF9009E2642 /* CreatorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatorDetailViewController.h; path = Normal/CreatorDetail/CreatorDetailViewController.h; sourceTree = "<group>"; };
+		8672DEB91E80DBF9009E2642 /* CreatorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatorDetailViewController.m; path = Normal/CreatorDetail/CreatorDetailViewController.m; sourceTree = "<group>"; };
+		8672DEBD1E80E115009E2642 /* CreatorDetailModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatorDetailModal.h; path = Normal/CreatorDetail/Modal/CreatorDetailModal.h; sourceTree = "<group>"; };
+		8672DEBE1E80E115009E2642 /* CreatorDetailModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatorDetailModal.m; path = Normal/CreatorDetail/Modal/CreatorDetailModal.m; sourceTree = "<group>"; };
+		8672DEC01E810C63009E2642 /* CreatorHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatorHeaderTableViewCell.h; path = Normal/CreatorDetail/View/CreatorHeaderTableViewCell.h; sourceTree = "<group>"; };
+		8672DEC11E810C63009E2642 /* CreatorHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatorHeaderTableViewCell.m; path = Normal/CreatorDetail/View/CreatorHeaderTableViewCell.m; sourceTree = "<group>"; };
+		8672DEC31E814DB4009E2642 /* CreatorTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatorTitleTableViewCell.h; path = Normal/CreatorDetail/View/CreatorTitleTableViewCell.h; sourceTree = "<group>"; };
+		8672DEC41E814DB4009E2642 /* CreatorTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatorTitleTableViewCell.m; path = Normal/CreatorDetail/View/CreatorTitleTableViewCell.m; sourceTree = "<group>"; };
 		86730F8F1DA7D0150068AC65 /* VibeTopicModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VibeTopicModal.h; path = RootViewController/Modal/VibeTopicModal.h; sourceTree = "<group>"; };
 		86730F901DA7D0150068AC65 /* VibeTopicModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VibeTopicModal.m; path = RootViewController/Modal/VibeTopicModal.m; sourceTree = "<group>"; };
 		867983AB1D72B3AD00F92BD8 /* Detail_Info_Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Detail_Info_Title.png; path = Resource/Temp/Detail_Info_Title.png; sourceTree = "<group>"; };
@@ -1059,6 +1074,8 @@
 		8617E7C11D52F50C00872EFE /* Normal */ = {
 			isa = PBXGroup;
 			children = (
+				8672DEB71E80DBE3009E2642 /* CreatorDetail */,
+				861F46921E7A6568000D7FCC /* About */,
 				86C598491E699E24007D613D /* Feedback */,
 				8682D3441E23585400F12541 /* MoreSetting */,
 				86B281351E1F9BCE007470ED /* SearchResult */,
@@ -1116,6 +1133,15 @@
 				861E4ADD1E10C5C200964074 /* YUSegment.m */,
 			);
 			name = YUSegment;
+			sourceTree = "<group>";
+		};
+		861F46921E7A6568000D7FCC /* About */ = {
+			isa = PBXGroup;
+			children = (
+				861F46931E7A657A000D7FCC /* AboutVibeViewController.h */,
+				861F46941E7A657A000D7FCC /* AboutVibeViewController.m */,
+			);
+			name = About;
 			sourceTree = "<group>";
 		};
 		8624205E1D5E00AE00A3EEFF /* UIImageViewModeScaleAspect */ = {
@@ -1193,6 +1219,37 @@
 			children = (
 			);
 			name = APCustomBlurView;
+			sourceTree = "<group>";
+		};
+		8672DEB71E80DBE3009E2642 /* CreatorDetail */ = {
+			isa = PBXGroup;
+			children = (
+				8672DEBB1E80E0CC009E2642 /* Modal */,
+				8672DEBC1E80E0D3009E2642 /* View */,
+				8672DEB81E80DBF9009E2642 /* CreatorDetailViewController.h */,
+				8672DEB91E80DBF9009E2642 /* CreatorDetailViewController.m */,
+			);
+			name = CreatorDetail;
+			sourceTree = "<group>";
+		};
+		8672DEBB1E80E0CC009E2642 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				8672DEBD1E80E115009E2642 /* CreatorDetailModal.h */,
+				8672DEBE1E80E115009E2642 /* CreatorDetailModal.m */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
+		8672DEBC1E80E0D3009E2642 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8672DEC01E810C63009E2642 /* CreatorHeaderTableViewCell.h */,
+				8672DEC11E810C63009E2642 /* CreatorHeaderTableViewCell.m */,
+				8672DEC31E814DB4009E2642 /* CreatorTitleTableViewCell.h */,
+				8672DEC41E814DB4009E2642 /* CreatorTitleTableViewCell.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		868086151D577CAF00B5445D /* Font */ = {
@@ -2398,6 +2455,7 @@
 				86F8719E1E487C7B00207EB6 /* NewProductDetailViewController.m in Sources */,
 				86BF43A51D519E4F00CD74AD /* WPTappableLabel.m in Sources */,
 				86BF43AE1D519E6400CD74AD /* TTTAttributedLabel.m in Sources */,
+				8672DEBF1E80E115009E2642 /* CreatorDetailModal.m in Sources */,
 				86E627891DB2731D002AAE7A /* QBCheckmarkView.m in Sources */,
 				86730F911DA7D0150068AC65 /* VibeTopicModal.m in Sources */,
 				86E53CFB1DAF57E80093B168 /* DiscoverHotTagTableViewCell.m in Sources */,
@@ -2406,6 +2464,7 @@
 				8684B8C41E14AA87009E0DD5 /* VibeSearchView.m in Sources */,
 				86FEAF631E3474AC00C43720 /* SearchTopicRoundHeaderTableViewCell.m in Sources */,
 				8617E7C01D52EC0C00872EFE /* UIImage+BoxBlur.m in Sources */,
+				8672DEC21E810C63009E2642 /* CreatorHeaderTableViewCell.m in Sources */,
 				86E6278B1DB2731D002AAE7A /* QBVideoIndicatorView.m in Sources */,
 				86AB16071DACCC71001615A6 /* RecommandBannerTableViewCell.m in Sources */,
 				86464BC71E078358004CA5DF /* TopicDetailViewController.m in Sources */,
@@ -2422,6 +2481,7 @@
 				86AB160B1DACCC71001615A6 /* RecommandTableView.m in Sources */,
 				86D5C0931E24C99D0020A41D /* MoreSettingTableViewCell.m in Sources */,
 				8617E7CA1D52F5A100872EFE /* CategoryViewController.m in Sources */,
+				8672DEBA1E80DBF9009E2642 /* CreatorDetailViewController.m in Sources */,
 				868F59E01DB48D2000C3832D /* AnimatedGradientView.m in Sources */,
 				86E627671DB21BEC002AAE7A /* AnimatedGIFImageSerialization.m in Sources */,
 				864A72791D5C645700D3D3F2 /* CategoryStoreModal.m in Sources */,
@@ -2430,6 +2490,7 @@
 				86BF43971D519E4200CD74AD /* WTRequestCenter.m in Sources */,
 				86CD97861D70395000023003 /* JGInfiniteScrollView.m in Sources */,
 				86B727421D51D77700BAB734 /* RNFrostedSidebar.m in Sources */,
+				861F46951E7A657A000D7FCC /* AboutVibeViewController.m in Sources */,
 				86BF43C71D519E8400CD74AD /* ODRefreshControl.m in Sources */,
 				86ABE36D1D7EB998009DCABD /* UIImage+TDAdditions.m in Sources */,
 				86E6278F1DB2731D002AAE7A /* SimpleImagePreviewView.m in Sources */,
@@ -2491,6 +2552,7 @@
 				86DA9F511E0CE4A000AAD206 /* TopicDetailBottomTableViewCell.m in Sources */,
 				86DA9F581E0D1E6F00AAD206 /* VIPhotoView.m in Sources */,
 				864A72751D5C641E00D3D3F2 /* CategoryStoreTableViewCell.m in Sources */,
+				8672DEC51E814DB4009E2642 /* CreatorTitleTableViewCell.m in Sources */,
 				86AB161E1DACCF8E001615A6 /* RecommandCategoryModal.m in Sources */,
 				86ABE3701D7EB9F1009DCABD /* AllCategoryTableViewCell.m in Sources */,
 				864967921E126A7E00C3A4FD /* CategoryListFilterView.m in Sources */,
