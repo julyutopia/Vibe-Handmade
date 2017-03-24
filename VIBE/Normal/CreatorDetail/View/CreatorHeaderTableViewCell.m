@@ -20,6 +20,7 @@
         
         _headerImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, headerHeight)];
         [_headerImgView setBackgroundColor:[UIColor redColor]];
+        [_headerImgView.layer setMasksToBounds:YES];
         [_headerImgView setContentMode:UIViewContentModeScaleAspectFill];
         [self addSubview:_headerImgView];
     }

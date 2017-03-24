@@ -12,7 +12,11 @@
 
 @interface CreatorTitleTableViewCell : UITableViewCell
 {
+    UIView          * _backView;
+    
     UILabel         * _titleLabel;//专题名
+    
+    UIView          * _showInfoView;
     
     UIImageView     * _shopImgView;
     UILabel         * _shopLabel;//店铺名字

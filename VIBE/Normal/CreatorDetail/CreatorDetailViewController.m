@@ -19,6 +19,9 @@
     [super viewDidLoad];
     
     
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    
+    
     _creatorDetailTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     [_creatorDetailTable setBackgroundView:nil];
     [_creatorDetailTable setBackgroundColor:[UIColor clearColor]];
@@ -63,6 +66,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //封图
     if (indexPath.section == 0) {
         
         NSString * identifier = @"CreatorHeaderTableViewCellIdentifier";
@@ -78,7 +82,21 @@
         return cell;
     }
     
+    //标题
     if (indexPath.section == 1) {
+        
+        NSString * identifier = @"CreatorTitleTableViewCellIdentifier";
+        CreatorTitleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil) {
+            cell = [[CreatorTitleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell setBackgroundView:nil];
+            [cell setBackgroundColor:[UIColor clearColor]];
+        }
+        
+        [cell setCreatorDetailTitleCellWithModal:_creatorModal];
+        
+        return cell;
         
     }
     
@@ -95,15 +113,27 @@
 }
 
 
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     if (indexPath.section == 0) {
         
         float headerHeight = kScreenWidth/16 *9;
         return headerHeight;
     }
+    
+    
+    if (indexPath.section == 1) {
+        
+        float titleHeight = [_creatorModal.creatorTitle getSizeWithLimitSize:CGSizeMake(kScreenWidth -30, 100) withFont:[VibeFont fontWithName:Default_Font_Middle size:16]].height;
+        
+//        float shopHeight = [_creatorModal.creatorShopName getSizeWithLimitSize:CGSizeMake(200, 20) withFont:[VibeFont fontWithName:Default_Font_Middle size:13]].height;
+        
+        float showInfoViewHeight = 15;
+
+        return 20 +titleHeight +15 +showInfoViewHeight +20;
+    }
+    
+    
     
     return 0;
 }
@@ -116,20 +146,8 @@
 {
     CreatorDetailModal * modal = [[CreatorDetailModal alloc]init];
     
-//    @property (nonatomic, copy) NSString * creatorTitle;        //标题
-//    @property (nonatomic, copy) NSNumber * creatorID;           //id
-//    @property (nonatomic, assign)NSInteger creatorOpenType;     //打开类型
-//    @property (nonatomic, copy) NSString * creatorImgURL;       //图片地址
-//    @property (nonatomic, copy) NSString * creatorShopName;     //店铺名字
-//    @property (nonatomic, copy) NSNumber * creatorLookedNumber; //已查看专题人数
-//    @property (nonatomic, copy) NSNumber * creatorFavorNumber;  //已喜欢专题人数
-//    @property (nonatomic, copy) NSNumber * creatorDetailIsUserFavored;//用户是否已收藏该专题
-//    @property (nonatomic, copy) NSArray  * creatorDetailInfoArray;//详情的图文混排
-//    @property (nonatomic, copy) NSArray  * creatorRelatedProductArray;//专题相关的产品
-//    @property (nonatomic, copy) NSArray  * creatorDetailBottomInfoArray;//专题底部的图片信息
-    
     modal.creatorTitle = @"灵性能量手工饰品，连接天地间的语言祈祷及祝愿";
-    modal.creatorImgURL = @"http://oih52ss9e.bkt.clouddn.com/Bohemian-jewelry-16.jpg";
+    modal.creatorImgURL = @"http://oih52ss9e.bkt.clouddn.com/Bohemian-jewelry-15.jpg";
     modal.creatorShopName = @"香巴拉Creation";
     
     modal.creatorLookedNumber = [NSNumber numberWithInteger:1504];
@@ -160,6 +178,8 @@
     _creatorModal = modal;
     
     [_creatorDetailTable reloadData];
+
+
 }
 
 

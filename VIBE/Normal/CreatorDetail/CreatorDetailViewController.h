@@ -11,6 +11,7 @@
 #import "CreatorDetailModal.h"
 
 #import "CreatorHeaderTableViewCell.h"
+#import "CreatorTitleTableViewCell.h"
 
 @interface CreatorDetailViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource>
 {

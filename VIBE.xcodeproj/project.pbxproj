@@ -130,6 +130,8 @@
 		867A3A9D1DB384B7007C6CA7 /* Navi_Cancle_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 867A3A9B1DB384B7007C6CA7 /* Navi_Cancle_White.png */; };
 		86805DF91E49973300FCAF61 /* ProductDetailTagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86805DF81E49973300FCAF61 /* ProductDetailTagTableViewCell.m */; };
 		86805DFB1E49B64400FCAF61 /* Product_Describ.png in Resources */ = {isa = PBXBuildFile; fileRef = 86805DFA1E49B64400FCAF61 /* Product_Describ.png */; };
+		868298F01E8259FC00AE24B1 /* Creator_Top_Shop.png in Resources */ = {isa = PBXBuildFile; fileRef = 868298EF1E8259FC00AE24B1 /* Creator_Top_Shop.png */; };
+		868298F21E826C8B00AE24B1 /* Creator_Detail_Like.png in Resources */ = {isa = PBXBuildFile; fileRef = 868298F11E826C8B00AE24B1 /* Creator_Detail_Like.png */; };
 		8682D32A1E20929B00F12541 /* Search_Result_Products.png in Resources */ = {isa = PBXBuildFile; fileRef = 8682D3281E20929B00F12541 /* Search_Result_Products.png */; };
 		8682D32B1E20929B00F12541 /* Search_Result_Topic.png in Resources */ = {isa = PBXBuildFile; fileRef = 8682D3291E20929B00F12541 /* Search_Result_Topic.png */; };
 		8682D32E1E20932000F12541 /* Search_Result_Products_All.png in Resources */ = {isa = PBXBuildFile; fileRef = 8682D32C1E20932000F12541 /* Search_Result_Products_All.png */; };
@@ -335,6 +337,7 @@
 		86FE74D91E1A4DDE00C9AC15 /* Search_Delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FE74D81E1A4DDE00C9AC15 /* Search_Delete.png */; };
 		86FEAF601E3469CF00C43720 /* SearchShowTopicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FEAF5F1E3469CF00C43720 /* SearchShowTopicsViewController.m */; };
 		86FEAF631E3474AC00C43720 /* SearchTopicRoundHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FEAF621E3474AC00C43720 /* SearchTopicRoundHeaderTableViewCell.m */; };
+		86FEF2C61E84CAF900CFF8D2 /* CreatorInfoShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FEF2C51E84CAF900CFF8D2 /* CreatorInfoShowTableViewCell.m */; };
 		B13CE9842A808EC893F1C6EF /* libPods-VIBETests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E2570324716123D31B88D5 /* libPods-VIBETests.a */; };
 		B24AB7C8B03A9E20BFAF1874 /* libPods-VIBEUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9093AB3D28E066BB01208E30 /* libPods-VIBEUITests.a */; };
 		FCA8B19C1B005C869587C65E /* libPods-VIBE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8EC6D55303F8C612395B80 /* libPods-VIBE.a */; };
@@ -530,6 +533,8 @@
 		86805DFA1E49B64400FCAF61 /* Product_Describ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Product_Describ.png; path = Resource/Icons/Product_Describ.png; sourceTree = "<group>"; };
 		868086161D577CD800B5445D /* HYQiHei-45S.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HYQiHei-45S.otf"; path = "Resource/Font/HYQiHei-45S.otf"; sourceTree = "<group>"; };
 		868086171D577CD800B5445D /* HYQiHei-70S.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HYQiHei-70S.otf"; path = "Resource/Font/HYQiHei-70S.otf"; sourceTree = "<group>"; };
+		868298EF1E8259FC00AE24B1 /* Creator_Top_Shop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Creator_Top_Shop.png; path = Resource/Icons/Creator_Top_Shop.png; sourceTree = "<group>"; };
+		868298F11E826C8B00AE24B1 /* Creator_Detail_Like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Creator_Detail_Like.png; path = Resource/Icons/Creator_Detail_Like.png; sourceTree = "<group>"; };
 		8682D3281E20929B00F12541 /* Search_Result_Products.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Search_Result_Products.png; path = Resource/Icons/Search_Result_Products.png; sourceTree = "<group>"; };
 		8682D3291E20929B00F12541 /* Search_Result_Topic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Search_Result_Topic.png; path = Resource/Icons/Search_Result_Topic.png; sourceTree = "<group>"; };
 		8682D32C1E20932000F12541 /* Search_Result_Products_All.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Search_Result_Products_All.png; path = Resource/Icons/Search_Result_Products_All.png; sourceTree = "<group>"; };
@@ -838,6 +843,8 @@
 		86FEAF5F1E3469CF00C43720 /* SearchShowTopicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchShowTopicsViewController.m; path = Normal/SearchResult/SearchShowTopicsViewController.m; sourceTree = "<group>"; };
 		86FEAF611E3474AC00C43720 /* SearchTopicRoundHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTopicRoundHeaderTableViewCell.h; path = Normal/SearchResult/View/SearchTopicRoundHeaderTableViewCell.h; sourceTree = "<group>"; };
 		86FEAF621E3474AC00C43720 /* SearchTopicRoundHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTopicRoundHeaderTableViewCell.m; path = Normal/SearchResult/View/SearchTopicRoundHeaderTableViewCell.m; sourceTree = "<group>"; };
+		86FEF2C41E84CAF900CFF8D2 /* CreatorInfoShowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatorInfoShowTableViewCell.h; path = Normal/CreatorDetail/View/CreatorInfoShowTableViewCell.h; sourceTree = "<group>"; };
+		86FEF2C51E84CAF900CFF8D2 /* CreatorInfoShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatorInfoShowTableViewCell.m; path = Normal/CreatorDetail/View/CreatorInfoShowTableViewCell.m; sourceTree = "<group>"; };
 		9093AB3D28E066BB01208E30 /* libPods-VIBEUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VIBEUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E2570324716123D31B88D5 /* libPods-VIBETests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VIBETests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9905D5CC39D555B171B7607F /* Pods-VIBETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIBETests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VIBETests/Pods-VIBETests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1248,6 +1255,8 @@
 				8672DEC11E810C63009E2642 /* CreatorHeaderTableViewCell.m */,
 				8672DEC31E814DB4009E2642 /* CreatorTitleTableViewCell.h */,
 				8672DEC41E814DB4009E2642 /* CreatorTitleTableViewCell.m */,
+				86FEF2C41E84CAF900CFF8D2 /* CreatorInfoShowTableViewCell.h */,
+				86FEF2C51E84CAF900CFF8D2 /* CreatorInfoShowTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1287,6 +1296,8 @@
 		868BC1161DA642790024A6D9 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				868298F11E826C8B00AE24B1 /* Creator_Detail_Like.png */,
+				868298EF1E8259FC00AE24B1 /* Creator_Top_Shop.png */,
 				862980E01E76A8BB00868913 /* FeedBack_Highlighted.png */,
 				862980E11E76A8BB00868913 /* FeedBack.png */,
 				8637F8351E4B500C0017D6E6 /* Profile_Favor_Product_Selected.png */,
@@ -2150,6 +2161,7 @@
 				86EB9F7E1DB5E52800E2FE73 /* HUD_info@2x.png in Resources */,
 				862980E21E76A8BB00868913 /* FeedBack_Highlighted.png in Resources */,
 				865E4AAF1D8152CE00B06020 /* Log_In.png in Resources */,
+				868298F21E826C8B00AE24B1 /* Creator_Detail_Like.png in Resources */,
 				8682D3431E233CB500F12541 /* More_Setting.png in Resources */,
 				865E4AB31D8160CC00B06020 /* Log_In_Wechat_HightLight.png in Resources */,
 				86D159811D5B0CD8001D31C1 /* VIBE_Icon_White.png in Resources */,
@@ -2258,6 +2270,7 @@
 				8618C83C1DB75B90008657C3 /* WebView_Back_Normal.png in Resources */,
 				866FF8BD1D713CB5007E81CB /* Detail_Stock_Warn.png in Resources */,
 				865E4AAB1D811CE800B06020 /* HYQiHei-55S.otf in Resources */,
+				868298F01E8259FC00AE24B1 /* Creator_Top_Shop.png in Resources */,
 				865188A01E0A3CF4006C3D50 /* Topic_Detail_Related_Header.png in Resources */,
 				8662273D1D740B85004D7293 /* Detail_Guess.png in Resources */,
 				8682D32E1E20932000F12541 /* Search_Result_Products_All.png in Resources */,
@@ -2480,6 +2493,7 @@
 				8600CAEC1DE5A48300866B87 /* ProductDetailShowTableViewCell.m in Sources */,
 				86AB160B1DACCC71001615A6 /* RecommandTableView.m in Sources */,
 				86D5C0931E24C99D0020A41D /* MoreSettingTableViewCell.m in Sources */,
+				86FEF2C61E84CAF900CFF8D2 /* CreatorInfoShowTableViewCell.m in Sources */,
 				8617E7CA1D52F5A100872EFE /* CategoryViewController.m in Sources */,
 				8672DEBA1E80DBF9009E2642 /* CreatorDetailViewController.m in Sources */,
 				868F59E01DB48D2000C3832D /* AnimatedGradientView.m in Sources */,
