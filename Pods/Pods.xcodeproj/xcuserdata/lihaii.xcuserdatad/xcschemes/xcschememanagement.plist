@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BlurImageProcessor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CRToast.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,11 +92,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>15D4C728571F50DBF4007511DC59E69D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1892B25542ECBFA387BA69130472B9B3</key>
 		<dict>
 			<key>primary</key>
@@ -112,12 +112,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>397E7209C0F41400C1A7AA32596D9ACF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5358BC236D3180756737BB864431FF58</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>67BD6232A3C0738CAD4A5F16075E2749</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7112751ACED56349A420B879DDAD76F8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>740FAF7834248E6CC589A38E2972D5E3</key>
+		<key>7D9F59ED21C8DCB3FED1AEC786874834</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,17 +147,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8C7C08EEFCAA7783FA907A727B0AB405</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>A2F42495C54C7D7A2FD8BCDDAB8B5E00</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C45FE9A88F4DC64224E7B1FBD7BD8C01</key>
+		<key>A47D185A9451BA2DABFA06D959FA73C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,12 +167,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EBC658C769664E0DAA6252817BC98242</key>
+		<key>F5899009DB76D698EE1F2FFAE346369F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE38033A61536F9F3E7754C9021C7061</key>
+		<key>FFD72A1B34FE07FC324F1922CFB0A774</key>
 		<dict>
 			<key>primary</key>
 			<true/>

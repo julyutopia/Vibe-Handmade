@@ -58,9 +58,9 @@ typedef enum
     UIButton            * _profileBtn;
     UIButton            * _searchBtn;
     
-//    UIView              * _naviBackView;
-    
     VibeSearchView      * _searchView;
+    
+    UIView              * _backgroundView;
     
     UIView              * _recommandLayerView;
     UIView              * _creatorLayerView;

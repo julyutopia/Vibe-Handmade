@@ -20,6 +20,34 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AVOSCloud (4.0.0)
+  - AVOSCloudCrashReporting (4.0.0):
+    - AVOSCloud (= 4.0.0)
+    - AVOSCloudCrashReporting/_ARC (= 4.0.0)
+    - AVOSCloudCrashReporting/_NOARC (= 4.0.0)
+  - AVOSCloudCrashReporting/_ARC (4.0.0):
+    - AVOSCloud (= 4.0.0)
+    - AVOSCloudCrashReporting/_NOARC (= 4.0.0)
+  - AVOSCloudCrashReporting/_NOARC (4.0.0):
+    - AVOSCloud (= 4.0.0)
+  - AVOSCloudIM (4.0.0):
+    - AVOSCloud (= 4.0.0)
+    - AVOSCloudIM/_ARC (= 4.0.0)
+    - AVOSCloudIM/_NOARC (= 4.0.0)
+  - AVOSCloudIM/_ARC (4.0.0):
+    - AVOSCloud (= 4.0.0)
+    - AVOSCloudIM/_NOARC (= 4.0.0)
+  - AVOSCloudIM/_NOARC (4.0.0):
+    - AVOSCloud (= 4.0.0)
+  - BlurImageProcessor (1.0.0)
+  - CRToast (0.0.9)
+  - FTIndicator (1.1.9):
+    - FTIndicator/FTNotificationIndicator (= 1.1.9)
+    - FTIndicator/FTProgressIndicator (= 1.1.9)
+    - FTIndicator/FTToastIndicator (= 1.1.9)
+  - FTIndicator/FTNotificationIndicator (1.1.9)
+  - FTIndicator/FTProgressIndicator (1.1.9)
+  - FTIndicator/FTToastIndicator (1.1.9)
   - JSONModel (1.7.0)
   - LUNSegmentedControl (1.0.7)
   - pop (1.0.9)
@@ -32,6 +60,12 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (= 2.5.0)
+  - AVOSCloud
+  - AVOSCloudCrashReporting
+  - AVOSCloudIM
+  - BlurImageProcessor
+  - CRToast (~> 0.0.7)
+  - FTIndicator
   - JSONModel
   - LUNSegmentedControl
   - pop
@@ -42,6 +76,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 96ac9bf3eda33582701cb1fcc5b896aa1e20311e
+  AVOSCloud: 77ff5c0695c09356b55fa52aa409f06a9cf6144a
+  AVOSCloudCrashReporting: 42fc8761f9fbe07d9cd4dc8e7b3b42f0768bc37b
+  AVOSCloudIM: 799cedd7c16be4e4372d29ae680106228d47288f
+  BlurImageProcessor: a4794ad3128748dbff8b40ae43ce9386d3667bba
+  CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
+  FTIndicator: 720f0e194a1d1529eb00e3ef9ac407e985917e46
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   LUNSegmentedControl: f868b1ea740f9917f05dbcb4cded85c33ec606e6
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
@@ -50,6 +90,6 @@ SPEC CHECKSUMS:
   SFFocusViewLayout: bb580b208a791c075f9e0f7021dd961e8c4cfaf7
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: 41a655be42abf8378f282bbc805c45718e46ee62
+PODFILE CHECKSUM: abfd249e086253cc77150232ea696f63f6716934
 
 COCOAPODS: 1.0.1

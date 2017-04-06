@@ -47,6 +47,11 @@
 		<string>HYQiHei-70S.otf</string>
 		<string>HYQiHeiX1-45W.otf</string>
 		<string>HYQiHeiY1-45W.otf</string>
+		<string>Dosis-Light.ttf</string>
+		<string>Dosis-Medium.ttf</string>
+		<string>Dosis-Regular.ttf</string>
+		<string>Dosis-SemiBold.ttf</string>
+		<string>MFYaYuan_Noncommercial-Regular.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

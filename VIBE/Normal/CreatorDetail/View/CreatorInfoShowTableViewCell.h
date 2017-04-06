@@ -19,7 +19,6 @@
     float      _lastCellHeight;
 }
 
-
 @property(assign, nonatomic) BOOL didLoadImage;
 
 @property(assign, nonatomic) CGFloat imageHeight;

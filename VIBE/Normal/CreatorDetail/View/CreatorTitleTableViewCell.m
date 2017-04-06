@@ -85,15 +85,12 @@
     
     float titleHeight = [detailTitle getSizeWithLimitSize:CGSizeMake(kScreenWidth -30, 200) withFont:_titleLabel.font].height +1;
     
-    
     float showInfoViewHeight = 15;
     
+    [_backView setFrame:CGRectMake(0, 0, kScreenWidth, 20 +titleHeight +15 +showInfoViewHeight +20 +20)];
     
-    [_backView setFrame:CGRectMake(0, 0, kScreenWidth, 20 +titleHeight +15 +showInfoViewHeight +20)];
-    
-    [_seprateLineView setFrame:CGRectMake(15, _backView.frame.size.height -2, kScreenWidth -30, 2)];
+    [_seprateLineView setFrame:CGRectMake(15, _backView.frame.size.height -20 -2, kScreenWidth -30, 2)];
     [_seprateLineView.layer setCornerRadius:1.0f];
-    
     
     [_titleLabel setFrame:CGRectMake(15 , 20, kScreenWidth -30, titleHeight)];
     [_titleLabel setText:detailTitle];

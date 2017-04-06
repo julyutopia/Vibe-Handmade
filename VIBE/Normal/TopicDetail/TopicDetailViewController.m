@@ -273,6 +273,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0 && _topicModal.topicDetailInfoArray.count) {
+       
         NSDictionary * dict = [_topicModal.topicDetailInfoArray objectAtIndex:indexPath.row];
         
         NSString * type = [NSString stringWithFormat:@"%@",[dict objectForKey:@"type"]];

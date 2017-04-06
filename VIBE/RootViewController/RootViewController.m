@@ -35,6 +35,12 @@
 //    [viewwwwww setBackgroundColor:DefaultBackgroundColor];
 //    [self.view addSubview:viewwwwww];
     
+    
+//    _backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+//    [_backgroundView setBackgroundColor:RGBA(255, 255, 255, 90)];
+//    [self.view addSubview:_backgroundView];
+    
+    
     _rootScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     [_rootScrollView setBackgroundColor:[UIColor clearColor]];
     [_rootScrollView setPagingEnabled:YES];

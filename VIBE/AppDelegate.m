@@ -15,7 +15,7 @@
 
 @implementation AppDelegate
 
-@synthesize rootVC;
+@synthesize mainVC;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -26,35 +26,16 @@
     
     UIView * viewwwww = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     [viewwwww setBackgroundColor:RGBA(0, 0, 0, 95)];
-//    CAGradientLayer * gradientLayer = [CAGradientLayer layer];  // 设置渐变效果
-//    gradientLayer.bounds = viewwwww.bounds;
-//    gradientLayer.borderWidth = 0;
-//    
-//    gradientLayer.frame = viewwwww.bounds;
-//    gradientLayer.colors = [NSArray arrayWithObjects:
-//                            (id)[RGBA(2, 255, 211, 40) CGColor],
-//                            (id)[RGBA(68, 201, 255, 60) CGColor],
-//                            (id)[RGBA(255, 137, 254, 60) CGColor],
-//                            (id)[RGBA(190, 75, 255, 70) CGColor],nil];
-//    
-//    gradientLayer.locations  = @[@(0.25), @(0.5), @(0.75)];
-//    
-//    
-//    gradientLayer.startPoint = CGPointMake(0, 0);
-//    gradientLayer.endPoint = CGPointMake(0, 1.0);
-//    
-//    [viewwwww.layer insertSublayer:gradientLayer atIndex:0];
-
     
     [self.window addSubview:viewwwww];
     
     [self.window makeKeyAndVisible];
     
     
-    _rootVC = [[RootViewController alloc] init];
-    LCNavigationController * homeNavVC = [[LCNavigationController alloc] initWithRootViewController:_rootVC];
+    _mainVC = [[MainViewController alloc] init];
+    LCNavigationController * homeNavVC = [[LCNavigationController alloc] initWithRootViewController:_mainVC];
     
-    _rootVC.navigationController.navigationBarHidden = YES;
+    _mainVC.navigationController.navigationBarHidden = YES;
     
     self.window.rootViewController = homeNavVC;
 
@@ -75,8 +56,93 @@
 //    }
     
     
+    [self initRecommandViewData];
+    
+    
     return YES;
 }
+
+
+#pragma mark -设置推荐页假数据
+-(void)initRecommandViewData
+{
+    
+    //推荐Banner
+    self.recommandTopArray = [[NSMutableArray alloc]init];
+    
+    RecommandTopViewModal * bannerModal1 = [[RecommandTopViewModal alloc]init];
+    [bannerModal1 setImgURL:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491422054798&di=4a5d3254657fdcd6864c477be282f3d1&imgtype=0&src=http%3A%2F%2Fh7.86.cc%2Fwalls%2F20150721%2F1440x900_d19e4e0b7a2f164.jpg"];
+    [self.recommandTopArray addObject:bannerModal1];
+    
+    RecommandTopViewModal * bannerModal2 = [[RecommandTopViewModal alloc]init];
+    [bannerModal2 setImgURL:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491422068672&di=a643c042cc0edce2815ebffeffc9cbab&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1112%2F28%2Fc11%2F10084076_10084076_1325087736046.jpg"];
+    [self.recommandTopArray addObject:bannerModal2];
+    
+    RecommandTopViewModal * bannerModal3 = [[RecommandTopViewModal alloc]init];
+    [bannerModal3 setImgURL:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491422070248&di=23ef40411ca0e7ef2f922fa95714db5c&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fblog%2F201402%2F14%2F20140214221100_hJszJ.jpeg"];
+    [self.recommandTopArray addObject:bannerModal3];
+
+    RecommandTopViewModal * bannerModal4 = [[RecommandTopViewModal alloc]init];
+    [bannerModal4 setImgURL:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491422145232&di=0cb83ea0d38b4a1be0563c89e33fe7f0&imgtype=0&src=http%3A%2F%2Ffile.youboy.com%2Fa%2F99%2F40%2F34%2F2%2F10043032.jpg"];
+    [self.recommandTopArray addObject:bannerModal4];
+  
+    
+    //推荐分类
+    self.recommandCateArray = [[NSMutableArray alloc]init];
+    
+    for (int i =1; i <11; i ++) {
+        
+        RecommandCateModal * catemodal = [[RecommandCateModal alloc]init];
+        NSString * imgUrl = [NSString stringWithFormat:@"http://oih52ss9e.bkt.clouddn.com/Cate%d.png",i];
+        [catemodal setCategoryImgURL:imgUrl];
+        [self.recommandCateArray addObject:catemodal];
+    }
+    
+    
+    //为你而选
+    self.recommnadPickModal = [[RecommandItemModal alloc]init];
+    [self.recommnadPickModal setProductInfoTitle:@"新品上架"];
+    [self.recommnadPickModal setProductTitle:@"波西米亚印花连体裤"];
+    [self.recommnadPickModal setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Recommand_Pick.jpg"];
+    
+    
+    //推荐产品
+    RecommandItemModal * productModal1 = [[RecommandItemModal alloc]init];
+    [productModal1 setProductTitle:@"进口手工Kilim地毯"];
+    [productModal1 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item1.jpg"];
+    [productModal1 setProductPrice:@"1380"];
+    
+    RecommandItemModal * productModal2 = [[RecommandItemModal alloc]init];
+    [productModal2 setProductTitle:@"植物蓝染小外套"];
+    [productModal2 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item2.jpg"];
+    [productModal2 setProductPrice:@"216"];
+    
+    RecommandItemModal * productModal3 = [[RecommandItemModal alloc]init];
+    [productModal3 setProductTitle:@"北非全手工编织篮"];
+    [productModal3 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item3.jpg"];
+    [productModal3 setProductPrice:@"500"];
+
+    RecommandItemModal * productModal4 = [[RecommandItemModal alloc]init];
+    [productModal4 setProductTitle:@"手工实木砧板"];
+    [productModal4 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item4.png"];
+    [productModal4 setProductPrice:@"260"];
+    
+    RecommandItemModal * productModal5 = [[RecommandItemModal alloc]init];
+    [productModal5 setProductTitle:@"南美macrame项链"];
+    [productModal5 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item5.jpg"];
+    [productModal5 setProductPrice:@"520"];
+    
+    RecommandItemModal * productModal6 = [[RecommandItemModal alloc]init];
+    [productModal6 setProductTitle:@"墨西哥民族毛毯"];
+    [productModal6 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item6.jpg"];
+    [productModal6 setProductPrice:@"768"];
+    
+    self.recommandItemsArray = [[NSMutableArray alloc]initWithObjects:productModal1,productModal2,
+                                                                    productModal3,productModal4,
+                                                                    productModal5,productModal6,nil];
+}
+
+
 
 
 +(AppDelegate *)sharedAppDelegate

@@ -21,8 +21,8 @@
     
     if (!self.hiddenBackView) {
         blackView = [[UIView alloc]initWithFrame:touch.view.bounds];
-        blackView.backgroundColor = [UIColor blackColor];
-        blackView.alpha = 0.1;
+        blackView.backgroundColor = [UIColor whiteColor];
+        blackView.alpha = 0.35;
         blackView.tag = 1000;
         [touch.view addSubview:blackView];        
     }
@@ -68,10 +68,10 @@
     limitMultiple = NO;
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (blackView) {
-            [blackView  removeFromSuperview];
-            blackView = nil;
-        }
+//        if (blackView) {
+//            [blackView  removeFromSuperview];
+//            blackView = nil;
+//        }
     });
     limitMultiple = NO;
 }

@@ -277,7 +277,7 @@
 -(void)recommandBannerCellTapIndex:(NSInteger)index
 {
     if ([_delegateee respondsToSelector:@selector(recommandTableDidClickBannerWithIndex:)]) {
-        [_delegateee recommandTableDidClickBannerWithIndex:index];
+//        [_delegateee recommandTableDidClickBannerWithIndex:index];
     }
 }
 
@@ -285,7 +285,7 @@
 -(void)recommandBannerTapCategoryWithIndex:(NSInteger)index
 {
     if ([_delegateee respondsToSelector:@selector(recommandTableDidClickCategoryWithIndex:)]) {
-        [_delegateee recommandTableDidClickCategoryWithIndex:index];
+//        [_delegateee recommandTableDidClickCategoryWithIndex:index];
     }
 }
 
@@ -293,7 +293,7 @@
 -(void)recommandTopicCellClickWithIndex:(NSInteger)index
 {
     if ([_delegateee respondsToSelector:@selector(recommandTableDidClickTopicWithIndex:)]) {
-        [_delegateee recommandTableDidClickTopicWithIndex:index];
+//        [_delegateee recommandTableDidClickTopicWithIndex:index];
     }
 }
 
@@ -301,7 +301,7 @@
 -(void)recommandProductCellClickWithIndex:(NSInteger)index
 {
     if ([_delegateee respondsToSelector:@selector(recommandTableDidClickProductWithIndex:)]) {
-        [_delegateee recommandTableDidClickProductWithIndex:index];
+//        [_delegateee recommandTableDidClickProductWithIndex:index];
     }
 }
 

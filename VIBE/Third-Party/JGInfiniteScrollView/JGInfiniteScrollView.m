@@ -68,20 +68,20 @@ static int const ImageViewCount = 3;
         imageView.frame = CGRectMake(i * self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     }
     
-    if (self.pageControlPostion == 1) {
-        CGFloat pageW = 80;
-        CGFloat pageH = 20;
-        CGFloat pageX = (self.scrollView.frame.size.width - pageW)/2;
-        CGFloat pageY = self.scrollView.frame.size.height - pageH;
-        self.pageControl.frame = CGRectMake(pageX, pageY, pageW, pageH);
-    }
-    if (self.pageControlPostion == 2) {
+//    if (self.pageControlPostion == 1) {
+//        CGFloat pageW = 80;
+//        CGFloat pageH = 20;
+//        CGFloat pageX = (self.scrollView.frame.size.width - pageW)/2;
+//        CGFloat pageY = self.scrollView.frame.size.height - pageH;
+//        self.pageControl.frame = CGRectMake(pageX, pageY, pageW, pageH);
+//    }
+//    if (self.pageControlPostion == 2) {
         CGFloat pageW = 80;
         CGFloat pageH = 20;
         CGFloat pageX = self.scrollView.frame.size.width - pageW;
         CGFloat pageY = self.scrollView.frame.size.height - pageH;
         self.pageControl.frame = CGRectMake(pageX, pageY, pageW, pageH);
-    }
+//    }
     
 }
 

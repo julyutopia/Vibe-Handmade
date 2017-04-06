@@ -10,18 +10,29 @@
 
 #import "VibeViewController.h"
 #import "LCNavigationController.h"
-#import "RootViewController.h"
+#import "MainViewController.h"
 
+#import "RecommandTopViewModal.h"
+#import "RecommandCateModal.h"
+#import "RecommandItemModal.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
-    RootViewController  *_rootVC;
+    MainViewController  *_mainVC;
 }
 
 +(AppDelegate *)sharedAppDelegate;
 
-@property (strong, nonatomic) RootViewController  *rootVC;
+@property (strong, nonatomic) MainViewController  *mainVC;
 @property (strong, nonatomic) UIWindow *window;
+
+
+@property (strong, nonatomic) NSMutableArray        * recommandTopArray;
+@property (strong, nonatomic) NSMutableArray        * recommandCateArray;
+@property (strong, nonatomic) RecommandItemModal    * recommnadPickModal;
+@property (strong, nonatomic) NSMutableArray        * recommandItemsArray;
+
+
 
 -(UIViewController *)getCurrentVC;
 
