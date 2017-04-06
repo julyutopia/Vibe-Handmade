@@ -6,9 +6,9 @@
 //  Copyright © 2016年 LiHaii. All rights reserved.
 //
 
-#import "DiscoverTopicModal.h"
+#import "DiscoverAlbumModal.h"
 
-@implementation DiscoverTopicModal
+@implementation DiscoverAlbumModal
 
 +(BOOL)propertyIsOptional:(NSString *)propertyName
 {

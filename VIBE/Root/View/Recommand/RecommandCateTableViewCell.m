@@ -61,7 +61,7 @@
             [btn addTarget:self action:@selector(categoryImgClicked:) forControlEvents:UIControlEventTouchUpInside];
             [_categoryView addSubview:btn];
         }
-        if (i >= 5) {
+        if (i >= 5 && i <= 9) {
             GLImageView * btn = [[GLImageView alloc]initWithFrame:CGRectMake( (categoryViewWidth+12) * (i -5), categoryViewWidth +12, categoryViewWidth, categoryViewWidth)];
             [btn setTag:5000 +i];
             [btn.layer setCornerRadius:4.0f];

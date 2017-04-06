@@ -21,7 +21,7 @@
 
 #import "DiscoverTableView.h"
 #import "DiscoverHotTagModal.h"
-#import "DiscoverTopicModal.h"
+#import "DiscoverAlbumModal.h"
 
 #import "MineViewController.h"
 

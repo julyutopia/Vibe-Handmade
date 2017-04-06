@@ -21,7 +21,6 @@
 @interface NewRecommandTableView : UITableView<UITableViewDelegate, UITableViewDataSource>
 {
     UIView  * _sectionFooterView;
-
 }
 
 @property (weak, nonatomic) id<NewRecommandTableViewDelegate> delegateee;

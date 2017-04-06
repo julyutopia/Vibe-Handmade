@@ -57,7 +57,7 @@
     
     
     [self initRecommandViewData];
-    
+    [self initDiscoverViewData];
     
     return YES;
 }
@@ -66,24 +66,23 @@
 #pragma mark -设置推荐页假数据
 -(void)initRecommandViewData
 {
-    
     //推荐Banner
     self.recommandTopArray = [[NSMutableArray alloc]init];
     
     RecommandTopViewModal * bannerModal1 = [[RecommandTopViewModal alloc]init];
-    [bannerModal1 setImgURL:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491422054798&di=4a5d3254657fdcd6864c477be282f3d1&imgtype=0&src=http%3A%2F%2Fh7.86.cc%2Fwalls%2F20150721%2F1440x900_d19e4e0b7a2f164.jpg"];
+    [bannerModal1 setImgURL:@"http://oih52ss9e.bkt.clouddn.com/banner1.jpg"];
     [self.recommandTopArray addObject:bannerModal1];
     
     RecommandTopViewModal * bannerModal2 = [[RecommandTopViewModal alloc]init];
-    [bannerModal2 setImgURL:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491422068672&di=a643c042cc0edce2815ebffeffc9cbab&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1112%2F28%2Fc11%2F10084076_10084076_1325087736046.jpg"];
+    [bannerModal2 setImgURL:@"http://oih52ss9e.bkt.clouddn.com/banner2.jpg"];
     [self.recommandTopArray addObject:bannerModal2];
     
     RecommandTopViewModal * bannerModal3 = [[RecommandTopViewModal alloc]init];
-    [bannerModal3 setImgURL:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491422070248&di=23ef40411ca0e7ef2f922fa95714db5c&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fblog%2F201402%2F14%2F20140214221100_hJszJ.jpeg"];
+    [bannerModal3 setImgURL:@"http://oih52ss9e.bkt.clouddn.com/banner3.jpg"];
     [self.recommandTopArray addObject:bannerModal3];
 
     RecommandTopViewModal * bannerModal4 = [[RecommandTopViewModal alloc]init];
-    [bannerModal4 setImgURL:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491422145232&di=0cb83ea0d38b4a1be0563c89e33fe7f0&imgtype=0&src=http%3A%2F%2Ffile.youboy.com%2Fa%2F99%2F40%2F34%2F2%2F10043032.jpg"];
+    [bannerModal4 setImgURL:@"http://oih52ss9e.bkt.clouddn.com/banner4.jpg"];
     [self.recommandTopArray addObject:bannerModal4];
   
     
@@ -141,6 +140,80 @@
                                                                     productModal3,productModal4,
                                                                     productModal5,productModal6,nil];
 }
+
+
+-(void)initDiscoverViewData
+{
+    self.discoverTagsArray = [[NSMutableArray alloc]init];
+    
+    for (int i = 1; i <9; i ++) {
+        
+        DiscoverTagModal * tagModal = [[DiscoverTagModal alloc]init];
+        NSString * imgURL = [NSString stringWithFormat:@"http://oih52ss9e.bkt.clouddn.com/HotTag%d.png",i];
+        [tagModal setDiscoverTagImgUrl:imgURL];
+        
+        switch (i) {
+            case 1:
+                [tagModal setDiscoverTagTitle:@"水晶首饰"];
+                break;
+            case 2:
+                [tagModal setDiscoverTagTitle:@"BOHO风"];
+                break;
+            case 3:
+                [tagModal setDiscoverTagTitle:@"美食与爱"];
+                break;
+            case 4:
+                [tagModal setDiscoverTagTitle:@"蓝染"];
+                break;
+            case 5:
+                [tagModal setDiscoverTagTitle:@"异域民族"];
+                break;
+            case 6:
+                [tagModal setDiscoverTagTitle:@"服饰搭配"];
+                break;
+            case 7:
+                [tagModal setDiscoverTagTitle:@"中国传统手工"];
+                break;
+            case 8:
+                [tagModal setDiscoverTagTitle:@"家居软装"];
+                break;
+            default:
+                break;
+        }
+        
+        [self.discoverTagsArray addObject:tagModal];
+    }
+    
+    
+    
+    self.discoverTopicsArray = [[NSMutableArray alloc]init];
+    
+    DiscoverTopicModal * topicModal1 = [[DiscoverTopicModal alloc]init];
+    [topicModal1 setDiscoverTopicTitle:@"唯有自然才能编织出如此一场美梦"];
+    [topicModal1 setDiscoverTopicImgUrl:@"http://oih52ss9e.bkt.clouddn.com/Topic1.jpg"];
+    [topicModal1 setDiscoverTopicTimeStamp:@"15 min ago"];
+    [self.discoverTopicsArray addObject:topicModal1];
+    
+    DiscoverTopicModal * topicModal2 = [[DiscoverTopicModal alloc]init];
+    [topicModal2 setDiscoverTopicTitle:@"Let's Go To The Beach"];
+    [topicModal2 setDiscoverTopicImgUrl:@"http://oih52ss9e.bkt.clouddn.com/Topic2.jpg"];
+    [topicModal2 setDiscoverTopicTimeStamp:@"02. Apr"];
+    [self.discoverTopicsArray addObject:topicModal2];
+  
+    DiscoverTopicModal * topicModal3 = [[DiscoverTopicModal alloc]init];
+    [topicModal3 setDiscoverTopicTitle:@"装出新花样"];
+    [topicModal3 setDiscoverTopicImgUrl:@"http://oih52ss9e.bkt.clouddn.com/Topic3.jpg"];
+    [topicModal3 setDiscoverTopicTimeStamp:@"28. Mar"];
+    [self.discoverTopicsArray addObject:topicModal3];
+
+    DiscoverTopicModal * topicModal4 = [[DiscoverTopicModal alloc]init];
+    [topicModal4 setDiscoverTopicTitle:@"春暖花开正当时"];
+    [topicModal4 setDiscoverTopicImgUrl:@"http://oih52ss9e.bkt.clouddn.com/Topic4.jpg"];
+    [topicModal4 setDiscoverTopicTimeStamp:@"28. Feb"];
+    [self.discoverTopicsArray addObject:topicModal4];
+}
+
+
 
 
 

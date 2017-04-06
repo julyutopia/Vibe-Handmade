@@ -83,6 +83,8 @@
 
 #define DefaultWhite                    RGBA(255, 255, 255, 100)
 #define DefaultGreen                    RGB(43, 214,  206)
+#define DefaultBlue                     RGB(47, 185,  212)
+#define DefaultBlue_Pressed             RGBA(163, 234,  248, 100)
 
 
 #define Default_Text_Title_Color        RGBA(69, 69, 83, 100)

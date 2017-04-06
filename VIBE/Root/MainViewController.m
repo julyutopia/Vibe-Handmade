@@ -116,7 +116,6 @@
     [_recommandView setBackgroundColor:[UIColor clearColor]];
     [_rootScrollView addSubview:_recommandView];
   
-    
     _recommandTableView = [[NewRecommandTableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
     [_recommandTableView setDelegateee:self];
     _recommandTableView.contentInset = UIEdgeInsetsMake(scrollViewOriginY, 0, 0, 0);
@@ -124,11 +123,19 @@
     [_recommandView addSubview:_recommandTableView];
     
     
-    
+    //初始化探索发现页
     _discoverView = [[UIView alloc]initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight)];
     [_discoverView setBackgroundColor:[UIColor clearColor]];
     [_rootScrollView addSubview:_discoverView];
     
+    _discoverTableView = [[NewDiscoverTableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
+    [_discoverTableView setDelegateee:self];
+    _discoverTableView.contentInset = UIEdgeInsetsMake(scrollViewOriginY, 0, 0, 0);
+    _discoverTableView.scrollIndicatorInsets = UIEdgeInsetsMake(scrollViewOriginY, 0, 0, 0);
+    [_discoverView addSubview:_discoverTableView];
+    
+    
+    //初始化造物主说
     _creatorView = [[UIView alloc]initWithFrame:CGRectMake(kScreenWidth *2, 0, kScreenWidth, kScreenHeight)];
     [_creatorView setBackgroundColor:[UIColor clearColor]];
     [_rootScrollView addSubview:_creatorView];

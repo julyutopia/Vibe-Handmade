@@ -8,7 +8,7 @@
 
 #import <JSONModel/JSONModel.h>
 
-@interface DiscoverTopicModal : JSONModel
+@interface DiscoverAlbumModal : JSONModel
 
 @property (nonatomic, copy) NSString * discoverTopicTitle;        //标题
 @property (nonatomic, copy) NSNumber * discoverTopicID;           //id

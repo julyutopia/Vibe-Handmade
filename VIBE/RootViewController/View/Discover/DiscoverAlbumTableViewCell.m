@@ -95,49 +95,49 @@
 
 -(void)setDiscoverAlbumWithModal:(DiscoverTopicModal *)modal IsLast:(BOOL )last
 {
-    if (last && !_maskLayer) {
-        
-        _maskLayer =[[CAShapeLayer alloc] init];
-        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_backView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(4, 4)];
-        _maskLayer.frame = _backView.bounds;
-        _maskLayer.path = maskPath.CGPath;
-        _backView.layer.mask = _maskLayer;
-    }
-    
-    [_albumImgView sd_setImageWithURL:[NSURL URLWithString:modal.discoverTopicImgURL] placeholderImage:nil];
-
-
-    NSString * albumTitle = modal.discoverTopicTitle;
-    float titleSizeHeight = [albumTitle getSizeWithLimitSize:CGSizeMake(kScreenWidth -60, 60) withFont:_albumTitleLabel.font].height;
-    if (titleSizeHeight > _singleLineHeight +1) {
-        titleSizeHeight = _singleLineHeight *2 +1;
-    }
-    [_albumTitleLabel setText:albumTitle];
-    [_albumTitleLabel setFrame:CGRectMake(10, _height -25 -titleSizeHeight, kScreenWidth -60, titleSizeHeight)];
-    
-    
-    NSString * lookCount = [NSString stringWithFormat:@"%@",modal.discoverTopicLookedNumber];
-    NSString * favorCount = [NSString stringWithFormat:@"%@",modal.discoverTopicFavorNumber];
-    
-    float lookCountWidth = [lookCount getSizeWithLimitSize:CGSizeMake(100, 20) withFont:_favorLabel.font].width;
-    float favorCountWidth = [favorCount getSizeWithLimitSize:CGSizeMake(100, 20) withFont:_favorLabel.font].width;
-    
-    
-   
-    float totalWidth = favorCountWidth +lookCountWidth +14 +14 +4 +8 +4;
-    [_showInfoView setFrame:CGRectMake(_width -20 -totalWidth, _height - 6 -18, totalWidth, 18)];
-    
-    [_favorLabel setFrame:CGRectMake(totalWidth -favorCountWidth, 0, favorCountWidth, 18)];
-    [_favorLabel setText:favorCount];
-    [_favorIcon setFrame:CGRectMake(totalWidth -favorCountWidth -4 -14, 2, 14, 14)];
-    
-    [_lookLabel setFrame:CGRectMake(totalWidth -favorCountWidth -4 -14 - 8 -lookCountWidth, 0, lookCountWidth, 18)];
-    [_lookLabel setText:lookCount];
-    [_lookIcon setFrame:CGRectMake(totalWidth -favorCountWidth -4 -14 - 8 -lookCountWidth -4 -14, 2, 14, 14)];
-    
-    [_gradientTagView setFrame:CGRectMake(10, _height -4 -20, _width -40 - totalWidth -10 -10, 20)];
-    
-    [_gradientTagView setGradientTagCloudWithMaxWidth:_width -40 - totalWidth -10 -10 MaxHeight:20 WithFont:[UIFont fontWithName:Default_Font_Middle size:11] AndTags:modal.discoverTopicTagArray];
+//    if (last && !_maskLayer) {
+//        
+//        _maskLayer =[[CAShapeLayer alloc] init];
+//        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_backView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(4, 4)];
+//        _maskLayer.frame = _backView.bounds;
+//        _maskLayer.path = maskPath.CGPath;
+//        _backView.layer.mask = _maskLayer;
+//    }
+//    
+////    [_albumImgView sd_setImageWithURL:[NSURL URLWithString:modal.discoverTopicImgURL] placeholderImage:nil];
+//
+//
+//    NSString * albumTitle = modal.discoverTopicTitle;
+//    float titleSizeHeight = [albumTitle getSizeWithLimitSize:CGSizeMake(kScreenWidth -60, 60) withFont:_albumTitleLabel.font].height;
+//    if (titleSizeHeight > _singleLineHeight +1) {
+//        titleSizeHeight = _singleLineHeight *2 +1;
+//    }
+//    [_albumTitleLabel setText:albumTitle];
+//    [_albumTitleLabel setFrame:CGRectMake(10, _height -25 -titleSizeHeight, kScreenWidth -60, titleSizeHeight)];
+//    
+//    
+//    NSString * lookCount = [NSString stringWithFormat:@"%@",modal.discoverTopicLookedNumber];
+//    NSString * favorCount = [NSString stringWithFormat:@"%@",modal.discoverTopicFavorNumber];
+//    
+//    float lookCountWidth = [lookCount getSizeWithLimitSize:CGSizeMake(100, 20) withFont:_favorLabel.font].width;
+//    float favorCountWidth = [favorCount getSizeWithLimitSize:CGSizeMake(100, 20) withFont:_favorLabel.font].width;
+//    
+//    
+//   
+//    float totalWidth = favorCountWidth +lookCountWidth +14 +14 +4 +8 +4;
+//    [_showInfoView setFrame:CGRectMake(_width -20 -totalWidth, _height - 6 -18, totalWidth, 18)];
+//    
+//    [_favorLabel setFrame:CGRectMake(totalWidth -favorCountWidth, 0, favorCountWidth, 18)];
+//    [_favorLabel setText:favorCount];
+//    [_favorIcon setFrame:CGRectMake(totalWidth -favorCountWidth -4 -14, 2, 14, 14)];
+//    
+//    [_lookLabel setFrame:CGRectMake(totalWidth -favorCountWidth -4 -14 - 8 -lookCountWidth, 0, lookCountWidth, 18)];
+//    [_lookLabel setText:lookCount];
+//    [_lookIcon setFrame:CGRectMake(totalWidth -favorCountWidth -4 -14 - 8 -lookCountWidth -4 -14, 2, 14, 14)];
+//    
+//    [_gradientTagView setFrame:CGRectMake(10, _height -4 -20, _width -40 - totalWidth -10 -10, 20)];
+//    
+//    [_gradientTagView setGradientTagCloudWithMaxWidth:_width -40 - totalWidth -10 -10 MaxHeight:20 WithFont:[UIFont fontWithName:Default_Font_Middle size:11] AndTags:modal.discoverTopicTagArray];
     
 }
 

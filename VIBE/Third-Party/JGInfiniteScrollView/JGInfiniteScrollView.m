@@ -39,6 +39,7 @@ static int const ImageViewCount = 3;
         for (int i = 0; i<ImageViewCount; i++) {
             GLImageView *imageView = [[GLImageView alloc] init];
             [imageView setContentMode:UIViewContentModeScaleAspectFill];
+            [imageView.layer setMasksToBounds:YES];
             [scrollView addSubview:imageView];
         }
         

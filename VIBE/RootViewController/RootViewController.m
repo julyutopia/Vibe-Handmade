@@ -287,29 +287,29 @@
     
     NSMutableArray  * albumsArray = [[NSMutableArray alloc]init];
     
-    DiscoverTopicModal * discoverAlbumModal1 = [[DiscoverTopicModal alloc]init];
-    [discoverAlbumModal1 setDiscoverTopicTitle:@"露营野餐正当时"];
-    [discoverAlbumModal1 setDiscoverTopicImgURL:@"https://s-media-cache-ak0.pinimg.com/564x/25/e2/78/25e2786c8b1514a9cdc0879726248ecc.jpg"];
-    [discoverAlbumModal1 setDiscoverTopicLookedNumber:[NSNumber numberWithInteger:1520]];
-    [discoverAlbumModal1 setDiscoverTopicFavorNumber:[NSNumber numberWithInteger:801]];
-    discoverAlbumModal1.discoverTopicTagArray = [[NSArray alloc]initWithObjects:@"户外", @"野餐", @"IntoTheWild", nil];
-    [albumsArray addObject:discoverAlbumModal1];
-    
-    DiscoverTopicModal * discoverAlbumModal2 = [[DiscoverTopicModal alloc]init];
-    [discoverAlbumModal2 setDiscoverTopicTitle:@"DreamCatcher 愿美梦相伴"];
-    [discoverAlbumModal2 setDiscoverTopicImgURL:@"https://s-media-cache-ak0.pinimg.com/564x/7e/4b/85/7e4b8555dfd141f19f8e09c9cd785b00.jpg"];
-    [discoverAlbumModal2 setDiscoverTopicLookedNumber:[NSNumber numberWithInteger:942]];
-    [discoverAlbumModal2 setDiscoverTopicFavorNumber:[NSNumber numberWithInteger:255]];
-    discoverAlbumModal2.discoverTopicTagArray = [[NSArray alloc]initWithObjects:@"旅行", @"吉普赛", @"在路上", nil];
-    [albumsArray addObject:discoverAlbumModal2];
-
-    DiscoverTopicModal * discoverAlbumModal3 = [[DiscoverTopicModal alloc]init];
-    [discoverAlbumModal3 setDiscoverTopicTitle:@"-JOURNEY UNKNOWN-\n旅行路上不容错过之物"];
-    [discoverAlbumModal3 setDiscoverTopicImgURL:@"https://s-media-cache-ak0.pinimg.com/564x/ca/14/e1/ca14e14688e3274768eecc3ca33412b5.jpg"];
-    [discoverAlbumModal3 setDiscoverTopicLookedNumber:[NSNumber numberWithInteger:421]];
-    [discoverAlbumModal3 setDiscoverTopicFavorNumber:[NSNumber numberWithInteger:76]];
-    discoverAlbumModal3.discoverTopicTagArray = [[NSArray alloc]initWithObjects:@"生活美物", @"家居", @"Kilim", nil];
-    [albumsArray addObject:discoverAlbumModal3];
+//    DiscoverAlbumModal * discoverAlbumModal1 = [[DiscoverAlbumModal alloc]init];
+//    [discoverAlbumModal1 setDiscoverTopicTitle:@"露营野餐正当时"];
+//    [discoverAlbumModal1 setDiscoverTopicImgURL:@"https://s-media-cache-ak0.pinimg.com/564x/25/e2/78/25e2786c8b1514a9cdc0879726248ecc.jpg"];
+//    [discoverAlbumModal1 setDiscoverTopicLookedNumber:[NSNumber numberWithInteger:1520]];
+//    [discoverAlbumModal1 setDiscoverTopicFavorNumber:[NSNumber numberWithInteger:801]];
+//    discoverAlbumModal1.discoverTopicTagArray = [[NSArray alloc]initWithObjects:@"户外", @"野餐", @"IntoTheWild", nil];
+//    [albumsArray addObject:discoverAlbumModal1];
+//    
+//    DiscoverAlbumModal * discoverAlbumModal2 = [[DiscoverAlbumModal alloc]init];
+//    [discoverAlbumModal2 setDiscoverTopicTitle:@"DreamCatcher 愿美梦相伴"];
+//    [discoverAlbumModal2 setDiscoverTopicImgURL:@"https://s-media-cache-ak0.pinimg.com/564x/7e/4b/85/7e4b8555dfd141f19f8e09c9cd785b00.jpg"];
+//    [discoverAlbumModal2 setDiscoverTopicLookedNumber:[NSNumber numberWithInteger:942]];
+//    [discoverAlbumModal2 setDiscoverTopicFavorNumber:[NSNumber numberWithInteger:255]];
+//    discoverAlbumModal2.discoverTopicTagArray = [[NSArray alloc]initWithObjects:@"旅行", @"吉普赛", @"在路上", nil];
+//    [albumsArray addObject:discoverAlbumModal2];
+//
+//    DiscoverAlbumModal * discoverAlbumModal3 = [[DiscoverAlbumModal alloc]init];
+//    [discoverAlbumModal3 setDiscoverTopicTitle:@"-JOURNEY UNKNOWN-\n旅行路上不容错过之物"];
+//    [discoverAlbumModal3 setDiscoverTopicImgURL:@"https://s-media-cache-ak0.pinimg.com/564x/ca/14/e1/ca14e14688e3274768eecc3ca33412b5.jpg"];
+//    [discoverAlbumModal3 setDiscoverTopicLookedNumber:[NSNumber numberWithInteger:421]];
+//    [discoverAlbumModal3 setDiscoverTopicFavorNumber:[NSNumber numberWithInteger:76]];
+//    discoverAlbumModal3.discoverTopicTagArray = [[NSArray alloc]initWithObjects:@"生活美物", @"家居", @"Kilim", nil];
+//    [albumsArray addObject:discoverAlbumModal3];
     
     [_discoverContentDict setObject:hotTagsArray forKey:@"albums"];
     

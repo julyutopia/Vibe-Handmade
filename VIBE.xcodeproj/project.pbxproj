@@ -72,6 +72,10 @@
 		8649573B1E963AB90054179A /* RecommandItemModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 8649573A1E963AB90054179A /* RecommandItemModal.m */; };
 		8649573E1E9672C00054179A /* RecommandItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8649573D1E9672C00054179A /* RecommandItemsTableViewCell.m */; };
 		864957411E9673860054179A /* RecommandItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 864957401E9673860054179A /* RecommandItemView.m */; };
+		864957441E96855A0054179A /* NewDiscoverTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 864957431E96855A0054179A /* NewDiscoverTableView.m */; };
+		864957471E9685DC0054179A /* DiscoverTagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 864957461E9685DC0054179A /* DiscoverTagTableViewCell.m */; };
+		8649574A1E968B420054179A /* DiscoverTagModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 864957491E968B420054179A /* DiscoverTagModal.m */; };
+		8649574D1E9691A30054179A /* DiscoverTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8649574C1E9691A30054179A /* DiscoverTopicTableViewCell.m */; };
 		8649678F1E1240C800C3A4FD /* CategoryListProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8649678E1E1240C800C3A4FD /* CategoryListProductTableViewCell.m */; };
 		864967921E126A7E00C3A4FD /* CategoryListFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 864967911E126A7E00C3A4FD /* CategoryListFilterView.m */; };
 		864967991E127DA600C3A4FD /* Filter_Default_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 864967931E127DA600C3A4FD /* Filter_Default_Normal.png */; };
@@ -98,7 +102,7 @@
 		864B981B1D5AECB500E15C1F /* CategoryBottomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 864B981A1D5AECB500E15C1F /* CategoryBottomTableViewCell.m */; };
 		864B981D1D5AF20200E15C1F /* home_Blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 864B981C1D5AF20200E15C1F /* home_Blur.png */; };
 		864ECE271DAD19D800331FDF /* DiscoverTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 864ECE261DAD19D800331FDF /* DiscoverTableView.m */; };
-		8650FA431DAE155C004BBDAB /* DiscoverTopicModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 8650FA421DAE155C004BBDAB /* DiscoverTopicModal.m */; };
+		8650FA431DAE155C004BBDAB /* DiscoverAlbumModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 8650FA421DAE155C004BBDAB /* DiscoverAlbumModal.m */; };
 		8651889E1E0A34CE006C3D50 /* TopicDetailRelatedHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8651889D1E0A34CE006C3D50 /* TopicDetailRelatedHeaderTableViewCell.m */; };
 		865188A01E0A3CF4006C3D50 /* Topic_Detail_Related_Header.png in Resources */ = {isa = PBXBuildFile; fileRef = 8651889F1E0A3CF4006C3D50 /* Topic_Detail_Related_Header.png */; };
 		865188A31E0A43A2006C3D50 /* TopicDetailRelatedProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 865188A21E0A43A2006C3D50 /* TopicDetailRelatedProductTableViewCell.m */; };
@@ -249,6 +253,8 @@
 		86BACFB51D6EF18700461414 /* Detail_Share.png in Resources */ = {isa = PBXBuildFile; fileRef = 86BACFB41D6EF18700461414 /* Detail_Share.png */; };
 		86BCDF861D5987B000B25A49 /* CategoryModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BCDF851D5987B000B25A49 /* CategoryModal.m */; };
 		86BCDF8D1D5988C000B25A49 /* CategorySearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BCDF8C1D5988C000B25A49 /* CategorySearchView.m */; };
+		86BCF0FF1E969CBC005BA2DA /* DiscoverTopicModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BCF0FE1E969CBC005BA2DA /* DiscoverTopicModal.m */; };
+		86BCF1021E969F36005BA2DA /* DiscoverTopicSmallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BCF1011E969F36005BA2DA /* DiscoverTopicSmallView.m */; };
 		86BF43531D5193B300CD74AD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BF43521D5193B200CD74AD /* Security.framework */; };
 		86BF43551D5193B700CD74AD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BF43541D5193B700CD74AD /* QuartzCore.framework */; };
 		86BF43571D5193D000CD74AD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BF43561D5193D000CD74AD /* WebKit.framework */; };
@@ -492,6 +498,14 @@
 		8649573D1E9672C00054179A /* RecommandItemsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecommandItemsTableViewCell.m; path = Root/View/Recommand/RecommandItemsTableViewCell.m; sourceTree = "<group>"; };
 		8649573F1E9673860054179A /* RecommandItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecommandItemView.h; path = Root/View/Recommand/RecommandItemView.h; sourceTree = "<group>"; };
 		864957401E9673860054179A /* RecommandItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecommandItemView.m; path = Root/View/Recommand/RecommandItemView.m; sourceTree = "<group>"; };
+		864957421E96855A0054179A /* NewDiscoverTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewDiscoverTableView.h; path = Root/View/Discover/NewDiscoverTableView.h; sourceTree = "<group>"; };
+		864957431E96855A0054179A /* NewDiscoverTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewDiscoverTableView.m; path = Root/View/Discover/NewDiscoverTableView.m; sourceTree = "<group>"; };
+		864957451E9685DC0054179A /* DiscoverTagTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTagTableViewCell.h; path = Root/View/Discover/DiscoverTagTableViewCell.h; sourceTree = "<group>"; };
+		864957461E9685DC0054179A /* DiscoverTagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTagTableViewCell.m; path = Root/View/Discover/DiscoverTagTableViewCell.m; sourceTree = "<group>"; };
+		864957481E968B420054179A /* DiscoverTagModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTagModal.h; path = Root/Modal/Discover/DiscoverTagModal.h; sourceTree = "<group>"; };
+		864957491E968B420054179A /* DiscoverTagModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTagModal.m; path = Root/Modal/Discover/DiscoverTagModal.m; sourceTree = "<group>"; };
+		8649574B1E9691A30054179A /* DiscoverTopicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTopicTableViewCell.h; path = Root/View/Discover/DiscoverTopicTableViewCell.h; sourceTree = "<group>"; };
+		8649574C1E9691A30054179A /* DiscoverTopicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTopicTableViewCell.m; path = Root/View/Discover/DiscoverTopicTableViewCell.m; sourceTree = "<group>"; };
 		8649678D1E1240C800C3A4FD /* CategoryListProductTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryListProductTableViewCell.h; path = Normal/CategoryList/View/CategoryListProductTableViewCell.h; sourceTree = "<group>"; };
 		8649678E1E1240C800C3A4FD /* CategoryListProductTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryListProductTableViewCell.m; path = Normal/CategoryList/View/CategoryListProductTableViewCell.m; sourceTree = "<group>"; };
 		864967901E126A7E00C3A4FD /* CategoryListFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryListFilterView.h; path = Normal/CategoryList/View/CategoryListFilterView.h; sourceTree = "<group>"; };
@@ -528,8 +542,8 @@
 		864B981C1D5AF20200E15C1F /* home_Blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home_Blur.png; path = Resource/Temp/home_Blur.png; sourceTree = "<group>"; };
 		864ECE251DAD19D800331FDF /* DiscoverTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTableView.h; path = RootViewController/View/Discover/DiscoverTableView.h; sourceTree = "<group>"; };
 		864ECE261DAD19D800331FDF /* DiscoverTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTableView.m; path = RootViewController/View/Discover/DiscoverTableView.m; sourceTree = "<group>"; };
-		8650FA411DAE155C004BBDAB /* DiscoverTopicModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTopicModal.h; path = RootViewController/Modal/Discover/DiscoverTopicModal.h; sourceTree = "<group>"; };
-		8650FA421DAE155C004BBDAB /* DiscoverTopicModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTopicModal.m; path = RootViewController/Modal/Discover/DiscoverTopicModal.m; sourceTree = "<group>"; };
+		8650FA411DAE155C004BBDAB /* DiscoverAlbumModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverAlbumModal.h; path = RootViewController/Modal/Discover/DiscoverAlbumModal.h; sourceTree = "<group>"; };
+		8650FA421DAE155C004BBDAB /* DiscoverAlbumModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverAlbumModal.m; path = RootViewController/Modal/Discover/DiscoverAlbumModal.m; sourceTree = "<group>"; };
 		8651889C1E0A34CE006C3D50 /* TopicDetailRelatedHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicDetailRelatedHeaderTableViewCell.h; path = Normal/TopicDetail/View/TopicDetailRelatedHeaderTableViewCell.h; sourceTree = "<group>"; };
 		8651889D1E0A34CE006C3D50 /* TopicDetailRelatedHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicDetailRelatedHeaderTableViewCell.m; path = Normal/TopicDetail/View/TopicDetailRelatedHeaderTableViewCell.m; sourceTree = "<group>"; };
 		8651889F1E0A3CF4006C3D50 /* Topic_Detail_Related_Header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Topic_Detail_Related_Header.png; path = Resource/Temp/Topic_Detail_Related_Header.png; sourceTree = "<group>"; };
@@ -724,6 +738,10 @@
 		86BCDF851D5987B000B25A49 /* CategoryModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryModal.m; path = Normal/Category/Modal/CategoryModal.m; sourceTree = "<group>"; };
 		86BCDF8B1D5988C000B25A49 /* CategorySearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategorySearchView.h; path = Normal/Category/View/CategorySearchView.h; sourceTree = "<group>"; };
 		86BCDF8C1D5988C000B25A49 /* CategorySearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategorySearchView.m; path = Normal/Category/View/CategorySearchView.m; sourceTree = "<group>"; };
+		86BCF0FD1E969CBC005BA2DA /* DiscoverTopicModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTopicModal.h; path = Root/Modal/Discover/DiscoverTopicModal.h; sourceTree = "<group>"; };
+		86BCF0FE1E969CBC005BA2DA /* DiscoverTopicModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTopicModal.m; path = Root/Modal/Discover/DiscoverTopicModal.m; sourceTree = "<group>"; };
+		86BCF1001E969F36005BA2DA /* DiscoverTopicSmallView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTopicSmallView.h; path = Root/View/Discover/DiscoverTopicSmallView.h; sourceTree = "<group>"; };
+		86BCF1011E969F36005BA2DA /* DiscoverTopicSmallView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTopicSmallView.m; path = Root/View/Discover/DiscoverTopicSmallView.m; sourceTree = "<group>"; };
 		86BF43511D51936000CD74AD /* VIBE-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VIBE-Prefix.pch"; sourceTree = "<group>"; };
 		86BF43521D5193B200CD74AD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		86BF43541D5193B700CD74AD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1562,6 +1580,14 @@
 		869A73421E953EDA00C1A682 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				864957421E96855A0054179A /* NewDiscoverTableView.h */,
+				864957431E96855A0054179A /* NewDiscoverTableView.m */,
+				864957451E9685DC0054179A /* DiscoverTagTableViewCell.h */,
+				864957461E9685DC0054179A /* DiscoverTagTableViewCell.m */,
+				8649574B1E9691A30054179A /* DiscoverTopicTableViewCell.h */,
+				8649574C1E9691A30054179A /* DiscoverTopicTableViewCell.m */,
+				86BCF1001E969F36005BA2DA /* DiscoverTopicSmallView.h */,
+				86BCF1011E969F36005BA2DA /* DiscoverTopicSmallView.m */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -1589,6 +1615,10 @@
 		869A73611E95544F00C1A682 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				864957481E968B420054179A /* DiscoverTagModal.h */,
+				864957491E968B420054179A /* DiscoverTagModal.m */,
+				86BCF0FD1E969CBC005BA2DA /* DiscoverTopicModal.h */,
+				86BCF0FE1E969CBC005BA2DA /* DiscoverTopicModal.m */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -1672,8 +1702,8 @@
 			children = (
 				86E53CFC1DAF6CF10093B168 /* DiscoverHotTagModal.h */,
 				86E53CFD1DAF6CF10093B168 /* DiscoverHotTagModal.m */,
-				8650FA411DAE155C004BBDAB /* DiscoverTopicModal.h */,
-				8650FA421DAE155C004BBDAB /* DiscoverTopicModal.m */,
+				8650FA411DAE155C004BBDAB /* DiscoverAlbumModal.h */,
+				8650FA421DAE155C004BBDAB /* DiscoverAlbumModal.m */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -2684,6 +2714,7 @@
 				8649678F1E1240C800C3A4FD /* CategoryListProductTableViewCell.m in Sources */,
 				8617E7CD1D52F5AB00872EFE /* MineViewController.m in Sources */,
 				86E104B61DE71E9E00282B82 /* ProductDetailGuessProductTableViewCell.m in Sources */,
+				864957471E9685DC0054179A /* DiscoverTagTableViewCell.m in Sources */,
 				86BF43C11D519E7000CD74AD /* SBJsonWriter.m in Sources */,
 				86F8719E1E487C7B00207EB6 /* NewProductDetailViewController.m in Sources */,
 				869A735A1E95510900C1A682 /* RecommandHelloTableViewCell.m in Sources */,
@@ -2692,12 +2723,14 @@
 				86BF43AE1D519E6400CD74AD /* TTTAttributedLabel.m in Sources */,
 				868B6E821E961ADF00546109 /* RecommandCateModal.m in Sources */,
 				8672DEBF1E80E115009E2642 /* CreatorDetailModal.m in Sources */,
+				86BCF0FF1E969CBC005BA2DA /* DiscoverTopicModal.m in Sources */,
 				8649573E1E9672C00054179A /* RecommandItemsTableViewCell.m in Sources */,
 				86E627891DB2731D002AAE7A /* QBCheckmarkView.m in Sources */,
 				86730F911DA7D0150068AC65 /* VibeTopicModal.m in Sources */,
 				86E53CFB1DAF57E80093B168 /* DiscoverHotTagTableViewCell.m in Sources */,
 				86AB160D1DACCC71001615A6 /* RecommandTopicHeaderTableViewCell.m in Sources */,
 				86AB161D1DACCF8E001615A6 /* RecommandBannerModal.m in Sources */,
+				8649574D1E9691A30054179A /* DiscoverTopicTableViewCell.m in Sources */,
 				8684B8C41E14AA87009E0DD5 /* VibeSearchView.m in Sources */,
 				86FEAF631E3474AC00C43720 /* SearchTopicRoundHeaderTableViewCell.m in Sources */,
 				8617E7C01D52EC0C00872EFE /* UIImage+BoxBlur.m in Sources */,
@@ -2731,6 +2764,7 @@
 				86CD97861D70395000023003 /* JGInfiniteScrollView.m in Sources */,
 				86B727421D51D77700BAB734 /* RNFrostedSidebar.m in Sources */,
 				861F46951E7A657A000D7FCC /* AboutVibeViewController.m in Sources */,
+				86BCF1021E969F36005BA2DA /* DiscoverTopicSmallView.m in Sources */,
 				86BF43C71D519E8400CD74AD /* ODRefreshControl.m in Sources */,
 				86ABE36D1D7EB998009DCABD /* UIImage+TDAdditions.m in Sources */,
 				86E6278F1DB2731D002AAE7A /* SimpleImagePreviewView.m in Sources */,
@@ -2740,7 +2774,7 @@
 				86A699B01D5853B800028109 /* UIViewExt.m in Sources */,
 				869A73351E94D94800C1A682 /* MainViewController.m in Sources */,
 				862420611D5E00B900A3EEFF /* UIImageViewModeScaleAspect.m in Sources */,
-				8650FA431DAE155C004BBDAB /* DiscoverTopicModal.m in Sources */,
+				8650FA431DAE155C004BBDAB /* DiscoverAlbumModal.m in Sources */,
 				864957381E9637990054179A /* RecommandPickTableViewCell.m in Sources */,
 				869A73691E955C9600C1A682 /* RecommandCateTableViewCell.m in Sources */,
 				8627F49C1D6EDBFC00DDA80C /* LCNavigationController.m in Sources */,
@@ -2755,6 +2789,7 @@
 				86464BD41E07961C004CA5DF /* TopicDetailShowTableViewCell.m in Sources */,
 				86AB16081DACCC71001615A6 /* RecommandCategoryTableViewCell.m in Sources */,
 				86FE599D1E34F5DA00284EE6 /* VibeSearchTagsView.m in Sources */,
+				8649574A1E968B420054179A /* DiscoverTagModal.m in Sources */,
 				86E53D011DAF7A150093B168 /* DiscoverHotTagView.m in Sources */,
 				86BF43BF1D519E7000CD74AD /* SBJsonBase.m in Sources */,
 				86AB16121DACCC8F001615A6 /* CreatorTableView.m in Sources */,
@@ -2799,6 +2834,7 @@
 				864A72751D5C641E00D3D3F2 /* CategoryStoreTableViewCell.m in Sources */,
 				8672DEC51E814DB4009E2642 /* CreatorTitleTableViewCell.m in Sources */,
 				86AB161E1DACCF8E001615A6 /* RecommandCategoryModal.m in Sources */,
+				864957441E96855A0054179A /* NewDiscoverTableView.m in Sources */,
 				86ABE3701D7EB9F1009DCABD /* AllCategoryTableViewCell.m in Sources */,
 				864967921E126A7E00C3A4FD /* CategoryListFilterView.m in Sources */,
 				8617E7F51D530BC100872EFE /* GLImageView.m in Sources */,

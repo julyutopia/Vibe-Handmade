@@ -20,7 +20,7 @@
         float topViewHeight = topViewWidth/16*9;
      
         _showTopView = [[UIView alloc]initWithFrame:CGRectMake(25, 0, kScreenWidth -50, topViewHeight)];
-        [_showTopView setBackgroundColor:[UIColor redColor]];
+        [_showTopView setBackgroundColor:[UIColor whiteColor]];
         [_showTopView.layer setCornerRadius:8];
         [_showTopView.layer setMasksToBounds:YES];
         [self.contentView addSubview:_showTopView];
