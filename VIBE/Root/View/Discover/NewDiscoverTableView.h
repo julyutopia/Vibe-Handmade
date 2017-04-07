@@ -10,6 +10,7 @@
 
 #import "DiscoverTagTableViewCell.h"
 #import "DiscoverTopicTableViewCell.h"
+#import "DiscoverStoryTableViewCell.h"
 
 @protocol NewDiscoverTableViewDelegate;
 

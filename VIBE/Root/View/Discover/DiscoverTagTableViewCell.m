@@ -67,6 +67,10 @@
             [titleLabel setTextColor:DefaultWhite];
             [titleLabel setFont:[VibeFont fontWithName:Font_Chinese_Regular size:12]];
             [titleLabel setText:modal.discoverTagTitle];
+            [titleLabel.layer setShadowColor:RGBA(0, 0, 0, 20).CGColor];
+            [titleLabel.layer setShadowOffset:CGSizeMake(0, 1)];
+            [titleLabel.layer setShadowOpacity:0.5f];
+            [titleLabel.layer setShadowRadius:1.0f];
             [btn addSubview:titleLabel];
         }
         
@@ -83,6 +87,10 @@
             [titleLabel setTextColor:DefaultWhite];
             [titleLabel setFont:[VibeFont fontWithName:Font_Chinese_Regular size:12]];
             [titleLabel setText:modal.discoverTagTitle];
+            [titleLabel.layer setShadowColor:RGBA(0, 0, 0, 20).CGColor];
+            [titleLabel.layer setShadowOffset:CGSizeMake(0, 1)];
+            [titleLabel.layer setShadowOpacity:0.5f];
+            [titleLabel.layer setShadowRadius:1.0f];
             [btn addSubview:titleLabel];
         }
     }

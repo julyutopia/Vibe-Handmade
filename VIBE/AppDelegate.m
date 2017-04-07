@@ -211,6 +211,30 @@
     [topicModal4 setDiscoverTopicImgUrl:@"http://oih52ss9e.bkt.clouddn.com/Topic4.jpg"];
     [topicModal4 setDiscoverTopicTimeStamp:@"28. Feb"];
     [self.discoverTopicsArray addObject:topicModal4];
+    
+    
+    self.discoverStorysArray = [[NSMutableArray alloc]init];
+    
+    DiscoverStoryModal * modal1 = [[DiscoverStoryModal alloc]init];
+    [modal1 setDiscoverStoryTitle:@"土耳其KILIM地毯的前世今生"];
+    [modal1 setDiscoverStoryImgUrl:@"http://oih52ss9e.bkt.clouddn.com/story1.jpg"];
+    [modal1 setDiscoverStoryTimeStamp:@"26. Mar"];
+    NSArray * imgURLsArray = [NSArray arrayWithObjects:@"http://oih52ss9e.bkt.clouddn.com/story2.jpg",@"http://oih52ss9e.bkt.clouddn.com/story3.jpg",@"http://oih52ss9e.bkt.clouddn.com/story4.jpg",@"http://oih52ss9e.bkt.clouddn.com/story5.jpg",@"http://oih52ss9e.bkt.clouddn.com/story2.jpg",@"http://oih52ss9e.bkt.clouddn.com/story2.jpg", nil];
+    [modal1 setDiscoverStoryContentPhotos:imgURLsArray];
+    [self.discoverStorysArray addObject:modal1];
+    
+    
+    DiscoverStoryModal * modal2 = [[DiscoverStoryModal alloc]init];
+    [modal2 setDiscoverStoryTitle:@"手工皮具知多少"];
+    [modal2 setDiscoverStoryImgUrl:@"http://oih52ss9e.bkt.clouddn.com/story6.jpg"];
+    [modal2 setDiscoverStoryTimeStamp:@"08. Mar"];
+    [self.discoverStorysArray addObject:modal2];
+    
+    DiscoverStoryModal * modal3 = [[DiscoverStoryModal alloc]init];
+    [modal3 setDiscoverStoryTitle:@"日式传统纹样"];
+    [modal3 setDiscoverStoryImgUrl:@"http://oih52ss9e.bkt.clouddn.com/story7.jpg"];
+    [modal3 setDiscoverStoryTimeStamp:@"14. Feb"];
+    [self.discoverStorysArray addObject:modal3];
 }
 
 

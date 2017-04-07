@@ -84,6 +84,20 @@
         [_backView addSubview:_productImgView];
         
         
+        UIView * blurCoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth -50, kScreenWidth -50)];
+        CAGradientLayer * gradientViewLayer1 = [CAGradientLayer layer];
+        gradientViewLayer1.frame = CGRectMake(0, 0, blurCoverView.frame.size.width, blurCoverView.frame.size.height);
+        gradientViewLayer1.startPoint = CGPointMake(0.5, 0.7);
+        gradientViewLayer1.endPoint = CGPointMake(0.5, 1.0);
+        gradientViewLayer1.colors = @[
+                                      (id)RGBA(255, 255, 255, 0).CGColor,
+                                      (id)RGBA(0, 0,  0, 40).CGColor,
+                                      ];
+        [blurCoverView.layer addSublayer:gradientViewLayer1];
+        [_productImgView addSubview:blurCoverView];
+        
+        
+        
         _productInfoTitleLabel = [[UILabel alloc]init];
         [_productInfoTitleLabel setTextAlignment:NSTextAlignmentLeft];
         [_productInfoTitleLabel setFont:[VibeFont fontWithName:Font_Chinese_Regular size:13]];
@@ -146,7 +160,8 @@
     
 //    [_productNameTitleLabel setText:productNameTitle];
     
-    [_productNameTitleLabel setFrame:CGRectMake(25, backViewHeight -nameTitleHeight -11, kScreenWidth -100, nameTitleHeight)];
+    
+    [_productNameTitleLabel setFrame:CGRectMake(25, 20 +20 +(kScreenWidth -50) +10 -nameTitleHeight, kScreenWidth -100, nameTitleHeight)];
     
     [_productInfoTitleLabel setText:productInfoTitle];
     [_productInfoTitleLabel setFrame:CGRectMake(25, _productNameTitleLabel.frame.origin.y -25, 100, 15)];

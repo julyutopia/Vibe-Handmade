@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "DiscoverTopicBigView.h"
 #import "DiscoverTopicSmallView.h"
 
 @interface DiscoverTopicTableViewCell : UITableViewCell
@@ -17,7 +18,7 @@
     
     NSMutableArray  * _topicsArray;
     
-    UIView          * _bigAlbumView;
+    DiscoverTopicBigView            * _bigAlbumView;
     
     DiscoverTopicSmallView          * _firstTopicSmallView;
     DiscoverTopicSmallView          * _secondTopicSmallView;

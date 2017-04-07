@@ -97,6 +97,26 @@
     }
     
     
+    //故事
+    if (indexPath.section == 2) {
+        
+        NSString * identifierString = @"DiscoverStoryTableViewCellIdentifier";
+        
+        DiscoverStoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierString];
+        if (cell == nil) {
+            cell = [[DiscoverStoryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifierString];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell setBackgroundColor:[UIColor clearColor]];
+            [cell setBackgroundView:nil];
+        }
+        
+        
+        [cell setDiscoverStoryCellWithInfo:[AppDelegate sharedAppDelegate].discoverStorysArray];
+        
+        
+        return cell;
+    }
+    
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FunctionFillOrderCellIdentifier"];
     if (cell == nil) {
@@ -109,17 +129,28 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //标签
     if (indexPath.section == 0) {
         
         float singleTagViewWidth = (kScreenWidth -50 - 12 *3) /4;
         
         return 20 +20 + singleTagViewWidth *2 +12;
     }
-    
-    
+    //专题
     if (indexPath.section == 1) {
         
-        return 400;
+        float bigAlbumViewHeight = (kScreenWidth -50)/16*9 +15;
+        float smallAlbumViewHeight = (kScreenWidth -50 - 15 *2)/3;
+        return  20 +20 +bigAlbumViewHeight +15 +smallAlbumViewHeight;        
+    }
+    //故事
+    if (indexPath.section == 2) {
+        
+        float bigStoryViewWidth = kScreenWidth -50;
+        float smallStoryViewWidth = (kScreenWidth -50 - 15)/2;
+        float smallStoryViewHeight = smallStoryViewWidth/16 *9 +50;
+        
+        return 20 +20 +bigStoryViewWidth +15 +smallStoryViewHeight;
     }
     
     

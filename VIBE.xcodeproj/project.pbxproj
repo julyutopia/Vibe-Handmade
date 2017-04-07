@@ -346,6 +346,11 @@
 		86E627AC1DB287A6002AAE7A /* Arrow_Down_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E627A91DB287A6002AAE7A /* Arrow_Down_Black.png */; };
 		86E627AD1DB287A6002AAE7A /* Arrow_Right_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E627AA1DB287A6002AAE7A /* Arrow_Right_Black.png */; };
 		86E627AE1DB287A6002AAE7A /* Arrow_Up_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E627AB1DB287A6002AAE7A /* Arrow_Up_Black.png */; };
+		86EB85441E97477700C4368C /* DiscoverTopicBigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB85431E97477700C4368C /* DiscoverTopicBigView.m */; };
+		86EB85471E97553000C4368C /* DiscoverStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB85461E97553000C4368C /* DiscoverStoryTableViewCell.m */; };
+		86EB854A1E975C4700C4368C /* DiscoverStoryBigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB85491E975C4700C4368C /* DiscoverStoryBigView.m */; };
+		86EB854D1E975D2400C4368C /* DiscoverStoryModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB854C1E975D2400C4368C /* DiscoverStoryModal.m */; };
+		86EB85501E97997100C4368C /* DiscoverStorySmallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB854F1E97997100C4368C /* DiscoverStorySmallView.m */; };
 		86EB9F741DB5E51200E2FE73 /* ALiProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB9F731DB5E51200E2FE73 /* ALiProgressHUD.m */; };
 		86EB9F7C1DB5E52800E2FE73 /* HUD_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86EB9F761DB5E52800E2FE73 /* HUD_error@2x.png */; };
 		86EB9F7D1DB5E52800E2FE73 /* HUD_error@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86EB9F771DB5E52800E2FE73 /* HUD_error@3x.png */; };
@@ -888,6 +893,16 @@
 		86E627A91DB287A6002AAE7A /* Arrow_Down_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Arrow_Down_Black.png; path = Resource/Icons/Arrow_Down_Black.png; sourceTree = "<group>"; };
 		86E627AA1DB287A6002AAE7A /* Arrow_Right_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Arrow_Right_Black.png; path = Resource/Icons/Arrow_Right_Black.png; sourceTree = "<group>"; };
 		86E627AB1DB287A6002AAE7A /* Arrow_Up_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Arrow_Up_Black.png; path = Resource/Icons/Arrow_Up_Black.png; sourceTree = "<group>"; };
+		86EB85421E97477700C4368C /* DiscoverTopicBigView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTopicBigView.h; path = Root/View/Discover/DiscoverTopicBigView.h; sourceTree = "<group>"; };
+		86EB85431E97477700C4368C /* DiscoverTopicBigView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTopicBigView.m; path = Root/View/Discover/DiscoverTopicBigView.m; sourceTree = "<group>"; };
+		86EB85451E97553000C4368C /* DiscoverStoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverStoryTableViewCell.h; path = Root/View/Discover/DiscoverStoryTableViewCell.h; sourceTree = "<group>"; };
+		86EB85461E97553000C4368C /* DiscoverStoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverStoryTableViewCell.m; path = Root/View/Discover/DiscoverStoryTableViewCell.m; sourceTree = "<group>"; };
+		86EB85481E975C4700C4368C /* DiscoverStoryBigView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverStoryBigView.h; path = Root/View/Discover/DiscoverStoryBigView.h; sourceTree = "<group>"; };
+		86EB85491E975C4700C4368C /* DiscoverStoryBigView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverStoryBigView.m; path = Root/View/Discover/DiscoverStoryBigView.m; sourceTree = "<group>"; };
+		86EB854B1E975D2400C4368C /* DiscoverStoryModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverStoryModal.h; path = Root/Modal/Discover/DiscoverStoryModal.h; sourceTree = "<group>"; };
+		86EB854C1E975D2400C4368C /* DiscoverStoryModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverStoryModal.m; path = Root/Modal/Discover/DiscoverStoryModal.m; sourceTree = "<group>"; };
+		86EB854E1E97997100C4368C /* DiscoverStorySmallView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverStorySmallView.h; path = Root/View/Discover/DiscoverStorySmallView.h; sourceTree = "<group>"; };
+		86EB854F1E97997100C4368C /* DiscoverStorySmallView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverStorySmallView.m; path = Root/View/Discover/DiscoverStorySmallView.m; sourceTree = "<group>"; };
 		86EB9F721DB5E51200E2FE73 /* ALiProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALiProgressHUD.h; path = "Third-Party/ALiHUD/ALiProgressHUD.h"; sourceTree = "<group>"; };
 		86EB9F731DB5E51200E2FE73 /* ALiProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALiProgressHUD.m; path = "Third-Party/ALiHUD/ALiProgressHUD.m"; sourceTree = "<group>"; };
 		86EB9F761DB5E52800E2FE73 /* HUD_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "HUD_error@2x.png"; path = "Third-Party/ALiHUD/images/HUD_error@2x.png"; sourceTree = "<group>"; };
@@ -1586,8 +1601,16 @@
 				864957461E9685DC0054179A /* DiscoverTagTableViewCell.m */,
 				8649574B1E9691A30054179A /* DiscoverTopicTableViewCell.h */,
 				8649574C1E9691A30054179A /* DiscoverTopicTableViewCell.m */,
+				86EB85421E97477700C4368C /* DiscoverTopicBigView.h */,
+				86EB85431E97477700C4368C /* DiscoverTopicBigView.m */,
 				86BCF1001E969F36005BA2DA /* DiscoverTopicSmallView.h */,
 				86BCF1011E969F36005BA2DA /* DiscoverTopicSmallView.m */,
+				86EB85451E97553000C4368C /* DiscoverStoryTableViewCell.h */,
+				86EB85461E97553000C4368C /* DiscoverStoryTableViewCell.m */,
+				86EB85481E975C4700C4368C /* DiscoverStoryBigView.h */,
+				86EB85491E975C4700C4368C /* DiscoverStoryBigView.m */,
+				86EB854E1E97997100C4368C /* DiscoverStorySmallView.h */,
+				86EB854F1E97997100C4368C /* DiscoverStorySmallView.m */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -1619,6 +1642,8 @@
 				864957491E968B420054179A /* DiscoverTagModal.m */,
 				86BCF0FD1E969CBC005BA2DA /* DiscoverTopicModal.h */,
 				86BCF0FE1E969CBC005BA2DA /* DiscoverTopicModal.m */,
+				86EB854B1E975D2400C4368C /* DiscoverStoryModal.h */,
+				86EB854C1E975D2400C4368C /* DiscoverStoryModal.m */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -2747,9 +2772,11 @@
 				8627F49F1D6EDE6A00DDA80C /* VibeColor.m in Sources */,
 				86A604801D7E73B000369AD0 /* AllCategoryViewController.m in Sources */,
 				8617E7981D52E40500872EFE /* VibeTableView.m in Sources */,
+				86EB85471E97553000C4368C /* DiscoverStoryTableViewCell.m in Sources */,
 				86BF43991D519E4200CD74AD /* WTURLRequestSerialization.m in Sources */,
 				8600CAEC1DE5A48300866B87 /* ProductDetailShowTableViewCell.m in Sources */,
 				86AB160B1DACCC71001615A6 /* RecommandTableView.m in Sources */,
+				86EB85441E97477700C4368C /* DiscoverTopicBigView.m in Sources */,
 				86D5C0931E24C99D0020A41D /* MoreSettingTableViewCell.m in Sources */,
 				86FEF2C61E84CAF900CFF8D2 /* CreatorInfoShowTableViewCell.m in Sources */,
 				8617E7CA1D52F5A100872EFE /* CategoryViewController.m in Sources */,
@@ -2757,6 +2784,7 @@
 				868F59E01DB48D2000C3832D /* AnimatedGradientView.m in Sources */,
 				86E627671DB21BEC002AAE7A /* AnimatedGIFImageSerialization.m in Sources */,
 				864A72791D5C645700D3D3F2 /* CategoryStoreModal.m in Sources */,
+				86EB854D1E975D2400C4368C /* DiscoverStoryModal.m in Sources */,
 				8649573B1E963AB90054179A /* RecommandItemModal.m in Sources */,
 				86ABE36C1D7EB998009DCABD /* UIColor+TDAdditions.m in Sources */,
 				86AB16151DACCE6C001615A6 /* CreatorTableViewCell.m in Sources */,
@@ -2797,6 +2825,7 @@
 				86BF43A31D519E4F00CD74AD /* WPAttributedStyleAction.m in Sources */,
 				86AB160C1DACCC71001615A6 /* RecommandTopicFooterTableViewCell.m in Sources */,
 				861E4ADE1E10C5C200964074 /* YUMixtureView.m in Sources */,
+				86EB85501E97997100C4368C /* DiscoverStorySmallView.m in Sources */,
 				86E6278C1DB2731D002AAE7A /* SimpleAssetCell.m in Sources */,
 				86805DF91E49973300FCAF61 /* ProductDetailTagTableViewCell.m in Sources */,
 				86E53CFE1DAF6CF10093B168 /* DiscoverHotTagModal.m in Sources */,
@@ -2849,6 +2878,7 @@
 				86BCDF861D5987B000B25A49 /* CategoryModal.m in Sources */,
 				86ABE36B1D7EB998009DCABD /* TDImageColors.m in Sources */,
 				86BF43AB1D519E5600CD74AD /* NSString+WPAttributedMarkup.m in Sources */,
+				86EB854A1E975C4700C4368C /* DiscoverStoryBigView.m in Sources */,
 				86A372151E18E83B00238157 /* VibeSearchBar.m in Sources */,
 				86E6278E1DB2731D002AAE7A /* SimpleImagePickerController.m in Sources */,
 				86BF43BD1D519E7000CD74AD /* NSString+SBJSON.m in Sources */,

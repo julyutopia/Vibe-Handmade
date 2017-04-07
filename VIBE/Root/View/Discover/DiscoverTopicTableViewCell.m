@@ -24,35 +24,33 @@
         [self.contentView addSubview:_titleLabel];
         
         
-        _showMoreBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth -25 -70, 0, 70, 20)];
-        [_showMoreBtn setTitle:@"更多内容" forState:UIControlStateNormal];
+        _showMoreBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth -25 -50, 0, 50, 20)];
+        [_showMoreBtn setTitle:@"更多" forState:UIControlStateNormal];
         [_showMoreBtn setTitleColor:DefaultBlue forState:UIControlStateNormal];
         [_showMoreBtn setTitleColor:DefaultBlue_Pressed forState:UIControlStateHighlighted];
         [_showMoreBtn.titleLabel setFont:[VibeFont fontWithName:Font_Chinese_Regular size:13]];
         [_showMoreBtn.titleLabel setTextAlignment:NSTextAlignmentRight];
         [self.contentView addSubview:_showMoreBtn];
     
-        float bigAlbumViewHeight = (kScreenWidth -50)/16*9 +10;
+        float bigAlbumViewHeight = (kScreenWidth -50)/16*9 +15;
         
-        _bigAlbumView = [[UIView alloc]initWithFrame:CGRectMake(25, 20 +20, kScreenWidth -50, bigAlbumViewHeight)];
-        [_bigAlbumView setBackgroundColor:[UIColor redColor]];
+        _bigAlbumView = [[DiscoverTopicBigView alloc]initWithFrame:CGRectMake(25, 20 +20, kScreenWidth -50, bigAlbumViewHeight)];
         [self.contentView addSubview:_bigAlbumView];
         
         
         float smallAlbumViewHeight = (kScreenWidth -50 - 15 *2)/3;
         
-        _firstTopicSmallView = [[DiscoverTopicSmallView alloc]initWithFrame:CGRectMake(25 , 20 +20 +bigAlbumViewHeight +10, smallAlbumViewHeight, smallAlbumViewHeight)];
+        _firstTopicSmallView = [[DiscoverTopicSmallView alloc]initWithFrame:CGRectMake(25 , 20 +20 +bigAlbumViewHeight +15, smallAlbumViewHeight, smallAlbumViewHeight)];
         [self.contentView addSubview:_firstTopicSmallView];
         
-        _secondTopicSmallView = [[DiscoverTopicSmallView alloc]initWithFrame:CGRectMake(25 +smallAlbumViewHeight +15, 20 +20 +bigAlbumViewHeight +10, smallAlbumViewHeight, smallAlbumViewHeight)];
+        _secondTopicSmallView = [[DiscoverTopicSmallView alloc]initWithFrame:CGRectMake(25 +smallAlbumViewHeight +15, 20 +20 +bigAlbumViewHeight +15, smallAlbumViewHeight, smallAlbumViewHeight)];
         [self.contentView addSubview:_secondTopicSmallView];
         
-        _thirdTopicSmallView = [[DiscoverTopicSmallView alloc]initWithFrame:CGRectMake(25 +(smallAlbumViewHeight +15) *2, 20 +20 +bigAlbumViewHeight +10, smallAlbumViewHeight, smallAlbumViewHeight)];
+        _thirdTopicSmallView = [[DiscoverTopicSmallView alloc]initWithFrame:CGRectMake(25 +(smallAlbumViewHeight +15) *2, 20 +20 +bigAlbumViewHeight +15, smallAlbumViewHeight, smallAlbumViewHeight)];
         [self.contentView addSubview:_thirdTopicSmallView];
      
         
         _topicsArray = [[NSMutableArray alloc]init];
-        
     }
     
     
@@ -69,9 +67,11 @@
     [_topicsArray removeAllObjects];
     [_topicsArray addObjectsFromArray:infoArray];
     
+    //设置大专题
     if (_topicsArray.count >0) {
         
         DiscoverTopicModal * topicModal = [_topicsArray objectAtIndex:0];
+        [_bigAlbumView setTopicBigViewWithModal:topicModal];
     }
     
     //设置第一个小专题

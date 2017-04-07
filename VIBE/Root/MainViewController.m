@@ -74,9 +74,29 @@
     NSLayoutConstraint *bottomLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_navigationView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-12];
     [_navigationView addConstraint:bottomLc];
     
-    //创建高度约束
-    NSLayoutConstraint *heightLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:28];
-    [_navigationView addConstraint: heightLc];
+    
+    if (iPhone5) {
+        //创建高度约束
+        NSLayoutConstraint *heightLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:20];
+        [_navigationView addConstraint: heightLc];
+        
+        [_naviSegmentControl setCornerRadius:10];
+    }
+    else if (iPhone6) {
+        //创建高度约束
+        NSLayoutConstraint *heightLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:28];
+        [_navigationView addConstraint: heightLc];
+        
+        [_naviSegmentControl setCornerRadius:14];
+    }
+    else if (iPhone6plus) {
+        //创建高度约束
+        NSLayoutConstraint *heightLc = [NSLayoutConstraint constraintWithItem:_naviSegmentControl attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:30];
+        [_navigationView addConstraint: heightLc];
+        
+        [_naviSegmentControl setCornerRadius:15];
+    }
+    
     
     //设置参数
     _naviSegmentControl.textColor = RGBA(69, 69, 83, 100);
@@ -90,7 +110,6 @@
     [_naviSegmentControl setShadowHideDuration:0.1f];
     [_naviSegmentControl setShadowShowDuration:0.1f];
     [_naviSegmentControl showLoading];
-    [_naviSegmentControl setCornerRadius:14];
     [_naviSegmentControl reloadData];
     [_naviSegmentControl dismissLoading];
 
@@ -213,14 +232,26 @@
 }
 
 
--(void)segmentedControl:(LUNSegmentedControl *)segmentedControl didChangeStateFromStateAtIndex:(NSInteger)fromIndex toStateAtIndex:(NSInteger)toIndex
+-(void)segmentedControl:(LUNSegmentedControl *)segmentedControl willChangeStateFromStateAtIndex:(NSInteger)fromIndex toStateAtIndex:(NSInteger)toIndex
 {
-    NSLog(@"~~~~~~ %ld ~~~~~~~ %ld ~~~~~~",fromIndex,toIndex);
-//    [_rootScrollView setContentOffset:CGPointMake(kScreenWidth *toIndex, 0) animated:YES];
+    [_rootScrollView setContentOffset:CGPointMake(kScreenWidth *toIndex, 0) animated:YES];
 }
 
-
-
+#pragma mark -ScrollView 代理方法
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    float offsetX = scrollView.contentOffset.x;
+    
+    if (offsetX == 0) {
+        [_naviSegmentControl setCurrentState:0];
+    }
+    else if (offsetX == kScreenWidth){
+        [_naviSegmentControl setCurrentState:1];
+    }
+    else if (offsetX == kScreenWidth *2){
+        [_naviSegmentControl setCurrentState:2];
+    }
+}
 
 
 #pragma mark 
