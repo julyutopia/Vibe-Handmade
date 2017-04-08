@@ -8,7 +8,7 @@
 
 #import <JSONModel/JSONModel.h>
 
-@interface CreatorCoverModal : JSONModel
+@interface CreatorCoverrrrModal : JSONModel
 
 @property (nonatomic, copy) NSString * creatorTitle;        //标题
 @property (nonatomic, copy) NSNumber * creatorID;           //id

@@ -20,6 +20,9 @@
 #import "DiscoverTopicModal.h"
 #import "DiscoverStoryModal.h"
 
+#import "CreatorCoverModal.h"
+
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     MainViewController  *_mainVC;
@@ -40,6 +43,7 @@
 @property (strong, nonatomic) NSMutableArray        * discoverTopicsArray;
 @property (strong, nonatomic) NSMutableArray        * discoverStorysArray;
 
+@property (strong, nonatomic) NSMutableArray        * creatorsArray;
 
 -(UIViewController *)getCurrentVC;
 

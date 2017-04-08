@@ -95,7 +95,7 @@
 }
 
 
--(void)setCreatorCellWithModal:(CreatorCoverModal *)modal WithIndex:(NSInteger)index
+-(void)setCreatorCellWithModal:(CreatorCoverrrrModal *)modal WithIndex:(NSInteger)index
 {
     _cellIndex = index;
     

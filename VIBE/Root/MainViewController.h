@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 
 #import "LUNSegmentedControl.h"
+
 #import "NewRecommandTableView.h"
 #import "NewDiscoverTableView.h"
+#import "NewCreatorTableView.h"
 
-
-@interface MainViewController : UIViewController<UIScrollViewDelegate, LUNSegmentedControlDataSource, LUNSegmentedControlDelegate, NewRecommandTableViewDelegate, NewDiscoverTableViewDelegate>
+@interface MainViewController : UIViewController<UIScrollViewDelegate, LUNSegmentedControlDataSource, LUNSegmentedControlDelegate, NewRecommandTableViewDelegate, NewDiscoverTableViewDelegate, NewCreatorTableViewDelegate>
 {
     UIView                  * _backView;
     
@@ -33,7 +34,11 @@
     NewDiscoverTableView    * _discoverTableView;
     
     UIView                  * _creatorView;
-    
+    NewCreatorTableView     * _creatorTableView;
     
 }
+
+
 @end
+
+

@@ -58,6 +58,7 @@
     
     [self initRecommandViewData];
     [self initDiscoverViewData];
+    [self initCreatorViewData];
     
     return YES;
 }
@@ -238,7 +239,46 @@
 }
 
 
+-(void)initCreatorViewData
+{
+    self.creatorsArray = [[NSMutableArray alloc]init];
+    
+    CreatorCoverModal * modal1 = [[CreatorCoverModal alloc]init];
+    [modal1 setCreatorCoverUrl:@"http://oih52ss9e.bkt.clouddn.com/Creator1.jpeg"];
+    [modal1 setCreatorShopTitle:@"阁楼Pentfair"];
+    [modal1 setCreatorSloganTitle:@"异域旅行发现，忠于内心的色彩"];
+     NSArray * imgURLsArray1 = [NSArray arrayWithObjects:@"http://oih52ss9e.bkt.clouddn.com/Creator2.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator3.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator4.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator5.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator5.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator5.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator5.jpg", nil];
+    [modal1 setCreatorContentPhotos:imgURLsArray1];
+    
+    
+    
+    CreatorCoverModal * modal2 = [[CreatorCoverModal alloc]init];
+    [modal2 setCreatorCoverUrl:@"http://oih52ss9e.bkt.clouddn.com/Creator6.jpg"];
+    [modal2 setCreatorShopTitle:@"从那以后"];
+    [modal2 setCreatorSloganTitle:@"原创腔调设计，独立手工艺人"];
+    NSArray * imgURLsArray2 = [NSArray arrayWithObjects:@"http://oih52ss9e.bkt.clouddn.com/Creator7.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator8.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator9.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator10.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator7.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator8.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator9.jpg", nil];
+    [modal2 setCreatorContentPhotos:imgURLsArray2];
+    
+    CreatorCoverModal * modal3 = [[CreatorCoverModal alloc]init];
+    [modal3 setCreatorCoverUrl:@"http://oih52ss9e.bkt.clouddn.com/Creator11.jpg"];
+    [modal3 setCreatorShopTitle:@"YUJ workshop"];
+    [modal3 setCreatorSloganTitle:@"Macrame饰品和皮具、Vintage古着单品、传统民族手工艺品和世界各地的流浪嬉皮手工"];
+    NSArray * imgURLsArray3 = [NSArray arrayWithObjects:@"http://oih52ss9e.bkt.clouddn.com/Creator12.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator13.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator14.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator15.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator14.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator15.jpg", nil];
+    [modal3 setCreatorContentPhotos:imgURLsArray3];
+    
+    CreatorCoverModal * modal4 = [[CreatorCoverModal alloc]init];
+    [modal4 setCreatorCoverUrl:@"http://oih52ss9e.bkt.clouddn.com/Creator11.jpg"];
+    [modal4 setCreatorShopTitle:@"YUJ workshop"];
+    [modal4 setCreatorSloganTitle:@"Macrame饰品和皮具、Vintage古着单品、传统民族手工艺品和世界各地的流浪嬉皮手工"];
+    NSArray * imgURLsArray4 = [NSArray arrayWithObjects:@"http://oih52ss9e.bkt.clouddn.com/Creator12.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator13.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator14.jpg",@"http://oih52ss9e.bkt.clouddn.com/Creator15.jpg", nil];
+    [modal4 setCreatorContentPhotos:imgURLsArray4];
+    
+    [self.creatorsArray addObject:modal1];
+    [self.creatorsArray addObject:modal2];
+    [self.creatorsArray addObject:modal3];
+    [self.creatorsArray addObject:modal4];
 
+}
 
 
 

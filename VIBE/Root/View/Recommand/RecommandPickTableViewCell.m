@@ -132,19 +132,6 @@
         
         [_backBlurImgView setHidden:NO];
 
-//        if (!_blurImageProcessor) {
-//            _blurImageProcessor = [[ALDBlurImageProcessor alloc] initWithImage:image];
-//            
-//            [_blurImageProcessor asyncBlurWithRadius:100 iterations:20 successBlock:^(UIImage *blurredImage) {
-//
-//                [_backBlurImgView setImage:blurredImage];
-//                [_backBlurImgView setHidden:NO];
-//
-//            } errorBlock:^(NSNumber *errorCode) {
-//                
-//            }];
-//        }
-        
     }];
 
     
@@ -155,11 +142,7 @@
     [[VibeAppTool sharedInstance] setLabelSpace:_productNameTitleLabel withText:productNameTitle withFont:_productNameTitleLabel.font withLineSpacing:4.0f];
     
     float nameTitleHeight = [[VibeAppTool sharedInstance]getSpaceLabelHeight:productNameTitle withFont:_productNameTitleLabel.font withWidth:kScreenWidth -100 withLineSpacing:4.0];
-    
-//    float nameTitleHeight = [productNameTitle getSizeWithLimitSize:CGSizeMake(kScreenWidth -100, 100) withFont:_productNameTitleLabel.font].height;
-    
-//    [_productNameTitleLabel setText:productNameTitle];
-    
+  
     
     [_productNameTitleLabel setFrame:CGRectMake(25, 20 +20 +(kScreenWidth -50) +10 -nameTitleHeight, kScreenWidth -100, nameTitleHeight)];
     

@@ -82,7 +82,7 @@
         [_storyTitleLabel setTextColor:Default_Text_Dark_Color];
         [_storyTitleLabel setFont:[VibeFont fontWithName:Font_Chinese_Regular size:15]];
         [_whiteContentView addSubview:_storyTitleLabel];
-        
+
         
         _photosContentView = [[UIView alloc]initWithFrame:CGRectMake(25, 50, whiteViewWidth -50, 55)];
         [_photosContentView setBackgroundColor:[UIColor clearColor]];
@@ -134,7 +134,7 @@
         UILabel * showNumberLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, singleSmallPhotoWidth, singleSmallPhotoWidth)];
         [showNumberLabel setTextAlignment:NSTextAlignmentCenter];
         [showNumberLabel setTextColor:DefaultWhite];
-        [showNumberLabel setFont:[VibeFont fontWithName:Font_English_Regular size:13]];
+        [showNumberLabel setFont:[VibeFont fontWithName:Font_English_Bold size:13]];
         [showNumberLabel setText:[NSString stringWithFormat:@"+%ld",photosCount -4]];
         [showMoreView addSubview:showNumberLabel];
     }

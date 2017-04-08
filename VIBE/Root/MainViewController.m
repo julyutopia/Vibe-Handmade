@@ -159,6 +159,13 @@
     [_creatorView setBackgroundColor:[UIColor clearColor]];
     [_rootScrollView addSubview:_creatorView];
     
+    
+    _creatorTableView= [[NewCreatorTableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
+    [_creatorTableView setDelegateee:self];
+    _creatorTableView.contentInset = UIEdgeInsetsMake(scrollViewOriginY, 0, 0, 0);
+    _creatorTableView.scrollIndicatorInsets = UIEdgeInsetsMake(scrollViewOriginY, 0, 0, 0);
+    [_creatorView addSubview:_creatorTableView];
+    
 }
 
 
@@ -232,10 +239,11 @@
 }
 
 
--(void)segmentedControl:(LUNSegmentedControl *)segmentedControl willChangeStateFromStateAtIndex:(NSInteger)fromIndex toStateAtIndex:(NSInteger)toIndex
+-(void)segmentedControl:(LUNSegmentedControl *)segmentedControl didChangeStateFromStateAtIndex:(NSInteger)fromIndex toStateAtIndex:(NSInteger)toIndex
 {
     [_rootScrollView setContentOffset:CGPointMake(kScreenWidth *toIndex, 0) animated:YES];
 }
+
 
 #pragma mark -ScrollView 代理方法
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

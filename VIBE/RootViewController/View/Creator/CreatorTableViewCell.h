@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CreatorCoverModal.h"
+#import "CreatorCoverrrrModal.h"
 
 @protocol CreatorTableViewCellDelegate;
 
@@ -38,7 +38,7 @@
 
 @property (weak, nonatomic) id<CreatorTableViewCellDelegate> delegate;
 
--(void)setCreatorCellWithModal:(CreatorCoverModal *)modal WithIndex:(NSInteger )index;
+-(void)setCreatorCellWithModal:(CreatorCoverrrrModal *)modal WithIndex:(NSInteger )index;
 
 @end
 

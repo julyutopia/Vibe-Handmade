@@ -17,7 +17,7 @@
 #import "VibeShowMoneyView.h"
 
 #import "CreatorTableView.h"
-#import "CreatorCoverModal.h"
+#import "CreatorCoverrrrModal.h"
 
 #import "DiscoverTableView.h"
 #import "DiscoverHotTagModal.h"

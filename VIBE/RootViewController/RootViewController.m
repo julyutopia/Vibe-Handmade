@@ -220,28 +220,28 @@
 
     [_recommandTableView setRecommandInfoDict:_recommandInfoDict];
     
-    CreatorCoverModal * creatorModal1 = [[CreatorCoverModal alloc]init];
+    CreatorCoverrrrModal * creatorModal1 = [[CreatorCoverrrrModal alloc]init];
     [creatorModal1 setCreatorImgURL:@"https://s-media-cache-ak0.pinimg.com/564x/6f/72/28/6f7228548422957a77a9b2a711034843.jpg"];
     [creatorModal1 setCreatorTitle:@"钟爱绚烂的墨西哥风情，只因生活本该丰富多彩"];
     [creatorModal1 setCreatorShopName:@"PentFair阁楼"];
     [creatorModal1 setCreatorLookedNumber:[NSNumber numberWithInt:1255]];
     [creatorModal1 setCreatorFavorNumber:[NSNumber numberWithInt:768]];
     
-    CreatorCoverModal * creatorModal2 = [[CreatorCoverModal alloc]init];
+    CreatorCoverrrrModal * creatorModal2 = [[CreatorCoverrrrModal alloc]init];
     [creatorModal2 setCreatorImgURL:@"https://s-media-cache-ak0.pinimg.com/564x/09/a3/38/09a3380b219798f8eeb50b74e8270b11.jpg"];
     [creatorModal2 setCreatorTitle:@"灵性能量手工饰品，连接天地间的语言祈祷及祝愿"];
     [creatorModal2 setCreatorShopName:@"香巴拉 Creation"];
     [creatorModal2 setCreatorLookedNumber:[NSNumber numberWithInt:284]];
     [creatorModal2 setCreatorFavorNumber:[NSNumber numberWithInt:32]];
     
-    CreatorCoverModal * creatorModal3 = [[CreatorCoverModal alloc]init];
+    CreatorCoverrrrModal * creatorModal3 = [[CreatorCoverrrrModal alloc]init];
     [creatorModal3 setCreatorImgURL:@"http://atmedia.imgix.net/5cffcfd3e8424e01c26b4115f8a9a9b1916aa831?auto=compress&w=800.0&fit=max"];
     [creatorModal3 setCreatorTitle:@"小囍手作，传递对于生活永无止境的热爱和好奇"];
     [creatorModal3 setCreatorShopName:@"小喜xiaoxi"];
     [creatorModal3 setCreatorLookedNumber:[NSNumber numberWithInt:468]];
     [creatorModal3 setCreatorFavorNumber:[NSNumber numberWithInt:105]];
     
-    CreatorCoverModal * creatorModal4 = [[CreatorCoverModal alloc]init];
+    CreatorCoverrrrModal * creatorModal4 = [[CreatorCoverrrrModal alloc]init];
     [creatorModal4 setCreatorImgURL:@"http://i1.piimg.com/567571/94b91c38060019e4.jpg"];
     [creatorModal4 setCreatorTitle:@"从心出发，回归茶之本色"];
     [creatorModal4 setCreatorShopName:@"YU茶舍"];

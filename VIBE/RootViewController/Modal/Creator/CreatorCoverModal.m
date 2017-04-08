@@ -6,9 +6,9 @@
 //  Copyright © 2016年 LiHaii. All rights reserved.
 //
 
-#import "CreatorCoverModal.h"
+#import "CreatorCoverrrrModal.h"
 
-@implementation CreatorCoverModal
+@implementation CreatorCoverrrrModal
 
 +(BOOL)propertyIsOptional:(NSString *)propertyName
 {
