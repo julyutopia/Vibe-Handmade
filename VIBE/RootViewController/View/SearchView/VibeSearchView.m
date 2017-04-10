@@ -39,61 +39,54 @@
         _maxSearchContentHeight = kScreenHeight - maxKeyBoardHeight -60;
         
         _searchView = [[UIView alloc]initWithFrame:CGRectMake(0, -_maxSearchContentHeight, kScreenWidth, _maxSearchContentHeight)];
-        [_searchView setBackgroundColor:[UIColor clearColor]];
+        [_searchView setBackgroundColor:DefaultWhite];
         [self addSubview:_searchView];
 
-        CAGradientLayer * gradientViewLayer = [CAGradientLayer layer];
-        gradientViewLayer.frame = CGRectMake(0, 0, kScreenWidth, _maxSearchContentHeight);
-        gradientViewLayer.startPoint = CGPointMake(0.3, 0.0);
-        gradientViewLayer.endPoint = CGPointMake(0.7, 1.0);
-        gradientViewLayer.colors = @[
-                                     (id)RGB(104, 208, 212).CGColor,
-                                     (id)RGB(161, 253, 218).CGColor,
-                                     ];
-        [_searchView.layer addSublayer:gradientViewLayer];
-        
-        
+
         //设置阴影
-        [_searchView.layer setShadowColor:RGBA(117, 184, 158, 80).CGColor];
-        [_searchView.layer setShadowOffset:CGSizeMake(0, 1)];
-        [_searchView.layer setShadowRadius:2.0f];
+        [_searchView.layer setShadowColor:RGBA(37, 185, 212, 30).CGColor];
+        [_searchView.layer setShadowOffset:CGSizeMake(2, 4)];
+        [_searchView.layer setShadowRadius:10.0f];
         [_searchView.layer setShadowOpacity:0.4f];
         
         
-        _searchCancleGapLine = [[UIView alloc]initWithFrame:CGRectMake(15, _maxSearchContentHeight -38, kScreenWidth -30, 1)];
-        [_searchCancleGapLine setBackgroundColor:RGBA(255, 255, 255, 80)];
+        _searchCancleGapLine = [[UIView alloc]initWithFrame:CGRectMake(25, _maxSearchContentHeight -39, kScreenWidth -50, 2)];
+        [_searchCancleGapLine setBackgroundColor:RGBA(252, 252, 252, 100)];
         [_searchCancleGapLine.layer setCornerRadius:1];
         [_searchView addSubview:_searchCancleGapLine];
         
+        
+        //退出搜索按钮
         _searchCancleBtn = [[UIButton alloc]initWithFrame:CGRectMake( (kScreenWidth -175)/2, _maxSearchContentHeight -30, 175, 25)];
-        [_searchCancleBtn setBackgroundImage:[UIImage imageNamed:@"Search_Cancle"] forState:UIControlStateNormal];
+        [_searchCancleBtn setBackgroundImage:[UIImage imageNamed:@"SearchView_Cancle"] forState:UIControlStateNormal];
+        [_searchCancleBtn setBackgroundImage:[UIImage imageNamed:@"SearchView_Cancle_Hightlight"] forState:UIControlStateHighlighted];
         [_searchCancleBtn addTarget:self action:@selector(searchViewCancle:) forControlEvents:UIControlEventTouchUpInside];
         [_searchCancleBtn setAlpha:0.0f];
         [_searchView addSubview:_searchCancleBtn];
         
         
-        _searchBar = [[VibeSearchBar alloc]initWithFrame:CGRectMake(15, 24, kScreenWidth -30, 33)];
+        _searchBar = [[VibeSearchBar alloc]initWithFrame:CGRectMake(25, 30, kScreenWidth -50, 33)];
         [_searchBar setDelegateee:self];
         [_searchView addSubview:_searchBar];
         
       
-        _searchContentView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 24 +33 +10, kScreenWidth, _maxSearchContentHeight -(24 +33 +30 +25))];
+        _searchContentView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30 +33 +10, kScreenWidth, _maxSearchContentHeight -(30 +33 +30 +25))];
         [_searchContentView setBackgroundColor:[UIColor clearColor]];
         [_searchContentView setAlpha:0.0f];
         [_searchView addSubview:_searchContentView];
         
         
-        _recentSearchTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 10, 100, 18)];
+        _recentSearchTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 10, 100, 18)];
         [_recentSearchTitleLabel setTextAlignment:NSTextAlignmentLeft];
-        [_recentSearchTitleLabel setTextColor:RGBA(255, 255, 255, 90)];
+        [_recentSearchTitleLabel setTextColor:RGBA(69, 69, 83, 90)];
         [_recentSearchTitleLabel setText:@"历史搜索"];
-        [_recentSearchTitleLabel setFont:[VibeFont fontWithName:Default_Font_Middle size:13]];
+        [_recentSearchTitleLabel setFont:[VibeFont fontWithName:Font_Chinese_Regular size:12]];
         [_searchContentView addSubview:_recentSearchTitleLabel];
         
         
-        _cleanRecentSearchBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth -15 -41, 12, 42, 17)];
-        [_cleanRecentSearchBtn setBackgroundImage:[UIImage imageNamed:@"Search_Clean"] forState:UIControlStateNormal];
-        [_cleanRecentSearchBtn setBackgroundImage:[UIImage imageNamed:@"Search_Clean_Highlight"] forState:UIControlStateHighlighted];
+        _cleanRecentSearchBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth -25 -50, 7, 50, 24)];
+        [_cleanRecentSearchBtn setBackgroundImage:[UIImage imageNamed:@"SearchView_Clean"] forState:UIControlStateNormal];
+        [_cleanRecentSearchBtn setBackgroundImage:[UIImage imageNamed:@"SearchView_Clean_Highlight"] forState:UIControlStateHighlighted];
         [_cleanRecentSearchBtn setHidden:YES];
         [_cleanRecentSearchBtn addTarget:self action:@selector(cleanRecentSearch) forControlEvents:UIControlEventTouchUpInside];
         [_searchContentView addSubview:_cleanRecentSearchBtn];
@@ -108,10 +101,10 @@
         
         _hotSearchTitleLabel = [[UILabel alloc]init];
          [_hotSearchTitleLabel setTextAlignment:NSTextAlignmentLeft];
-        [_hotSearchTitleLabel setTextColor:RGBA(255, 255, 255, 90)];
+        [_hotSearchTitleLabel setTextColor:RGBA(69, 69, 83, 90)];
         [_hotSearchTitleLabel setText:@"热门搜索"];
         [_hotSearchTitleLabel setHidden:YES];
-        [_hotSearchTitleLabel setFont:[VibeFont fontWithName:Default_Font_Middle size:13]];
+        [_hotSearchTitleLabel setFont:[VibeFont fontWithName:Font_Chinese_Regular size:12]];
         [_searchContentView addSubview:_hotSearchTitleLabel];
         
 
@@ -133,8 +126,7 @@
     
     [self setDataContent];
     
-    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
-
+    
     [UIView animateWithDuration:0.20f animations:^{
         
         [_searchBlurBackView setAlpha:1.0f];
@@ -209,6 +201,12 @@
 {
     if ([_delegateee respondsToSelector:@selector(searchViewDidSearch:)]) {
         
+        //仅输入空格
+        if ([VibeAppTool isStringEmpty:searchKeyword]) {
+            [FTIndicator showErrorWithMessage:@"搜索内容不能为空." userInteractionEnable:NO];
+            return;
+        }
+        
         //缓存搜索关键字
         if (![[NSUserDefaults standardUserDefaults]objectForKey:RecentSearchWords]) {
             NSMutableArray * array = [[NSMutableArray alloc]init];
@@ -228,7 +226,7 @@
             [[NSUserDefaults standardUserDefaults]setObject:arrayyy forKey:RecentSearchWords];
             [[NSUserDefaults standardUserDefaults]synchronize];
         }
-
+        
         [self hideSearchView];
         [_delegateee searchViewDidSearch:searchKeyword];
     }
@@ -249,7 +247,7 @@
         [_recentSearchArray addObjectsFromArray:localSearchHistoryArray];
     }
     
-    [_recentSearchTagView setFrame:CGRectMake(15, 10 +18 +10, kScreenWidth - 30, 0)];
+    [_recentSearchTagView setFrame:CGRectMake(25, 10 +18 +10, kScreenWidth - 50, 0)];
     
     //有历史记录
     if (_recentSearchArray.count) {
@@ -260,10 +258,10 @@
         
         NSMutableArray *tempArray = [NSMutableArray array];
         for (int i = 0; i < _recentSearchArray.count; i ++) {
-            UIButton *button = [_recentSearchTagView creatSelectableButton:_recentSearchArray[i] gap:10];
+            UIButton *button = [_recentSearchTagView creatSelectableButton:_recentSearchArray[i] gap:12];
             [tempArray addObject:button];
         }
-        [_recentSearchTagView setupWithViewsArray:tempArray maxWidth:kScreenWidth - 30 hGap:15 vGap:15];
+        [_recentSearchTagView setupWithViewsArray:tempArray maxWidth:kScreenWidth - 50 hGap:12 vGap:12];
     }
     ///无历史记录
     else{
@@ -273,7 +271,7 @@
     
     _showHotSearchOriginY = _recentSearchTagView.frame.origin.y +_recentSearchTagView.frame.size.height +10;
     
-    [_hotSearchTitleLabel setFrame:CGRectMake(15, _showHotSearchOriginY, 100, 18)];
+    [_hotSearchTitleLabel setFrame:CGRectMake(25, _showHotSearchOriginY, 100, 18)];
     [_hotSearchTitleLabel setHidden:NO];
     
     //热门搜索关键词
@@ -283,16 +281,16 @@
     
     NSMutableArray *tempArray = [NSMutableArray array];
     for (int i = 0; i < _hotSearchArray.count; i ++) {
-        UIButton *button = [_hotSearchTagView creatSelectableButton:_hotSearchArray[i] gap:10];
+        VibeSearchTagsButton *button = [_hotSearchTagView creatSelectableButton:_hotSearchArray[i] gap:12];
         [tempArray addObject:button];
     }
-    [_hotSearchTagView setFrame:CGRectMake(15, _showHotSearchOriginY +18 +10, kScreenWidth - 30, 0)];
-    [_hotSearchTagView setupWithViewsArray:tempArray maxWidth:kScreenWidth - 30 hGap:15 vGap:15];
+    [_hotSearchTagView setFrame:CGRectMake(25, _showHotSearchOriginY +18 +10, kScreenWidth - 50, 0)];
+    [_hotSearchTagView setupWithViewsArray:tempArray maxWidth:kScreenWidth - 50 hGap:12 vGap:12];
     [_hotSearchTagView setHidden:NO];
 
     float contentSizeHeight = _showHotSearchOriginY +18 +10 +_hotSearchTagView.frame.size.height +10;
     
-    [_searchContentView setContentSize:CGSizeMake(kScreenWidth -30, contentSizeHeight +70)];
+    [_searchContentView setContentSize:CGSizeMake(kScreenWidth -50, contentSizeHeight +20)];
 }
 
 
@@ -315,8 +313,8 @@
         
         [UIView animateWithDuration:0.15 animations:^{
             
-            [_hotSearchTitleLabel setFrame:CGRectMake(15, _showHotSearchOriginY, 100, 18)];
-            [_hotSearchTagView setFrame:CGRectMake(15, _showHotSearchOriginY +18 +10, kScreenWidth - 30, _hotSearchTagView.frame.size.height)];
+            [_hotSearchTitleLabel setFrame:CGRectMake(25, _showHotSearchOriginY, 100, 18)];
+            [_hotSearchTagView setFrame:CGRectMake(25, _showHotSearchOriginY +18 +10, kScreenWidth - 50, _hotSearchTagView.frame.size.height)];
         }];
         
         [_recentSearchTagView setHidden:YES];

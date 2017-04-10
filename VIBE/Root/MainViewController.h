@@ -14,7 +14,12 @@
 #import "NewDiscoverTableView.h"
 #import "NewCreatorTableView.h"
 
-@interface MainViewController : UIViewController<UIScrollViewDelegate, LUNSegmentedControlDataSource, LUNSegmentedControlDelegate, NewRecommandTableViewDelegate, NewDiscoverTableViewDelegate, NewCreatorTableViewDelegate>
+#import "VibeSearchView.h"
+
+#import "SearchResultViewController.h"
+#import "ItemDetailViewController.h"
+
+@interface MainViewController : UIViewController<UIScrollViewDelegate, LUNSegmentedControlDataSource, LUNSegmentedControlDelegate, NewRecommandTableViewDelegate, NewDiscoverTableViewDelegate, NewCreatorTableViewDelegate, VibeSearchViewDelegate>
 {
     UIView                  * _backView;
     
@@ -36,8 +41,10 @@
     UIView                  * _creatorView;
     NewCreatorTableView     * _creatorTableView;
     
+    
+    VibeSearchView          * _searchView;//搜索页面
+    
 }
-
 
 @end
 

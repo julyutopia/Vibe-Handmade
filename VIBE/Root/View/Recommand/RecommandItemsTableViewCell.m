@@ -19,9 +19,11 @@
         float itemHeight = itemWidth +55;
         
         _leftItemView = [[RecommandItemView alloc]initWithFrame:CGRectMake(55/2, 0, itemWidth, itemHeight)];
+        [_leftItemView setDelegateee:self];
         [self.contentView addSubview:_leftItemView];
         
         _rightItemView = [[RecommandItemView alloc]initWithFrame:CGRectMake(kScreenWidth -55/2 -itemWidth, 0, itemWidth, itemHeight)];
+        [_rightItemView setDelegateee:self];
         [self.contentView addSubview:_rightItemView];
     }
     
@@ -31,13 +33,18 @@
 
 -(void)setItemsCellWithLeftItem:(RecommandItemModal *)leftModal AndRightItem:(RecommandItemModal *)rightItem
 {
-
     [_leftItemView setItemView:leftModal];
     [_rightItemView setItemView:rightItem];
-    
 }
 
 
+#pragma mark -ItemView代理方法
+-(void)recommandItemViewClickWithID:(NSInteger )itemID
+{
+    if ([_delegateee respondsToSelector:@selector(recommandItemCellDidClickItemWithID:)]) {
+        [_delegateee recommandItemCellDidClickItemWithID:itemID];
+    }
+}
 
 @end
 

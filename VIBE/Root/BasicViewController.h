@@ -13,10 +13,16 @@
 @property (strong, nonatomic) UIView                * backView;//背景视图
 
 @property (strong, nonatomic) UIView                * navigationView;//导航栏
+
+@property (strong, nonatomic) UIVisualEffectView    * naviBlurView;
+
+@property (strong,nonatomic) UIView                 * navigationLineView;
+
 @property (strong, nonatomic) UIButton              * leftBtn;//左边按钮
 @property (strong, nonatomic) UIButton              * rightBtn;//右边按钮
 @property (strong, nonatomic) UILabel               * titleLabel;//标题栏
 
+@property (nonatomic, assign) BOOL                  isPopUp;//判断是否是升起
 
 
 -(void)leftBtnClicked:(id)sender;

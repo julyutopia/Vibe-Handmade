@@ -12,6 +12,7 @@
 
 #import "GLImageView.h"
 
+@protocol RecommandItemViewDelegate;
 
 @interface RecommandItemView : UIView
 {
@@ -21,8 +22,19 @@
     
     UILabel     * _itemNameLabel;
     UILabel     * _itemPriceLabel;
+    
+    NSInteger     _itemID;
 }
 
 -(void)setItemView:(RecommandItemModal *)itemModal;
+
+@property (weak, nonatomic) id<RecommandItemViewDelegate> delegateee;
+
+@end
+
+//代理协议
+@protocol RecommandItemViewDelegate <NSObject>
+
+-(void)recommandItemViewClickWithID:(NSInteger )itemID;
 
 @end

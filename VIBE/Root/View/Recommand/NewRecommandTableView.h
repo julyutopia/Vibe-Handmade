@@ -18,7 +18,7 @@
 
 @protocol NewRecommandTableViewDelegate;
 
-@interface NewRecommandTableView : UITableView<UITableViewDelegate, UITableViewDataSource>
+@interface NewRecommandTableView : UITableView<UITableViewDelegate, UITableViewDataSource,RecommandItemsTableViewCellDelegate>
 {
     UIView  * _sectionFooterView;
 }
@@ -30,5 +30,7 @@
 //代理协议
 @protocol NewRecommandTableViewDelegate <NSObject>
 
+
+-(void)recommandTableViewShowItemDetailWithID:(NSInteger )itemID;
 
 @end

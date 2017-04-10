@@ -69,14 +69,14 @@
         _backBlurImgView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 20 +20 +5, kScreenWidth -60, kScreenWidth -60)];
         [_backBlurImgView setHidden:YES];
         [_backBlurImgView setBackgroundColor:[UIColor whiteColor]];
-        [_backBlurImgView.layer setShadowColor:RGBA(100, 100, 100, 20).CGColor];
-        [_backBlurImgView.layer setShadowOffset:CGSizeMake(4, 4)];
+        [_backBlurImgView.layer setShadowColor:RGBA(100, 100, 100, 30).CGColor];
+        [_backBlurImgView.layer setShadowOffset:CGSizeMake(4, 5)];
         [_backBlurImgView.layer setShadowOpacity:1.0f];
         [_backBlurImgView.layer setShadowRadius:8.0f];
         [_backView addSubview:_backBlurImgView];
 
         
-        _productImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 20 +20, kScreenWidth -50, kScreenWidth -50)];
+        _productImgView = [[GLImageView alloc]initWithFrame:CGRectMake(0, 20 +20, kScreenWidth -50, kScreenWidth -50)];
         [_productImgView setBackgroundColor:[UIColor clearColor]];
         [_productImgView.layer setCornerRadius:8];
         [_productImgView.layer setMasksToBounds:YES];
@@ -133,7 +133,6 @@
         [_backBlurImgView setHidden:NO];
 
     }];
-
     
     
     NSString * productInfoTitle = modal.productInfoTitle;

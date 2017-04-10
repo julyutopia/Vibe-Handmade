@@ -342,10 +342,10 @@
 #pragma mark - 相关推荐cell代理方法
 -(void)topicDetailRelatedProductCellClickWithIndex:(NSInteger)index
 {
-    VibeProductModal * modal = [_topicModal.topicRelatedProductArray objectAtIndex:index];
-    NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
-    productDetailVC.productDetailModal = modal;
-    [self.lcNavigationController pushViewController:productDetailVC];
+//    VibeProductModal * modal = [_topicModal.topicRelatedProductArray objectAtIndex:index];
+//    NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
+//    productDetailVC.productDetailModal = modal;
+//    [self.lcNavigationController pushViewController:productDetailVC];
 }
 
 #pragma mark -设置假数据
@@ -583,7 +583,7 @@
 #pragma mark -点击收藏按钮
 -(void)addFavorClicked:(UIButton *)favorBtn
 {
-    if ([VibeAppTool isUserLogIn]) {
+    if ([[VibeAppTool sharedInstance]isUserLogIn]) {
         
     }
     //未登录

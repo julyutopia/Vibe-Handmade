@@ -278,10 +278,10 @@
 #pragma mark - 点击商品Cell代理方法
 -(void)categoryListProductCellClickWithIndex:(NSInteger)index
 {
-    VibeProductModal * productModal = [_categoryProductsArray objectAtIndex:index];
-    NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
-    productDetailVC.productDetailModal = productModal;
-    [self.lcNavigationController pushViewController:productDetailVC];
+//    VibeProductModal * productModal = [_categoryProductsArray objectAtIndex:index];
+//    NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
+//    productDetailVC.productDetailModal = productModal;
+//    [self.lcNavigationController pushViewController:productDetailVC];
 }
 
 

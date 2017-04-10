@@ -36,7 +36,7 @@
         }
         
         //已登录，显示8条cell，最后一条为‘退出登录’
-        if ([VibeAppTool isUserLogIn]) {
+        if ([[VibeAppTool sharedInstance]isUserLogIn]) {
             _showCellNumbers = 8;
         }
         //未登录则不显示

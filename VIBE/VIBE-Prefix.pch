@@ -9,6 +9,8 @@
 
 #import "AppDelegate.h"
 
+#import "BasicViewController.h"
+
 #import <Availability.h>
 #import <UIKit/UIKit.h>
 
@@ -57,7 +59,7 @@
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define kScreenWidth  [UIScreen mainScreen].bounds.size.width
 
-#define Navi_View_Height           64
+#define Navi_View_Height           70
 
 //屏幕和iPhone5屏幕宽度比例
 #define sizeRate [UIScreen mainScreen].bounds.size.width/320
@@ -77,7 +79,7 @@
 
 #define Font_Chinese_Regular    @"MFYaYuan_Noncommercial-Regular"
 
-
+#define Font_Money              @"PingFangSC-Medium"
 
 #pragma mark - 默认颜色
 
@@ -91,6 +93,7 @@
 
 #define Default_Text_Gray_Color         RGBA(146, 146, 175, 100)
 #define Default_Text_Dark_Color         RGBA(69, 69, 83, 100)
+#define Default_Text_Dark_Color_90      RGBA(69, 69, 83, 90)
 
 
 #pragma mark - 尺寸

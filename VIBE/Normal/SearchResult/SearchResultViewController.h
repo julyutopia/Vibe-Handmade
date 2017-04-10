@@ -2,33 +2,28 @@
 //  SearchResultViewController.h
 //  VIBE
 //
-//  Created by Li Haii on 2017/1/6.
+//  Created by Li Haii on 2017/4/9.
 //  Copyright © 2017年 LiHaii. All rights reserved.
 //
 
-#import "VibeViewController.h"
+#import "BasicViewController.h"
 
-#import "VibeSearchView.h"
+#import "SearchResultCollectionViewCell.h"
 
-#import "SearchProductsHeaderTableViewCell.h"
-#import "SearchTopicHeaderTableViewCell.h"
+#import "RecommandItemModal.h"
 
-#import "NewProductDetailViewController.h"
-#import "TopicDetailViewController.h"
-
-#import "SearchShowProductsViewController.h"
-#import "SearchShowTopicsViewController.h"
-
-@interface SearchResultViewController : VibeViewController<VibeSearchViewDelegate, UITableViewDelegate, UITableViewDataSource, SearchProductTableViewCellDelegate, SearchProductsAllTableViewCellDelegate, SearchTopicTableViewCellDelegate, SearchTopicAllTableViewCellDelegate>
+@interface SearchResultViewController : BasicViewController<UICollectionViewDelegate, UICollectionViewDataSource>
 {
-    VibeSearchView      * _searchView;
+    GLImageView     * _topBarBackImgView;
     
-    NSMutableArray      * _productsArray;
-    NSMutableArray      * _topicsArray;
-
-    UITableView         * _resultsTableView;
+    UIView          * _topBarView;
+    UIImageView     * _topBarSearchIcon;
+    UILabel         * _topBarTitleLabel;
     
-    UIView              * _sectionFooterView;
+    
+    UICollectionView    * _searchResultCollectionView;
+        
+    NSMutableArray      * _searchResultProductsArray;
 }
 
 @property(retain, nonatomic)NSString * searchKeyword;

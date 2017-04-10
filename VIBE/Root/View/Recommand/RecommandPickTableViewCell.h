@@ -13,6 +13,8 @@
 #import "ALDBlurImageProcessor.h"
 #import "UIERealTimeBlurView.h"
 
+#import "GLImageView.h"
+
 @interface RecommandPickTableViewCell : UITableViewCell
 {
     UILabel         * _titleLabel;
@@ -24,7 +26,7 @@
     
     UIERealTimeBlurView * _blurView;
     
-    UIImageView     * _productImgView;
+    GLImageView     * _productImgView;
     
     UILabel         * _productInfoTitleLabel;
     UILabel         * _productNameTitleLabel;

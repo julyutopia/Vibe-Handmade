@@ -13,11 +13,13 @@
 
 @interface DiscoverStoryBigView : UIView
 {
-    GLImageView         * _backView;
+    UIView              * _backView;
     
     UIImageView         * _blurImgView;
-    UIImageView         * _backImgView;
+    UIImageView         * _photoImgView;
     
+    GLImageView         * _tapBackImgView;
+
     UIView              * _whiteContentView;
     
     UILabel             * _timeStampLabel;

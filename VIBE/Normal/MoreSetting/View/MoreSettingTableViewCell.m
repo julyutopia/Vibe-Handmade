@@ -178,7 +178,7 @@
         case 6:
             
             //未登录，则此cell为最后一条
-            if (![VibeAppTool isUserLogIn]) {
+            if (![[VibeAppTool sharedInstance] isUserLogIn]) {
                 if (!_maskLayer) {
                     _maskLayer =[[CAShapeLayer alloc] init];
                     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_backView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(4, 4)];

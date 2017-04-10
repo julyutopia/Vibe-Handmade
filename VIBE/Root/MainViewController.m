@@ -23,7 +23,6 @@
     [self.view addSubview:_backView];
     
     [self initScrollView];
-    [self initTableView];
     [self initNaviView];
 }
 
@@ -45,15 +44,17 @@
     
     
     //个人按钮
-    _profileBtn = [[UIButton alloc]initWithFrame:CGRectMake(27, 35, 16, 16)];
+    _profileBtn = [[UIButton alloc]initWithFrame:CGRectMake(22, 27, 25, 25)];
     [_profileBtn setBackgroundImage:[UIImage imageNamed:@"Profile_Normal"] forState:UIControlStateNormal];
     [_profileBtn setBackgroundImage:[UIImage imageNamed:@"Profile_High_Light"] forState:UIControlStateHighlighted];
+    [_profileBtn addTarget:self action:@selector(profileBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_navigationView addSubview:_profileBtn];
     
     //搜索按钮
-    _searchBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth -27 -16, 35, 16, 16)];
+    _searchBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth -22 -25, 27, 25, 25)];
     [_searchBtn setBackgroundImage:[UIImage imageNamed:@"Search_Normal"] forState:UIControlStateNormal];
     [_searchBtn setBackgroundImage:[UIImage imageNamed:@"Search_Hight_Light"] forState:UIControlStateHighlighted];
+    [_searchBtn addTarget:self action:@selector(searchBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_navigationView addSubview:_searchBtn];
     
     //滑动选项视图
@@ -169,12 +170,63 @@
 }
 
 
--(void)initTableView
+#pragma mark -点击个人资料按钮
+-(void)profileBtnClicked:(UIButton *)btn
 {
+    
+}
 
+#pragma mark -点击搜索按钮
+-(void)searchBtnClicked:(UIButton *)btn
+{
+    if (!_searchView) {
+        _searchView = [[VibeSearchView alloc]initWithFrame:self.view.frame];
+        [_searchView setDelegateee:self];
+        [self.view addSubview:_searchView];
+    }
+    
+    [_searchView showSearchView];
 }
 
 
+
+#pragma mark -显示 & 隐藏 页面内容
+-(void)showMainViewControllerContent
+{
+    [UIView animateWithDuration:1.2f animations:^{
+        
+        [_profileBtn setAlpha:1.0f];
+        [_searchBtn setAlpha:1.0f];
+        [_naviSegmentControl setAlpha:1.0f];
+    }];
+}
+
+-(void)hideMainViewControllerContent
+{
+    [UIView animateWithDuration:0.15f animations:^{
+        
+        [_profileBtn setAlpha:0.0f];
+        [_searchBtn setAlpha:0.0f];
+        [_naviSegmentControl setAlpha:0.0f];
+    }];
+}
+
+
+#pragma mark -searchView 代理方式
+//搜索隐藏
+-(void)searchViewDidHide
+{
+    [self showMainViewControllerContent];
+//    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+}
+
+//进行关键字搜索
+-(void)searchViewDidSearch:(NSString *)keyword
+{
+    SearchResultViewController * searchResultVC = [[SearchResultViewController alloc]init];
+    searchResultVC.searchKeyword = keyword;
+    [self.lcNavigationController pushViewController:searchResultVC];
+}
 
 
 -(NSArray<UIColor *> *)segmentedControl:(LUNSegmentedControl *)segmentedControl gradientColorsForStateAtIndex:(NSInteger)index
@@ -260,6 +312,23 @@
         [_naviSegmentControl setCurrentState:2];
     }
 }
+
+
+#pragma mark -推荐Tableview的代理方法
+-(void)recommandTableViewShowItemDetailWithID:(NSInteger)itemID
+{
+    ItemDetailViewController * itemDetailVC = [[ItemDetailViewController alloc]init];
+    itemDetailVC.itemDetailID = itemID;
+    [self.lcNavigationController pushViewController:itemDetailVC];
+}
+
+
+
+
+
+
+
+
 
 
 #pragma mark 

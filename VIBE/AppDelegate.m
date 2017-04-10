@@ -39,7 +39,7 @@
     
     self.window.rootViewController = homeNavVC;
 
-    
+//    
 //    NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
 //    NSArray *fontNames;
 //    NSInteger indFamily, indFont;
@@ -54,15 +54,33 @@
 //            NSLog(@"    Font name: %@", [fontNames objectAtIndex:indFont]);
 //        }
 //    }
-    
+//    
     
     [self initRecommandViewData];
     [self initDiscoverViewData];
     [self initCreatorViewData];
     
+    [self initSearchResultData];
+    
+    [self initItemDetailData];
+    
+    [self setLogInUserInfo];
+    
     return YES;
 }
 
+#pragma mark -设置假用户数据
+-(void)setLogInUserInfo
+{
+//    [[VibeAppTool sharedInstance] ClearLoginUserInfo];
+    
+    MineProfileModal * userModal = [[MineProfileModal alloc]init];
+    [userModal setUserName:@"Tinaॐ"];
+    [userModal setUserID:[NSNumber numberWithInt:1]];
+    [userModal setUserDescribe:@"每个不曾起舞的日子，都是对生命的辜负"];
+    
+    [[VibeAppTool sharedInstance]setLoginUserInfo:userModal];
+}
 
 #pragma mark -设置推荐页假数据
 -(void)initRecommandViewData
@@ -86,7 +104,6 @@
     [bannerModal4 setImgURL:@"http://oih52ss9e.bkt.clouddn.com/banner4.jpg"];
     [self.recommandTopArray addObject:bannerModal4];
   
-    
     //推荐分类
     self.recommandCateArray = [[NSMutableArray alloc]init];
     
@@ -279,6 +296,73 @@
     [self.creatorsArray addObject:modal4];
 
 }
+
+
+-(void)initSearchResultData
+{
+    //搜索结果产品
+    RecommandItemModal * productModal1 = [[RecommandItemModal alloc]init];
+    [productModal1 setProductTitle:@"进口手工Kilim地毯"];
+    [productModal1 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item1.jpg"];
+    [productModal1 setProductPrice:@"1380"];
+    
+    RecommandItemModal * productModal2 = [[RecommandItemModal alloc]init];
+    [productModal2 setProductTitle:@"植物蓝染小外套"];
+    [productModal2 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item2.jpg"];
+    [productModal2 setProductPrice:@"216"];
+    
+    RecommandItemModal * productModal3 = [[RecommandItemModal alloc]init];
+    [productModal3 setProductTitle:@"北非全手工编织篮"];
+    [productModal3 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item3.jpg"];
+    [productModal3 setProductPrice:@"500"];
+    
+    RecommandItemModal * productModal4 = [[RecommandItemModal alloc]init];
+    [productModal4 setProductTitle:@"手工实木砧板"];
+    [productModal4 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item4.png"];
+    [productModal4 setProductPrice:@"260"];
+    
+    RecommandItemModal * productModal5 = [[RecommandItemModal alloc]init];
+    [productModal5 setProductTitle:@"南美macrame项链"];
+    [productModal5 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item5.jpg"];
+    [productModal5 setProductPrice:@"520"];
+    
+    RecommandItemModal * productModal6 = [[RecommandItemModal alloc]init];
+    [productModal6 setProductTitle:@"墨西哥民族毛毯"];
+    [productModal6 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item6.jpg"];
+    [productModal6 setProductPrice:@"768"];
+    
+    
+    self.searchResultArray = [[NSMutableArray alloc]initWithObjects:productModal1,productModal2,
+                                                                    productModal3,productModal4,
+                                                                    productModal5,productModal6,nil];
+}
+
+
+-(void)initItemDetailData
+{
+    self.itemDetailModal = [[ItemDetailModal alloc]init];
+    
+    self.itemDetailModal.itemTitle = @"墨西哥魔力彩虹条纹毯";
+    self.itemDetailModal.itemCoverImgURL = @"http://oih52ss9e.bkt.clouddn.com/Item_Detail1.jpg";
+    self.itemDetailModal.itemPrice = @"768";
+    self.itemDetailModal.itemIsUserFavored = [NSNumber numberWithBool:0];
+    self.itemDetailModal.itemDetailInfo = @"原产地：墨西哥🇲🇽\n\n纯手工织成，每一条都与众不同 所以，除了扮酷，我还能用它来做什么？\n\n盖毯/沙滩巾/挂毯/沙发布\n桌布/床单/嬉皮车用毯/露营桌布\n\n Anyway as you want";
+    
+    NSArray * photosArray = [NSArray arrayWithObjects:@"http://oih52ss9e.bkt.clouddn.com/Item_Detail2.jpg",@"http://oih52ss9e.bkt.clouddn.com/Item_Detail3.jpg",@"http://oih52ss9e.bkt.clouddn.com/Item_Detail4.jpg",@"http://oih52ss9e.bkt.clouddn.com/Item_Detail5.jpg",@"http://oih52ss9e.bkt.clouddn.com/Item_Detail6.jpg", nil];
+    
+    self.itemDetailModal.itemMorePhotosUrlsArray = photosArray;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

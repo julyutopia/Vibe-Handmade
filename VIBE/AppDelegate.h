@@ -12,6 +12,9 @@
 #import "LCNavigationController.h"
 #import "MainViewController.h"
 
+
+#import "MineProfileModal.h"
+
 #import "RecommandTopViewModal.h"
 #import "RecommandCateModal.h"
 #import "RecommandItemModal.h"
@@ -22,6 +25,7 @@
 
 #import "CreatorCoverModal.h"
 
+#import "ItemDetailModal.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
@@ -44,6 +48,13 @@
 @property (strong, nonatomic) NSMutableArray        * discoverStorysArray;
 
 @property (strong, nonatomic) NSMutableArray        * creatorsArray;
+
+@property (strong, nonatomic) NSMutableArray        * searchResultArray;
+
+@property (strong, nonatomic) ItemDetailModal       * itemDetailModal;
+
+
+
 
 -(UIViewController *)getCurrentVC;
 

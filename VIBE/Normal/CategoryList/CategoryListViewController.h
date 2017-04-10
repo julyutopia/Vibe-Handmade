@@ -13,7 +13,6 @@
 #import "CategoryListFilterView.h"
 
 #import "CategoryListProductTableViewCell.h"
-#import "NewProductDetailViewController.h"
 
 @interface CategoryListViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource, CategoryListProductTableViewCellDelegate, CategoryListFilterViewDelegate>
 {

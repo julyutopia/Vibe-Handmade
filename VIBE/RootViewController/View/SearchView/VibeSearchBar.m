@@ -29,7 +29,7 @@
         
             
         _searchBarIconImgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, (_searchBarHeight -13)/2, 13, 13)];
-        [_searchBarIconImgView setImage:[UIImage imageNamed:@"Search_Placeholder"]];
+        [_searchBarIconImgView setImage:[UIImage imageNamed:@"SearchView_Placeholder"]];
         [_searchBarIconImgView setAlpha:0.0f];
         [self addSubview:_searchBarIconImgView];
         
@@ -37,11 +37,11 @@
         _searchBarTextField = [[UITextField alloc]initWithFrame:CGRectMake(28, 0, _searchBarWidth -28 *2, _searchBarHeight)];
         [_searchBarTextField setBackgroundColor:[UIColor clearColor]];
         [_searchBarTextField setTextAlignment:NSTextAlignmentLeft];
-        [_searchBarTextField setTextColor:DefaultQYTextColor80];
-        [_searchBarTextField setFont:[UIFont fontWithName:Default_Font size:14]];
+        [_searchBarTextField setTextColor:Default_Text_Gray_Color];
+        [_searchBarTextField setFont:[UIFont fontWithName:Font_Chinese_Regular size:14]];
         _searchBarTextField.placeholder = @"输入搜索关键字";
         [_searchBarTextField setValue:DefaultQYTextColor30 forKeyPath:@"_placeholderLabel.textColor"];
-        [_searchBarTextField setValue:[UIFont fontWithName:Default_Font size:14] forKeyPath:@"_placeholderLabel.font"];
+        [_searchBarTextField setValue:[UIFont fontWithName:Font_Chinese_Regular size:14] forKeyPath:@"_placeholderLabel.font"];
         [_searchBarTextField setAlpha:0.0f];
         [_searchBarTextField setReturnKeyType:UIReturnKeySearch];
         [_searchBarTextField setDelegate:self];

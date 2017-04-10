@@ -30,6 +30,7 @@
         _backView = [[GLImageView alloc]initWithFrame:CGRectMake(0, 0, width, height)];
         [_backView.layer setCornerRadius:4];
         [_backView.layer setMasksToBounds:YES];
+        [_backView addTarget:self action:@selector(didTapBackView) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_backView];
         
         _infoImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, width, width)];
@@ -63,11 +64,19 @@
 
 -(void)setItemView:(RecommandItemModal *)itemModal
 {
+    _itemID = [itemModal.productID integerValue];
+    
     [_infoImgView sd_setImageWithURL:[NSURL URLWithString:itemModal.productImgURL] placeholderImage:nil];
     [_itemNameLabel setText:itemModal.productTitle];
     [_itemPriceLabel setText:[NSString stringWithFormat:@"￥ %@",itemModal.productPrice]];
 }
 
+-(void)didTapBackView
+{
+    if ([_delegateee respondsToSelector:@selector(recommandItemViewClickWithID:)]) {
+        [_delegateee recommandItemViewClickWithID:_itemID];
+    }
+}
 
 
 @end

@@ -20,13 +20,15 @@ static VibeAppTool* sharedInstance;
     return sharedInstance;
 }
 
-+(void)setUserLogin:(BOOL )logIn
+
+#pragma mark -用户登录信息
+-(void)setUserLogin:(BOOL )logIn
 {
     [[NSUserDefaults standardUserDefaults] setBool:logIn forKey:@"isUserLogIn"];
 }
 
 //判断用户是否已登录
-+(BOOL)isUserLogIn
+-(BOOL)isUserLogIn
 {
     BOOL isLogIn = NO;
     
@@ -36,7 +38,31 @@ static VibeAppTool* sharedInstance;
     return isLogIn;
 }
 
+//登录时设置用户信息
+-(void)setLoginUserInfo:(MineProfileModal *)modal
+{
+    if (self.userInfoModal) {
+        self.userInfoModal = nil;
+    }
+    
+    self.userInfoModal = [[MineProfileModal alloc]init];
+    self.userInfoModal = modal;
+    
+    [self setUserLogin:YES];
+}
 
+//注销时清空用户信息
+-(void)ClearLoginUserInfo
+{
+    if (self.userInfoModal) {
+        self.userInfoModal = nil;
+    }
+    
+    [self setUserLogin:NO];
+}
+
+
+#pragma mark -检查String内容
 //检查输入手机号是否符合
 +(BOOL)isPhoneNumberCorrectWithNumber:(NSString *)number
 {
@@ -124,6 +150,8 @@ static VibeAppTool* sharedInstance;
 }
 
 
+
+#pragma mark -带行距的Label
 //给UILabel设置行间距和字间距
 -(void)setLabelSpace:(UILabel*)label withText:(NSString*)str withFont:(UIFont*)font withLineSpacing:(CGFloat )lineSpce
 {

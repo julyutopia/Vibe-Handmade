@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "VibeSearchTagsButton.h"
+
+
 @protocol VibeSearchTagsViewDelegate;
 
 @interface VibeSearchTagsView : UIView
@@ -30,13 +33,15 @@
                        hGap:(float)hGap
                        vGap:(float)vGap;
 
-- (UIButton *)creatButton:(NSString *)text gap:(float)gap;
-- (UIButton *)creatSelectableButton:(NSString *)text gap:(float)gap;
+- (VibeSearchTagsButton *)creatButton:(NSString *)text gap:(float)gap;
+- (VibeSearchTagsButton *)creatSelectableButton:(NSString *)text gap:(float)gap;
 
 @end
 
 @protocol VibeSearchTagsViewDelegate <NSObject>
 
 -(void)didClickSearchKeyWord:(NSString *)searchWord;
+
+
 
 @end

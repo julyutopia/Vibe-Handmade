@@ -8,18 +8,31 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MineProfileModal.h"
+
 @interface VibeAppTool : NSObject
 
 @property(retain, nonatomic)NSMutableParagraphStyle *paraStyle;
+
+@property(retain, nonatomic)MineProfileModal * userInfoModal;
+
 
 //单例
 +(VibeAppTool *)sharedInstance;
 
 //设置用户是否登录
-+(void)setUserLogin:(BOOL )logIn;
+-(void)setUserLogin:(BOOL )logIn;
 
 //判断用户是否已登录
-+(BOOL)isUserLogIn;
+-(BOOL)isUserLogIn;
+
+//登录时设置用户信息
+-(void)setLoginUserInfo:(MineProfileModal *)modal;
+
+//注销时清空用户信息
+-(void)ClearLoginUserInfo;
+
+
 
 
 //检查输入手机号是否符合

@@ -18,16 +18,16 @@
 
 @implementation VibeSearchTagsView
 
-- (UIButton *)creatButton:(NSString *)text gap:(float)gap {
+- (VibeSearchTagsButton *)creatButton:(NSString *)text gap:(float)gap {
     
-    CGSize textSize = [text sizeWithFont:[VibeFont fontWithName:Default_Font size:13]];
+    CGSize textSize = [text sizeWithFont:[VibeFont fontWithName:Default_Font size:12]];
     
-    UIButton *tempButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width + gap * 2, 27)];
+    VibeSearchTagsButton *tempButton = [[VibeSearchTagsButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width + gap * 2, 27)];
     tempButton.layer.masksToBounds = YES;
     tempButton.layer.cornerRadius  = 27/2;
-    tempButton.layer.borderColor   = [UIColor redColor].CGColor;
+    tempButton.layer.borderColor   = RGBA(146, 146, 175, 60).CGColor;
     tempButton.layer.borderWidth   = 0.5;
-    tempButton.titleLabel.font     = [VibeFont fontWithName:Default_Font size:13];
+    tempButton.titleLabel.font     = [VibeFont fontWithName:Default_Font size:12];
     [tempButton setBackgroundColor:[UIColor clearColor]];
     [tempButton setTitle:text forState:UIControlStateNormal];
     [tempButton setTitleColor:DefaultQYTextColor50 forState:UIControlStateNormal];
@@ -36,29 +36,32 @@
     
 }
 
-- (UIButton *)creatSelectableButton:(NSString *)text gap:(float)gap {
+- (VibeSearchTagsButton *)creatSelectableButton:(NSString *)text gap:(float)gap {
     
     if (!self.selectedButtonArray) {
         self.selectedButtonArray = [NSMutableArray array];
     }
     
+    NSString * fullText = text;
+    
     if (text.length >= 6) {
         text = [NSString stringWithFormat:@"%@...",[text substringToIndex:5]];
     }
     
-    CGSize textSize = [text sizeWithFont:[VibeFont fontWithName:Default_Font size:13]];
+    CGSize textSize = [text sizeWithFont:[VibeFont fontWithName:Default_Font size:12]];
     
-    UIButton *tempButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width + gap * 2, 27)];
+    VibeSearchTagsButton *tempButton = [[VibeSearchTagsButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width + gap * 2, 27)];
     tempButton.layer.masksToBounds = YES;
     tempButton.layer.cornerRadius  = 4;
     [tempButton setExclusiveTouch:YES];
-    tempButton.layer.borderColor   = RGBA(255, 255, 255, 90).CGColor;
+    tempButton.layer.borderColor   = RGBA(146, 146, 175, 60).CGColor;
     tempButton.layer.borderWidth   = 0.8;
-    tempButton.titleLabel.font     = [VibeFont fontWithName:Default_Font size:13];
+    tempButton.titleLabel.font     = [VibeFont fontWithName:Font_Chinese_Regular size:12];
     [tempButton setBackgroundColor:[UIColor clearColor]];
     [tempButton setTitle:text forState:UIControlStateNormal];
-    [tempButton setTitleColor:RGBA(255, 255, 255, 90) forState:UIControlStateNormal];
-    [tempButton setTitleColor:RGBA(222, 222, 222, 90) forState:UIControlStateHighlighted];    
+    [tempButton setFullTitle:fullText];
+    [tempButton setTitleColor:Default_Text_Gray_Color forState:UIControlStateNormal];
+    [tempButton setTitleColor:RGBA(106, 106, 127, 90) forState:UIControlStateHighlighted];
     [tempButton addTarget:self action:@selector(didClickSearchTempBtn:) forControlEvents:UIControlEventTouchUpInside];
     [tempButton addTarget:self action:@selector(didTouchTempButton:) forControlEvents:UIControlEventTouchDown];
     [tempButton addTarget:self action:@selector(cancleTouchTempButton:) forControlEvents:UIControlEventTouchCancel];
@@ -67,16 +70,16 @@
     return tempButton;
 }
 
--(void)didTouchTempButton:(UIButton *)btn
+-(void)didTouchTempButton:(VibeSearchTagsButton *)btn
 {
     [btn setBackgroundColor:RGBA(80, 80, 80, 10)];
-    btn.layer.borderColor   = RGBA(222, 222, 222, 90).CGColor;
+    btn.layer.borderColor   = RGBA(146, 146, 175, 60).CGColor;
 }
 
--(void)cancleTouchTempButton:(UIButton *)btn
+-(void)cancleTouchTempButton:(VibeSearchTagsButton *)btn
 {
     [btn setBackgroundColor:[UIColor clearColor]];
-    btn.layer.borderColor   = RGBA(255, 255, 255, 90).CGColor;
+    btn.layer.borderColor   = RGBA(146, 146, 175, 60).CGColor;
 }
 
 
@@ -146,17 +149,16 @@
 }
 
 
--(void)didClickSearchTempBtn:(UIButton *)sender
+-(void)didClickSearchTempBtn:(VibeSearchTagsButton *)sender
 {
-    NSString * btnTitle = sender.titleLabel.text;
+    NSString * btnTitle = sender.fullTitle;
     
     [sender setBackgroundColor:[UIColor clearColor]];
-    sender.layer.borderColor   = RGBA(255, 255, 255, 90).CGColor;
+    sender.layer.borderColor   = RGBA(146, 146, 175, 60).CGColor;
     
     if ([_delegate respondsToSelector:@selector(didClickSearchKeyWord:)]) {
         [_delegate didClickSearchKeyWord:btnTitle];
     }
-    
 }
 
 

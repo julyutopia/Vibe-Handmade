@@ -11,6 +11,7 @@
 #import "VibeSearchBar.h"
 
 #import "VibeSearchTagsView.h"
+#import "VibeSearchTagsButton.h"
 
 @protocol VibeSearchViewDelegate;
 

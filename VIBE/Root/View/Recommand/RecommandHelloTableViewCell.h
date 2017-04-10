@@ -10,6 +10,9 @@
 
 @interface RecommandHelloTableViewCell : UITableViewCell
 {
-    
+    UILabel     * _helloLabel;
 }
+
+-(void)setHelloTableCellInfo;
+
 @end

@@ -18,7 +18,7 @@
 #import "MineFavorProductTableViewCell.h"
 #import "MineFavorTopicTableViewCell.h"
 
-#import "NewProductDetailViewController.h"
+//#import "NewProductDetailViewController.h"
 #import "TopicDetailViewController.h"
 
 #import "MoreSettingView.h"

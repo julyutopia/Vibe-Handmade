@@ -431,24 +431,24 @@
 
 -(void)profileClick
 {
-    //手动设置用户是否已登录
-    [VibeAppTool setUserLogin:YES];
-    
-    BOOL isLogIn = [VibeAppTool isUserLogIn];
-    
-    if (!isLogIn) {
-        VibeLogInViewController * logInVC = [[VibeLogInViewController alloc]init];
-        logInVC.isPopUp = YES;
-        LCNavigationController * navi = [[LCNavigationController alloc]initWithRootViewController:logInVC];
-        [navi setCanDragPop:NO];
-        [self.lcNavigationController presentViewController:navi animated:YES completion:nil];
-    }
-    else{
-        MineViewController * mineVC = [[MineViewController alloc]init];
-        mineVC.isPopUp =YES;
-        LCNavigationController * navi = [[LCNavigationController alloc]initWithRootViewController:mineVC];
-        [self.lcNavigationController presentViewController:navi animated:YES completion:nil];
-    }
+//    //手动设置用户是否已登录
+//    [VibeAppTool setUserLogin:YES];
+//    
+//    BOOL isLogIn = [VibeAppTool isUserLogIn];
+//    
+//    if (!isLogIn) {
+//        VibeLogInViewController * logInVC = [[VibeLogInViewController alloc]init];
+//        logInVC.isPopUp = YES;
+//        LCNavigationController * navi = [[LCNavigationController alloc]initWithRootViewController:logInVC];
+//        [navi setCanDragPop:NO];
+//        [self.lcNavigationController presentViewController:navi animated:YES completion:nil];
+//    }
+//    else{
+//        MineViewController * mineVC = [[MineViewController alloc]init];
+//        mineVC.isPopUp =YES;
+//        LCNavigationController * navi = [[LCNavigationController alloc]initWithRootViewController:mineVC];
+//        [self.lcNavigationController presentViewController:navi animated:YES completion:nil];
+//    }
     
 }
 
@@ -508,9 +508,9 @@
 
 -(void)pushToSearchResultVC:(NSString *)searchKeyword
 {
-    SearchResultViewController * resultVC = [[SearchResultViewController alloc]init];
-    resultVC.searchKeyword = searchKeyword;
-    [self.lcNavigationController pushViewController:resultVC];
+//    SearchResultViewController * resultVC = [[SearchResultViewController alloc]init];
+//    resultVC.searchKeyword = searchKeyword;
+//    [self.lcNavigationController pushViewController:resultVC];
 }
 
 
@@ -523,9 +523,9 @@
     NSArray * tagsArray = [_discoverContentDict objectForKey:@"tags"];
     DiscoverHotTagModal * tagModal = [tagsArray objectAtIndex:hotTagViewIndex];
     
-    SearchShowProductsViewController * showProductsVC = [[SearchShowProductsViewController alloc]init];
-    showProductsVC.searchKeyword = tagModal.discoverHotTagTitle;
-    [self.lcNavigationController pushViewController:showProductsVC];
+//    SearchShowProductsViewController * showProductsVC = [[SearchShowProductsViewController alloc]init];
+//    showProductsVC.searchKeyword = tagModal.discoverHotTagTitle;
+//    [self.lcNavigationController pushViewController:showProductsVC];
     
     NSLog(@"******  %@  *******",tagModal.discoverHotTagTitle);
 }
@@ -582,11 +582,11 @@
 //点击单品
 -(void)recommandTableDidClickProductWithIndex:(NSInteger)index
 {
-    NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
-    NSArray * arrayyy =  [_recommandInfoDict objectForKey:@"product"];
-    VibeProductModal * productModal = [arrayyy objectAtIndex:index];
-    productDetailVC.productDetailModal = productModal;
-    [self.lcNavigationController pushViewController:productDetailVC];
+//    NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
+//    NSArray * arrayyy =  [_recommandInfoDict objectForKey:@"product"];
+//    VibeProductModal * productModal = [arrayyy objectAtIndex:index];
+//    productDetailVC.productDetailModal = productModal;
+//    [self.lcNavigationController pushViewController:productDetailVC];
 }
 
 

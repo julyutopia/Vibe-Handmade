@@ -44,18 +44,30 @@
 
     
     self.navigationView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Navi_View_Height)];
-    [self.navigationView setBackgroundColor:DefaultWhite];
+    [self.navigationView setBackgroundColor:RGBA(255, 255, 255, 85)];
     [self.view addSubview:self.navigationView];
     
     
-    self.leftBtn = [[UIButton alloc]initWithFrame:CGRectMake(55, 70, 30, 30)];
+    UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
+    self.naviBlurView = [[UIVisualEffectView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Navi_View_Height)];
+    [self.naviBlurView setEffect:blurEffect];
+    [_navigationView addSubview:self.naviBlurView];
+    
+    
+    self.navigationLineView = [[UIView alloc]initWithFrame:CGRectMake(0, Navi_View_Height -1, kScreenWidth, 1)];
+    [self.navigationLineView setHidden:YES];
+    [self.navigationLineView  setBackgroundColor:RGBA(72, 72, 72, 10)];
+    [self.view addSubview:self.navigationLineView];
+    
+    
+    self.leftBtn = [[UIButton alloc]initWithFrame:CGRectMake(22, 33, 25, 25)];
     [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Back_Normal"] forState:UIControlStateNormal];
-    [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Back_Hight_Light"] forState:UIControlStateNormal];
+    [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Back_Hight_Light"] forState:UIControlStateHighlighted];
     [self.leftBtn addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.leftBtn];
     
     
-    self.rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth -55 -30, 70, 30, 30)];
+    self.rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth -22 -25, 33, 25, 25)];
     [self.rightBtn addTarget:self action:@selector(rightBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.rightBtn setHidden:YES];
     [self.view addSubview:self.rightBtn];
@@ -63,8 +75,35 @@
 }
 
 
+-(void)setIsPopUp:(BOOL)isPopUp
+{
+    if (isPopUp) {
+        [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Close_White_Normal"] forState:UIControlStateNormal];
+        [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Close_White_HighLighted"] forState:UIControlStateHighlighted];
+    }
+}
 
 
+
+
+-(void)leftBtnClicked:(UIButton *)btn
+{
+    if (self.isPopUp == NO) {
+        if (self.lcNavigationController) {
+            [self.lcNavigationController popViewController];
+        }
+    }
+    else
+    {
+        if (self.lcNavigationController) {
+            [self.lcNavigationController dismissViewControllerAnimated:YES completion:nil];
+        }
+        else{
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        }
+    }
+    
+}
 
 
 -(void)didReceiveMemoryWarning

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "NewProductDetailViewController.h"
+//#import "NewProductDetailViewController.h"
 
 #import "GradientTagCloudView.h"
 #import "VibeTopicModal.h"

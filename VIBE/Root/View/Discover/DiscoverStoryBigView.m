@@ -21,9 +21,8 @@
         float whiteViewWidth = width -30;
         
         
-        _backView = [[GLImageView alloc]initWithFrame:CGRectMake(0, 0, width, frame.size.height)];
+        _backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width, frame.size.height)];
         [self addSubview:_backView];
-        
         
         _blurImgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, width -12, width -12)];
         [_blurImgView setHidden:YES];
@@ -34,12 +33,11 @@
         [_blurImgView.layer setShadowRadius:8.0f];
         [_backView addSubview:_blurImgView];
         
-        _backImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, width, width)];
-        [_backImgView.layer setCornerRadius:4.0f];
-        [_backImgView.layer setMasksToBounds:YES];
-        [_backImgView setContentMode:UIViewContentModeScaleAspectFill];
-        [_backView addSubview:_backImgView];
-        
+        _photoImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, width, width)];
+        [_photoImgView.layer setCornerRadius:4.0f];
+        [_photoImgView.layer setMasksToBounds:YES];
+        [_photoImgView setContentMode:UIViewContentModeScaleAspectFill];
+        [_backView addSubview:_photoImgView];
         
         _whiteContentView = [[UIView alloc]initWithFrame:CGRectMake(15, width -20 -120, whiteViewWidth, 120)];
         [_whiteContentView setBackgroundColor:RGBA(255, 255, 255, 98)];
@@ -88,6 +86,11 @@
         [_photosContentView setBackgroundColor:[UIColor clearColor]];
         [_whiteContentView addSubview:_photosContentView];
         
+        
+        _tapBackImgView = [[GLImageView alloc]initWithFrame:CGRectMake(0, 0, width, width)];
+        [_backView addSubview:_tapBackImgView];
+        
+        
         _bigStoryPhotosArray = [[NSMutableArray alloc]init];
     }
     
@@ -97,7 +100,7 @@
 
 -(void)setDiscoverStoryBigViewWithModal:(DiscoverStoryModal *)modal
 {
-    [_backImgView sd_setImageWithURL:[NSURL URLWithString:modal.discoverStoryImgUrl] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [_photoImgView sd_setImageWithURL:[NSURL URLWithString:modal.discoverStoryImgUrl] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
         [_blurImgView setImage:image];
         [_blurImgView setHidden:NO];

@@ -420,11 +420,11 @@
 #pragma mark - 收藏商品Cell代理方法
 -(void)mineFavorProductCellClickWithIndex:(NSInteger)index
 {
-    VibeProductModal * modal = [_favorProductsArray objectAtIndex:index];
-    
-    NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
-    productDetailVC.productDetailModal = modal;
-    [self.lcNavigationController pushViewController:productDetailVC];
+//    VibeProductModal * modal = [_favorProductsArray objectAtIndex:index];
+//    
+//    NewProductDetailViewController * productDetailVC = [[NewProductDetailViewController alloc]init];
+//    productDetailVC.productDetailModal = modal;
+//    [self.lcNavigationController pushViewController:productDetailVC];
 }
 
 #pragma mark -收藏专题Cell代理方法
