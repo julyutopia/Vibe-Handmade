@@ -15,6 +15,8 @@
 
 #import "GLImageView.h"
 
+@protocol RecommandPickTableViewCellDelegate;
+
 @interface RecommandPickTableViewCell : UITableViewCell
 {
     UILabel         * _titleLabel;
@@ -32,6 +34,18 @@
     UILabel         * _productNameTitleLabel;
 }
 
+@property (weak, nonatomic) id<RecommandPickTableViewCellDelegate> delegate;
+
 -(void)setRecommandPickItem:(RecommandItemModal *)modal;
 
 @end
+
+
+//代理协议
+@protocol RecommandPickTableViewCellDelegate <NSObject>
+
+-(void)recommandPickCellDidClick;
+
+@end
+
+

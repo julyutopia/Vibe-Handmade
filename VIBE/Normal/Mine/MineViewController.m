@@ -430,10 +430,10 @@
 #pragma mark -收藏专题Cell代理方法
 -(void)mineFavorTopicCellClickWithIndex:(NSInteger )index
 {
-    VibeTopicModal * modal = [_favorTopicsArray objectAtIndex:index];
-    TopicDetailViewController * topicDetailVC = [[TopicDetailViewController alloc]init];
-    [topicDetailVC setTopicModal:modal];
-    [self.lcNavigationController pushViewController:topicDetailVC];
+//    VibeTopicModal * modal = [_favorTopicsArray objectAtIndex:index];
+//    TopicDetailViewController * topicDetailVC = [[TopicDetailViewController alloc]init];
+//    [topicDetailVC setTopicModal:modal];
+//    [self.lcNavigationController pushViewController:topicDetailVC];
 }
 
 

@@ -8,36 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
-//#import "NewProductDetailViewController.h"
-
 #import "GradientTagCloudView.h"
-#import "VibeTopicModal.h"
-#import "TopicDetailShowTableViewCell.h"
-#import "TopicDetailRelatedHeaderTableViewCell.h"
-#import "TopicDetailRelatedProductTableViewCell.h"
-#import "TopicDetailBottomTableViewCell.h"
 
-#import "VibeShowPhotoView.h"
+#import "TopicDetailModal.h"
 
-@interface TopicDetailViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource, TopicDetailShowTableViewCellDelegate, TopicDetailRelatedProductTableViewCellDelegate>
+#import "TopicDetailTopTableViewCell.h"
+#import "TopicDetailTextTableViewCell.h"
+#import "TopicDetailTextHighlightTableViewCell.h"
+#import "TopicDtailPhotoTableViewCell.h"
+#import "TopicDetailItemsTableViewCell.h"
+
+
+@interface TopicDetailViewController : BasicViewController<UITableViewDelegate, UITableViewDataSource >
 {
-    VibeTopicModal      * _topicModal;
+    TopicDetailModal    * _topicDetailModal;
     
-    UIImageView         * _backImgView;
+    UITableView         * _topicDetailTableView;
     
-    float                 _headerViewHeight;
-    float                 _headerImgViewHeight;
-    float                 _headerInfoViewHeight;
-    UIView              * _headerView;
-    UIImageView         * _headerImgView;
-    UIView              * _headerInfoView;
-    GradientTagCloudView* _gradientTagView;
-    
-    
-    UITableView         * _topicDetailTable;
+    UIView              * _sectionFooterView;
 }
 
-@property(retain, nonatomic)    VibeTopicModal      * topicModal;
+-(id)initWithTopicDetailModal:(TopicDetailModal *)topicDetailModal;
 
 @end
 

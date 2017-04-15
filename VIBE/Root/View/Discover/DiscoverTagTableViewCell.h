@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DiscoverTagTableViewCellDelegate;
+
 @interface DiscoverTagTableViewCell : UITableViewCell
 {
     UILabel         * _titleLabel;
@@ -16,6 +18,15 @@
     NSMutableArray  * _hotTagsArray;
 }
 
+@property (weak, nonatomic) id<DiscoverTagTableViewCellDelegate> delegate;
+
 -(void)setHotTagCellWithInfo:(NSArray *)array;
+
+@end
+
+//代理协议
+@protocol DiscoverTagTableViewCellDelegate <NSObject>
+
+-(void)discoverTagCellDidClickTagWithIndex:(NSInteger )index;
 
 @end

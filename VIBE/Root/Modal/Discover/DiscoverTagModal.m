@@ -10,6 +10,7 @@
 
 @implementation DiscoverTagModal
 
+
 +(BOOL)propertyIsOptional:(NSString *)propertyName
 {
     return YES;
@@ -18,9 +19,14 @@
 +(JSONKeyMapper *)keyMapper
 {
     return [[JSONKeyMapper alloc] initWithDictionary:@{
-                                                       @"title"         : @"discoverTagTitle",
-                                                       @"image"         : @"discoverTagImgUrl",
-                                                       @"id"            : @"discoverTagID",
+                                                       
+                                                       @"id"                : @"tagID",
+                                                       @"tag_icon"          : @"tagIconImgURL",
+                                                       @"tag_cover"         : @"tagCoverImgURL",
+                                                       @"tag_title"         : @"tagTitle",
+                                                       @"tag_items_count"   : @"tagItemsCount",
+                                                       @"tag_items"         : @"tagItemsArray"
+                                                       
                                                        }
             ];
 }

@@ -81,6 +81,7 @@
         [_productImgView.layer setCornerRadius:8];
         [_productImgView.layer setMasksToBounds:YES];
         [_productImgView setContentMode:UIViewContentModeScaleToFill];
+        [_productImgView addTarget:self action:@selector(didTapProductImgView) forControlEvents:UIControlEventTouchUpInside];
         [_backView addSubview:_productImgView];
         
         
@@ -149,6 +150,13 @@
     [_productInfoTitleLabel setFrame:CGRectMake(25, _productNameTitleLabel.frame.origin.y -25, 100, 15)];
 }
 
+
+-(void)didTapProductImgView
+{
+    if ([_delegate respondsToSelector:@selector(recommandPickCellDidClick)]) {
+        [_delegate recommandPickCellDidClick];
+    }
+}
 
 @end
 

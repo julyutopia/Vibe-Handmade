@@ -8,28 +8,59 @@
 
 #import "VibeViewController.h"
 
-#import "CategoryModal.h"
+#import "RecommandCateModal.h"
+#import "RecommandItemModal.h"
+
+#import "UIImage+MostColor.h"
+
+#import "HMSegmentedControl.h"
 #import "YUSegment.h"
+
+#import "CategoryListHeaderCollectionReusableView.h"
+#import "CategoryListItemCollectionViewCell.h"
+
 #import "CategoryListFilterView.h"
 
-#import "CategoryListProductTableViewCell.h"
+#import "ItemDetailViewController.h"
 
-@interface CategoryListViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource, CategoryListProductTableViewCellDelegate, CategoryListFilterViewDelegate>
+@interface CategoryListViewController : BasicViewController<UICollectionViewDelegate, UICollectionViewDataSource, CategoryListItemCollectionViewCellDelegate, CategoryListFilterViewDelegate>
 {
-    YUSegment               * _categorySetSegment;
+    
+    BOOL                    _didRecordAutoScroll;
+    
+    RecommandCateModal     * _cateModal;
+    
+    float                     _newNaviHeight;
+    
+    UIImageView             * _backBlurImgView;
+    UIImageView             * _naviImgView;
     
     CategoryListFilterView  * _filterView;
     
-    float                     _tableViewOffsetY;
+    UILabel                 * _naviTitleLabel;
+    UILabel                 * _naviSubtitleLabel;
     
-    UITableView             * _categoryProductsListTable;
+    float                     _topbarHeight;
+    UIView                  * _topbarView;
+    YUSegment               * _categorySetSegment;
+
+//    HMSegmentedControl      * _cateSubcateSegment;
     
-    CategoryModal           * _categoryDetailModal;
+    NSMutableArray          * _subCateArray;
     
-    NSMutableArray          * _categoryProductsArray;
+    UICollectionView        * _categoryListCollectionView;
     
-    UIVisualEffectView      * _filterBlurBackView;
+    NSMutableArray          * _categoryItemsArray;
 }
 
 
+-(id)initWithCateModal:(RecommandCateModal *)modal;
+
+
 @end
+
+
+
+
+
+

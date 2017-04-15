@@ -171,6 +171,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong, readonly) YUIndicatorView *indicator;
 
+@property (nonatomic, strong)UIView     * indicatorLineView;
+
 ///-------------------------------
 /// @name Managing Text Appearance
 ///-------------------------------

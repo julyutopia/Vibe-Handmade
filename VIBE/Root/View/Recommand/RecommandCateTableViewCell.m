@@ -57,7 +57,7 @@
             GLImageView * btn = [[GLImageView alloc]initWithFrame:CGRectMake( (categoryViewWidth+12) *i, 0, categoryViewWidth, categoryViewWidth)];
             [btn setTag:5000 +i];
             [btn.layer setCornerRadius:4.0f];
-            [btn sd_setImageWithURL:[NSURL URLWithString:modal.categoryImgURL] placeholderImage:nil];
+            [btn sd_setImageWithURL:[NSURL URLWithString:modal.categoryIconImgURL] placeholderImage:nil];
             [btn addTarget:self action:@selector(categoryImgClicked:) forControlEvents:UIControlEventTouchUpInside];
             [_categoryView addSubview:btn];
         }
@@ -65,7 +65,7 @@
             GLImageView * btn = [[GLImageView alloc]initWithFrame:CGRectMake( (categoryViewWidth+12) * (i -5), categoryViewWidth +12, categoryViewWidth, categoryViewWidth)];
             [btn setTag:5000 +i];
             [btn.layer setCornerRadius:4.0f];
-            [btn sd_setImageWithURL:[NSURL URLWithString:modal.categoryImgURL] placeholderImage:nil];
+            [btn sd_setImageWithURL:[NSURL URLWithString:modal.categoryIconImgURL] placeholderImage:nil];
             [btn addTarget:self action:@selector(categoryImgClicked:) forControlEvents:UIControlEventTouchUpInside];
             [_categoryView addSubview:btn];
         }
@@ -74,9 +74,13 @@
 }
 
 
-
 -(void)categoryImgClicked:(GLImageView *)btn
 {
+    NSInteger indexxx = btn.tag - 5000;
+
+    if ([_delegateee respondsToSelector:@selector(recommandCateCellDidClickCategoryWithIndex:)]) {
+        [_delegateee recommandCateCellDidClickCategoryWithIndex:indexxx];
+    }
     
 }
 

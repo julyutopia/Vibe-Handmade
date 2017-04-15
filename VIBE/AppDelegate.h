@@ -27,6 +27,9 @@
 
 #import "ItemDetailModal.h"
 
+#import "TopicDetailModal.h"
+
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     MainViewController  *_mainVC;
@@ -53,7 +56,7 @@
 
 @property (strong, nonatomic) ItemDetailModal       * itemDetailModal;
 
-
+@property (strong, nonatomic) TopicDetailModal      * topicDetailModal;
 
 
 -(UIViewController *)getCurrentVC;

@@ -72,6 +72,7 @@
             [cell setBackgroundView:nil];
         }
         
+        [cell setDelegate:self];
         [cell setHotTagCellWithInfo:[AppDelegate sharedAppDelegate].discoverTagsArray];
         
         return cell;
@@ -91,6 +92,7 @@
             [cell setBackgroundView:nil];
         }
         
+        [cell setDelegate:self];
         [cell setDiscoverTopicCellWithInfo:[AppDelegate sharedAppDelegate].discoverTopicsArray];
         
         return cell;
@@ -155,6 +157,26 @@
     
     
     return 0;
+}
+
+
+#pragma mark -Cell的代理方式
+
+-(void)discoverTagCellDidClickTagWithIndex:(NSInteger)index
+{
+    DiscoverTagModal * modal = [[AppDelegate sharedAppDelegate].discoverTagsArray objectAtIndex:index];
+    if ([_delegateee respondsToSelector:@selector(discoverTableShowTagDetailWithTagModal:)]) {
+        [_delegateee discoverTableShowTagDetailWithTagModal:modal];
+    }
+}
+
+-(void)discoverTopicCellClickWithIndex:(NSInteger)index
+{
+    DiscoverTopicModal * topicModal = [[AppDelegate sharedAppDelegate].discoverTopicsArray objectAtIndex:index];
+    
+    if ([_delegateee respondsToSelector:@selector(discoverTableShowTopicDetailWithTopicModal:)]) {
+        [_delegateee discoverTableShowTopicDetailWithTopicModal:topicModal];
+    }
 }
 
 

@@ -13,7 +13,6 @@
 @interface ItemDetailInfoTableViewCell : UITableViewCell
 {
     UIView      * _backView;
-    
     UILabel     * _titleLabel;
     
     UILabel     * _infoDetailLabel;

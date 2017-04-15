@@ -165,6 +165,9 @@ static const CGFloat        kIndicatorWidthOffset    = 20.0;
             CGFloat indicatorWidth = [self calculateIndicatorWidthAtSegmentIndex:_selectedIndex];
             CGFloat x = segmentWidth * _selectedIndex + (segmentWidth - indicatorWidth) / 2.0;
             _indicator.frame = (CGRect){x, 0, indicatorWidth, CGRectGetHeight(self.frame)};
+            
+//            _indicatorLineView.frame = CGRectMake(0, CGRectGetHeight(self.frame) -0.5, CGRectGetWidth(self.frame), 0.5);
+            
             break;
         }
         case YUSegmentStyleBox: {
@@ -420,6 +423,11 @@ static const CGFloat        kIndicatorWidthOffset    = 20.0;
     _indicator = [[YUIndicatorView alloc] initWithStyle:(YUIndicatorViewStyle)_style];
     [self insertSubview:_indicator atIndex:1];
     _containerSelected.layer.mask = _indicator.maskView.layer;
+    
+//    _indicatorLineView = [[UIView alloc]init];
+//    [_indicatorLineView setAlpha:0.5];
+//    [self insertSubview:_indicatorLineView atIndex:1];
+
 }
 
 - (void)buildUI {
@@ -482,7 +490,10 @@ static const CGFloat        kIndicatorWidthOffset    = 20.0;
     
     // Add indicator to scroll view
     [_indicator removeFromSuperview];
+//    [_indicatorLineView removeFromSuperview];
+   
     [_scrollView addSubview:_indicator];
+//    [_scrollView addSubview:_indicatorLineView];
     
     // Add selected container to scroll view
     [_containerSelected removeFromSuperview];
@@ -686,6 +697,7 @@ static const CGFloat        kIndicatorWidthOffset    = 20.0;
 - (void)setBoxStyle:(BOOL)boxStyle {
     if (boxStyle) {
         [_indicator removeFromSuperview];
+//        [_indicatorLineView removeFromSuperview];
         [self setupIndicatorView];
     }
 }

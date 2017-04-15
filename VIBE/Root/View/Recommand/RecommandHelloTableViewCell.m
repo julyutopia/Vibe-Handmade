@@ -43,8 +43,8 @@
         NSInteger hourTime = [currentTime integerValue];
                 
         NSString * timeStamp;
-        
-        if (hourTime >18 || hourTime <4) {
+                
+        if (hourTime >=18 || hourTime <4) {
             timeStamp = @"晚上好。";
         }
         if (hourTime >=4 && hourTime < 11) {

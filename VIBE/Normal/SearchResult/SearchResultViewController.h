@@ -20,7 +20,6 @@
     UIImageView     * _topBarSearchIcon;
     UILabel         * _topBarTitleLabel;
     
-    
     UICollectionView    * _searchResultCollectionView;
         
     NSMutableArray      * _searchResultProductsArray;

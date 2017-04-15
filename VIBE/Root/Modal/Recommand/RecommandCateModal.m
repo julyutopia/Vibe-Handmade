@@ -16,12 +16,19 @@
     return YES;
 }
 
+
+
+
+
 +(JSONKeyMapper *)keyMapper
 {
     return [[JSONKeyMapper alloc] initWithDictionary:@{
-                                                       @"title"         : @"categoryTitle",
-                                                       @"img"           : @"categoryImgURL",
                                                        @"id"            : @"categoryID",
+                                                       @"title"         : @"categoryTitle",
+                                                       @"eng_Title"     : @"categorySubtitle",
+                                                       @"icon_img"      : @"categoryIconImgURL",
+                                                       @"cover_img"     : @"categoryCoverImgURL",
+                                                       @"set_Cate"      : @"categorySetArray"
                                                        }
             ];
 }

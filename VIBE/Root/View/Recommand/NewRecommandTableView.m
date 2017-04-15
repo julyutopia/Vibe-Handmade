@@ -129,6 +129,8 @@
             [cell setBackgroundView:nil];
         }
         
+        [cell setDelegateee:self];
+        
         NSArray * cateArray = [AppDelegate sharedAppDelegate].recommandCateArray;
         [cell setCateCellWithInfo:cateArray];
         
@@ -148,6 +150,7 @@
             [cell setBackgroundView:nil];
         }
         
+        [cell setDelegate:self];
         [cell setRecommandPickItem:[AppDelegate sharedAppDelegate].recommnadPickModal];
         
         return cell;
@@ -230,6 +233,26 @@
 
 
 #pragma mark -Table的代理方法
+
+//显示 分类 详情
+-(void)recommandCateCellDidClickCategoryWithIndex:(NSInteger)index
+{
+    RecommandCateModal * modal = [[AppDelegate sharedAppDelegate].recommandCateArray objectAtIndex:index];
+    
+    if ([self.delegateee respondsToSelector:@selector(recommandTableViewShowCategoryDetailWithCateModal:)]) {
+        [self.delegateee recommandTableViewShowCategoryDetailWithCateModal:modal];
+    }
+}
+
+//点击为你而选
+-(void)recommandPickCellDidClick
+{
+    if ([self.delegateee respondsToSelector:@selector(recommandTableViewShowItemDetailWithID:)]) {
+        [self.delegateee recommandTableViewShowItemDetailWithID:[[AppDelegate sharedAppDelegate].recommnadPickModal.productID integerValue]];
+    }
+}
+
+//显示 单品 详情
 -(void)recommandItemCellDidClickItemWithID:(NSInteger)itemID
 {
     if ([self.delegateee respondsToSelector:@selector(recommandTableViewShowItemDetailWithID:)]) {

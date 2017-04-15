@@ -10,8 +10,16 @@
 
 @interface DiscoverTagModal : JSONModel
 
-@property (nonatomic, copy) NSString * discoverTagTitle;        //标题
-@property (nonatomic, copy) NSString * discoverTagImgUrl;       //图片链接
-@property (nonatomic, copy) NSNumber * discoverTagID;           //id
+@property (nonatomic, copy) NSNumber * tagID;//标签ID
+
+@property (nonatomic, copy) NSString * tagIconImgURL;//标签ICON地址
+
+@property (nonatomic, copy) NSString * tagCoverImgURL;//标签封面图片地址
+
+@property (nonatomic, copy) NSString * tagTitle;//标签标题
+
+@property (nonatomic, copy) NSNumber * tagItemsCount;//标签下的商品数目
+
+@property (nonatomic, copy) NSArray  * tagItemsArray;//标签下的商品
 
 @end

@@ -23,13 +23,13 @@
         _titleLabel = [[UILabel alloc]init];
         [_titleLabel setTextAlignment:NSTextAlignmentLeft];
         [_titleLabel setTextColor:Default_Text_Dark_Color_90];
-        [_titleLabel setFont:[VibeFont fontWithName:Font_Chinese_Regular size:14]];
+        [_titleLabel setFont:[VibeFont fontWithName:Font_Chinese_Regular size:12]];
         [_backView addSubview:_titleLabel];
         
         _infoDetailLabel = [[UILabel alloc]init];
         [_infoDetailLabel setTextAlignment:NSTextAlignmentLeft];
         [_infoDetailLabel setTextColor:Default_Text_Gray_Color];
-        [_infoDetailLabel setFont:[VibeFont fontWithName:Font_Chinese_Regular size:13]];
+        [_infoDetailLabel setFont:[VibeFont fontWithName:Font_Chinese_Regular size:14]];
         [_infoDetailLabel setNumberOfLines:0];
         [_backView addSubview:_infoDetailLabel];
     }

@@ -58,7 +58,7 @@
             GLImageView * btn = [[GLImageView alloc]initWithFrame:CGRectMake( (singleTagViewWidth+12) *i, 0, singleTagViewWidth, singleTagViewWidth)];
             [btn setTag:6000 +i];
             [btn.layer setCornerRadius:4.0f];
-            [btn sd_setImageWithURL:[NSURL URLWithString:modal.discoverTagImgUrl] placeholderImage:nil];
+            [btn sd_setImageWithURL:[NSURL URLWithString:modal.tagIconImgURL] placeholderImage:nil];
             [btn addTarget:self action:@selector(categoryImgClicked:) forControlEvents:UIControlEventTouchUpInside];
             [_hotTagView addSubview:btn];
             
@@ -66,7 +66,7 @@
             [titleLabel setTextAlignment:NSTextAlignmentCenter];
             [titleLabel setTextColor:DefaultWhite];
             [titleLabel setFont:[VibeFont fontWithName:Font_Chinese_Regular size:12]];
-            [titleLabel setText:modal.discoverTagTitle];
+            [titleLabel setText:modal.tagTitle];
             [titleLabel.layer setShadowColor:RGBA(0, 0, 0, 20).CGColor];
             [titleLabel.layer setShadowOffset:CGSizeMake(0, 1)];
             [titleLabel.layer setShadowOpacity:0.5f];
@@ -78,7 +78,7 @@
             GLImageView * btn = [[GLImageView alloc]initWithFrame:CGRectMake( (singleTagViewWidth+12) * (i -4), singleTagViewWidth +12, singleTagViewWidth, singleTagViewWidth)];
             [btn setTag:6000 +i];
             [btn.layer setCornerRadius:4.0f];
-            [btn sd_setImageWithURL:[NSURL URLWithString:modal.discoverTagImgUrl] placeholderImage:nil];
+            [btn sd_setImageWithURL:[NSURL URLWithString:modal.tagIconImgURL] placeholderImage:nil];
             [btn addTarget:self action:@selector(categoryImgClicked:) forControlEvents:UIControlEventTouchUpInside];
             [_hotTagView addSubview:btn];
             
@@ -86,7 +86,7 @@
             [titleLabel setTextAlignment:NSTextAlignmentCenter];
             [titleLabel setTextColor:DefaultWhite];
             [titleLabel setFont:[VibeFont fontWithName:Font_Chinese_Regular size:12]];
-            [titleLabel setText:modal.discoverTagTitle];
+            [titleLabel setText:modal.tagTitle];
             [titleLabel.layer setShadowColor:RGBA(0, 0, 0, 20).CGColor];
             [titleLabel.layer setShadowOffset:CGSizeMake(0, 1)];
             [titleLabel.layer setShadowOpacity:0.5f];
@@ -101,7 +101,11 @@
 
 -(void)categoryImgClicked:(GLImageView *)btn
 {
-
+    NSInteger indexxx = btn.tag -6000;
+    
+    if ([_delegate respondsToSelector:@selector(discoverTagCellDidClickTagWithIndex:)]) {
+        [_delegate discoverTagCellDidClickTagWithIndex:indexxx];
+    }
 }
 
 

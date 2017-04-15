@@ -11,8 +11,9 @@
 #import "RecommandItemView.h"
 #import "RecommandItemModal.h"
 
-@interface SearchResultCollectionViewCell : UICollectionViewCell
+@interface SearchResultCollectionViewCell : UICollectionViewCell<RecommandItemViewDelegate>
 {
+    
     RecommandItemView * _searchItemView;
 }
 

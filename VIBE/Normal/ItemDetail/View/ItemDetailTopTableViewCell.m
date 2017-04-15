@@ -72,6 +72,11 @@
         [_item_ShareBtn.layer setShadowRadius:4.0f];
         [_backView addSubview:_item_ShareBtn];
         
+        
+        [_item_ShareBtn addTarget:self action:@selector(didClickShareBtn) forControlEvents:UIControlEventTouchUpInside];
+        [_item_FavorBtn addTarget:self action:@selector(didClickfavorBtn) forControlEvents:UIControlEventTouchUpInside];
+        [_item_BuyBtn addTarget:self action:@selector(didClickBuyBtn) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     
     return self;
@@ -89,6 +94,27 @@
     
 }
 
+
+-(void)didClickShareBtn
+{
+    if ([_delegateee respondsToSelector:@selector(ItemDetailTopCellTapShareBtn)]) {
+        [_delegateee ItemDetailTopCellTapShareBtn];
+    }
+}
+
+-(void)didClickfavorBtn
+{
+    if ([_delegateee respondsToSelector:@selector(ItemDetailTopCellTapFavorBtn)]) {
+        [_delegateee ItemDetailTopCellTapFavorBtn];
+    }
+}
+
+-(void)didClickBuyBtn
+{
+    if ([_delegateee respondsToSelector:@selector(ItemDetailTopCellTapBuyBtn)]) {
+        [_delegateee ItemDetailTopCellTapBuyBtn];
+    }
+}
 
 
 @end

@@ -10,6 +10,8 @@
 
 #import "RecommandCateModal.h"
 
+@protocol RecommandCateTableViewCellDelegate;
+
 @interface RecommandCateTableViewCell : UITableViewCell
 {
     UILabel         * _titleLabel;
@@ -20,4 +22,14 @@
 
 -(void)setCateCellWithInfo:(NSArray *)array;
 
+@property (weak, nonatomic) id<RecommandCateTableViewCellDelegate> delegateee;
+
 @end
+
+//代理协议
+@protocol RecommandCateTableViewCellDelegate <NSObject>
+
+-(void)recommandCateCellDidClickCategoryWithIndex:(NSInteger )index;
+
+@end
+

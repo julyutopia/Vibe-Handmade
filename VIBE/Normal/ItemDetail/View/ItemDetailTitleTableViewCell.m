@@ -16,10 +16,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-//        UILabel     * _itemTitleLabel;
-//        UILabel     * _itemPriceLabel;
-        
-        
+
         _itemTitleLabel = [[UILabel alloc]init];
         [_itemTitleLabel setTextAlignment:NSTextAlignmentLeft];
         [_itemTitleLabel setTextColor:Default_Text_Dark_Color_90];
@@ -49,13 +46,11 @@
 {
     float titleLabelHeight = [modal.itemTitle getSizeWithLimitSize:CGSizeMake(kScreenWidth -100, 30) withFont:_itemTitleLabel.font].height;
    
-    
     NSString * money = @"￥";
     float moneyLabelWidth = [money getSizeWithLimitSize:CGSizeMake(30, 30) withFont:_moneyLabel.font].width;
     float moneyLabelHeight = [money getSizeWithLimitSize:CGSizeMake(30, 30) withFont:_moneyLabel.font].height;
     
     float priceLabelHeight = [modal.itemPrice getSizeWithLimitSize:CGSizeMake(kScreenWidth -100, 30) withFont:_itemPriceLabel.font].height;
-    
     
     [_itemTitleLabel setFrame:CGRectMake(60, 0, kScreenWidth -60 -40, titleLabelHeight)];
     [_itemTitleLabel setText:modal.itemTitle];

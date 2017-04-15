@@ -35,24 +35,26 @@
         float bigAlbumViewHeight = (kScreenWidth -50)/16*9 +15;
         
         _bigAlbumView = [[DiscoverTopicBigView alloc]initWithFrame:CGRectMake(25, 20 +20, kScreenWidth -50, bigAlbumViewHeight)];
+        [_bigAlbumView setDelegate:self];
         [self.contentView addSubview:_bigAlbumView];
         
         
         float smallAlbumViewHeight = (kScreenWidth -50 - 15 *2)/3;
         
         _firstTopicSmallView = [[DiscoverTopicSmallView alloc]initWithFrame:CGRectMake(25 , 20 +20 +bigAlbumViewHeight +15, smallAlbumViewHeight, smallAlbumViewHeight)];
+        [_firstTopicSmallView setDelegate:self];
         [self.contentView addSubview:_firstTopicSmallView];
         
         _secondTopicSmallView = [[DiscoverTopicSmallView alloc]initWithFrame:CGRectMake(25 +smallAlbumViewHeight +15, 20 +20 +bigAlbumViewHeight +15, smallAlbumViewHeight, smallAlbumViewHeight)];
+        [_secondTopicSmallView setDelegate:self];
         [self.contentView addSubview:_secondTopicSmallView];
         
         _thirdTopicSmallView = [[DiscoverTopicSmallView alloc]initWithFrame:CGRectMake(25 +(smallAlbumViewHeight +15) *2, 20 +20 +bigAlbumViewHeight +15, smallAlbumViewHeight, smallAlbumViewHeight)];
+        [_thirdTopicSmallView setDelegate:self];
         [self.contentView addSubview:_thirdTopicSmallView];
-     
         
         _topicsArray = [[NSMutableArray alloc]init];
     }
-    
     
     return self;
 }
@@ -77,24 +79,38 @@
     //设置第一个小专题
     if (_topicsArray.count >1) {
         DiscoverTopicModal * topicModal = [_topicsArray objectAtIndex:1];
-        [_firstTopicSmallView setTopicSmallViewWithModal:topicModal];
+        [_firstTopicSmallView setTopicSmallViewWithModal:topicModal WithIndex:1];
     }
     //设置第二个小专题
     if (_topicsArray.count >2) {
         DiscoverTopicModal * topicModal = [_topicsArray objectAtIndex:2];
-        [_secondTopicSmallView setTopicSmallViewWithModal:topicModal];
+        [_secondTopicSmallView setTopicSmallViewWithModal:topicModal WithIndex:2];
     }
     //设置第三个小专题
     if (_topicsArray.count >3) {
         DiscoverTopicModal * topicModal = [_topicsArray objectAtIndex:3];
-        [_thirdTopicSmallView setTopicSmallViewWithModal:topicModal];
+        [_thirdTopicSmallView setTopicSmallViewWithModal:topicModal WithIndex:3];
     }
     
 }
 
 
 
+#pragma mark -点击topicView的代理方法
 
+-(void)discoverTopicBigViewClickWithIndex:(NSInteger)index
+{
+    if ([_delegate respondsToSelector:@selector(discoverTopicCellClickWithIndex:)]) {
+        [_delegate discoverTopicCellClickWithIndex:index];
+    }
+}
+
+-(void)discoverTopicSmallViewClickWithIndex:(NSInteger)index
+{
+    if ([_delegate respondsToSelector:@selector(discoverTopicCellClickWithIndex:)]) {
+        [_delegate discoverTopicCellClickWithIndex:index];
+    }
+}
 
 
 @end

@@ -92,14 +92,49 @@
 #define Default_Text_Title_Color        RGBA(69, 69, 83, 100)
 
 #define Default_Text_Gray_Color         RGBA(146, 146, 175, 100)
+#define Default_Text_Gray_Color_90      RGBA(146, 146, 175, 90)
+#define Default_Text_Gray_Color_80      RGBA(146, 146, 175, 80)
+#define Default_Text_Gray_Color_70      RGBA(146, 146, 175, 70)
+#define Default_Text_Gray_Color_60      RGBA(146, 146, 175, 60)
+#define Default_Text_Gray_Color_50      RGBA(146, 146, 175, 50)
+#define Default_Text_Gray_Color_40      RGBA(146, 146, 175, 40)
+#define Default_Text_Gray_Color_30      RGBA(146, 146, 175, 30)
+#define Default_Text_Gray_Color_20      RGBA(146, 146, 175, 20)
+#define Default_Text_Gray_Color_10      RGBA(146, 146, 175, 10)
+
+
 #define Default_Text_Dark_Color         RGBA(69, 69, 83, 100)
 #define Default_Text_Dark_Color_90      RGBA(69, 69, 83, 90)
+#define Default_Text_Dark_Color_80      RGBA(69, 69, 83, 80)
+#define Default_Text_Dark_Color_70      RGBA(69, 69, 83, 70)
+#define Default_Text_Dark_Color_60      RGBA(69, 69, 83, 60)
+#define Default_Text_Dark_Color_50      RGBA(69, 69, 83, 50)
+#define Default_Text_Dark_Color_40      RGBA(69, 69, 83, 40)
+#define Default_Text_Dark_Color_30      RGBA(69, 69, 83, 30)
+#define Default_Text_Dark_Color_20      RGBA(69, 69, 83, 20)
+#define Default_Text_Dark_Color_10      RGBA(69, 69, 83, 10)
 
 
 #pragma mark - 尺寸
 
 #define Blur_Back_Height  10.0f
 
+#pragma mark -专题详情显示的内容
+
+#define Topic_Detail_Type               @"Topic_Detail_Type"
+#define Topic_Detail_Content            @"Topic_Detail_Content"
+
+#define Topic_Detail_Text_Normal        @"Topic_Detail_Text"
+#define Topic_Detail_Text_Highlight     @"Topic_Detail_Text_Highlight"
+#define Topic_Detail_Photos             @"Topic_Detail_Photos"
+#define Topic_Detail_Items              @"Topic_Detail_Items"
+
+
+
+//#define Topic_Detail_Text_Normal        @"Topic_Detail_Text_Normal"
+//#define Topic_Detail_Text_Highlight     @"Topic_Detail_Text_Highlight"
+//#define Topic_Detail_photos             @"Topic_Detail_photos"
+//#define Topic_Detail_products           @"Topic_Detail_products"
 
 
 

@@ -10,8 +10,14 @@
 
 @interface RecommandCateModal : JSONModel
 
-@property (nonatomic, copy) NSString * categoryTitle;//标题
-@property (nonatomic, copy) NSNumber * categoryID;//id
-@property (nonatomic, copy) NSString * categoryImgURL;//图片地址
+@property (nonatomic, copy) NSString    * categoryTitle;//分类标题
+@property (nonatomic, copy) NSString    * categorySubtitle;//分类副标题(英文)
+
+@property (nonatomic, copy) NSNumber    * categoryID;//id
+
+@property (nonatomic, copy) NSString    * categoryIconImgURL;//Icon图片地址
+@property (nonatomic, copy) NSString    * categoryCoverImgURL;//封面图片地址
+
+@property (nonatomic, copy) NSArray     * categorySetArray;//分类下的细类
 
 @end

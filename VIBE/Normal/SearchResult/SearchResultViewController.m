@@ -21,12 +21,11 @@
     _topBarBackImgView = [[GLImageView alloc]initWithFrame:CGRectMake(60, 30, kScreenWidth -80, 30)];
     [_topBarBackImgView.layer setCornerRadius:8.0f];
     [_topBarBackImgView.layer setMasksToBounds:YES];
-    [self.navigationView addSubview:_topBarBackImgView];
+    [self.view addSubview:_topBarBackImgView];
     
     _topBarView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth -80, 30)];
     [_topBarView setBackgroundColor:RGBA(248, 248, 248, 100)];
     [_topBarBackImgView addSubview:_topBarView];
-    
     
     _topBarSearchIcon = [[UIImageView alloc]init];
     [_topBarSearchIcon setImage:[UIImage imageNamed:@"Search_Result_Placeholder"]];

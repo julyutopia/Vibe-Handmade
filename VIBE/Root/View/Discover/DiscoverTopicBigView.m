@@ -33,6 +33,7 @@
         [_backImgView.layer setCornerRadius:4.0f];
         [_backImgView.layer setMasksToBounds:YES];
         [_backImgView setContentMode:UIViewContentModeScaleAspectFill];
+        [_backImgView addTarget:self action:@selector(clickBackImgView) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_backImgView];
         
         
@@ -105,9 +106,20 @@
 }
 
 
+-(void)clickBackImgView
+{
+    if ([_delegate respondsToSelector:@selector(discoverTopicBigViewClickWithIndex:)]) {
+        [_delegate discoverTopicBigViewClickWithIndex:0];
+    }
+
+}
+
+
 
 
 @end
+
+
 
 
 

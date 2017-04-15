@@ -54,17 +54,19 @@
 //            NSLog(@"    Font name: %@", [fontNames objectAtIndex:indFont]);
 //        }
 //    }
-//    
+//
+    
+    [self setLogInUserInfo];
+    
+    [self initSearchResultData];
     
     [self initRecommandViewData];
     [self initDiscoverViewData];
     [self initCreatorViewData];
     
-    [self initSearchResultData];
-    
     [self initItemDetailData];
     
-    [self setLogInUserInfo];
+    [self initTopicDetailData];
     
     return YES;
 }
@@ -110,8 +112,16 @@
     for (int i =1; i <11; i ++) {
         
         RecommandCateModal * catemodal = [[RecommandCateModal alloc]init];
+        
+        [catemodal setCategoryTitle:@"女装"];
+        [catemodal setCategorySubtitle:@"Women's"];
+        [catemodal setCategoryCoverImgURL:@"http://oih52ss9e.bkt.clouddn.com/Cate_Top4.png"];
+        
+        NSArray * subArray = [NSArray arrayWithObjects:@"全部",@"T恤",@"外套",@"背心",@"下着",@"鞋靴", @"帽",@"围巾",@"袜", @"其他", nil];
+        [catemodal setCategorySetArray:subArray];
+        
         NSString * imgUrl = [NSString stringWithFormat:@"http://oih52ss9e.bkt.clouddn.com/Cate%d.png",i];
-        [catemodal setCategoryImgURL:imgUrl];
+        [catemodal setCategoryIconImgURL:imgUrl];
         [self.recommandCateArray addObject:catemodal];
     }
     
@@ -168,32 +178,36 @@
         
         DiscoverTagModal * tagModal = [[DiscoverTagModal alloc]init];
         NSString * imgURL = [NSString stringWithFormat:@"http://oih52ss9e.bkt.clouddn.com/HotTag%d.png",i];
-        [tagModal setDiscoverTagImgUrl:imgURL];
+        [tagModal setTagIconImgURL:imgURL];
+        [tagModal setTagCoverImgURL:@"http://oih52ss9e.bkt.clouddn.com/Tag_List1.jpg"];
+        [tagModal setTagItemsCount:[NSNumber numberWithInt:204]];
+        
+        [tagModal setTagItemsArray:self.searchResultArray];
         
         switch (i) {
             case 1:
-                [tagModal setDiscoverTagTitle:@"水晶首饰"];
+                [tagModal setTagTitle:@"水晶首饰"];
                 break;
             case 2:
-                [tagModal setDiscoverTagTitle:@"BOHO风"];
+                [tagModal setTagTitle:@"BOHO风"];
                 break;
             case 3:
-                [tagModal setDiscoverTagTitle:@"美食与爱"];
+                [tagModal setTagTitle:@"美食与爱"];
                 break;
             case 4:
-                [tagModal setDiscoverTagTitle:@"蓝染"];
+                [tagModal setTagTitle:@"蓝染"];
                 break;
             case 5:
-                [tagModal setDiscoverTagTitle:@"异域民族"];
+                [tagModal setTagTitle:@"异域民族"];
                 break;
             case 6:
-                [tagModal setDiscoverTagTitle:@"服饰搭配"];
+                [tagModal setTagTitle:@"服饰搭配"];
                 break;
             case 7:
-                [tagModal setDiscoverTagTitle:@"中国传统手工"];
+                [tagModal setTagTitle:@"中国传统手工"];
                 break;
             case 8:
-                [tagModal setDiscoverTagTitle:@"家居软装"];
+                [tagModal setTagTitle:@"家居软装"];
                 break;
             default:
                 break;
@@ -351,9 +365,110 @@
     NSArray * photosArray = [NSArray arrayWithObjects:@"http://oih52ss9e.bkt.clouddn.com/Item_Detail2.jpg",@"http://oih52ss9e.bkt.clouddn.com/Item_Detail3.jpg",@"http://oih52ss9e.bkt.clouddn.com/Item_Detail4.jpg",@"http://oih52ss9e.bkt.clouddn.com/Item_Detail5.jpg",@"http://oih52ss9e.bkt.clouddn.com/Item_Detail6.jpg", nil];
     
     self.itemDetailModal.itemMorePhotosUrlsArray = photosArray;
+    
+    
+    //猜你喜欢的产品
+    RecommandItemModal * productModal1 = [[RecommandItemModal alloc]init];
+    [productModal1 setProductTitle:@"进口手工Kilim地毯"];
+    [productModal1 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item1.jpg"];
+    [productModal1 setProductPrice:@"1380"];
+    
+    RecommandItemModal * productModal2 = [[RecommandItemModal alloc]init];
+    [productModal2 setProductTitle:@"植物蓝染小外套"];
+    [productModal2 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item2.jpg"];
+    [productModal2 setProductPrice:@"216"];
+    
+    RecommandItemModal * productModal3 = [[RecommandItemModal alloc]init];
+    [productModal3 setProductTitle:@"北非全手工编织篮"];
+    [productModal3 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item3.jpg"];
+    [productModal3 setProductPrice:@"500"];
+    
+    RecommandItemModal * productModal4 = [[RecommandItemModal alloc]init];
+    [productModal4 setProductTitle:@"手工实木砧板"];
+    [productModal4 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Item4.png"];
+    [productModal4 setProductPrice:@"260"];
+    
+    
+    NSArray * guessItemsArray = [[NSArray alloc]initWithObjects:productModal1,productModal2,
+                                                                productModal3,productModal4,nil];
+    self.itemDetailModal.itemGuessArray = guessItemsArray;
 }
 
 
+-(void)initTopicDetailData
+{
+//    @property (nonatomic, copy) NSNumber * topicID;         //id
+//    @property (nonatomic, copy) NSString * topicTitle;      //标题
+//    @property (nonatomic, copy) NSString * timeStampTitle;  //时间戳
+//    @property (nonatomic, copy) NSString * topicCoverImgURL; //图片地址
+//    @property (nonatomic, copy) NSNumber * topicIsUserFavored;//用户是否已收藏该产品
+//    @property (nonatomic, copy) NSArray  * topicDetailInfoArray; //专题详情的混排内容
+//    @property (nonatomic, copy) NSArray  * topicDetailBottomInfoArray;//
+    
+    self.topicDetailModal = [[TopicDetailModal alloc]init];
+    [self.topicDetailModal setTimeStampTitle:@"14. Mar"];
+    [self.topicDetailModal setTopicTitle:@"在另一段旅程，\n捕获一场美梦。"];
+    [self.topicDetailModal setTopicCoverImgURL:@"http://oih52ss9e.bkt.clouddn.com/Topic_Detail_Top.jpg"];
+    
+    NSString * detailText1 = @"美好的祝福，原始、温馨而又神秘，现今捕梦网已经在一些饰品店裡出现，成为现代家居新颖别致的摆设品，款式多种多样，有的网大疏鬆、有的网小密实，颜色也各有不同，吸引了不少年轻人购买，可能他们不知它的来历，但是喜欢它的特别和美丽，就买了送给自已的恋人或是好友，送上自已诚挚的心意和祝福。";
+    NSMutableDictionary * dict1 = [NSMutableDictionary dictionary];
+    [dict1 setObject:Topic_Detail_Text_Normal forKey:Topic_Detail_Type];//设置类型
+    [dict1 setObject:detailText1 forKey:Topic_Detail_Content];//设置里面包含的内容
+    
+    
+    NSArray * photosArray = [[NSArray alloc]initWithObjects:@"http://oih52ss9e.bkt.clouddn.com/Topic_Photo0.jpg",@"http://oih52ss9e.bkt.clouddn.com/Topic_Photo1.jpg",@"http://oih52ss9e.bkt.clouddn.com/Topic_Photo2.jpg",@"http://oih52ss9e.bkt.clouddn.com/Topic_Photo3.jpg",@"http://oih52ss9e.bkt.clouddn.com/Topic_Photo4.jpg", nil];
+    NSMutableDictionary * dict2 = [NSMutableDictionary dictionary];
+    [dict2 setObject:Topic_Detail_Photos forKey:Topic_Detail_Type];
+    [dict2 setObject:photosArray forKey:Topic_Detail_Content];
+
+
+    NSString * highlightText = @"印第安人迷信捕梦网会把你每晚做的梦捕捉下来：坏梦见了阳光就消失，好梦留在网上成真。印地安传说中带上这种饰物，可避免恶灵在睡梦中侵入..";
+    NSMutableDictionary * dict3 = [NSMutableDictionary dictionary];
+    [dict3 setObject:Topic_Detail_Text_Highlight forKey:Topic_Detail_Type];
+    [dict3 setObject:highlightText forKey:Topic_Detail_Content];
+    
+    
+    NSString * detailText2 = @"曾经的原住民将充满自然神秘能量的捕梦网来挂在床头，它会补捉梦，但只留住恶梦、好梦则流回做梦的人；当太阳升起，网内的恶梦就会燃烧成烬并消失！";
+    NSMutableDictionary * dict4 = [NSMutableDictionary dictionary];
+    [dict4 setObject:Topic_Detail_Text_Normal forKey:Topic_Detail_Type];
+    [dict4 setObject:detailText2 forKey:Topic_Detail_Content];
+    
+    
+    RecommandItemModal * topicItemModal1 = [[RecommandItemModal alloc]init];
+    [topicItemModal1 setProductTitle:@"黑色日月款捕梦网"];
+    [topicItemModal1 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Topic_Detail_Item1.jpg"];
+    [topicItemModal1 setProductPrice:@"60"];
+    
+    RecommandItemModal * topicItemModal2 = [[RecommandItemModal alloc]init];
+    [topicItemModal2 setProductTitle:@"鹿顺 风铃捕梦网"];
+    [topicItemModal2 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Topic_Detail_Item2.jpg"];
+    [topicItemModal2 setProductPrice:@"77"];
+    
+    RecommandItemModal * topicItemModal3 = [[RecommandItemModal alloc]init];
+    [topicItemModal3 setProductTitle:@" 异域捕梦网"];
+    [topicItemModal3 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Topic_Detail_Item3.jpg"];
+    [topicItemModal3 setProductPrice:@"95"];
+    
+    RecommandItemModal * topicItemModal4 = [[RecommandItemModal alloc]init];
+    [topicItemModal4 setProductTitle:@"蜡线波西米亚捕梦网"];
+    [topicItemModal4 setProductImgURL:@"http://oih52ss9e.bkt.clouddn.com/Topic_Detail_Item4.jpg"];
+    [topicItemModal4 setProductPrice:@"138"];
+    
+    NSMutableDictionary * dict5 = [NSMutableDictionary dictionary];
+    [dict5 setObject:Topic_Detail_Items forKey:Topic_Detail_Type];
+    [dict5 setObject:[NSArray arrayWithObjects:topicItemModal1, topicItemModal2, topicItemModal3, topicItemModal4, nil] forKey:Topic_Detail_Content];
+    
+    
+    NSString * detailText3 = @"美好的祝福，原始、温馨而又神秘，现今捕梦网已经在一些饰品店裡出现，成为现代家居新颖别致的摆设品，款式多种多样，有的网大疏鬆、有的网小密实，颜色也各有不同，吸引了不少年轻人购买，可能他们不知它的来历，但是喜欢它的特别和美丽，就买了送给自已的恋人或是好友，送上自已诚挚的心意和祝福。";
+    NSMutableDictionary * dict6 = [NSMutableDictionary dictionary];
+    [dict6 setObject:Topic_Detail_Text_Normal forKey:Topic_Detail_Type];
+    [dict6 setObject:detailText3 forKey:Topic_Detail_Content];
+
+    
+    
+    self.topicDetailModal.topicDetailInfoArray = [[NSMutableArray alloc]initWithObjects:dict1 ,dict2 ,dict3,
+                                                                                        dict4, dict5, dict6, nil];
+}
 
 
 

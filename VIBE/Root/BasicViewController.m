@@ -44,15 +44,16 @@
 
     
     self.navigationView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Navi_View_Height)];
-    [self.navigationView setBackgroundColor:RGBA(255, 255, 255, 85)];
+    [self.navigationView setBackgroundColor:RGBA(255, 255, 255, 95)];
+    [self.navigationView.layer setMasksToBounds:YES];
     [self.view addSubview:self.navigationView];
     
     
     UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
     self.naviBlurView = [[UIVisualEffectView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Navi_View_Height)];
     [self.naviBlurView setEffect:blurEffect];
-    [_navigationView addSubview:self.naviBlurView];
-    
+    [self.view addSubview:self.naviBlurView];
+
     
     self.navigationLineView = [[UIView alloc]initWithFrame:CGRectMake(0, Navi_View_Height -1, kScreenWidth, 1)];
     [self.navigationLineView setHidden:YES];

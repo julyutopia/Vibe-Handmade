@@ -23,6 +23,7 @@
         [_backView.layer setCornerRadius:4.0f];
         [_backView.layer setMasksToBounds:YES];
         [_backView setContentMode:UIViewContentModeScaleAspectFill];
+        [_backView addTarget:self action:@selector(clickBackImgView) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_backView];
         
         
@@ -67,8 +68,10 @@
 }
 
 
--(void)setTopicSmallViewWithModal:(DiscoverTopicModal *)modal
+-(void)setTopicSmallViewWithModal:(DiscoverTopicModal *)modal WithIndex:(NSInteger )index
 {
+    _smallViewIndex = index;
+    
     float width = _backView.frame.size.width;
     
     [_backView sd_setImageWithURL:[NSURL URLWithString:modal.discoverTopicImgUrl] placeholderImage:nil];
@@ -87,6 +90,13 @@
     
 }
 
+
+-(void)clickBackImgView
+{
+    if ([_delegate respondsToSelector:@selector(discoverTopicSmallViewClickWithIndex:)]) {
+        [_delegate discoverTopicSmallViewClickWithIndex:_smallViewIndex];
+    }
+}
 
 
 @end

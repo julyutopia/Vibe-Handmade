@@ -11,7 +11,9 @@
 #import "DiscoverTopicBigView.h"
 #import "DiscoverTopicSmallView.h"
 
-@interface DiscoverTopicTableViewCell : UITableViewCell
+@protocol DiscoverTopicTableViewCellDelegate;
+
+@interface DiscoverTopicTableViewCell : UITableViewCell<DiscoverTopicBigViewDelegate, DiscoverTopicSmallViewDelegate>
 {
     UILabel         * _titleLabel;
     UIButton        * _showMoreBtn;
@@ -26,7 +28,16 @@
     
 }
 
+@property (weak, nonatomic) id<DiscoverTopicTableViewCellDelegate> delegate;
 
 -(void)setDiscoverTopicCellWithInfo:(NSArray *)infoArray;
 
 @end
+
+//代理协议
+@protocol DiscoverTopicTableViewCellDelegate <NSObject>
+
+-(void)discoverTopicCellClickWithIndex:(NSInteger )index;
+
+@end
+

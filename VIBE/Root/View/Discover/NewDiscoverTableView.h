@@ -12,9 +12,12 @@
 #import "DiscoverTopicTableViewCell.h"
 #import "DiscoverStoryTableViewCell.h"
 
+#import "DiscoverTagModal.h"
+#import "DiscoverTopicModal.h"
+
 @protocol NewDiscoverTableViewDelegate;
 
-@interface NewDiscoverTableView : UITableView<UITableViewDelegate, UITableViewDataSource>
+@interface NewDiscoverTableView : UITableView<UITableViewDelegate, UITableViewDataSource, DiscoverTagTableViewCellDelegate, DiscoverTopicTableViewCellDelegate>
 {
     UIView  * _sectionFooterView;
 }
@@ -25,5 +28,9 @@
 
 //代理协议
 @protocol NewDiscoverTableViewDelegate <NSObject>
+
+-(void)discoverTableShowTagDetailWithTagModal:(DiscoverTagModal *)tagModal;
+
+-(void)discoverTableShowTopicDetailWithTopicModal:(DiscoverTopicModal *)topicModal;
 
 @end

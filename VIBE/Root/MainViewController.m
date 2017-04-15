@@ -315,6 +315,12 @@
 
 
 #pragma mark -推荐Tableview的代理方法
+-(void)recommandTableViewShowCategoryDetailWithCateModal:(RecommandCateModal *)cateModal
+{
+    CategoryListViewController  * cateListVC = [[CategoryListViewController alloc]initWithCateModal:cateModal];
+    [self.lcNavigationController pushViewController:cateListVC];
+}
+
 -(void)recommandTableViewShowItemDetailWithID:(NSInteger)itemID
 {
     ItemDetailViewController * itemDetailVC = [[ItemDetailViewController alloc]init];
@@ -323,11 +329,18 @@
 }
 
 
+#pragma mark -发现Tableview的代理方法
+-(void)discoverTableShowTagDetailWithTagModal:(DiscoverTagModal *)tagModal
+{
+    TagLIstViewController * tagListVC = [[TagLIstViewController alloc]initWithTagInfo:tagModal];
+    [self.lcNavigationController pushViewController:tagListVC];
+}
 
-
-
-
-
+-(void)discoverTableShowTopicDetailWithTopicModal:(DiscoverTopicModal *)topicModal
+{
+    TopicDetailViewController * topicDetailVC = [[TopicDetailViewController alloc]initWithTopicDetailModal:[AppDelegate sharedAppDelegate].topicDetailModal];
+    [self.lcNavigationController pushViewController:topicDetailVC];
+}
 
 
 

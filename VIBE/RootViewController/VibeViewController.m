@@ -43,14 +43,14 @@
     [self.navigationController setNavigationBarHidden:YES];
     self.view.backgroundColor = DefaultBackgroundColor;
     
+    self.topNavView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, height_headerview)];
+    [self.topNavView setBackgroundColor:RGBA(255, 255, 255, 85)];
+    [self.view addSubview:self.topNavView];
+    
     //导航栏
     UIBlurEffect * naviBlurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     self.naviBlurView = [[UIVisualEffectView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, height_headerview)];
     [self.naviBlurView setEffect:naviBlurEffect];
-
-    self.topNavView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, height_headerview)];
-    [self.topNavView setBackgroundColor:RGBA(255, 255, 255, 85)];
-    [self.view addSubview:self.topNavView];
     [self.topNavView addSubview:self.naviBlurView];
     
     

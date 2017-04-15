@@ -29,7 +29,6 @@
     [_itemDetailTableView setScrollIndicatorInsets:UIEdgeInsetsMake(Navi_View_Height, 0, 0, 0)];
     [self.view addSubview:_itemDetailTableView];
     
-    
     [self.navigationView setFrame:CGRectMake(0, 0, kScreenWidth, 20)];
     [self.naviBlurView setFrame:CGRectMake(0, 0, kScreenWidth, 20)];
     [self.view bringSubviewToFront:self.navigationView];
@@ -50,7 +49,9 @@
     if (section == 0) {
         return 0;
     }
-    
+    if (section == 1) {
+        return 10;
+    }
     return 20;
 }
 
@@ -62,11 +63,18 @@
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    if (_itemDetailModal.itemGuessArray.count /2 >0) {
+        return 6;
+    }
+    return 4;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    //猜你喜欢 商品Cell
+    if (_itemDetailModal.itemGuessArray.count/2 && section == 5) {
+        return _itemDetailModal.itemGuessArray.count/2;
+    }
     return 1;
 }
 
@@ -85,6 +93,7 @@
             [cell setBackgroundView:nil];
         }
         
+        [cell setDelegateee:self];
         [cell setDetailTopCellWithModal:_itemDetailModal];
         
         return cell;
@@ -144,6 +153,54 @@
         return cell;
     }
     
+    //猜你喜欢Cell
+    if (_itemDetailModal.itemGuessArray.count /2 >0) {
+
+        //标题
+        if (indexPath.section == 4) {
+            NSString * identifierString = @"ItemDetailGuessTitleTableViewCellIdentifier";
+            
+            ItemDetailGuessTitleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierString];
+            if (cell == nil) {
+                cell = [[ItemDetailGuessTitleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifierString];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                [cell setBackgroundColor:[UIColor clearColor]];
+                [cell setBackgroundView:nil];
+            }
+            return cell;
+        }
+        
+        //产品
+        if (indexPath.section == 5) {
+            NSString * identifierString = @"ItemDetailGuessTableViewCellIdentifier";
+            
+            ItemDetailGuessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierString];
+            if (cell == nil) {
+                cell = [[ItemDetailGuessTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifierString];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                [cell setBackgroundColor:[UIColor clearColor]];
+                [cell setBackgroundView:nil];
+            }
+            
+            RecommandItemModal * leftModal;
+            RecommandItemModal * rightModal;
+            
+            //左边
+            if (indexPath.row *2 < _itemDetailModal.itemGuessArray.count) {
+                leftModal = [_itemDetailModal.itemGuessArray objectAtIndex:indexPath.row *2];
+            }
+            //右边
+            if (indexPath.row *2 +1 < _itemDetailModal.itemGuessArray.count) {
+                rightModal = [_itemDetailModal.itemGuessArray objectAtIndex:indexPath.row *2 +1];
+            }
+            
+            [cell setDelegateee:self];
+            [cell setItemDetailGuessCellWithLeftItem:leftModal AndRightItem:rightModal];
+            
+            return cell;
+        }
+    }
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FunctionFillOrderCellIdentifier"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FunctionFillOrderCellIdentifier"];
@@ -168,6 +225,7 @@
         
         return  titleLabelHeight +8 +priceLabelHeight;
     }
+    
     if (indexPath.section == 2) {
         
         float singlePhotoHeight = (kScreenWidth -60 -15 *2)/3.5;
@@ -175,13 +233,76 @@
     }
     if (indexPath.section == 3) {
         
-        float infoHeight = 300;
-        return infoHeight;
+        NSString * title = @"详细描述";
+        
+        float titleHeight = [title getSizeWithLimitSize:CGSizeMake(kScreenWidth -100, 20) withFont:[VibeFont fontWithName:Font_Chinese_Regular size:12]].height;
+        
+        NSString * info = _itemDetailModal.itemDetailInfo;
+        
+        float infoHeight = [info getSizeWithLimitSize:CGSizeMake(kScreenWidth -60 -20, 500) withFont:[VibeFont fontWithName:Font_Chinese_Regular size:14]].height;
+        
+        //如果超过一行显示
+        if (infoHeight >20) {
+            infoHeight = [[VibeAppTool sharedInstance]getSpaceLabelHeight:info withFont:[VibeFont fontWithName:Font_Chinese_Regular size:14] withWidth:kScreenWidth -60 -20 withLineSpacing:3.0] +2.0f;
+        }
+        
+        float totalHeight = titleHeight +20 +infoHeight;
+        return totalHeight;
+    }
+    
+    //猜你喜欢Cell
+    if (_itemDetailModal.itemGuessArray.count /2 > 0) {
+        
+        if (indexPath.section == 4) {
+            
+            NSString * title = @"猜你喜欢";
+            float titleHeight = [title getSizeWithLimitSize:CGSizeMake(kScreenWidth -100, 20) withFont:[VibeFont fontWithName:Font_Chinese_Regular size:12]].height;
+            
+            return titleHeight;
+        }
+        
+        else if (indexPath.section == 5){
+            
+            float itemWidth = ((kScreenWidth -60 -20) -20)/2;
+            float itemHeight = itemWidth +55;
+            
+            return itemHeight +20;
+        }
     }
     
     return 0;
 }
 
+
+
+#pragma mark Cell的代理方法
+
+//点击分享按钮
+-(void)ItemDetailTopCellTapShareBtn
+{
+
+}
+
+//点击收藏按钮
+-(void)ItemDetailTopCellTapFavorBtn
+{
+
+}
+
+//点击购买按钮
+-(void)ItemDetailTopCellTapBuyBtn
+{
+
+}
+
+
+//点击 猜你喜欢 单品的代理
+-(void)itemDetailGuessCellDidClickItemWithID:(NSInteger)itemID
+{
+    ItemDetailViewController * itemDetailVC = [[ItemDetailViewController alloc]init];
+    itemDetailVC.itemDetailID = itemID;
+    [self.lcNavigationController pushViewController:itemDetailVC];
+}
 
 
 #pragma mark

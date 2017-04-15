@@ -11,13 +11,26 @@
 #import "GLImageView.h"
 #import "DiscoverTopicModal.h"
 
+@protocol DiscoverTopicSmallViewDelegate;
+
 @interface DiscoverTopicSmallView : UIView
 {
+    NSInteger     _smallViewIndex;
+    
     GLImageView * _backView;
     UILabel     * _timeStampLabel;
     UILabel     * _topicTitleLabel;
 }
 
--(void)setTopicSmallViewWithModal:(DiscoverTopicModal *)modal;
+@property (weak, nonatomic) id<DiscoverTopicSmallViewDelegate> delegate;
+
+-(void)setTopicSmallViewWithModal:(DiscoverTopicModal *)modal WithIndex:(NSInteger )index;
+
+@end
+
+//代理协议
+@protocol DiscoverTopicSmallViewDelegate <NSObject>
+
+-(void)discoverTopicSmallViewClickWithIndex:(NSInteger )index;
 
 @end

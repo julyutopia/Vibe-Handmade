@@ -8,6 +8,7 @@
 
 #import "BasicViewController.h"
 
+#import "RecommandItemModal.h"
 #import "ItemDetailModal.h"
 
 #import "ItemDetailTopTableViewCell.h"
@@ -15,7 +16,10 @@
 #import "ItemDetailPhotoViewTableViewCell.h"
 #import "ItemDetailInfoTableViewCell.h"
 
-@interface ItemDetailViewController : BasicViewController<UITableViewDelegate, UITableViewDataSource>
+#import "ItemDetailGuessTitleTableViewCell.h"
+#import "ItemDetailGuessTableViewCell.h"
+
+@interface ItemDetailViewController : BasicViewController<UITableViewDelegate, UITableViewDataSource, ItemDetailTopTableViewCellDelegate, ItemDetailGuessTableViewCellDelegate>
 {
     UIView          * _sectionFooterView;
 
