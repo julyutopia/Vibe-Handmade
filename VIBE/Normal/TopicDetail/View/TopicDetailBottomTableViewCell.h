@@ -10,14 +10,16 @@
 
 @interface TopicDetailBottomTableViewCell : UITableViewCell
 {
-    UIView  * _backView;
-    GLImageView * _detailImgView;
+    float                     _backViewWidth;
+    
+    UIView                  * _backView;
+    UIImageView             * _detailImgView;
     
     UIActivityIndicatorView * _activityIndicatorView;
     
-    CAShapeLayer        * _maskLayer;
+    CAShapeLayer            * _maskLayer;
     
-    float      _lastCellHeight;
+    float                     _bottomHeight;
 }
 
 @property(assign, nonatomic) BOOL didLoadImage;
@@ -25,7 +27,7 @@
 
 @property(assign, nonatomic) BOOL isLastCell;
 
--(void)setTopicBottomTableCellWithInfo:(NSDictionary *)dict IsLastCell:(BOOL)isLast;
+-(void)setTopicBottomTableCellWithInfo:(NSString *)imageURL IsLastCell:(BOOL)isLast;
 
 -(float)calculateImageHeight;
 

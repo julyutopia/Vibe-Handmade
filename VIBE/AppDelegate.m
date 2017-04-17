@@ -458,16 +458,20 @@
     [dict5 setObject:Topic_Detail_Items forKey:Topic_Detail_Type];
     [dict5 setObject:[NSArray arrayWithObjects:topicItemModal1, topicItemModal2, topicItemModal3, topicItemModal4, nil] forKey:Topic_Detail_Content];
     
-    
     NSString * detailText3 = @"美好的祝福，原始、温馨而又神秘，现今捕梦网已经在一些饰品店裡出现，成为现代家居新颖别致的摆设品，款式多种多样，有的网大疏鬆、有的网小密实，颜色也各有不同，吸引了不少年轻人购买，可能他们不知它的来历，但是喜欢它的特别和美丽，就买了送给自已的恋人或是好友，送上自已诚挚的心意和祝福。";
     NSMutableDictionary * dict6 = [NSMutableDictionary dictionary];
     [dict6 setObject:Topic_Detail_Text_Normal forKey:Topic_Detail_Type];
     [dict6 setObject:detailText3 forKey:Topic_Detail_Content];
 
     
-    
     self.topicDetailModal.topicDetailInfoArray = [[NSMutableArray alloc]initWithObjects:dict1 ,dict2 ,dict3,
                                                                                         dict4, dict5, dict6, nil];
+
+    
+    self.topicDetailModal.topicDetailBottomInfoArray = [[NSMutableArray alloc]initWithObjects:
+                                                        @"http://oih52ss9e.bkt.clouddn.com/Topic_Detail_Bottom1.jpg",
+                                                        @"http://oih52ss9e.bkt.clouddn.com/Topic_Detail_Bottom2.png", nil];
+    
 }
 
 

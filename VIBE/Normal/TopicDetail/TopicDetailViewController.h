@@ -17,6 +17,7 @@
 #import "TopicDetailTextHighlightTableViewCell.h"
 #import "TopicDtailPhotoTableViewCell.h"
 #import "TopicDetailItemsTableViewCell.h"
+#import "TopicDetailBottomTableViewCell.h"
 
 
 @interface TopicDetailViewController : BasicViewController<UITableViewDelegate, UITableViewDataSource >

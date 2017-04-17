@@ -1417,14 +1417,14 @@
 				865F6CB21EA2460A00526CA0 /* TopicDtailPhotoTableViewCell.m */,
 				865F6CC01EA25E6200526CA0 /* TopicDetailItemsTableViewCell.h */,
 				865F6CC11EA25E6200526CA0 /* TopicDetailItemsTableViewCell.m */,
+				86DA9F4F1E0CE4A000AAD206 /* TopicDetailBottomTableViewCell.h */,
+				86DA9F501E0CE4A000AAD206 /* TopicDetailBottomTableViewCell.m */,
 				86464BD01E07961C004CA5DF /* TopicDetailShowTableViewCell.h */,
 				86464BD11E07961C004CA5DF /* TopicDetailShowTableViewCell.m */,
 				8651889C1E0A34CE006C3D50 /* TopicDetailRelatedHeaderTableViewCell.h */,
 				8651889D1E0A34CE006C3D50 /* TopicDetailRelatedHeaderTableViewCell.m */,
 				865188A11E0A43A2006C3D50 /* TopicDetailRelatedProductTableViewCell.h */,
 				865188A21E0A43A2006C3D50 /* TopicDetailRelatedProductTableViewCell.m */,
-				86DA9F4F1E0CE4A000AAD206 /* TopicDetailBottomTableViewCell.h */,
-				86DA9F501E0CE4A000AAD206 /* TopicDetailBottomTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";

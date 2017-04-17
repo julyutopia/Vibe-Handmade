@@ -54,6 +54,8 @@
 
     
     _sectionFooterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
+    [_sectionFooterView setBackgroundColor:[UIColor clearColor]];
+    
 }
 
 
@@ -61,12 +63,18 @@
 #pragma mark -TableView的代理
 -(CGFloat )tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 20;
+    if (section == 0 || section == 2) {
+        return 20;
+    }
+    return 0;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return _sectionFooterView;
+    if (section == 0 || section == 2) {
+        return _sectionFooterView;
+    }
+    return nil;
 }
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
@@ -115,8 +123,6 @@
         
         NSDictionary * topicDetailDict = [_topicDetailModal.topicDetailInfoArray objectAtIndex:indexPath.row];
         NSString * typeee = [topicDetailDict objectForKey:Topic_Detail_Type];
-        
-        NSLog(@"\n\n##########\n\n%@\n\n###########",topicDetailDict);
         
         //显示普通文字
         if ([typeee isEqualToString:Topic_Detail_Text_Normal]) {
@@ -193,7 +199,30 @@
             
             return cell;
         }
+    }
+    
+    //显示底部的图片内容
+    if (indexPath.section == 2 && _topicDetailModal.topicDetailBottomInfoArray.count) {
         
+        NSString * cellIndentifier = @"TopicDetailBottomTableViewCellIdentifier";
+
+        TopicDetailBottomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
+        if (cell == nil) {
+            cell = [[TopicDetailBottomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.backgroundView = nil;
+            cell.backgroundColor = [UIColor clearColor];
+        }
+        
+        BOOL isLast = NO;
+        if (indexPath.row == _topicDetailModal.topicDetailBottomInfoArray.count -1) {
+            isLast = YES;
+        }
+        NSString * bottomImageURL = [_topicDetailModal.topicDetailBottomInfoArray objectAtIndex:indexPath.row];
+        
+        [cell setTopicBottomTableCellWithInfo:bottomImageURL IsLastCell:isLast];
+        
+        return cell;
     }
     
     
@@ -282,16 +311,22 @@
         
     }
     
-    return 0;
-}
-
-
-#pragma mark -计算cell的文字高度
--(float )calculateCellTextHeightWithFont:(UIFont *)font Content:(NSString *)content LineSpace:(CGFloat )space
-{
-    float labelHeght = [[VibeAppTool sharedInstance] getSpaceLabelHeight:content withFont:font withWidth:kScreenWidth -40 withLineSpacing:space];
+    if (indexPath.section == 2 && _topicDetailModal.topicDetailBottomInfoArray.count) {
+        
+        float bottomHeight = 15;
+        
+        if (indexPath.row == _topicDetailModal.topicDetailBottomInfoArray.count -1) {
+            bottomHeight = 0;
+        }
+        
+        TopicDetailBottomTableViewCell *cell = (TopicDetailBottomTableViewCell *)[self tableView:_topicDetailTableView cellForRowAtIndexPath:indexPath];
+        
+        float heighttt = cell.imageHeight +bottomHeight;
+        return heighttt;
+    }
     
-    return labelHeght +10;
+    
+    return 0;
 }
 
 

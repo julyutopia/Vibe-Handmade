@@ -17,6 +17,7 @@
     if (self)
     {
         _backView = [[UIView alloc]initWithFrame:CGRectMake(60, 0, kScreenWidth, 0)];
+        [_backView setBackgroundColor:[UIColor clearColor]];
         [self.contentView addSubview:_backView];
         
         _showTextLabel = [[UILabel alloc]init];
