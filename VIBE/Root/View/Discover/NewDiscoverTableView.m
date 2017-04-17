@@ -112,9 +112,8 @@
             [cell setBackgroundView:nil];
         }
         
-        
+        [cell setDelegate:self];
         [cell setDiscoverStoryCellWithInfo:[AppDelegate sharedAppDelegate].discoverStorysArray];
-        
         
         return cell;
     }
@@ -176,6 +175,15 @@
     
     if ([_delegateee respondsToSelector:@selector(discoverTableShowTopicDetailWithTopicModal:)]) {
         [_delegateee discoverTableShowTopicDetailWithTopicModal:topicModal];
+    }
+}
+
+-(void)discoverStoryCellClickWithIndex:(NSInteger)index
+{
+    DiscoverStoryModal * storyModal = [[AppDelegate sharedAppDelegate].discoverStorysArray objectAtIndex:index];
+
+    if ([_delegateee respondsToSelector:@selector(discoverTableShowStoryDetailWithStoryModal:)]) {
+        [_delegateee discoverTableShowStoryDetailWithStoryModal:storyModal];
     }
 }
 

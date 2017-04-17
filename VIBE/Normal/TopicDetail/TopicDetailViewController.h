@@ -19,8 +19,9 @@
 #import "TopicDetailItemsTableViewCell.h"
 #import "TopicDetailBottomTableViewCell.h"
 
+#import "VibeShowPhotoView.h"
 
-@interface TopicDetailViewController : BasicViewController<UITableViewDelegate, UITableViewDataSource >
+@interface TopicDetailViewController : BasicViewController<UITableViewDelegate, UITableViewDataSource,TopicDtailPhotoTableViewCellDelegate>
 {
     TopicDetailModal    * _topicDetailModal;
     

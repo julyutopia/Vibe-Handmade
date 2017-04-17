@@ -129,16 +129,19 @@
 #define Topic_Detail_Photos             @"Topic_Detail_Photos"
 #define Topic_Detail_Items              @"Topic_Detail_Items"
 
+#pragma mark -专题详情显示的内容
+
+#define Story_Detail_Type               @"Story_Detail_Type"
+#define Story_Detail_Content            @"Story_Detail_Content"
+
+#define Story_Detail_Text_Normal        @"Story_Detail_Text"
+#define Story_Detail_Text_Highlight     @"Story_Detail_Text_Highlight"
+#define Story_Detail_Photos             @"Story_Detail_Photos"
+#define Story_Detail_Items              @"Story_Detail_Items"
 
 
-//#define Topic_Detail_Text_Normal        @"Topic_Detail_Text_Normal"
-//#define Topic_Detail_Text_Highlight     @"Topic_Detail_Text_Highlight"
-//#define Topic_Detail_photos             @"Topic_Detail_photos"
-//#define Topic_Detail_products           @"Topic_Detail_products"
 
-
-
-
+#pragma mark -字体
 
 #define Default_Font_Small @"HYQiHei-CES"
 #define Default_Font @"HYQiHei-DES"

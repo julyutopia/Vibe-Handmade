@@ -1,14 +1,14 @@
 //
-//  TopicDetailTextHighlightTableViewCell.m
+//  StoryDetailTextHighlightTableViewCell.m
 //  VIBE
 //
-//  Created by Li Haii on 2017/4/15.
+//  Created by Li Haii on 2017/4/17.
 //  Copyright © 2017年 LiHaii. All rights reserved.
 //
 
-#import "TopicDetailTextHighlightTableViewCell.h"
+#import "StoryDetailTextHighlightTableViewCell.h"
 
-@implementation TopicDetailTextHighlightTableViewCell
+@implementation StoryDetailTextHighlightTableViewCell
 
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -35,11 +35,10 @@
     return self;
 }
 
-
--(void)setTopicDetailTextHighlightCellWithInfo:(NSString *)detail
+-(void)setStoryDetailTextHighlightCellWithInfo:(NSString *)detail
 {
     float hightlightTextWidth = kScreenWidth -60 -28 -40;
-
+    
     NSString * hightlightText = detail;
     
     float hightlightTextHeight = [hightlightText getSizeWithLimitSize:CGSizeMake(hightlightTextWidth, 500) withFont:_highlightTextLabel.font].height;
@@ -62,6 +61,5 @@
 
 
 @end
-
 
 

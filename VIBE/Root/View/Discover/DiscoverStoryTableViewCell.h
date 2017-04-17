@@ -12,7 +12,9 @@
 #import "DiscoverStoryBigView.h"
 #import "DiscoverStorySmallView.h"
 
-@interface DiscoverStoryTableViewCell : UITableViewCell
+@protocol DiscoverStoryTableViewCellDelegate;
+
+@interface DiscoverStoryTableViewCell : UITableViewCell<DiscoverStoryBigViewDelegate>
 {
     UILabel         * _titleLabel;
     UIButton        * _showMoreBtn;
@@ -26,6 +28,19 @@
 
 }
 
+@property (weak, nonatomic) id<DiscoverStoryTableViewCellDelegate> delegate;
+
 -(void)setDiscoverStoryCellWithInfo:(NSArray *)infoArray;
 
 @end
+
+//代理协议
+@protocol DiscoverStoryTableViewCellDelegate <NSObject>
+
+-(void)discoverStoryCellClickWithIndex:(NSInteger )index;
+
+@end
+
+
+
+

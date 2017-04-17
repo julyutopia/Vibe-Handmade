@@ -20,7 +20,6 @@
         
         float whiteViewWidth = width -30;
         
-        
         _backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width, frame.size.height)];
         [self addSubview:_backView];
         
@@ -88,6 +87,7 @@
         
         
         _tapBackImgView = [[GLImageView alloc]initWithFrame:CGRectMake(0, 0, width, width)];
+        [_tapBackImgView addTarget:self action:@selector(discoverStoryBigViewClick) forControlEvents:UIControlEventTouchUpInside];
         [_backView addSubview:_tapBackImgView];
         
         
@@ -119,7 +119,6 @@
     [_bigStoryPhotosArray addObjectsFromArray:modal.discoverStoryContentPhotos];
 
     NSInteger photosCount = _bigStoryPhotosArray.count;
-
     
     float singleSmallPhotoWidth = (_photosContentView.frame.size.width - 10 *4) /5;
     
@@ -154,12 +153,17 @@
         [photoImgView setContentMode:UIViewContentModeScaleAspectFill];
         [_photosContentView addSubview:photoImgView];
     }
-    
-    
-    
-    
-    
+  
 }
+
+
+-(void)discoverStoryBigViewClick
+{
+    if ([_delegate respondsToSelector:@selector(discoverStoryBigViewClick)]) {
+        [_delegate discoverStoryBigViewClick];
+    }
+}
+
 
 
 @end

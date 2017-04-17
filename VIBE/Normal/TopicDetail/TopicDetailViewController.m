@@ -175,6 +175,8 @@
                 cell.backgroundColor = [UIColor clearColor];
             }
             
+            [cell setDelegate:self];
+            
             NSArray * photosArray = [topicDetailDict objectForKey:Topic_Detail_Content];
             [cell setTopicDetailPhotoCellWithInfo:photosArray];
             
@@ -287,7 +289,7 @@
         //计算显示图片的高度
         if ([typeee isEqualToString:Topic_Detail_Photos]) {
             
-            float singlePhotoHeight = (kScreenWidth -60 -15 *2)/3.5;
+            float singlePhotoHeight = (kScreenWidth -60 -20 -12 *3)/3.5;
             return singlePhotoHeight +20;
         }
         
@@ -329,6 +331,12 @@
     return 0;
 }
 
+
+#pragma mark - 点击PhotoView的图片
+-(void)topicDtailPhotoTableViewShowImageWithURL:(NSString *)imgURL
+{
+    [[VibeShowPhotoView sharedInstance] showWithImageURL:imgURL WithView:self.view];
+}
 
 #pragma mark -点击收藏按钮
 -(void)addFavorClicked:(UIButton *)favorBtn

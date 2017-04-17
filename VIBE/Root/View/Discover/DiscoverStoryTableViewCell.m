@@ -37,11 +37,13 @@
         float bigStoryViewWidth = kScreenWidth -50;
         
         _bigStoryView = [[DiscoverStoryBigView alloc]initWithFrame:CGRectMake(25, 20 +20, bigStoryViewWidth, bigStoryViewWidth +5)];
+        [_bigStoryView setDelegate:self];
         [self.contentView addSubview:_bigStoryView];
         
         
         float smallStoryViewWidth = (kScreenWidth -50 - 15)/2;
         float smallStoryViewHeight = smallStoryViewWidth/16 *9 +50;
+        
         
         _leftSmallStoryView = [[DiscoverStorySmallView alloc]initWithFrame:CGRectMake(25, 20 +20 +bigStoryViewWidth +15, smallStoryViewWidth, smallStoryViewHeight)];
         [self.contentView addSubview:_leftSmallStoryView];
@@ -85,6 +87,16 @@
         [_rightSmallStoryView setDiscoverStorySmallViewWithModal:modal];
     }
     
+}
+
+#pragma mark -点击 StoryView的代理方法
+
+#pragma mark -点击大图的StoryView
+-(void)discoverStoryBigViewClick
+{
+    if ([_delegate respondsToSelector:@selector(discoverStoryCellClickWithIndex:)]) {
+        [_delegate discoverStoryCellClickWithIndex:0];
+    }
 }
 
 

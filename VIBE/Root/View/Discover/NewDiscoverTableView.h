@@ -14,10 +14,11 @@
 
 #import "DiscoverTagModal.h"
 #import "DiscoverTopicModal.h"
+#import "DiscoverStoryModal.h"
 
 @protocol NewDiscoverTableViewDelegate;
 
-@interface NewDiscoverTableView : UITableView<UITableViewDelegate, UITableViewDataSource, DiscoverTagTableViewCellDelegate, DiscoverTopicTableViewCellDelegate>
+@interface NewDiscoverTableView : UITableView<UITableViewDelegate, UITableViewDataSource, DiscoverTagTableViewCellDelegate, DiscoverTopicTableViewCellDelegate, DiscoverStoryTableViewCellDelegate>
 {
     UIView  * _sectionFooterView;
 }
@@ -32,5 +33,7 @@
 -(void)discoverTableShowTagDetailWithTagModal:(DiscoverTagModal *)tagModal;
 
 -(void)discoverTableShowTopicDetailWithTopicModal:(DiscoverTopicModal *)topicModal;
+
+-(void)discoverTableShowStoryDetailWithStoryModal:(DiscoverStoryModal *)storyModal;
 
 @end

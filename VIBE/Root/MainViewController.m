@@ -342,6 +342,11 @@
     [self.lcNavigationController pushViewController:topicDetailVC];
 }
 
+-(void)discoverTableShowStoryDetailWithStoryModal:(DiscoverStoryModal *)storyModal
+{
+    StoryDetailViewController * storyDetailVC = [[StoryDetailViewController alloc]initWithStoryDetailModal:[AppDelegate sharedAppDelegate].storyDetailModal];
+    [self.lcNavigationController pushViewController:storyDetailVC];
+}
 
 
 #pragma mark 

@@ -11,6 +11,8 @@
 #import "GLImageView.h"
 #import "DiscoverStoryModal.h"
 
+@protocol DiscoverStoryBigViewDelegate;
+
 @interface DiscoverStoryBigView : UIView
 {
     UIView              * _backView;
@@ -30,7 +32,19 @@
     NSMutableArray      * _bigStoryPhotosArray;
 }
 
+@property (weak, nonatomic) id<DiscoverStoryBigViewDelegate> delegate;
 
 -(void)setDiscoverStoryBigViewWithModal:(DiscoverStoryModal *)modal;
 
 @end
+
+//代理协议
+@protocol DiscoverStoryBigViewDelegate <NSObject>
+
+-(void)discoverStoryBigViewClick;
+
+@end
+
+
+
+

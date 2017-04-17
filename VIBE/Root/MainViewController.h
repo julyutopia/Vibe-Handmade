@@ -23,6 +23,8 @@
 
 #import "TopicDetailViewController.h"
 
+#import "StoryDetailViewController.h"
+
 @interface MainViewController : UIViewController<UIScrollViewDelegate, LUNSegmentedControlDataSource, LUNSegmentedControlDelegate, NewRecommandTableViewDelegate, NewDiscoverTableViewDelegate, NewCreatorTableViewDelegate, VibeSearchViewDelegate>
 {
     UIView                  * _backView;

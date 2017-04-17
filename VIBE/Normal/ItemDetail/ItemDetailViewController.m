@@ -228,7 +228,7 @@
     
     if (indexPath.section == 2) {
         
-        float singlePhotoHeight = (kScreenWidth -60 -15 *2)/3.5;
+        float singlePhotoHeight = (kScreenWidth -60 -20 -12 *3)/3.5;
         return singlePhotoHeight;
     }
     if (indexPath.section == 3) {

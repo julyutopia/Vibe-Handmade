@@ -38,23 +38,6 @@
     _mainVC.navigationController.navigationBarHidden = YES;
     
     self.window.rootViewController = homeNavVC;
-
-//    
-//    NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
-//    NSArray *fontNames;
-//    NSInteger indFamily, indFont;
-//    for (indFamily=0; indFamily<[familyNames count]; ++indFamily)
-//    {
-//        NSLog(@"Family name: %@", [familyNames objectAtIndex:indFamily]);
-//        fontNames = [[NSArray alloc] initWithArray:
-//                     [UIFont fontNamesForFamilyName:
-//                      [familyNames objectAtIndex:indFamily]]];
-//        for (indFont=0; indFont<[fontNames count]; ++indFont)
-//        {
-//            NSLog(@"    Font name: %@", [fontNames objectAtIndex:indFont]);
-//        }
-//    }
-//
     
     [self setLogInUserInfo];
     
@@ -68,14 +51,14 @@
     
     [self initTopicDetailData];
     
+    [self initStoryDetailData];
+    
     return YES;
 }
 
 #pragma mark -设置假用户数据
 -(void)setLogInUserInfo
 {
-//    [[VibeAppTool sharedInstance] ClearLoginUserInfo];
-    
     MineProfileModal * userModal = [[MineProfileModal alloc]init];
     [userModal setUserName:@"Tinaॐ"];
     [userModal setUserID:[NSNumber numberWithInt:1]];
@@ -476,11 +459,67 @@
 
 
 
+-(void)initStoryDetailData
+{
+    self.storyDetailModal = [[StoryDetailModal alloc]init];
+ 
+    [self.storyDetailModal setTimeStampTitle:@"26. Mar"];
+    [self.storyDetailModal setSotryTitle:@"土耳其KILIM地毯的前世今生"];
+    [self.storyDetailModal setStoryCoverImgURL:@"http://oih52ss9e.bkt.clouddn.com/Story_Detail_Cover.jpg"];
+ 
+    NSString * detailText1 = @"Kilim基利姆花毯是原产自土耳其、伊朗、巴基斯坦等地区的手织毛地毯，颜色鲜艳，毯面平滑柔软，颇受人们喜爱。";
+    NSMutableDictionary * dict1 = [NSMutableDictionary dictionary];
+    [dict1 setObject:Story_Detail_Text_Normal forKey:Story_Detail_Type];//设置类型
+    [dict1 setObject:detailText1 forKey:Story_Detail_Content];//设置里面包含的内容
+    
+    NSString * highlightText = @"这种地毯仍采用绘画编织的传统工艺。地毯的图案通常是几何图形和有象征意义的抽象图案，如邪恶之眼，鸟等，还有花卉图案。\n基里姆花毯还经常被用作挂毯、桌布或用来覆盖箱柜和长椅。\n而零碎余料常用来做家具装饰、靠垫、背包甚至鞋子。";
+    NSMutableDictionary * dict2 = [NSMutableDictionary dictionary];
+    [dict2 setObject:Story_Detail_Text_Highlight forKey:Story_Detail_Type];
+    [dict2 setObject:highlightText forKey:Story_Detail_Content];
+    
+    NSArray * photosArray1 = [[NSArray alloc]initWithObjects:
+                             @"http://oih52ss9e.bkt.clouddn.com/Story_Detail_Photo1.jpg",
+                             @"http://oih52ss9e.bkt.clouddn.com/Story_Detail_Photo2.jpg",
+                             @"http://oih52ss9e.bkt.clouddn.com/Story_Detail_Photo3.jpg",
+                             @"http://oih52ss9e.bkt.clouddn.com/Story_Detail_Photo4.jpg",
+                             @"http://oih52ss9e.bkt.clouddn.com/Story_Detail_Photo5.jpg",
+                             nil];
+    NSMutableDictionary * dict3 = [NSMutableDictionary dictionary];
+    [dict3 setObject:Story_Detail_Photos forKey:Story_Detail_Type];
+    [dict3 setObject:photosArray1 forKey:Story_Detail_Content];
+    
+    NSString *detailText2 = @"真正的Kilim采用双面平织工艺，正反面都可使用；\n其工艺复杂，都是匠人手工一针一线钩织而成，因此每一张Kilim都显得更加独一无二。";
+    NSMutableDictionary * dict4 = [NSMutableDictionary dictionary];
+    [dict4 setObject:Story_Detail_Text_Normal forKey:Story_Detail_Type];//设置类型
+    [dict4 setObject:detailText2 forKey:Story_Detail_Content];//设置里面包含的内容
+    
+    
+    NSArray * photosArray2 = [[NSArray alloc]initWithObjects:
+                             @"http://oih52ss9e.bkt.clouddn.com/Story_Detail_Photo6.jpg",
+                             @"http://oih52ss9e.bkt.clouddn.com/Story_Detail_Photo7.jpg",
+                             @"http://oih52ss9e.bkt.clouddn.com/Story_Detail_Photo8.jpg",
+                             @"http://oih52ss9e.bkt.clouddn.com/Story_Detail_Photo9.jpg",
+                             @"http://oih52ss9e.bkt.clouddn.com/Story_Detail_Photo10.jpg",
+                             nil];
+    NSMutableDictionary * dict5 = [NSMutableDictionary dictionary];
+    [dict5 setObject:Story_Detail_Photos forKey:Story_Detail_Type];
+    [dict5 setObject:photosArray2 forKey:Story_Detail_Content];
+    
+    NSString *detailText3 = @"花毯是采用回话编织的传统工艺，而其中用传统蔬菜上色的Kilim花毯最为人们所赞赏，因为它是采用土耳其本地各种植物提炼出不同的颜色浸泡而成，对羊毛侵蚀较轻，颜色精美、材质耐用、永不褪色。";
+    NSMutableDictionary * dict6 = [NSMutableDictionary dictionary];
+    [dict6 setObject:Story_Detail_Text_Normal forKey:Story_Detail_Type];//设置类型
+    [dict6 setObject:detailText3 forKey:Story_Detail_Content];//设置里面包含的内容
+    
+    
+    self.storyDetailModal.storyDetailInfoArray = [[NSMutableArray alloc]initWithObjects:dict1, dict2, dict3, dict4,dict5,dict6, nil];
 
+    
+    self.storyDetailModal.storyDetailBottomInfoArray = [[NSMutableArray alloc]initWithObjects:
+                                                        @"http://oih52ss9e.bkt.clouddn.com/Story_Detail_Bottom1.jpg",
+                                                        @"http://oih52ss9e.bkt.clouddn.com/Story_Detail_Bottom2.jpg",
+                                                        @"http://oih52ss9e.bkt.clouddn.com/Topic_Detail_Bottom2.png", nil];
 
-
-
-
+}
 
 
 
