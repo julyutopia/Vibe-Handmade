@@ -119,26 +119,36 @@
 
 #define Blur_Back_Height  10.0f
 
+
 #pragma mark -专题详情显示的内容
 
 #define Topic_Detail_Type               @"Topic_Detail_Type"
 #define Topic_Detail_Content            @"Topic_Detail_Content"
-
 #define Topic_Detail_Text_Normal        @"Topic_Detail_Text"
 #define Topic_Detail_Text_Highlight     @"Topic_Detail_Text_Highlight"
 #define Topic_Detail_Photos             @"Topic_Detail_Photos"
 #define Topic_Detail_Items              @"Topic_Detail_Items"
 
-#pragma mark -专题详情显示的内容
+#pragma mark -故事详情显示的内容
 
 #define Story_Detail_Type               @"Story_Detail_Type"
 #define Story_Detail_Content            @"Story_Detail_Content"
-
 #define Story_Detail_Text_Normal        @"Story_Detail_Text"
 #define Story_Detail_Text_Highlight     @"Story_Detail_Text_Highlight"
 #define Story_Detail_Photos             @"Story_Detail_Photos"
 #define Story_Detail_Items              @"Story_Detail_Items"
 
+
+#pragma mark -造物主详情显示的内容
+
+#define Creator_Detail_Type               @"Creator_Detail_Type"
+#define Creator_Detail_Content            @"Creator_Detail_Content"
+#define Creator_Detail_Text_Normal        @"Creator_Detail_Text"
+#define Creator_Detail_Text_Bold          @"Creator_Detail_Text_Bold"
+#define Creator_Detail_Text_Highlight     @"Creator_Detail_Text_Highlight"
+#define Creator_Detail_Photo              @"Creator_Detail_Photo"
+#define Creator_Detail_More_Photos        @"Creator_Detail_More_Photos"
+#define Creator_Detail_Items              @"Creator_Detail_Items"
 
 
 #pragma mark -字体

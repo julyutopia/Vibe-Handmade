@@ -41,7 +41,7 @@
 {
     NSString * title = @"详细描述";
     
-    float titleHeight = [title getSizeWithLimitSize:CGSizeMake(kScreenWidth -100, 20) withFont:_titleLabel.font].height;
+    float titleHeight = [title getSizeWithLimitSize:CGSizeMake(kScreenWidth -100, 20) withFont:_titleLabel.font].height +1.0f;
     [_titleLabel setFrame:CGRectMake(0, 0, 100, titleHeight)];
     [_titleLabel setText:title];
     
@@ -52,9 +52,9 @@
     //如果超过一行显示
     if (infoHeight >20) {
         
-        [[VibeAppTool sharedInstance] setLabelSpace:_infoDetailLabel withText:info withFont:_infoDetailLabel.font withLineSpacing:3.0f];
+        [[VibeAppTool sharedInstance] setLabelSpace:_infoDetailLabel withText:info withFont:_infoDetailLabel.font withLineSpacing:6.0f];
 
-        infoHeight = [[VibeAppTool sharedInstance]getSpaceLabelHeight:info withFont:_infoDetailLabel.font withWidth:kScreenWidth -60 -20 withLineSpacing:3.0] +2.0f;
+        infoHeight = [[VibeAppTool sharedInstance]getSpaceLabelHeight:info withFont:_infoDetailLabel.font withWidth:kScreenWidth -60 -20 withLineSpacing:6.0] +2.0f;
         
         [_infoDetailLabel setFrame:CGRectMake(0, titleHeight +20, kScreenWidth -60 -20, infoHeight)];
     }

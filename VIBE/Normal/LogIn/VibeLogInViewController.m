@@ -84,6 +84,7 @@
     [_userNameTextField setPlaceholder:@"输入已绑定手机号码"];
     [_userNameTextField setValue:DefaultQYTextColor20 forKeyPath:@"_placeholderLabel.textColor"];
     [_userNameTextField setValue:[VibeFont fontWithName:Default_Font size:14] forKeyPath:@"_placeholderLabel.font"];
+    
     [_userNameTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
     [_userNameView addSubview:_userNameTextField];

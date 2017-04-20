@@ -48,7 +48,7 @@
 {
     if (! isLast) {
         self.isLastCell = NO;
-        _bottomHeight = 15.0f;
+        _bottomHeight = 10.0f;
     }
     else{
         self.isLastCell = YES;

@@ -30,6 +30,6 @@
 
 @protocol TopicDtailPhotoTableViewCellDelegate <NSObject>
 
--(void)topicDtailPhotoTableViewShowImageWithURL:(NSString *)imgURL;
+-(void)topicDtailPhotoTableViewShowImages:(NSArray *)imagesArray WithIndex:(NSInteger )index;
 
 @end

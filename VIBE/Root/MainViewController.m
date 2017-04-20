@@ -173,8 +173,25 @@
 #pragma mark -点击个人资料按钮
 -(void)profileBtnClicked:(UIButton *)btn
 {
+    //用户已登录，进入个人资料页
+    if ([[VibeAppTool sharedInstance]isUserLogIn]) {
+        
+    }
+    //未登录，进入登录注册页面
+    else
+    {
+        LogInViewController * logInVC = [[LogInViewController alloc]init];
+        logInVC.isPopUp = YES;
+        
+        LCNavigationController * navi = [[LCNavigationController alloc] initWithRootViewController:logInVC];
+        
+        [self.lcNavigationController presentViewController:navi animated:YES completion:^{
+            
+        }];
+    }
     
 }
+
 
 #pragma mark -点击搜索按钮
 -(void)searchBtnClicked:(UIButton *)btn
@@ -315,6 +332,17 @@
 
 
 #pragma mark -推荐Tableview的代理方法
+
+-(void)recommandTableViewShowBannerDetailWithIndex:(NSInteger)index
+{
+    WebViewController * webVC = [[WebViewController alloc]init];
+    webVC.linkURL = @"http://3g.163.com";
+    
+    [self.lcNavigationController presentViewController:webVC animated:YES completion:^{
+        
+    }];
+}
+
 -(void)recommandTableViewShowCategoryDetailWithCateModal:(RecommandCateModal *)cateModal
 {
     CategoryListViewController  * cateListVC = [[CategoryListViewController alloc]initWithCateModal:cateModal];
@@ -347,6 +375,15 @@
     StoryDetailViewController * storyDetailVC = [[StoryDetailViewController alloc]initWithStoryDetailModal:[AppDelegate sharedAppDelegate].storyDetailModal];
     [self.lcNavigationController pushViewController:storyDetailVC];
 }
+
+
+#pragma mark -造物主Tableview的代理方法
+-(void)creatorTableShowCreatorDetailWithModal:(CreatorDetailModal *)creatorDetailModal
+{
+    CreatorDetailViewController * creatorDetailVC = [[CreatorDetailViewController alloc]initWithCreatorDetailModal:creatorDetailModal];
+    [self.lcNavigationController pushViewController:creatorDetailVC];
+}
+
 
 
 #pragma mark 

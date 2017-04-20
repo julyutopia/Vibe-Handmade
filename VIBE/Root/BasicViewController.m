@@ -67,6 +67,10 @@
     [self.leftBtn addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.leftBtn];
     
+    if (self.isPopUp) {
+        [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Cancle_White_Normal"] forState:UIControlStateNormal];
+        [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Cancle_White_Press"] forState:UIControlStateHighlighted];
+    }
     
     self.rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth -22 -25, 33, 25, 25)];
     [self.rightBtn addTarget:self action:@selector(rightBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -74,16 +78,6 @@
     [self.view addSubview:self.rightBtn];
     
 }
-
-
--(void)setIsPopUp:(BOOL)isPopUp
-{
-    if (isPopUp) {
-        [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Close_White_Normal"] forState:UIControlStateNormal];
-        [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Close_White_HighLighted"] forState:UIControlStateHighlighted];
-    }
-}
-
 
 
 

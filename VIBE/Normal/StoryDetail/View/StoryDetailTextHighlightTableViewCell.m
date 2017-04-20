@@ -45,9 +45,9 @@
     
     if (hightlightTextHeight >20) {
         
-        [[VibeAppTool sharedInstance] setLabelSpace:_highlightTextLabel withText:hightlightText withFont:_highlightTextLabel.font withLineSpacing:4.0f];
+        [[VibeAppTool sharedInstance] setLabelSpace:_highlightTextLabel withText:hightlightText withFont:_highlightTextLabel.font withLineSpacing:6.0f];
         
-        hightlightTextHeight = [[VibeAppTool sharedInstance]getSpaceLabelHeight:hightlightText withFont:_highlightTextLabel.font withWidth:hightlightTextWidth withLineSpacing:4.0] +2.0;
+        hightlightTextHeight = [[VibeAppTool sharedInstance]getSpaceLabelHeight:hightlightText withFont:_highlightTextLabel.font withWidth:hightlightTextWidth withLineSpacing:6.0] +2.0;
     }
     else{
         

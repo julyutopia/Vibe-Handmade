@@ -26,10 +26,9 @@
 #import "CreatorCoverModal.h"
 
 #import "ItemDetailModal.h"
-
 #import "TopicDetailModal.h"
-
 #import "StoryDetailModal.h"
+#import "CreatorDetailModal.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -61,6 +60,8 @@
 @property (strong, nonatomic) TopicDetailModal      * topicDetailModal;
 
 @property (strong, nonatomic) StoryDetailModal      * storyDetailModal;
+
+@property (strong, nonatomic) CreatorDetailModal    * creatorDetailModal;
 
 
 -(UIViewController *)getCurrentVC;

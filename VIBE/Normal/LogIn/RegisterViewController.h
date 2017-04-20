@@ -14,83 +14,126 @@
 
 #import "AnimatedGradientView.h"
 
-@interface RegisterViewController : VibeViewController<UITextFieldDelegate,UIScrollViewDelegate,UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,SimpleImagePickerControllerDelegate>
+@interface RegisterViewController : BasicViewController <UITextFieldDelegate,UIScrollViewDelegate,UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,SimpleImagePickerControllerDelegate>
 {
-    BOOL              _isShowingSecondStep;//是否显示第二步
     
-    BOOL              _didClickSendCodeBtn;//是否已点击发送验证码
+    UIView      * _backCiew;
     
-    UIImageView     * _backgroundGifView;
+    UIImageView * _backImgView;
     
-    UIView          * _maskView;
-    UIScrollView    * _backScrollView;
+    float         _keyboardHeight;
     
-    UIView          * _firstStepView;
-    UIView          * _secondStepView;
+    UIView      * _whiteContentView;
+    UIView      * _whiteShadowView1;
+    UIView      * _whiteShadowView2;
     
-    UIView          * _avatarView;
-    UIImageView     * _avatarBackImgView;
-    UIButton        * _avatarBtn;
-    UIImage         * _avatarImage;
-  
+    UILabel     * _welcomeLabel;
     
-    BOOL              _firstStepAlreadyShowGradient;
-    BOOL              _secondStepAlreadyShowGradient;
+    //输入手机号View
+    UIView      * _mobileNumberView;
+    UITextField * _mobileNumberTextField;
+    UIButton    * _sendCodeBtn;
+    UIView      * _mobileNumberLineView;
+    
+    //输入验证码View
+    UIView      * _verifyCodeView;
+    UITextField * _verifyCodeTextField;
+    UIView      * _verifyCodeLineView;
     
     
-    //手机号
-    UIView          * _phoneNumberView;
-    UITextField     * _phoneNumberTextFiled;
-    AnimatedGradientView * _phoneAnimatedGradienView;
-
-    //发送验证码按钮
-    GLImageView     * _sendCodeBtn;
-    BOOL              _didClickSend;
-    NSTimer         * _timer;
+    //设置密码View
+    UIView      * _setPasswordView;
+    UITextField * _setPasswordTextField;
+    UIView      * _setPasswordLineView;
     
-    //已发送验证码按钮
-    UIView          * _sendingCodeView;
-    UILabel         * _sendingCodeLabel;
-    UILabel         * _sendingSecondsLabel;
-    NSInteger         _countingDownSeconds;
     
-    //验证码
-    UIView          * _codeNumberView;
-    UITextField     * _codeNumberTextFiled;
-    AnimatedGradientView * _codeAnimatedGradienView;
-
+    //下一步Btn
+    UIButton    * _nextBtn;
     
-    //密码
-    UIView          * _passwordView;
-    UITextField     * _passwordTextFiled;
-    AnimatedGradientView * _passwordAnimatedGradienView;
     
-    //下一步
-    UIButton        * _nextStepBtn;
+    //判断是否已发送验证码
+    BOOL          _didSendCode;
     
-    //昵称
-    UIView          * _userNameView;
-    UITextField     * _userNameTextFiled;
-    AnimatedGradientView * _userNameAnimatedGradienView;
     
-    //签名
-    UIView          * _signView;
-    UITextField     * _signTextField;
-    AnimatedGradientView * _signAnimatedGradienView;
+    NSTimer     * _timer;
+    NSInteger     _countingDownSeconds;
     
-    //登录按钮
-    UIButton        * _registerBtn;
     
-    //同意许可
-    UIImageView     * _bottomTextImgView;
-    UIButton        * _bottomCommuneBtn;
-    
-    //键盘起始的高度位置
-    float             _keyboardOriginY;
+//    BOOL              _isShowingSecondStep;//是否显示第二步
+//    
+//    BOOL              _didClickSendCodeBtn;//是否已点击发送验证码
+//    
+//    UIImageView     * _backgroundGifView;
+//    
+//    UIView          * _maskView;
+//    UIScrollView    * _backScrollView;
+//    
+//    UIView          * _firstStepView;
+//    UIView          * _secondStepView;
+//    
+//    UIView          * _avatarView;
+//    UIImageView     * _avatarBackImgView;
+//    UIButton        * _avatarBtn;
+//    UIImage         * _avatarImage;
+//  
+//    
+//    BOOL              _firstStepAlreadyShowGradient;
+//    BOOL              _secondStepAlreadyShowGradient;
+//    
+//    
+//    //手机号
+//    UIView          * _phoneNumberView;
+//    UITextField     * _phoneNumberTextFiled;
+//    AnimatedGradientView * _phoneAnimatedGradienView;
+//
+//    //发送验证码按钮
+//    GLImageView     * _sendCodeBtn;
+//    BOOL              _didClickSend;
+//    NSTimer         * _timer;
+//
+//    //已发送验证码按钮
+//    UIView          * _sendingCodeView;
+//    UILabel         * _sendingCodeLabel;
+//    UILabel         * _sendingSecondsLabel;
+//    NSInteger         _countingDownSeconds;
+//
+//    //验证码
+//    UIView          * _codeNumberView;
+//    UITextField     * _codeNumberTextFiled;
+//    AnimatedGradientView * _codeAnimatedGradienView;
+//
+//    
+//    //密码
+//    UIView          * _passwordView;
+//    UITextField     * _passwordTextFiled;
+//    AnimatedGradientView * _passwordAnimatedGradienView;
+//    
+//    //下一步
+//    UIButton        * _nextStepBtn;
+//    
+//    //昵称
+//    UIView          * _userNameView;
+//    UITextField     * _userNameTextFiled;
+//    AnimatedGradientView * _userNameAnimatedGradienView;
+//    
+//    //签名
+//    UIView          * _signView;
+//    UITextField     * _signTextField;
+//    AnimatedGradientView * _signAnimatedGradienView;
+//    
+//    //登录按钮
+//    UIButton        * _registerBtn;
+//    
+//    //同意许可
+//    UIImageView     * _bottomTextImgView;
+//    UIButton        * _bottomCommuneBtn;
+//    
+//    //键盘起始的高度位置
+//    float             _keyboardOriginY;
     
 }
 
-@property(retain,nonatomic)UIButton * beforeBtn;
+//@property(retain,nonatomic)UIButton * beforeBtn;
 
 @end
 

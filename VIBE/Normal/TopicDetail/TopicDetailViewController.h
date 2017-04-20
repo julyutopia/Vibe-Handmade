@@ -20,6 +20,8 @@
 #import "TopicDetailBottomTableViewCell.h"
 
 #import "VibeShowPhotoView.h"
+#import "XLPhotoBrowser.h"
+
 
 @interface TopicDetailViewController : BasicViewController<UITableViewDelegate, UITableViewDataSource,TopicDtailPhotoTableViewCellDelegate>
 {

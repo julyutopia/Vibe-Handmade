@@ -53,18 +53,22 @@
     
     [self initStoryDetailData];
     
+    [self initCreatorDetailData];
+    
     return YES;
 }
 
 #pragma mark -设置假用户数据
 -(void)setLogInUserInfo
 {
-    MineProfileModal * userModal = [[MineProfileModal alloc]init];
-    [userModal setUserName:@"Tinaॐ"];
-    [userModal setUserID:[NSNumber numberWithInt:1]];
-    [userModal setUserDescribe:@"每个不曾起舞的日子，都是对生命的辜负"];
+    [[VibeAppTool sharedInstance] ClearLoginUserInfo];
     
-    [[VibeAppTool sharedInstance]setLoginUserInfo:userModal];
+//    MineProfileModal * userModal = [[MineProfileModal alloc]init];
+//    [userModal setUserName:@"Tinaॐ"];
+//    [userModal setUserID:[NSNumber numberWithInt:1]];
+//    [userModal setUserDescribe:@"每个不曾起舞的日子，都是对生命的辜负"];
+//    
+//    [[VibeAppTool sharedInstance] setLoginUserInfo:userModal];
 }
 
 #pragma mark -设置推荐页假数据
@@ -520,6 +524,72 @@
                                                         @"http://oih52ss9e.bkt.clouddn.com/Topic_Detail_Bottom2.png", nil];
 
 }
+
+
+-(void)initCreatorDetailData
+{
+    self.creatorDetailModal = [[CreatorDetailModal alloc]init];
+    
+    [self.creatorDetailModal setCreatorID:[NSNumber numberWithInteger:1]];
+    [self.creatorDetailModal setCreatorName:@"阁楼Pentfair"];
+    [self.creatorDetailModal setCreatorSlogan:@"异域旅行发现，忠于内心的色彩"];
+    [self.creatorDetailModal setCreatorCoverImgURL:@"http://oih52ss9e.bkt.clouddn.com/Creator_Detail_Top.jpeg"];
+    
+    
+    NSString * highlightText = @"八千里路云和月\n要烟火 也要生活\n旅行纪念也好 异域软装也罢\n都是我们对漂泊感\n保持忠诚的方式";
+    NSMutableDictionary * dict1 = [NSMutableDictionary dictionary];
+    [dict1 setObject:Creator_Detail_Text_Highlight forKey:Creator_Detail_Type];
+    [dict1 setObject:highlightText forKey:Creator_Detail_Content];
+    
+    NSString * photoURL = @"http://oih52ss9e.bkt.clouddn.com/Creator_Detail_1.png";
+    NSMutableDictionary * dict2 = [NSMutableDictionary dictionary];
+    [dict2 setObject:Creator_Detail_Photo forKey:Creator_Detail_Type];
+    [dict2 setObject:photoURL forKey:Creator_Detail_Content];
+    
+
+    NSString * boldText = @"旅行紀念館 / 獨立設計手作\n公路文化商店 / 异域服飾软装";
+    NSMutableDictionary * dict3 = [NSMutableDictionary dictionary];
+    [dict3 setObject:Creator_Detail_Text_Bold forKey:Creator_Detail_Type];
+    [dict3 setObject:boldText forKey:Creator_Detail_Content];
+    
+    NSString * normalText1 = @"复古木纹黑胶唱片机 / 墨西哥彩虹毯\n曼达拉挂布 / 白色编织wall weaving\n大号捕梦网 / 秘鲁刺绣抱枕 / 蓝染家居\n蓝粉莲花挂布组合 / 墨西哥仙人掌\n波西米亚woven挂毯 / 蓝色孔雀曼达拉\n墨西哥serape毛毯\n……";
+    NSMutableDictionary * dict4 = [NSMutableDictionary dictionary];
+    [dict4 setObject:Creator_Detail_Text_Normal forKey:Creator_Detail_Type];
+    [dict4 setObject:normalText1 forKey:Creator_Detail_Content];
+    
+    
+    NSArray * photosArray = [[NSArray alloc]initWithObjects:
+                                @"http://oih52ss9e.bkt.clouddn.com/Creator_Detail_2.jpg",
+                                @"http://oih52ss9e.bkt.clouddn.com/Creator_Detail_3.jpg",
+                                @"http://oih52ss9e.bkt.clouddn.com/Creator_Detail_4.jpg",
+                                @"http://oih52ss9e.bkt.clouddn.com/Creator_Detail_5.jpg",
+                              nil];
+    
+    NSMutableDictionary * dict5 = [NSMutableDictionary dictionary];
+    [dict5 setObject:Creator_Detail_More_Photos forKey:Creator_Detail_Type];
+    [dict5 setObject:photosArray forKey:Creator_Detail_Content];
+    
+    
+    NSArray * itemsArray = self.recommandItemsArray;
+    NSMutableDictionary * dict6 = [NSMutableDictionary dictionary];
+    [dict6 setObject:Creator_Detail_Items forKey:Creator_Detail_Type];
+    [dict6 setObject:itemsArray forKey:Creator_Detail_Content];
+    
+    
+    NSString *normalText2 = @"轻装修 重装饰 波西米亚要赢在智性选择\n可是拥有了以下这些搭配单品还远远不够\n美好的装饰必先与人联结\n使其既能锦上添花\n更是具有再创作意义的个性表达";
+    NSMutableDictionary * dict7 = [NSMutableDictionary dictionary];
+    [dict7 setObject:Creator_Detail_Text_Normal forKey:Creator_Detail_Type];
+    [dict7 setObject:normalText2 forKey:Creator_Detail_Content];
+
+    self.creatorDetailModal.creatorDetailInfoArray = [[NSMutableArray alloc]initWithObjects:dict1, dict2, dict3, dict4, dict5, dict6, dict7, nil];
+
+    
+    self.creatorDetailModal.creatorDetailBottomInfoArray = [[NSMutableArray alloc]initWithObjects:
+                                                        @"http://oih52ss9e.bkt.clouddn.com/Story_Detail_Bottom1.jpg",
+                                                        @"http://oih52ss9e.bkt.clouddn.com/Topic_Detail_Bottom2.png", nil];
+    
+}
+
 
 
 

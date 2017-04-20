@@ -10,8 +10,13 @@
 
 #import "CreatorCoverModal.h"
 
+@protocol CreatorSingleTableViewCellDelegate;
+
 @interface CreatorSingleTableViewCell : UITableViewCell
 {
+    NSInteger         _cellIndex;
+
+    
     UIView              * _backView;
     
     UIImageView         * _blurImgView;
@@ -32,8 +37,27 @@
 
 }
 
--(void)setCreatorSingleTableCellWithModal:(CreatorCoverModal *)modal;
+@property (weak, nonatomic) id<CreatorSingleTableViewCellDelegate> delegate;
 
+-(void)setCreatorSingleTableCellWithModal:(CreatorCoverModal *)modal WithIndex:(NSInteger )index;
 
 @end
+
+@protocol CreatorSingleTableViewCellDelegate <NSObject>
+
+-(void)creatorSingleCellDidTapWithIndex:(NSInteger )index;
+
+@end
+
+
+
+
+
+
+
+
+
+
+
+
 

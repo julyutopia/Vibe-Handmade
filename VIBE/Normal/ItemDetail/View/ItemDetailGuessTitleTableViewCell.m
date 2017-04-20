@@ -23,7 +23,7 @@
         
         NSString * title = @"猜你喜欢";
         
-        float titleHeight = [title getSizeWithLimitSize:CGSizeMake(100, 20) withFont:_titleLabel.font].height;
+        float titleHeight = [title getSizeWithLimitSize:CGSizeMake(100, 20) withFont:_titleLabel.font].height +1.0f;
         [_titleLabel setFrame:CGRectMake(60, 0, 100, titleHeight)];
         [_titleLabel setText:title];
     }

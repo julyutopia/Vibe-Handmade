@@ -12,6 +12,8 @@
 
 #import "RecommandTopViewModal.h"
 
+@protocol RecommandTopTableViewCellDelegate;
+
 @interface RecommandTopTableViewCell : UITableViewCell<JGInfiniteScrollViewDelegate>
 {
     CGFloat                 _bannerCellHeight;
@@ -22,6 +24,15 @@
     NSMutableArray          * _topInfoArrays;
 }
 
+@property (weak, nonatomic) id<RecommandTopTableViewCellDelegate> delegateee;
+
 -(void)setRecommandTopCellWithInfos:(NSArray *)infoArray;
+
+@end
+
+//代理协议
+@protocol RecommandTopTableViewCellDelegate <NSObject>
+
+-(void)recommandTopCellDidTapWithIndex:(NSInteger )index;
 
 @end

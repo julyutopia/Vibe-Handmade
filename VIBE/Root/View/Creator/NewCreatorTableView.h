@@ -11,12 +11,12 @@
 #import "CreatorDoubleTableViewCell.h"
 #import "CreatorSingleTableViewCell.h"
 
-
 #import "CreatorCoverModal.h"
+#import "CreatorDetailModal.h"
 
 @protocol NewCreatorTableViewDelegate;
 
-@interface NewCreatorTableView : UITableView<UITableViewDelegate, UITableViewDataSource>
+@interface NewCreatorTableView : UITableView<UITableViewDelegate, UITableViewDataSource, CreatorDoubleTableViewCellDelegate, CreatorSingleTableViewCellDelegate>
 {
     UIView  * _sectionFooterView;
 }
@@ -27,5 +27,7 @@
 
 //代理协议
 @protocol NewCreatorTableViewDelegate <NSObject>
+
+-(void)creatorTableShowCreatorDetailWithModal:(CreatorDetailModal *)creatorDetailModal;
 
 @end

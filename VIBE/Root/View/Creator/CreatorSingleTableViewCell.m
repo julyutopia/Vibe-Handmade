@@ -20,7 +20,7 @@
         float photoViewWidth = kScreenWidth -50;
         
         
-        _backView = [[GLImageView alloc]initWithFrame:CGRectMake(25, 0, photoViewWidth, photoViewWidth +2)];
+        _backView = [[UIView alloc]initWithFrame:CGRectMake(25, 0, photoViewWidth, photoViewWidth +2)];
         [self.contentView addSubview:_backView];
  
         _blurImgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, photoViewWidth -12, photoViewWidth -12)];
@@ -51,19 +51,19 @@
         [_photoImgView addSubview:_whiteContentView];
         
         
-        _smallBlurView1 = [[UIView alloc]initWithFrame:CGRectMake(12, photoViewWidth -whiteContentViewHeight -10, whiteContentViewWidth -6, whiteContentViewHeight -10)];
-        [_smallBlurView1 setBackgroundColor:DefaultWhite];
-        [_smallBlurView1 setAlpha:0.7f];
-        [_smallBlurView1.layer setCornerRadius:4.0f];
-        [_smallBlurView1.layer setMasksToBounds:YES];
-        [_tapBackImgView insertSubview:_smallBlurView1 belowSubview:_whiteContentView];
-        
-        _smallBlurView2 = [[UIView alloc]initWithFrame:CGRectMake(9, photoViewWidth -whiteContentViewHeight -5, whiteContentViewWidth -12, whiteContentViewHeight -20)];
-        [_smallBlurView2 setBackgroundColor:DefaultWhite];
-        [_smallBlurView2 setAlpha:0.4f];
-        [_smallBlurView2.layer setCornerRadius:4.0f];
-        [_smallBlurView2.layer setMasksToBounds:YES];
-        [_tapBackImgView insertSubview:_smallBlurView2 belowSubview:_smallBlurView1];
+//        _smallBlurView1 = [[UIView alloc]initWithFrame:CGRectMake(12, photoViewWidth -whiteContentViewHeight -10, whiteContentViewWidth -6, whiteContentViewHeight -10)];
+//        [_smallBlurView1 setBackgroundColor:DefaultWhite];
+//        [_smallBlurView1 setAlpha:0.7f];
+//        [_smallBlurView1.layer setCornerRadius:4.0f];
+//        [_smallBlurView1.layer setMasksToBounds:YES];
+//        [_tapBackImgView insertSubview:_smallBlurView1 belowSubview:_whiteContentView];
+//        
+//        _smallBlurView2 = [[UIView alloc]initWithFrame:CGRectMake(9, photoViewWidth -whiteContentViewHeight -5, whiteContentViewWidth -12, whiteContentViewHeight -20)];
+//        [_smallBlurView2 setBackgroundColor:DefaultWhite];
+//        [_smallBlurView2 setAlpha:0.4f];
+//        [_smallBlurView2.layer setCornerRadius:4.0f];
+//        [_smallBlurView2.layer setMasksToBounds:YES];
+//        [_tapBackImgView insertSubview:_smallBlurView2 belowSubview:_smallBlurView1];
         
         
         _creatorShopTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 15, whiteContentViewWidth -50, 25)];
@@ -72,6 +72,7 @@
         [_creatorShopTitleLabel setFont:[VibeFont fontWithName:Font_Chinese_Regular size:21]];
         [_whiteContentView addSubview:_creatorShopTitleLabel];
         
+        
         _creatorSloganLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 15 +23 +10,  whiteContentViewWidth -50, 15)];
         [_creatorSloganLabel setTextAlignment:NSTextAlignmentLeft];
         [_creatorSloganLabel setTextColor:Default_Text_Gray_Color];
@@ -79,9 +80,7 @@
         [_creatorSloganLabel setNumberOfLines:0];
         [_whiteContentView addSubview:_creatorSloganLabel];
         
-        
         _creatorMorePhotosArray = [[NSMutableArray alloc]init];
-        
         
         _photosContentView = [[UIView alloc]initWithFrame:CGRectMake(25,  15 +23 +10 +15 +10, whiteContentViewWidth -50, singlePhotoViewWidth)];
         [_photosContentView setBackgroundColor:[UIColor clearColor]];
@@ -89,7 +88,8 @@
         
         
         _tapBackImgView = [[GLImageView alloc]initWithFrame:CGRectMake(0, 0, photoViewWidth, photoViewWidth)];
-        [_photoImgView addSubview:_tapBackImgView];
+        [_tapBackImgView addTarget:self action:@selector(creatorSingleViewTap) forControlEvents:UIControlEventTouchUpInside];
+        [_backView addSubview:_tapBackImgView];
         
     }
     
@@ -97,8 +97,10 @@
 }
 
 
--(void)setCreatorSingleTableCellWithModal:(CreatorCoverModal *)modal
+-(void)setCreatorSingleTableCellWithModal:(CreatorCoverModal *)modal WithIndex:(NSInteger )index
 {
+    _cellIndex = index;
+    
     [_photoImgView sd_setImageWithURL:[NSURL URLWithString:modal.CreatorCoverUrl] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
        
         [_blurImgView setHidden:NO];
@@ -188,7 +190,14 @@
 }
 
 
+-(void)creatorSingleViewTap
+{
+    if ([_delegate respondsToSelector:@selector(creatorSingleCellDidTapWithIndex:)]) {
+        [_delegate creatorSingleCellDidTapWithIndex:_cellIndex];
+    }
+    
+}
+
 
 @end
-
 

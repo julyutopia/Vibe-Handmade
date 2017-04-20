@@ -57,7 +57,7 @@
     [_morePhotosArray removeAllObjects];
     [_morePhotosArray addObjectsFromArray:photosArray];
     
-    [_morePhotosScrollView setContentSize:CGSizeMake((_singlePhotoHeight +12) *_morePhotosArray.count, _singlePhotoHeight)];
+    [_morePhotosScrollView setContentSize:CGSizeMake((_singlePhotoHeight +12) *_morePhotosArray.count -12, _singlePhotoHeight)];
     
     for (int i =0; i < _morePhotosArray.count; i ++) {
         
@@ -68,10 +68,22 @@
         [photoImgView.layer setMasksToBounds:YES];
         [photoImgView setContentMode:UIViewContentModeScaleAspectFill];
         [photoImgView sd_setImageWithURL:[NSURL URLWithString:photoURL] placeholderImage:nil];
-        
+        [photoImgView setTag:8000 +i];
+        [photoImgView addTarget:self action:@selector(tapItemDetailPhotoView:) forControlEvents:UIControlEventTouchUpInside];
         [_morePhotosScrollView addSubview:photoImgView];
     }
     
 }
+
+
+-(void)tapItemDetailPhotoView:(GLImageView *)imageView
+{
+    NSInteger index = imageView.tag - 8000;
+    if ([_delegate respondsToSelector:@selector(itemDetailPhotoTableViewShowImages:WithIndex:)]) {
+        [_delegate itemDetailPhotoTableViewShowImages:_morePhotosArray WithIndex:index];
+    }
+}
+
+
 
 @end

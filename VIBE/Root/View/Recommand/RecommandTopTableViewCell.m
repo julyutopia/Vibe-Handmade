@@ -24,16 +24,7 @@
         [_showTopView.layer setCornerRadius:8];
         [_showTopView.layer setMasksToBounds:YES];
         [self.contentView addSubview:_showTopView];
-        
-        
-//        //设置圆角
-//        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_showTopView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerBottomLeft cornerRadii:CGSizeMake(4, 4)];
-//        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-//        maskLayer.frame = _showTopView.bounds;
-//        maskLayer.path = maskPath.CGPath;
-//        _showTopView.layer.mask = maskLayer;
-        
-        
+                
         //滚动视图
         _topScrollView = [[JGInfiniteScrollView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth -50, topViewHeight)];
         [_topScrollView setBackgroundColor:[UIColor clearColor]];
@@ -50,7 +41,6 @@
     return self;
 
 }
-
 
 
 -(void)setRecommandTopCellWithInfos:(NSArray *)infoArray
@@ -72,5 +62,25 @@
 }
 
 
+#pragma mark - scrollView的点击代理方法
+-(void)ScrollViewDidClickAtAnyImageView:(UIImageView *)imageView
+{
+    NSInteger imgViewTag = imageView.tag;
+
+    if ([_delegateee respondsToSelector:@selector(recommandTopCellDidTapWithIndex:)]) {
+        [_delegateee recommandTopCellDidTapWithIndex:imgViewTag];
+    }
+}
+
 
 @end
+
+
+
+
+
+
+
+
+
+

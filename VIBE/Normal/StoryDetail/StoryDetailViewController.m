@@ -121,7 +121,7 @@
     }
     
     //显示详情的Cell
-    if (indexPath.section == 1) {
+    if (indexPath.section == 1 && _storyDetailModal.storyDetailInfoArray.count) {
         
         NSDictionary * storyDetailDict = [_storyDetailModal.storyDetailInfoArray objectAtIndex:indexPath.row];
         NSString * typeee = [storyDetailDict objectForKey:Story_Detail_Type];
@@ -175,12 +175,15 @@
                 cell.backgroundColor = [UIColor clearColor];
             }
             
+            [cell setDelegate:self];
+            
             NSArray * photosArray = [storyDetailDict objectForKey:Story_Detail_Content];
             [cell setStoryDetailPhotoCellWithInfo:photosArray];
             
             return cell;
         }
     }
+    
     
     //显示底部的图片内容
     if (indexPath.section == 2 && _storyDetailModal.storyDetailBottomInfoArray.count) {
@@ -255,7 +258,7 @@
             
             if (hightlightTextHeight >20) {
                 
-                hightlightTextHeight = [[VibeAppTool sharedInstance]getSpaceLabelHeight:highlightText withFont:highlightTextFont withWidth:hightlightTextWidth withLineSpacing:4.0];
+                hightlightTextHeight = [[VibeAppTool sharedInstance]getSpaceLabelHeight:highlightText withFont:highlightTextFont withWidth:hightlightTextWidth withLineSpacing:6.0];
             }
             
             return 6 +hightlightTextHeight +20;
@@ -273,7 +276,7 @@
     //计算底部图片的高度
     if (indexPath.section == 2 && _storyDetailModal.storyDetailBottomInfoArray.count) {
         
-        float bottomHeight = 15;
+        float bottomHeight = 10;
         
         if (indexPath.row == _storyDetailModal.storyDetailBottomInfoArray.count -1) {
             bottomHeight = 0;
@@ -287,6 +290,17 @@
     
     return 0;
 }
+
+
+#pragma mark -点击详情图片Cell的代理方法
+-(void)storyDetailPhotoTableViewShowImages:(NSArray *)imagesArray WithIndex:(NSInteger)index
+{
+    if (imagesArray.count && index <= imagesArray.count -1) {
+        [XLPhotoBrowser showPhotoBrowserWithImages:imagesArray currentImageIndex:index];
+    }
+}
+
+
 
 
 -(void)didReceiveMemoryWarning

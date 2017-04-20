@@ -15,14 +15,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        
-//        float                     _photoViewHeight;
-//        UIView                  * _backView;
-//        UIImageView             * _backBlurImgView;
-//        UIImageView             * _photoImgView;
-//        UILabel                 * _storyTimeStampLabel;
-//        UILabel                 * _storyTitleLabel;
-        
+
         float photoWidth = kScreenWidth -60;
         _photoViewHeight = photoWidth;
         

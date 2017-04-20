@@ -26,6 +26,7 @@
         float totalViewHeight = photoImgViewHeight +15 +27 +8 +16 +17 +_singleMorePhotoViewWidth;
         
         _backView = [[GLImageView alloc]initWithFrame:CGRectMake(25, 0, kScreenWidth -50, totalViewHeight)];
+        [_backView addTarget:self action:@selector(creatorDoubleViewTap) forControlEvents:UIControlEventTouchUpInside];
         [_backView setBackgroundColor:[UIColor clearColor]];
         [self.contentView addSubview:_backView];
         
@@ -74,8 +75,10 @@
 }
 
 
--(void)setCreatorDoubleTableCellWithModal:(CreatorCoverModal *)modal
+-(void)setCreatorDoubleTableCellWithModal:(CreatorCoverModal *)modal WithIndex:(NSInteger )index
 {
+    _cellIndex = index;
+    
     [_photoImgView sd_setImageWithURL:[NSURL URLWithString:modal.CreatorCoverUrl] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
        
         [_backBlurImgView setHidden:NO];
@@ -151,10 +154,15 @@
         [photoImgView setContentMode:UIViewContentModeScaleAspectFill];
         [_morePhotosView addSubview:photoImgView];
     }
-    
 
-    
+}
 
+
+-(void)creatorDoubleViewTap
+{
+    if ([_delegate respondsToSelector:@selector(creatorDoubleCellDidTapWithIndex:)]) {
+        [_delegate creatorDoubleCellDidTapWithIndex:_cellIndex];
+    }
 }
 
 

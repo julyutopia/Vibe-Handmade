@@ -70,7 +70,8 @@
             [cell setBackgroundView:nil];
         }
     
-        [cell setCreatorDoubleTableCellWithModal:[[AppDelegate sharedAppDelegate].creatorsArray objectAtIndex:indexPath.section]];
+        [cell setDelegate:self];
+        [cell setCreatorDoubleTableCellWithModal:[[AppDelegate sharedAppDelegate].creatorsArray objectAtIndex:indexPath.section] WithIndex:indexPath.row];
         
         return cell;
     }
@@ -87,7 +88,8 @@
             [cell setBackgroundView:nil];
         }
         
-        [cell setCreatorSingleTableCellWithModal:[[AppDelegate sharedAppDelegate].creatorsArray objectAtIndex:indexPath.section]];
+        [cell setDelegate:self];
+        [cell setCreatorSingleTableCellWithModal:[[AppDelegate sharedAppDelegate].creatorsArray objectAtIndex:indexPath.section] WithIndex:indexPath.row];
         
         return cell;
     }
@@ -136,4 +138,33 @@
     return 600;
 }
 
+
+#pragma mark -点击CreatorCell的代理方法
+-(void)creatorDoubleCellDidTapWithIndex:(NSInteger )index
+{
+    CreatorDetailModal * modal = [AppDelegate sharedAppDelegate].creatorDetailModal;
+    
+    if ([_delegateee respondsToSelector:@selector(creatorTableShowCreatorDetailWithModal:)]) {
+        [_delegateee creatorTableShowCreatorDetailWithModal:modal];
+    }
+}
+
+
+-(void)creatorSingleCellDidTapWithIndex:(NSInteger )index
+{
+    CreatorDetailModal * modal = [AppDelegate sharedAppDelegate].creatorDetailModal;
+    
+    if ([_delegateee respondsToSelector:@selector(creatorTableShowCreatorDetailWithModal:)]) {
+        [_delegateee creatorTableShowCreatorDetailWithModal:modal];
+    }
+}
+
+
+
 @end
+
+
+
+
+
+

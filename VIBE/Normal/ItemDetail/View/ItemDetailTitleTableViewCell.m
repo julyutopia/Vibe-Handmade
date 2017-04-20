@@ -44,7 +44,7 @@
 
 -(void)setDetailTitleCellWithModal:(ItemDetailModal *)modal
 {
-    float titleLabelHeight = [modal.itemTitle getSizeWithLimitSize:CGSizeMake(kScreenWidth -100, 30) withFont:_itemTitleLabel.font].height;
+    float titleLabelHeight = [modal.itemTitle getSizeWithLimitSize:CGSizeMake(kScreenWidth -100, 30) withFont:_itemTitleLabel.font].height +1.0f;
    
     NSString * money = @"￥";
     float moneyLabelWidth = [money getSizeWithLimitSize:CGSizeMake(30, 30) withFont:_moneyLabel.font].width;

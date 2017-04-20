@@ -280,7 +280,7 @@
             
             if (hightlightTextHeight >20) {
                 
-                hightlightTextHeight = [[VibeAppTool sharedInstance]getSpaceLabelHeight:highlightText withFont:highlightTextFont withWidth:hightlightTextWidth withLineSpacing:4.0];
+                hightlightTextHeight = [[VibeAppTool sharedInstance]getSpaceLabelHeight:highlightText withFont:highlightTextFont withWidth:hightlightTextWidth withLineSpacing:6.0] +2.0;
             }
             
             return 6 +hightlightTextHeight +20;
@@ -315,7 +315,7 @@
     
     if (indexPath.section == 2 && _topicDetailModal.topicDetailBottomInfoArray.count) {
         
-        float bottomHeight = 15;
+        float bottomHeight = 10;
         
         if (indexPath.row == _topicDetailModal.topicDetailBottomInfoArray.count -1) {
             bottomHeight = 0;
@@ -333,10 +333,13 @@
 
 
 #pragma mark - 点击PhotoView的图片
--(void)topicDtailPhotoTableViewShowImageWithURL:(NSString *)imgURL
+-(void)topicDtailPhotoTableViewShowImages:(NSArray *)imagesArray WithIndex:(NSInteger)index
 {
-    [[VibeShowPhotoView sharedInstance] showWithImageURL:imgURL WithView:self.view];
+    if (imagesArray.count && index <= imagesArray.count -1) {
+        [XLPhotoBrowser showPhotoBrowserWithImages:imagesArray currentImageIndex:index];
+    }
 }
+
 
 #pragma mark -点击收藏按钮
 -(void)addFavorClicked:(UIButton *)favorBtn

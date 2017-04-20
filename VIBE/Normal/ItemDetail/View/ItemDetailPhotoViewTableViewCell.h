@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ItemDetailPhotoViewTableViewCellDelegate;
+
 @interface ItemDetailPhotoViewTableViewCell : UITableViewCell
 {
     float             _singlePhotoHeight;
@@ -19,6 +21,14 @@
     NSMutableArray  * _morePhotosArray;
 }
 
+@property (weak, nonatomic) id<ItemDetailPhotoViewTableViewCellDelegate> delegate;
+
 -(void)setItemDetailPhotoCellWithInfo:(NSArray *)photosArray;
+
+@end
+
+@protocol ItemDetailPhotoViewTableViewCellDelegate <NSObject>
+
+-(void)itemDetailPhotoTableViewShowImages:(NSArray *)imagesArray WithIndex:(NSInteger )index;
 
 @end

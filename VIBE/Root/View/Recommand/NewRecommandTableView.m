@@ -110,6 +110,8 @@
             [cell setBackgroundView:nil];
         }
         
+        [cell setDelegateee:self];
+        
         NSArray * topInfoArray = [AppDelegate sharedAppDelegate].recommandTopArray;
         [cell setRecommandTopCellWithInfos:topInfoArray];
         
@@ -234,7 +236,15 @@
 
 #pragma mark -Table的代理方法
 
-//显示 分类 详情
+//点击显示Banner详情
+-(void)recommandTopCellDidTapWithIndex:(NSInteger)index
+{
+    if ([_delegateee respondsToSelector:@selector(recommandTableViewShowBannerDetailWithIndex:)]) {
+        [_delegateee recommandTableViewShowBannerDetailWithIndex:index];
+    }
+}
+
+//显示分类详情
 -(void)recommandCateCellDidClickCategoryWithIndex:(NSInteger)index
 {
     RecommandCateModal * modal = [[AppDelegate sharedAppDelegate].recommandCateArray objectAtIndex:index];

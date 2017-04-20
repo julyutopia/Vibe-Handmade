@@ -19,7 +19,7 @@
 #import "ItemDetailGuessTitleTableViewCell.h"
 #import "ItemDetailGuessTableViewCell.h"
 
-@interface ItemDetailViewController : BasicViewController<UITableViewDelegate, UITableViewDataSource, ItemDetailTopTableViewCellDelegate, ItemDetailGuessTableViewCellDelegate>
+@interface ItemDetailViewController : BasicViewController<UITableViewDelegate, UITableViewDataSource, ItemDetailTopTableViewCellDelegate, ItemDetailPhotoViewTableViewCellDelegate, ItemDetailGuessTableViewCellDelegate>
 {
     UIView          * _sectionFooterView;
 

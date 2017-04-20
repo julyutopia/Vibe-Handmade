@@ -2,24 +2,36 @@
 //  CreatorDetailViewController.h
 //  VIBE
 //
-//  Created by Li Haii on 2017/3/21.
+//  Created by Li Haii on 2017/4/18.
 //  Copyright © 2017年 LiHaii. All rights reserved.
 //
 
-#import "VibeViewController.h"
+#import "BasicViewController.h"
 
 #import "CreatorDetailModal.h"
 
-#import "CreatorHeaderTableViewCell.h"
-#import "CreatorTitleTableViewCell.h"
-#import "CreatorInfoShowTableViewCell.h"
+#import "CreatorDetailTopTableViewCell.h"
+#import "CreatorDetailTextTableViewCell.h"
+#import "CreatorDetailTextBoldTableViewCell.h"
+#import "CreatorDetailTextHighlightTableViewCell.h"
+#import "CreatorDetailSinglePhotoTableViewCell.h"
+#import "CreatorDetailMorePhotosTableViewCell.h"
+#import "CreatorDetailItemsTableViewCell.h"
+#import "CreatorDetailBottomTableViewCell.h"
 
 
-@interface CreatorDetailViewController : VibeViewController<UITableViewDelegate, UITableViewDataSource>
+@interface CreatorDetailViewController : BasicViewController<UITableViewDelegate, UITableViewDataSource, CreatorDetailMorePhotosTableViewCellDelegate>
 {
-    UITableView             * _creatorDetailTable;
+    CreatorDetailModal  * _creatorDetailModal;
 
-    CreatorDetailModal      * _creatorModal;
+    UITableView         * _creatorDetailTableView;
+    
+    UIView              * _sectionFooterView;
+    
+    float                 _bottomViewHeight;
+    UIView              * _bottomView;
 }
+
+-(id)initWithCreatorDetailModal:(CreatorDetailModal *)creatorDetailModal;
 
 @end

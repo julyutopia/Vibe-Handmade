@@ -130,6 +130,7 @@
             [cell setBackgroundView:nil];
         }
         
+        [cell setDelegate:self];
         [cell setItemDetailPhotoCellWithInfo:_itemDetailModal.itemMorePhotosUrlsArray];
         
         return cell;
@@ -243,7 +244,7 @@
         
         //如果超过一行显示
         if (infoHeight >20) {
-            infoHeight = [[VibeAppTool sharedInstance]getSpaceLabelHeight:info withFont:[VibeFont fontWithName:Font_Chinese_Regular size:14] withWidth:kScreenWidth -60 -20 withLineSpacing:3.0] +2.0f;
+            infoHeight = [[VibeAppTool sharedInstance]getSpaceLabelHeight:info withFont:[VibeFont fontWithName:Font_Chinese_Regular size:14] withWidth:kScreenWidth -60 -20 withLineSpacing:6.0] +2.0f;
         }
         
         float totalHeight = titleHeight +20 +infoHeight;
@@ -295,6 +296,13 @@
 
 }
 
+//点击详情图片
+-(void)itemDetailPhotoTableViewShowImages:(NSArray *)imagesArray WithIndex:(NSInteger)index
+{
+    if (imagesArray.count && index <= imagesArray.count -1) {
+        [XLPhotoBrowser showPhotoBrowserWithImages:imagesArray currentImageIndex:index];
+    }
+}
 
 //点击 猜你喜欢 单品的代理
 -(void)itemDetailGuessCellDidClickItemWithID:(NSInteger)itemID

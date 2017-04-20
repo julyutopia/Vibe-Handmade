@@ -16,7 +16,7 @@
 #import "StoryDetailPhotoTableViewCell.h"
 #import "StoryDetailBottomTableViewCell.h"
 
-@interface StoryDetailViewController : BasicViewController<UITableViewDelegate, UITableViewDataSource>
+@interface StoryDetailViewController : BasicViewController<UITableViewDelegate, UITableViewDataSource, StoryDetailPhotoTableViewCellDelegate>
 {
     StoryDetailModal    * _storyDetailModal;
 

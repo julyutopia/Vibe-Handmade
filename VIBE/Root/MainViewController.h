@@ -16,14 +16,18 @@
 
 #import "VibeSearchView.h"
 
+#import "WebViewController.h"
+
 #import "SearchResultViewController.h"
 #import "ItemDetailViewController.h"
 #import "CategoryListViewController.h"
 #import "TagLIstViewController.h"
 
 #import "TopicDetailViewController.h"
-
 #import "StoryDetailViewController.h"
+#import "CreatorDetailViewController.h"
+
+#import "LogInViewController.h"
 
 @interface MainViewController : UIViewController<UIScrollViewDelegate, LUNSegmentedControlDataSource, LUNSegmentedControlDelegate, NewRecommandTableViewDelegate, NewDiscoverTableViewDelegate, NewCreatorTableViewDelegate, VibeSearchViewDelegate>
 {

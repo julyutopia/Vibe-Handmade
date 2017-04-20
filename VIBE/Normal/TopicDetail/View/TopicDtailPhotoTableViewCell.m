@@ -54,7 +54,7 @@
     [_morePhotosArray removeAllObjects];
     [_morePhotosArray addObjectsFromArray:photosArray];
     
-    [_morePhotosScrollView setContentSize:CGSizeMake((_singlePhotoHeight +12) *_morePhotosArray.count , _singlePhotoHeight)];
+    [_morePhotosScrollView setContentSize:CGSizeMake((_singlePhotoHeight +12) *_morePhotosArray.count -12, _singlePhotoHeight)];
     
     for (int i =0; i < _morePhotosArray.count; i ++) {
         
@@ -72,13 +72,12 @@
 
 }
 
-
 -(void)tapTopicDetailPhoto:(GLImageView *)imageView
 {
     NSInteger index = imageView.tag - 7000;
-    NSString * imageURL = [_morePhotosArray objectAtIndex:index];
-    if ([_delegate respondsToSelector:@selector(topicDtailPhotoTableViewShowImageWithURL:)]) {
-        [_delegate topicDtailPhotoTableViewShowImageWithURL:imageURL];
+    
+    if ([_delegate respondsToSelector:@selector(topicDtailPhotoTableViewShowImages:WithIndex:)]) {
+        [_delegate topicDtailPhotoTableViewShowImages:_morePhotosArray WithIndex:index];
     }
 }
 
