@@ -20,41 +20,42 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - AVOSCloud (4.0.0)
-  - AVOSCloudCrashReporting (4.0.0):
-    - AVOSCloud (= 4.0.0)
-    - AVOSCloudCrashReporting/_ARC (= 4.0.0)
-    - AVOSCloudCrashReporting/_NOARC (= 4.0.0)
-  - AVOSCloudCrashReporting/_ARC (4.0.0):
-    - AVOSCloud (= 4.0.0)
-    - AVOSCloudCrashReporting/_NOARC (= 4.0.0)
-  - AVOSCloudCrashReporting/_NOARC (4.0.0):
-    - AVOSCloud (= 4.0.0)
-  - AVOSCloudIM (4.0.0):
-    - AVOSCloud (= 4.0.0)
-    - AVOSCloudIM/_ARC (= 4.0.0)
-    - AVOSCloudIM/_NOARC (= 4.0.0)
-  - AVOSCloudIM/_ARC (4.0.0):
-    - AVOSCloud (= 4.0.0)
-    - AVOSCloudIM/_NOARC (= 4.0.0)
-  - AVOSCloudIM/_NOARC (4.0.0):
-    - AVOSCloud (= 4.0.0)
+  - AVOSCloud (4.2.0)
+  - AVOSCloudCrashReporting (4.2.0):
+    - AVOSCloud (= 4.2.0)
+    - AVOSCloudCrashReporting/_ARC (= 4.2.0)
+    - AVOSCloudCrashReporting/_NOARC (= 4.2.0)
+  - AVOSCloudCrashReporting/_ARC (4.2.0):
+    - AVOSCloud (= 4.2.0)
+    - AVOSCloudCrashReporting/_NOARC (= 4.2.0)
+  - AVOSCloudCrashReporting/_NOARC (4.2.0):
+    - AVOSCloud (= 4.2.0)
+  - AVOSCloudIM (4.2.0):
+    - AVOSCloud (= 4.2.0)
+    - AVOSCloudIM/_ARC (= 4.2.0)
+    - AVOSCloudIM/_NOARC (= 4.2.0)
+  - AVOSCloudIM/_ARC (4.2.0):
+    - AVOSCloud (= 4.2.0)
+    - AVOSCloudIM/_NOARC (= 4.2.0)
+  - AVOSCloudIM/_NOARC (4.2.0):
+    - AVOSCloud (= 4.2.0)
   - BlurImageProcessor (1.0.0)
   - CRToast (0.0.9)
-  - FTIndicator (1.1.9):
-    - FTIndicator/FTNotificationIndicator (= 1.1.9)
-    - FTIndicator/FTProgressIndicator (= 1.1.9)
-    - FTIndicator/FTToastIndicator (= 1.1.9)
-  - FTIndicator/FTNotificationIndicator (1.1.9)
-  - FTIndicator/FTProgressIndicator (1.1.9)
-  - FTIndicator/FTToastIndicator (1.1.9)
+  - FTIndicator (1.2.0):
+    - FTIndicator/FTNotificationIndicator (= 1.2.0)
+    - FTIndicator/FTProgressIndicator (= 1.2.0)
+    - FTIndicator/FTToastIndicator (= 1.2.0)
+  - FTIndicator/FTNotificationIndicator (1.2.0)
+  - FTIndicator/FTProgressIndicator (1.2.0)
+  - FTIndicator/FTToastIndicator (1.2.0)
   - JSONModel (1.7.0)
   - LUNSegmentedControl (1.0.7)
   - pop (1.0.9)
   - Reachability (3.2)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
+  - RSKImageCropper (1.6.1)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SFFocusViewLayout (2.0.0)
   - SVProgressHUD (2.1.2)
 
@@ -70,26 +71,28 @@ DEPENDENCIES:
   - LUNSegmentedControl
   - pop
   - Reachability
+  - RSKImageCropper
   - SDWebImage
   - SFFocusViewLayout (~> 2.0)
   - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 96ac9bf3eda33582701cb1fcc5b896aa1e20311e
-  AVOSCloud: 77ff5c0695c09356b55fa52aa409f06a9cf6144a
-  AVOSCloudCrashReporting: 42fc8761f9fbe07d9cd4dc8e7b3b42f0768bc37b
-  AVOSCloudIM: 799cedd7c16be4e4372d29ae680106228d47288f
+  AVOSCloud: 5446ad0320f4942cce1a036d131992cd1115db99
+  AVOSCloudCrashReporting: d7ab96935498000477076e35b17849abfa716652
+  AVOSCloudIM: 69df8e8517247f3c2585e321f24e777d5b398843
   BlurImageProcessor: a4794ad3128748dbff8b40ae43ce9386d3667bba
   CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
-  FTIndicator: 720f0e194a1d1529eb00e3ef9ac407e985917e46
+  FTIndicator: e1c035b99b8df1b1a40702b37cdc12fac5dd057c
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   LUNSegmentedControl: f868b1ea740f9917f05dbcb4cded85c33ec606e6
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  RSKImageCropper: 0df8c99e77a8ea7ca7a8b83ef468556f31584254
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SFFocusViewLayout: bb580b208a791c075f9e0f7021dd961e8c4cfaf7
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: abfd249e086253cc77150232ea696f63f6716934
+PODFILE CHECKSUM: a0cdb1a85ed84bb7a61262396b90c653a51eb160
 
 COCOAPODS: 1.0.1

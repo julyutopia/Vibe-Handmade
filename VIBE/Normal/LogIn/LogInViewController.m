@@ -80,13 +80,21 @@
     
     
     _userMobileTextField = [[UITextField alloc]initWithFrame:CGRectMake(5, 0, _userMobileView.frame.size.width -10, _userMobileView.frame.size.height -5)];
-    [_userMobileTextField setPlaceholder:@"注册时使用的手机号码"];
-    [_userMobileTextField setValue:Default_Text_Gray_Color_70 forKeyPath:@"_placeholderLabel.textColor"];
-    [_userMobileTextField setValue:[VibeFont fontWithName:Font_Chinese_Regular size:13] forKeyPath:@"_placeholderLabel.font"];
-    [_userMobileTextField setKeyboardType:UIKeyboardTypePhonePad];
-    [_userMobileTextField setDelegate:self];
     [_userMobileTextField setFont:[VibeFont fontWithName:Font_English_Medium size:15]];
     [_userMobileTextField setTextColor:Default_Text_Dark_Color_70];
+    //设置placeholder
+    NSString * placeholderText1 = @"注册时使用的手机号码";
+    NSMutableAttributedString *placeholder1 = [[NSMutableAttributedString alloc]initWithString:placeholderText1];
+    [placeholder1 addAttribute:NSForegroundColorAttributeName
+                       value:Default_Text_Gray_Color_70
+                       range:NSMakeRange(0, placeholderText1.length)];
+    [placeholder1 addAttribute:NSFontAttributeName
+                       value:[VibeFont fontWithName:Font_Chinese_Regular size:13]
+                       range:NSMakeRange(0, placeholderText1.length)];
+    _userMobileTextField.attributedPlaceholder = placeholder1;
+    [_userMobileTextField setKeyboardType:UIKeyboardTypePhonePad];
+    [_userMobileTextField setDelegate:self];
+   
     //计算输入的电话字数
     [_userMobileTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_userMobileView addSubview:_userMobileTextField];
@@ -104,13 +112,21 @@
     
     
     _passwordTextField = [[UITextField alloc]initWithFrame:CGRectMake(5, 0, _passwordView.frame.size.width -10, _passwordView.frame.size.height -5)];
-    [_passwordTextField setPlaceholder:@"输入密码"];
-    [_passwordTextField setValue:Default_Text_Gray_Color_70 forKeyPath:@"_placeholderLabel.textColor"];
-    [_passwordTextField setValue:[VibeFont fontWithName:Font_Chinese_Regular size:13] forKeyPath:@"_placeholderLabel.font"];
-    [_passwordTextField setDelegate:self];
-    [_passwordTextField setSecureTextEntry:YES];
+    
     [_passwordTextField setFont:[VibeFont fontWithName:Font_English_Medium size:15]];
     [_passwordTextField setTextColor:Default_Text_Dark_Color_70];
+    //设置placeholder
+    NSString * placeholderText2 = @"输入密码";
+    NSMutableAttributedString *placeholder2 = [[NSMutableAttributedString alloc]initWithString:placeholderText2];
+    [placeholder2 addAttribute:NSForegroundColorAttributeName
+                         value:Default_Text_Gray_Color_70
+                         range:NSMakeRange(0, placeholderText2.length)];
+    [placeholder2 addAttribute:NSFontAttributeName
+                         value:[VibeFont fontWithName:Font_Chinese_Regular size:13]
+                         range:NSMakeRange(0, placeholderText2.length)];
+    _passwordTextField.attributedPlaceholder = placeholder2;
+    [_passwordTextField setDelegate:self];
+    [_passwordTextField setSecureTextEntry:YES];
     [_passwordTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_passwordView addSubview:_passwordTextField];
     

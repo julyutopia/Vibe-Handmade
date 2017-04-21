@@ -48,6 +48,8 @@ pod 'CRToast', '~> 0.0.7'
 
 pod "BlurImageProcessor"      #	模糊图片
 
+pod 'RSKImageCropper'	      # 剪切图片
+
 end
 
 

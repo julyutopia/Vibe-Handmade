@@ -117,33 +117,33 @@
     
     [_storeSloganTitleLabel setText:modal.storeSloganString];
     
-    if ([modal.storeTopProductsArray objectAtIndex:0]) {
-        NSDictionary * dict =[modal.storeTopProductsArray objectAtIndex:0];
-        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:[dict objectForKey:@"storeImageURL"]]options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-            [_firstProductImgView setImage:image];
-        }];
-    }
-    
-    if ([modal.storeTopProductsArray objectAtIndex:1]) {
-        NSDictionary * dict =[modal.storeTopProductsArray objectAtIndex:1];
-        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:[dict objectForKey:@"storeImageURL"]]options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-            [_secondProductImgView setImage:image];
-        }];
-    }
-
-    if ([modal.storeTopProductsArray objectAtIndex:2]) {
-        NSDictionary * dict =[modal.storeTopProductsArray objectAtIndex:2];
-        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:[dict objectForKey:@"storeImageURL"]]options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-            [_thirdProductImgView setImage:image];
-        }];
-    }
-    
-    if ([modal.storeTopProductsArray objectAtIndex:3]) {
-        NSDictionary * dict =[modal.storeTopProductsArray objectAtIndex:3];
-        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:[dict objectForKey:@"storeImageURL"]]options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-            [_fourthProductImgView setImage:image];
-        }];
-    }
+//    if ([modal.storeTopProductsArray objectAtIndex:0]) {
+//        NSDictionary * dict =[modal.storeTopProductsArray objectAtIndex:0];
+//        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:[dict objectForKey:@"storeImageURL"]]options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+//            [_firstProductImgView setImage:image];
+//        }];
+//    }
+//    
+//    if ([modal.storeTopProductsArray objectAtIndex:1]) {
+//        NSDictionary * dict =[modal.storeTopProductsArray objectAtIndex:1];
+//        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:[dict objectForKey:@"storeImageURL"]]options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+//            [_secondProductImgView setImage:image];
+//        }];
+//    }
+//
+//    if ([modal.storeTopProductsArray objectAtIndex:2]) {
+//        NSDictionary * dict =[modal.storeTopProductsArray objectAtIndex:2];
+//        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:[dict objectForKey:@"storeImageURL"]]options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+//            [_thirdProductImgView setImage:image];
+//        }];
+//    }
+//    
+//    if ([modal.storeTopProductsArray objectAtIndex:3]) {
+//        NSDictionary * dict =[modal.storeTopProductsArray objectAtIndex:3];
+//        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:[dict objectForKey:@"storeImageURL"]]options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+//            [_fourthProductImgView setImage:image];
+//        }];
+//    }
 
 
     

@@ -64,6 +64,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RSKImageCropper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Reachability.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -112,17 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>397E7209C0F41400C1A7AA32596D9ACF</key>
+		<key>3E952E4B53C403897E419240B5D1750A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5358BC236D3180756737BB864431FF58</key>
+		<key>64493203AFC5223F9CE222B967AA6DE7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>67BD6232A3C0738CAD4A5F16075E2749</key>
+		<key>69D6EE5DF4CE960E482AE1A02C9AC712</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,7 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7D9F59ED21C8DCB3FED1AEC786874834</key>
+		<key>7371234438973E3DF0267D6ABC898901</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>77557E5A39A056E22CC15D524B888A05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,6 +157,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>99AB0E886EA486A10F23702E2A47CDB2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A2F42495C54C7D7A2FD8BCDDAB8B5E00</key>
 		<dict>
 			<key>primary</key>
@@ -157,22 +172,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B367983AF2E2E59D939A3546D6345A38</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E534BD0185F668A6527432B4941AFD5C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E89EA0620E22EDB775A7C107518644DD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F5899009DB76D698EE1F2FFAE346369F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FFD72A1B34FE07FC324F1922CFB0A774</key>
 		<dict>
 			<key>primary</key>
 			<true/>

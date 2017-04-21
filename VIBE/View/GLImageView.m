@@ -111,12 +111,12 @@
     [super sd_setImageWithURL:url placeholderImage:nil options:(SDWebImageRetryFailed | SDWebImageLowPriority)];
 }
 
-- (void)sd_setImageWithURL:(NSURL *)url completed:(SDWebImageCompletionBlock)completedBlock
+- (void)sd_setImageWithURL:(NSURL *)url completed:(SDExternalCompletionBlock)completedBlock
 {
     [super sd_setImageWithURL:url placeholderImage:nil options:(SDWebImageRetryFailed | SDWebImageLowPriority) completed:completedBlock];
 }
 
-- (void)sd_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder completed:(SDWebImageCompletionBlock)completedBlock
+- (void)sd_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder completed:(SDExternalCompletionBlock)completedBlock
 {
     [super sd_setImageWithURL:url placeholderImage:placeholder options:(SDWebImageRetryFailed | SDWebImageLowPriority) completed:completedBlock];
 }

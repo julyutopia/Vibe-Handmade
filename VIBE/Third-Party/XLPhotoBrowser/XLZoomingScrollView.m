@@ -215,7 +215,6 @@
 
 - (void)doubleTapBackgroundView:(UITapGestureRecognizer *)doubleTap
 {
-#warning TODO 需要再优化这里的算法
 
     self.userInteractionEnabled = NO;
     CGPoint point = [doubleTap locationInView:doubleTap.view];
@@ -275,37 +274,70 @@
     self.photoImageView.image = placeholder;
     [self setMaxAndMinZoomScales];
     
-    __weak typeof(self) weakSelf = self;
+//    __weak
+//    typeof (self) weakSelf = self;
     //初始化进度条
     self.progress = 0.01;
     [self addSubview:self.progressView];;
     self.progressView.mode = XLProgressViewProgressMode;
 
-    [weakSelf.photoImageView sd_setImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed| SDWebImageLowPriority| SDWebImageHandleCookies progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    
+    [self.photoImageView sd_setImageWithPreviousCachedImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed| SDWebImageLowPriority| SDWebImageHandleCookies progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        
         if (expectedSize>0) {
             // 修改进度
-            weakSelf.progress = (CGFloat)receivedSize / expectedSize ;
+            self.progress = (CGFloat)receivedSize / expectedSize ;
         }
         [self resetZoomScale];
         
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        
         [self.progressView removeFromSuperview];
         if (error) {
             [self setMaxAndMinZoomScales];
-            [weakSelf addSubview:weakSelf.stateLabel];
+            [self addSubview:self.stateLabel];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.stateLabel removeFromSuperview];
+            });
+            XLFormatLog(@"加载图片失败 , 图片链接imageURL = %@ , 检查是否开启允许HTTP请求",imageURL);
+        } else {
+            [self.stateLabel removeFromSuperview];
+            self.photoImageView.image = image;
+            [self.photoImageView setNeedsDisplay];
+            [UIView animateWithDuration:0.25 animations:^{
+                [self setMaxAndMinZoomScales];
+            }];
+        }
+        
+    }];
+    
+    
+//    [weakSelf.photoImageView sd_setImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed| SDWebImageLowPriority| SDWebImageHandleCookies progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+//        if (expectedSize>0) {
+//            // 修改进度
+//            weakSelf.progress = (CGFloat)receivedSize / expectedSize ;
+//        }
+//        [self resetZoomScale];
+//        
+//    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//        [self.progressView removeFromSuperview];
+//        if (error) {
+//            [self setMaxAndMinZoomScales];
+//            [weakSelf addSubview:weakSelf.stateLabel];
 //            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //                [weakSelf.stateLabel removeFromSuperview];
 //            });
-            XLFormatLog(@"加载图片失败 , 图片链接imageURL = %@ , 检查是否开启允许HTTP请求",imageURL);
-        } else {
-            [weakSelf.stateLabel removeFromSuperview];
-            weakSelf.photoImageView.image = image;
-            [weakSelf.photoImageView setNeedsDisplay];
-            [UIView animateWithDuration:0.25 animations:^{
-                [weakSelf setMaxAndMinZoomScales];
-            }];
-        }
-    }];
+//            XLFormatLog(@"加载图片失败 , 图片链接imageURL = %@ , 检查是否开启允许HTTP请求",imageURL);
+//        } else {
+//            [weakSelf.stateLabel removeFromSuperview];
+//            weakSelf.photoImageView.image = image;
+//            [weakSelf.photoImageView setNeedsDisplay];
+//            [UIView animateWithDuration:0.25 animations:^{
+//                [weakSelf setMaxAndMinZoomScales];
+//            }];
+//        }
+//    }];
+    
 }
 
 /**

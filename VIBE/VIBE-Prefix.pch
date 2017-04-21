@@ -101,6 +101,7 @@
 #define Default_Text_Gray_Color_30      RGBA(146, 146, 175, 30)
 #define Default_Text_Gray_Color_20      RGBA(146, 146, 175, 20)
 #define Default_Text_Gray_Color_10      RGBA(146, 146, 175, 10)
+#define Default_Text_Gray_Color_5      RGBA(146, 146, 175, 5)
 
 
 #define Default_Text_Dark_Color         RGBA(69, 69, 83, 100)

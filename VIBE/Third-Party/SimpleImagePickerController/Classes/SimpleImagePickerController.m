@@ -73,8 +73,6 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
             [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]);
 }
 
-
-
 - (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
 {
     self = [super initWithCollectionViewLayout:layout];
@@ -668,7 +666,7 @@ static NSString * const cameraIdentifier = @"CameraIdentifier";
 
 -(void)didSelectPhoto:(GLImageView *)imageView WithAsset:(ALAsset *)asset
 {
-    [self dismissViewControllerAnimated:YES completion:^{
+    [self dismissViewControllerAnimated:NO completion:^{
       
         ALAssetRepresentation *assetRep = [asset defaultRepresentation];
      

@@ -10,11 +10,13 @@
 
 #import "SimpleImagePickerController.h"
 
+#import "RSKImageCropViewController.h"
+
 #import "AnimatedGIFImageSerialization.h"
 
 #import "AnimatedGradientView.h"
 
-@interface RegisterViewController : BasicViewController <UITextFieldDelegate,UIScrollViewDelegate,UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,SimpleImagePickerControllerDelegate>
+@interface RegisterViewController : BasicViewController <UITextFieldDelegate,UIScrollViewDelegate,UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,SimpleImagePickerControllerDelegate, RSKImageCropViewControllerDataSource, RSKImageCropViewControllerDelegate>
 {
     
     UIView      * _backCiew;
@@ -27,6 +29,11 @@
     UIView      * _whiteShadowView1;
     UIView      * _whiteShadowView2;
     
+    
+    //显示绑定手机号的View
+    UIView      * _fillMobileView;
+    
+    //欢迎Label
     UILabel     * _welcomeLabel;
     
     //输入手机号View
@@ -55,8 +62,41 @@
     BOOL          _didSendCode;
     
     
+    //验证码倒计时
     NSTimer     * _timer;
     NSInteger     _countingDownSeconds;
+    
+    
+    //判断是否可以点击下一步
+    BOOL          _isAbleToNext;
+    
+    
+    //下一步补充资料View
+    UIView      * _profileView;
+    
+    //用户头像
+    UIButton    * _userPhotoBtn;
+    
+    //用户名View
+    UIView      * _userNameView;
+    UITextField * _userNameTextField;
+    UIView      * _userNameLineView;
+    
+    //签名View
+    UIView      * _signatureView;
+    UITextField * _signatureTextField;
+    UIView      * _signatureLineView;
+    
+    //下一步Btn
+    UIButton    * _registerBtn;
+    
+    //社区规范
+    UIView      * _communityView;
+    UILabel     * _firstCommunityLabel;
+    UIButton    * _secondCommunityBtn;
+    
+    //用户已选择的头像
+    UIImage     * _userPhotoImage;
     
     
 //    BOOL              _isShowingSecondStep;//是否显示第二步

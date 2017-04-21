@@ -405,6 +405,10 @@
 		86EB9F921DB6688F00E2FE73 /* Register_Finish_Unable.png in Resources */ = {isa = PBXBuildFile; fileRef = 86EB9F901DB6688F00E2FE73 /* Register_Finish_Unable.png */; };
 		86EB9F951DB66B0300E2FE73 /* Register_Word_Commune.png in Resources */ = {isa = PBXBuildFile; fileRef = 86EB9F931DB66B0300E2FE73 /* Register_Word_Commune.png */; };
 		86EB9F961DB66B0300E2FE73 /* Register_Word.png in Resources */ = {isa = PBXBuildFile; fileRef = 86EB9F941DB66B0300E2FE73 /* Register_Word.png */; };
+		86EF9D361EA9F63A003098B7 /* Register_Avatar_Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 86EF9D341EA9F63A003098B7 /* Register_Avatar_Highlight.png */; };
+		86EF9D371EA9F63A003098B7 /* Register_Avatar_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 86EF9D351EA9F63A003098B7 /* Register_Avatar_Normal.png */; };
+		86EF9D3A1EA9FABC003098B7 /* Register_Vibe_Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 86EF9D381EA9FABC003098B7 /* Register_Vibe_Highlight.png */; };
+		86EF9D3B1EA9FABC003098B7 /* Register_Vibe_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 86EF9D391EA9FABC003098B7 /* Register_Vibe_Normal.png */; };
 		86F1509E1E0E379400971D9F /* CategoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F1509D1E0E379400971D9F /* CategoryListViewController.m */; };
 		86F4A0E31EA5C374008C9C77 /* UIImage+XLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F4A0D81EA5C374008C9C77 /* UIImage+XLExtension.m */; };
 		86F4A0E41EA5C374008C9C77 /* UIView+XLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F4A0DA1EA5C374008C9C77 /* UIView+XLExtension.m */; };
@@ -1040,6 +1044,10 @@
 		86EB9F901DB6688F00E2FE73 /* Register_Finish_Unable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Register_Finish_Unable.png; path = Resource/Icons/Register_Finish_Unable.png; sourceTree = "<group>"; };
 		86EB9F931DB66B0300E2FE73 /* Register_Word_Commune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Register_Word_Commune.png; path = Resource/Icons/Register_Word_Commune.png; sourceTree = "<group>"; };
 		86EB9F941DB66B0300E2FE73 /* Register_Word.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Register_Word.png; path = Resource/Icons/Register_Word.png; sourceTree = "<group>"; };
+		86EF9D341EA9F63A003098B7 /* Register_Avatar_Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Register_Avatar_Highlight.png; path = "Resource/New-Icons/Log_In/Register_Avatar_Highlight.png"; sourceTree = "<group>"; };
+		86EF9D351EA9F63A003098B7 /* Register_Avatar_Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Register_Avatar_Normal.png; path = "Resource/New-Icons/Log_In/Register_Avatar_Normal.png"; sourceTree = "<group>"; };
+		86EF9D381EA9FABC003098B7 /* Register_Vibe_Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Register_Vibe_Highlight.png; path = "Resource/New-Icons/Log_In/Register_Vibe_Highlight.png"; sourceTree = "<group>"; };
+		86EF9D391EA9FABC003098B7 /* Register_Vibe_Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Register_Vibe_Normal.png; path = "Resource/New-Icons/Log_In/Register_Vibe_Normal.png"; sourceTree = "<group>"; };
 		86F1509C1E0E379400971D9F /* CategoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryListViewController.h; path = Normal/CategoryList/CategoryListViewController.h; sourceTree = "<group>"; };
 		86F1509D1E0E379400971D9F /* CategoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryListViewController.m; path = Normal/CategoryList/CategoryListViewController.m; sourceTree = "<group>"; };
 		86F4A0D71EA5C374008C9C77 /* UIImage+XLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+XLExtension.h"; path = "Third-Party/XLPhotoBrowser/UIImage+XLExtension.h"; sourceTree = "<group>"; };
@@ -1232,6 +1240,10 @@
 				8616F9041EA7491200E6C8D2 /* Log_In_Wechat_Btn_Normal.png */,
 				86C327601EA8716900BDF6A4 /* Register_Next_Highlight.png */,
 				86C327611EA8716900BDF6A4 /* Register_Next_Normal.png */,
+				86EF9D341EA9F63A003098B7 /* Register_Avatar_Highlight.png */,
+				86EF9D351EA9F63A003098B7 /* Register_Avatar_Normal.png */,
+				86EF9D381EA9FABC003098B7 /* Register_Vibe_Highlight.png */,
+				86EF9D391EA9FABC003098B7 /* Register_Vibe_Normal.png */,
 			);
 			name = Log_In;
 			sourceTree = "<group>";
@@ -2786,6 +2798,7 @@
 				864967991E127DA600C3A4FD /* Filter_Default_Normal.png in Resources */,
 				86E627AE1DB287A6002AAE7A /* Arrow_Up_Black.png in Resources */,
 				8637BF4F1E4AE45C009461EF /* Detail_Link_HighLight.png in Resources */,
+				86EF9D371EA9F63A003098B7 /* Register_Avatar_Normal.png in Resources */,
 				865E4AB11D81608900B06020 /* Log_In_HighLight.png in Resources */,
 				860162071D5C8A6F00E62CFA /* Category_Store_Favor.png in Resources */,
 				86EB9F8D1DB65EFB00E2FE73 /* Register_Avatar_Chosen.png in Resources */,
@@ -2873,6 +2886,7 @@
 				8617E7B61D52E95700872EFE /* Mine_Selected.png in Resources */,
 				86ABE3721D7EF2A6009DCABD /* HYQiHeiX1-45W.otf in Resources */,
 				86FE74D71E1A3EE100C9AC15 /* Search_Placeholder.png in Resources */,
+				86EF9D361EA9F63A003098B7 /* Register_Avatar_Highlight.png in Resources */,
 				863DF1F51E99412D0010BEB0 /* SearchView_Clean_Highlight.png in Resources */,
 				864A72641D5C5BB600D3D3F2 /* home.png in Resources */,
 				8618C8401DB75B90008657C3 /* WebView_Next_Normal.png in Resources */,
@@ -2895,6 +2909,7 @@
 				86C8459D1D61B3D300CD5090 /* Favor_Product.png in Resources */,
 				86EB9F961DB66B0300E2FE73 /* Register_Word.png in Resources */,
 				86FA2FB21D829397001F72AC /* Login_Forget_Password_HighLight.png in Resources */,
+				86EF9D3B1EA9FABC003098B7 /* Register_Vibe_Normal.png in Resources */,
 				862BE8EC1D65C61700C09BE9 /* Mine_Setting.png in Resources */,
 				869A73261E94CC0700C1A682 /* Dosis-Medium.ttf in Resources */,
 				860582391E09019C002A0DDB /* Navi_Back_Black_Round.png in Resources */,
@@ -2937,6 +2952,7 @@
 				86AB16271DACE289001615A6 /* Gradien_Shadow.png in Resources */,
 				86FA2FB71D829F79001F72AC /* Register_HighLight.png in Resources */,
 				8649679C1E127DA600C3A4FD /* Filter_Hot_Selected.png in Resources */,
+				86EF9D3A1EA9FABC003098B7 /* Register_Vibe_Highlight.png in Resources */,
 				867983AC1D72B3AD00F92BD8 /* Detail_Info_Title.png in Resources */,
 				8699862B1E9DE3DC00661719 /* Cate_Filter_Normal.png in Resources */,
 				86A699C51D58790500028109 /* ProductCell_AddFavor_Pressed.png in Resources */,
@@ -3489,6 +3505,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Haii Li (3TX5NZKZ6F)";
 				GCC_PREFIX_HEADER = "VIBE/VIBE-Prefix.pch";
 				INFOPLIST_FILE = VIBE/Info.plist;
@@ -3506,6 +3524,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Haii Li (3TX5NZKZ6F)";
 				GCC_PREFIX_HEADER = "VIBE/VIBE-Prefix.pch";
 				INFOPLIST_FILE = VIBE/Info.plist;
