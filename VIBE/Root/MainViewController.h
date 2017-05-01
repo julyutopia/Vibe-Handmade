@@ -28,6 +28,7 @@
 #import "CreatorDetailViewController.h"
 
 #import "LogInViewController.h"
+#import "ProfileViewController.h"
 
 @interface MainViewController : UIViewController<UIScrollViewDelegate, LUNSegmentedControlDataSource, LUNSegmentedControlDelegate, NewRecommandTableViewDelegate, NewDiscoverTableViewDelegate, NewCreatorTableViewDelegate, VibeSearchViewDelegate>
 {

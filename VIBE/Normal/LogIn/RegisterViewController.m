@@ -26,7 +26,8 @@
     [_backImgView setImage:[UIImage imageNamed:@"Log_In_Back"]];
     [self.view addSubview:_backImgView];
     
-    [self initBackView];
+    [self setFirstStepView];
+    [self setSecondStepView];
     
     [self initNaviView];
     
@@ -35,9 +36,8 @@
 
 }
 
-
-
--(void)initBackView
+//注册第一步页面UI
+-(void)setFirstStepView
 {
     if (iPhone5) {
         _keyboardHeight = 253;
@@ -52,7 +52,6 @@
     
     float whiteContentViewWidth = kScreenWidth -60;
     float whiteContentViewHeight = kScreenHeight - _keyboardHeight -Navi_View_Height -35;
-    
     
     
     _whiteContentView = [[UIView alloc]initWithFrame:CGRectMake(60, Navi_View_Height +15, whiteContentViewWidth, whiteContentViewHeight)];
@@ -93,10 +92,10 @@
     [[VibeAppTool sharedInstance] setLabelSpace:_welcomeLabel withText:welcome withFont:_welcomeLabel.font withLineSpacing:6.0f];
     float welcomeTextHeight = [[VibeAppTool sharedInstance]getSpaceLabelHeight:welcome withFont:_welcomeLabel.font withWidth:kScreenWidth -60 -45 -20 withLineSpacing:6.0] +2.0f;
     [_welcomeLabel setFrame:CGRectMake(45, 30, kScreenWidth -60 -45 -20, welcomeTextHeight)];
-
+    
     
     float inputViewHeight = 40;
-
+    
     
     _mobileNumberView = [[UIView alloc]initWithFrame:CGRectMake(45, _welcomeLabel.frame.origin.y +welcomeTextHeight +15, whiteContentViewWidth -90, inputViewHeight)];
     [_mobileNumberView setBackgroundColor:[UIColor clearColor]];
@@ -104,7 +103,7 @@
     
     _mobileNumberTextField = [[UITextField alloc]initWithFrame:CGRectMake(5, 0, _mobileNumberView.frame.size.width - 110, _mobileNumberView.frame.size.height -2)];
     [_mobileNumberTextField setBackgroundColor:[UIColor clearColor]];
-    [_mobileNumberTextField setKeyboardType:UIKeyboardTypePhonePad];
+    [_mobileNumberTextField setKeyboardType:UIKeyboardTypeNumberPad];
     [_mobileNumberTextField setDelegate:self];
     [_mobileNumberTextField setFont:[VibeFont fontWithName:Font_English_Medium size:15]];
     [_mobileNumberTextField setTextColor:Default_Text_Dark_Color_70];
@@ -112,11 +111,11 @@
     NSString * mobilePlaceholderText = @"输入手机号码";
     NSMutableAttributedString * mobilePlaceholder = [[NSMutableAttributedString alloc]initWithString:mobilePlaceholderText];
     [mobilePlaceholder addAttribute:NSForegroundColorAttributeName
-                         value:Default_Text_Gray_Color_50
-                         range:NSMakeRange(0, mobilePlaceholderText.length)];
+                              value:Default_Text_Gray_Color_50
+                              range:NSMakeRange(0, mobilePlaceholderText.length)];
     [mobilePlaceholder addAttribute:NSFontAttributeName
-                         value:[VibeFont fontWithName:Font_Chinese_Regular size:13]
-                         range:NSMakeRange(0, mobilePlaceholderText.length)];
+                              value:[VibeFont fontWithName:Font_Chinese_Regular size:13]
+                              range:NSMakeRange(0, mobilePlaceholderText.length)];
     _mobileNumberTextField.attributedPlaceholder = mobilePlaceholder;
     [_mobileNumberTextField becomeFirstResponder];
     //计算输入的电话字数
@@ -149,7 +148,7 @@
     
     _verifyCodeTextField = [[UITextField alloc]initWithFrame:CGRectMake(5, 0, _verifyCodeView.frame.size.width - 10, _verifyCodeView.frame.size.height -2)];
     [_verifyCodeTextField setBackgroundColor:[UIColor clearColor]];
-    [_verifyCodeTextField setKeyboardType:UIKeyboardTypePhonePad];
+    [_verifyCodeTextField setKeyboardType:UIKeyboardTypeNumberPad];
     [_verifyCodeTextField setDelegate:self];
     [_verifyCodeTextField setFont:[VibeFont fontWithName:Font_English_Medium size:15]];
     [_verifyCodeTextField setTextColor:Default_Text_Dark_Color_70];
@@ -176,10 +175,10 @@
     
     _setPasswordView = [[UIView alloc]initWithFrame:CGRectMake(45,  _verifyCodeView.frame.origin.y +inputViewHeight +10, whiteContentViewWidth -90, inputViewHeight)];
     [_fillMobileView addSubview:_setPasswordView];
- 
+    
     _setPasswordTextField = [[UITextField alloc]initWithFrame:CGRectMake(5, 0, _setPasswordView.frame.size.width - 10, _setPasswordView.frame.size.height -2)];
     [_setPasswordTextField setBackgroundColor:[UIColor clearColor]];
-    [_setPasswordTextField setKeyboardType:UIKeyboardTypeNamePhonePad];
+    [_setPasswordTextField setKeyboardType:UIKeyboardTypeAlphabet];
     [_setPasswordTextField setDelegate:self];
     [_setPasswordTextField setFont:[VibeFont fontWithName:Font_English_Medium size:15]];
     [_setPasswordTextField setTextColor:Default_Text_Dark_Color_70];
@@ -187,16 +186,16 @@
     NSString * passwordPlaceholderText = @"设置密码";
     NSMutableAttributedString * passwordPlaceholder = [[NSMutableAttributedString alloc]initWithString:passwordPlaceholderText];
     [passwordPlaceholder addAttribute:NSForegroundColorAttributeName
-                              value:Default_Text_Gray_Color_50
-                              range:NSMakeRange(0, passwordPlaceholderText.length)];
+                                value:Default_Text_Gray_Color_50
+                                range:NSMakeRange(0, passwordPlaceholderText.length)];
     [passwordPlaceholder addAttribute:NSFontAttributeName
-                              value:[VibeFont fontWithName:Font_Chinese_Regular size:13]
-                              range:NSMakeRange(0, passwordPlaceholderText.length)];
+                                value:[VibeFont fontWithName:Font_Chinese_Regular size:13]
+                                range:NSMakeRange(0, passwordPlaceholderText.length)];
     _setPasswordTextField.attributedPlaceholder = passwordPlaceholder;
     //计算输入的密码字数
     [_setPasswordTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_setPasswordView addSubview:_setPasswordTextField];
-
+    
     
     _setPasswordLineView = [[UIView alloc]initWithFrame:CGRectMake(0, _setPasswordView.frame.size.height -1, _setPasswordView.frame.size.width, 1)];
     [_setPasswordLineView setBackgroundColor:Default_Text_Gray_Color_10];
@@ -213,11 +212,21 @@
     [_nextBtn setBackgroundImage:[UIImage imageNamed:@"Register_Next_Highlight"] forState:UIControlStateHighlighted];
     [_nextBtn addTarget:self action:@selector(nextBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [_fillMobileView addSubview:_nextBtn];
+    
+}
 
+//注册第二步UI
+-(void)setSecondStepView
+{
+    float whiteContentViewWidth = _whiteContentView.frame.size.width;
+    float whiteContentViewHeight = _whiteContentView.frame.size.height;
+    
+    float inputViewHeight = _mobileNumberView.frame.size.height;
     
     //补充资料的View;
-    _profileView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, whiteContentViewWidth, whiteContentViewHeight)];
-    [_profileView setBackgroundColor:[UIColor whiteColor]];
+    _profileView = [[UIView alloc]initWithFrame:CGRectMake(whiteContentViewWidth, 0, 0, whiteContentViewHeight)];
+    [_profileView setAlpha:0.0f];
+    [_profileView setBackgroundColor:[UIColor clearColor]];
     [_whiteContentView addSubview:_profileView];
     
     float avatarWidth = 70;
@@ -245,11 +254,11 @@
     NSString * usernamePlaceholderText = @"昵称";
     NSMutableAttributedString * usernamePlaceholder = [[NSMutableAttributedString alloc]initWithString:usernamePlaceholderText];
     [usernamePlaceholder addAttribute:NSForegroundColorAttributeName
-                              value:Default_Text_Gray_Color_50
-                              range:NSMakeRange(0, usernamePlaceholderText.length)];
+                                value:Default_Text_Gray_Color_50
+                                range:NSMakeRange(0, usernamePlaceholderText.length)];
     [usernamePlaceholder addAttribute:NSFontAttributeName
-                              value:[VibeFont fontWithName:Font_Chinese_Regular size:13]
-                              range:NSMakeRange(0, usernamePlaceholderText.length)];
+                                value:[VibeFont fontWithName:Font_Chinese_Regular size:13]
+                                range:NSMakeRange(0, usernamePlaceholderText.length)];
     _userNameTextField.attributedPlaceholder = usernamePlaceholder;
     [_userNameTextField becomeFirstResponder];
     //计算输入的昵称字数
@@ -260,9 +269,9 @@
     [_userNameLineView setBackgroundColor:Default_Text_Gray_Color_10];
     [_userNameLineView.layer setCornerRadius:1];
     [_userNameView addSubview:_userNameLineView];
- 
     
-   
+    
+    
     _signatureView = [[UIView alloc]initWithFrame:CGRectMake(45, _userNameView.frame.origin.y +inputViewHeight +10, whiteContentViewWidth -90, inputViewHeight)];
     [_signatureView setBackgroundColor:[UIColor clearColor]];
     [_profileView addSubview:_signatureView];
@@ -277,11 +286,11 @@
     NSString * signaturePlaceholderText = @"签名（选填）";
     NSMutableAttributedString * signaturePlaceholder = [[NSMutableAttributedString alloc]initWithString:signaturePlaceholderText];
     [signaturePlaceholder addAttribute:NSForegroundColorAttributeName
-                                value:Default_Text_Gray_Color_50
-                                range:NSMakeRange(0, signaturePlaceholderText.length)];
+                                 value:Default_Text_Gray_Color_50
+                                 range:NSMakeRange(0, signaturePlaceholderText.length)];
     [signaturePlaceholder addAttribute:NSFontAttributeName
-                                value:[VibeFont fontWithName:Font_Chinese_Regular size:11]
-                                range:NSMakeRange(0, signaturePlaceholderText.length)];
+                                 value:[VibeFont fontWithName:Font_Chinese_Regular size:11]
+                                 range:NSMakeRange(0, signaturePlaceholderText.length)];
     _signatureTextField.attributedPlaceholder = signaturePlaceholder;
     //计算输入的签名字数
     [_signatureTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
@@ -292,18 +301,18 @@
     [_signatureLineView.layer setCornerRadius:1];
     [_signatureView addSubview:_signatureLineView];
     
-
+    
     
     float registerBtnWidth = 225;
     float registerBtnHeight = 36;
     
     _registerBtn = [[UIButton alloc]initWithFrame:CGRectMake( (whiteContentViewWidth -registerBtnWidth)/2, _signatureView
-                                                         .frame.origin.y +inputViewHeight +15, registerBtnWidth, registerBtnHeight)];
+                                                             .frame.origin.y +inputViewHeight +15, registerBtnWidth, registerBtnHeight)];
     [_registerBtn setBackgroundImage:[UIImage imageNamed:@"Register_Vibe_Normal"] forState:UIControlStateNormal];
     [_registerBtn setBackgroundImage:[UIImage imageNamed:@"Register_Vibe_Highlight"] forState:UIControlStateHighlighted];
     [_registerBtn addTarget:self action:@selector(registerBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [_profileView addSubview:_registerBtn];
-
+    
     
     //社区规范
     NSString * firstCommunityString = @"点击注册，即代表我已同意";
@@ -319,7 +328,7 @@
     float secondCommunityWidth = secondCommunitySize.width;
     float secondCommunityHeight = secondCommunitySize.height;
     
-    _communityView = [[UIView alloc]initWithFrame:CGRectMake((whiteContentViewWidth -firstCommunityWidth -secondCommunityWidth)/2, _registerBtn.frame.origin.y +registerBtnHeight +15, firstCommunityWidth +secondCommunityWidth , firstCommunityHeight +2)];
+    _communityView = [[UIView alloc]initWithFrame:CGRectMake((whiteContentViewWidth -firstCommunityWidth -secondCommunityWidth)/2, _registerBtn.frame.origin.y +registerBtnHeight +15, firstCommunityWidth +secondCommunityWidth , firstCommunityHeight +5)];
     [_profileView addSubview:_communityView];
     
     _firstCommunityLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, firstCommunityWidth, firstCommunityHeight)];
@@ -338,16 +347,19 @@
     [_communityView addSubview:_secondCommunityBtn];
     
     
-    UIView * secondCommunityLineView = [[UIView alloc]initWithFrame:CGRectMake(firstCommunityWidth, secondCommunityHeight +1, secondCommunityWidth, 0.5)];
+    UIView * secondCommunityLineView = [[UIView alloc]initWithFrame:CGRectMake(firstCommunityWidth +2, secondCommunityHeight +3, secondCommunityWidth -4, 1)];
     [secondCommunityLineView setBackgroundColor:Default_Text_Gray_Color_5];
     [_communityView addSubview:secondCommunityLineView];
-    
-    
-//    //签名View
-//    UIView      * _signatureView;
-//    UITextField * _signatureTextField;
-//    UIView      * _signatureLineView;
 
+}
+
+
+
+
+-(void)initBackView
+{
+    
+  
 }
 
 
@@ -542,6 +554,18 @@
 #pragma mark -显示下一步视图
 -(void)showNextView
 {
+    float whiteContentViewWidth = _whiteContentView.frame.size.width;
+    float whiteContentViewHeight = _whiteContentView.frame.size.height;
+
+    [UIView animateWithDuration:0.5f animations:^{
+       
+        [_fillMobileView setAlpha:0.0f];
+        [_fillMobileView setFrame:CGRectMake(0, 0, 0, whiteContentViewHeight)];
+        
+        [_profileView setAlpha:1.0f];
+        [_profileView setFrame:CGRectMake(0, 0, whiteContentViewWidth, whiteContentViewHeight)];
+        
+    }];
     
 }
 
@@ -577,13 +601,15 @@
     }];
 }
 
-
 -(void)imageCropViewController:(RSKImageCropViewController *)controller didCropImage:(UIImage *)croppedImage usingCropRect:(CGRect)cropRect
 {
     [controller dismissViewControllerAnimated:YES  completion:^{
         
-        [_userPhotoBtn setBackgroundImage:_userPhotoImage forState:UIControlStateNormal];
-        [_userPhotoBtn setBackgroundImage:_userPhotoImage forState:UIControlStateHighlighted];
+        [_userNameTextField becomeFirstResponder];
+        
+        
+        [_userPhotoBtn setBackgroundImage:croppedImage forState:UIControlStateNormal];
+        [_userPhotoBtn setBackgroundImage:croppedImage forState:UIControlStateHighlighted];
         [_userPhotoBtn.layer setCornerRadius:4.0f];
         [_userPhotoBtn.layer setMasksToBounds:YES];
         [_userPhotoBtn setContentMode:UIViewContentModeScaleAspectFill];

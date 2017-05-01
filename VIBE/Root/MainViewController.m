@@ -181,9 +181,10 @@
     else
     {
         LogInViewController * logInVC = [[LogInViewController alloc]init];
-        logInVC.isPopUp = YES;
+        logInVC.isPopUp = YES;        
         
         LCNavigationController * navi = [[LCNavigationController alloc] initWithRootViewController:logInVC];
+        navi.canDragPop = NO;
         
         [self.lcNavigationController presentViewController:navi animated:YES completion:^{
             

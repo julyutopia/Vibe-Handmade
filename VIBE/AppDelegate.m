@@ -30,7 +30,7 @@
     [self.window addSubview:viewwwww];
     
     [self.window makeKeyAndVisible];
-    
+
     
     _mainVC = [[MainViewController alloc] init];
     LCNavigationController * homeNavVC = [[LCNavigationController alloc] initWithRootViewController:_mainVC];
@@ -58,18 +58,6 @@
     return YES;
 }
 
-#pragma mark -设置假用户数据
--(void)setLogInUserInfo
-{
-    [[VibeAppTool sharedInstance] ClearLoginUserInfo];
-    
-//    MineProfileModal * userModal = [[MineProfileModal alloc]init];
-//    [userModal setUserName:@"Tinaॐ"];
-//    [userModal setUserID:[NSNumber numberWithInt:1]];
-//    [userModal setUserDescribe:@"每个不曾起舞的日子，都是对生命的辜负"];
-//    
-//    [[VibeAppTool sharedInstance] setLoginUserInfo:userModal];
-}
 
 #pragma mark -设置推荐页假数据
 -(void)initRecommandViewData
@@ -202,7 +190,6 @@
         
         [self.discoverTagsArray addObject:tagModal];
     }
-    
     
     
     self.discoverTopicsArray = [[NSMutableArray alloc]init];
@@ -384,14 +371,6 @@
 
 -(void)initTopicDetailData
 {
-//    @property (nonatomic, copy) NSNumber * topicID;         //id
-//    @property (nonatomic, copy) NSString * topicTitle;      //标题
-//    @property (nonatomic, copy) NSString * timeStampTitle;  //时间戳
-//    @property (nonatomic, copy) NSString * topicCoverImgURL; //图片地址
-//    @property (nonatomic, copy) NSNumber * topicIsUserFavored;//用户是否已收藏该产品
-//    @property (nonatomic, copy) NSArray  * topicDetailInfoArray; //专题详情的混排内容
-//    @property (nonatomic, copy) NSArray  * topicDetailBottomInfoArray;//
-    
     self.topicDetailModal = [[TopicDetailModal alloc]init];
     [self.topicDetailModal setTimeStampTitle:@"14. Mar"];
     [self.topicDetailModal setTopicTitle:@"在另一段旅程，\n捕获一场美梦。"];
@@ -590,6 +569,24 @@
     
 }
 
+
+
+#pragma mark -设置假用户数据
+-(void)setLogInUserInfo
+{
+    [[VibeAppTool sharedInstance] ClearLoginUserInfo];
+    
+    MineProfileModal * userModal = [[MineProfileModal alloc]init];
+    [userModal setUserName:@"Tinaॐ"];
+    [userModal setUserID:[NSNumber numberWithInt:1]];
+    [userModal setUserDescribe:@"每个不曾起舞的日子，都是对生命的辜负"];
+    
+    [[VibeAppTool sharedInstance] setLoginUserInfo:userModal];
+    
+    
+    NSMutableArray * productsArray = self.recommandItemsArray;
+    
+}
 
 
 
