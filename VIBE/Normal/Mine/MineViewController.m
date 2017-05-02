@@ -446,14 +446,13 @@
     
     [_userProfileModal setUserAvatarImgURL:@"https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1489653273&di=20dc18f337119f3036a5fd1482b42694&src=http://easyread.ph.126.net/pRj-9MtJUSNo0jnM-BDD3A==/7917043371407872049.jpg"];
     [_userProfileModal setUserName:@"里海Lihaii"];
-    [_userProfileModal setUserDescribe:@"每个不曾起舞的日子，都是对生命的辜负"];
+    [_userProfileModal setUserSignature:@"每个不曾起舞的日子，都是对生命的辜负"];
 
     
     [_avatarImgView sd_setImageWithURL:[NSURL URLWithString:_userProfileModal.userAvatarImgURL] placeholderImage:nil];
     [_userNameLabel setText:_userProfileModal.userName];
-    [_signatureLabel setText:_userProfileModal.userDescribe];
-    
-    
+    [_signatureLabel setText:_userProfileModal.userSignature];
+
     
     
     VibeProductModal * modal1 = [[VibeProductModal alloc]init];

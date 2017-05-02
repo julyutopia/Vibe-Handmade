@@ -30,7 +30,7 @@
 -(void)setLoginUserInfo:(MineProfileModal *)modal;
 
 //注销时清空用户信息
--(void)ClearLoginUserInfo;
+-(void)clearLoginUserInfo;
 
 
 

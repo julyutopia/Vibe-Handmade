@@ -52,7 +52,7 @@ static VibeAppTool* sharedInstance;
 }
 
 //注销时清空用户信息
--(void)ClearLoginUserInfo
+-(void)clearLoginUserInfo
 {
     if (self.userInfoModal) {
         self.userInfoModal = nil;

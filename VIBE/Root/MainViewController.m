@@ -176,7 +176,14 @@
     //用户已登录，进入个人资料页
     if ([[VibeAppTool sharedInstance]isUserLogIn]) {
         
+        ProfileViewController * profileVC = [[ProfileViewController alloc]init];
+        profileVC.isPopUp = YES;
+        LCNavigationController * navi = [[LCNavigationController alloc] initWithRootViewController:profileVC];
+        [self.lcNavigationController presentViewController:navi animated:YES completion:^{
+            
+        }];
     }
+    
     //未登录，进入登录注册页面
     else
     {

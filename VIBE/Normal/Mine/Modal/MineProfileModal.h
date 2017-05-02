@@ -13,7 +13,7 @@
 @property (nonatomic, copy) NSNumber * userID;// 用户ID
 @property (nonatomic, copy) NSString * userAvatarImgURL;//用户头像地址
 @property (nonatomic, copy) NSString * userName;// 用户名
-@property (nonatomic, copy) NSString * userDescribe; //用户签名
+@property (nonatomic, copy) NSString * userSignature; //用户签名
 @property (nonatomic, copy) NSNumber * userFollowingNumber;//用户关注人数
 @property (nonatomic, copy) NSNumber * userFollowedNumber;//用户被关注人数
 

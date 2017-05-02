@@ -371,7 +371,7 @@
     
     
     [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Cancle_White_Normal"] forState:UIControlStateNormal];
-    [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Cancle_White_Press"] forState:UIControlStateHighlighted];
+    [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Cancle_White_Highlight"] forState:UIControlStateHighlighted];
     
     [self.rightBtn setBackgroundImage:[UIImage imageNamed:@"Cate_Filter_Show_Normal"] forState:UIControlStateNormal];
     [self.rightBtn setBackgroundImage:[UIImage imageNamed:@"Cate_Filter_Show_Press"] forState:UIControlStateHighlighted];

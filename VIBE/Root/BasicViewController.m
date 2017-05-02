@@ -69,7 +69,7 @@
     
     if (self.isPopUp) {
         [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Cancle_White_Normal"] forState:UIControlStateNormal];
-        [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Cancle_White_Press"] forState:UIControlStateHighlighted];
+        [self.leftBtn setBackgroundImage:[UIImage imageNamed:@"Cancle_White_Highlight"] forState:UIControlStateHighlighted];
     }
     
     self.rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth -22 -25, 33, 25, 25)];

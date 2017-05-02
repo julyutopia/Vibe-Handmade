@@ -574,17 +574,24 @@
 #pragma mark -设置假用户数据
 -(void)setLogInUserInfo
 {
-    [[VibeAppTool sharedInstance] ClearLoginUserInfo];
+    [[VibeAppTool sharedInstance] clearLoginUserInfo];
     
     MineProfileModal * userModal = [[MineProfileModal alloc]init];
+    [userModal setUserAvatarImgURL:@"http://oih52ss9e.bkt.clouddn.com/8f030e428bfa9fb18548d7eae43d340e.jpg"];
     [userModal setUserName:@"Tinaॐ"];
     [userModal setUserID:[NSNumber numberWithInt:1]];
-    [userModal setUserDescribe:@"每个不曾起舞的日子，都是对生命的辜负"];
+    [userModal setUserSignature:@"每个不曾起舞的日子，都是对生命的辜负"];
     
     [[VibeAppTool sharedInstance] setLoginUserInfo:userModal];
     
     
     NSMutableArray * productsArray = self.recommandItemsArray;
+    userModal.userFavoredProductsArray = productsArray;
+    
+    NSMutableArray * topicsArray = self.discoverTopicsArray;
+    userModal.userFavoredTopicsArray = topicsArray;
+    
+    [[VibeAppTool sharedInstance] setLoginUserInfo:userModal];
     
 }
 

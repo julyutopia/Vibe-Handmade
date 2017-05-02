@@ -18,7 +18,6 @@
 {
     [super viewDidLoad];
     
-    
     _backImgView = [[UIImageView alloc]initWithFrame:self.view.frame];
     [_backImgView setContentMode:UIViewContentModeScaleAspectFill];
     [_backImgView.layer setMasksToBounds:YES];
@@ -35,7 +34,6 @@
 {
     float whiteContentViewWidth = kScreenWidth -60;
     float whiteContentViewHeight = kScreenHeight/5 *3;
-    
     
     _whiteContentView = [[UIView alloc]initWithFrame:CGRectMake(60, (kScreenHeight -whiteContentViewHeight)/2 -10, whiteContentViewWidth, whiteContentViewHeight)];
     [_whiteContentView setBackgroundColor:RGBA(255, 255, 255, 98)];
@@ -215,8 +213,8 @@
 -(void)initNaviView
 {
     [self.rightBtn setHidden:NO];
-    [self.rightBtn setBackgroundImage:[UIImage imageNamed:@"Cate_Filter_Normal"] forState:UIControlStateNormal];
-    [self.rightBtn setBackgroundImage:[UIImage imageNamed:@"Cate_Filter_Highlight"] forState:UIControlStateHighlighted];
+    [self.rightBtn setBackgroundImage:[UIImage imageNamed:@"More_Setting_White_Normal"] forState:UIControlStateNormal];
+    [self.rightBtn setBackgroundImage:[UIImage imageNamed:@"More_Setting_White_Highlight"] forState:UIControlStateHighlighted];
     
     [self.view bringSubviewToFront:self.leftBtn];
     [self.view bringSubviewToFront:self.rightBtn];
