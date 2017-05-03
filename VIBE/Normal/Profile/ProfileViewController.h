@@ -10,7 +10,13 @@
 
 #import "MineProfileModal.h"
 
-@interface ProfileViewController : BasicViewController
+#import "FavorTopicsTableViewCell.h"
+#import "DiscoverTopicModal.h"
+
+#import "FavorProductsCollectionView.h"
+#import "FavorStoriesCollectionView.h"
+
+@interface ProfileViewController : BasicViewController<UITableViewDelegate, UITableViewDataSource>
 {
     //用户资料modal
     MineProfileModal   * _profileModal;
@@ -41,7 +47,30 @@
     UIView      * _slideView;//绿色的滚动条
     
     
+    //显示收藏内容的背景ScrollView
+    UIScrollView                    * _contentScrollView;
     
+    UIView                          * _favorProductsView;
+    FavorProductsCollectionView     * _favorProductsCollectionView;
+    
+    UIView                          * _favorTopicssView;
+    UITableView                     * _favorTopicsTable;
+
+    UIView                          * _favorStoriesView;
+    FavorStoriesCollectionView      * _favorStoriesCollectionView;
+
+    UIView                          * _favorShopsView;
+    UITableView                     * _favorShopsTable;
+    
+    //FooterView
+    UIView              * _footerView;
+
+    //保存数据的数组
+    NSMutableArray      * _favorProductsArray;
+    NSMutableArray      * _favorTopicsArray;
+    NSMutableArray      * _favorStoriesArray;
+    NSMutableArray      * _favorShopsArray;
+
 }
 
 @end

@@ -583,16 +583,6 @@
     [userModal setUserSignature:@"每个不曾起舞的日子，都是对生命的辜负"];
     
     [[VibeAppTool sharedInstance] setLoginUserInfo:userModal];
-    
-    
-    NSMutableArray * productsArray = self.recommandItemsArray;
-    userModal.userFavoredProductsArray = productsArray;
-    
-    NSMutableArray * topicsArray = self.discoverTopicsArray;
-    userModal.userFavoredTopicsArray = topicsArray;
-    
-    [[VibeAppTool sharedInstance] setLoginUserInfo:userModal];
-    
 }
 
 

@@ -20,11 +20,18 @@
     [super viewDidLoad];
 
     _profileModal = [VibeAppTool sharedInstance].userInfoModal;
+
+
+    _favorProductsArray = [[NSMutableArray alloc]initWithArray:[AppDelegate sharedAppDelegate].recommandItemsArray];
+    _favorTopicsArray   = [[NSMutableArray alloc]initWithArray:[AppDelegate sharedAppDelegate].discoverTopicsArray];
+    _favorStoriesArray  = [[NSMutableArray alloc]initWithArray:[AppDelegate sharedAppDelegate].discoverStorysArray];
+    _favorShopsArray    = [[NSMutableArray alloc]initWithArray:[AppDelegate sharedAppDelegate].creatorsArray];
+    
     
     [self initTopView];
     
     [self initNaviView];
-
+    [self initContentView];
 }
 
 
@@ -49,7 +56,7 @@
     
     //显示顶部的View
     UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, _topViewHeight)];
-    [topView setBackgroundColor:[UIColor orangeColor]];
+    [topView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:topView];
     
     
@@ -186,6 +193,161 @@
 }
 
 
+-(void)initContentView
+{
+    _contentScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, _topViewHeight, kScreenWidth, _showFavorViewHeight)];
+    [_contentScrollView setContentSize:CGSizeMake(kScreenWidth *4, _showFavorViewHeight)];
+    [_contentScrollView setPagingEnabled:YES];
+    [_contentScrollView setBounces:YES];
+    [_contentScrollView setDelegate:self];
+    [_contentScrollView setShowsHorizontalScrollIndicator:NO];
+    [self.view addSubview:_contentScrollView];
+    
+    
+    _favorProductsView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, _showFavorViewHeight)];
+    [_favorProductsView setBackgroundColor:[UIColor clearColor]];
+    [_contentScrollView addSubview:_favorProductsView];
+    
+    _favorTopicssView = [[UIView alloc]initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, _showFavorViewHeight)];
+    [_favorTopicssView setBackgroundColor:[UIColor clearColor]];
+    [_contentScrollView addSubview:_favorTopicssView];
+    
+    _favorStoriesView = [[UIView alloc]initWithFrame:CGRectMake(kScreenWidth *2, 0, kScreenWidth, _showFavorViewHeight)];
+    [_favorStoriesView setBackgroundColor:[UIColor clearColor]];
+    [_contentScrollView addSubview:_favorStoriesView];
+    
+    _favorShopsView = [[UIView alloc]initWithFrame:CGRectMake(kScreenWidth *3, 0, kScreenWidth, _showFavorViewHeight)];
+    [_favorShopsView setBackgroundColor:[UIColor greenColor]];
+    [_contentScrollView addSubview:_favorShopsView];
+    
+
+    UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc]init];
+    //同一行相邻两个cell的最小间距
+    layout.minimumInteritemSpacing = 20;
+    //最小两行之间的间距
+    layout.minimumLineSpacing = 15;
+    //Footer的大小
+    layout.footerReferenceSize = CGSizeMake(kScreenWidth, 20);
+    
+    _favorProductsCollectionView = [[FavorProductsCollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, _showFavorViewHeight) collectionViewLayout:layout];
+    [_favorProductsCollectionView initCollectionView];
+    [_favorProductsCollectionView setFavorProductsCollectionViewWithArray:_favorProductsArray];
+    
+    [_favorProductsView addSubview:_favorProductsCollectionView];
+    
+    
+    UICollectionViewFlowLayout *layout1=[[UICollectionViewFlowLayout alloc]init];
+    //同一行相邻两个cell的最小间距
+    layout1.minimumInteritemSpacing = 20;
+    //最小两行之间的间距
+    layout1.minimumLineSpacing = 15;
+    //Footer的大小
+    layout1.footerReferenceSize = CGSizeMake(kScreenWidth, 20);
+    
+    _favorStoriesCollectionView = [[FavorStoriesCollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, _showFavorViewHeight) collectionViewLayout:layout1];
+    [_favorStoriesCollectionView initCollectionView];
+    [_favorStoriesCollectionView setFavorStoriesCollectionViewWithArray:_favorStoriesArray];
+    [_favorStoriesView addSubview:_favorStoriesCollectionView];
+    
+    
+    _favorTopicsTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, _showFavorViewHeight)];
+    [_favorTopicsTable setBackgroundView:nil];
+    [_favorTopicsTable setBackgroundColor:[UIColor clearColor]];
+    [_favorTopicsTable setDelegate:self];
+    [_favorTopicsTable setDataSource:self];
+    [_favorTopicsTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [_favorTopicsTable setShowsVerticalScrollIndicator:NO];
+    [_favorTopicsTable setContentInset:UIEdgeInsetsMake(10, 0, 0, 0)];
+    [_favorTopicsTable setScrollIndicatorInsets:UIEdgeInsetsMake(10, 0, 0, 0)];
+    [_favorTopicssView addSubview:_favorTopicsTable];
+
+    
+    
+    
+    _favorShopsTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, _showFavorViewHeight)];
+    [_favorShopsTable setBackgroundView:nil];
+    [_favorShopsTable setBackgroundColor:[UIColor clearColor]];
+    [_favorShopsTable setDelegate:self];
+    [_favorShopsTable setDataSource:self];
+    [_favorShopsTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [_favorShopsTable setShowsVerticalScrollIndicator:NO];
+    [_favorShopsTable setContentInset:UIEdgeInsetsMake(10, 0, 0, 0)];
+    [_favorShopsTable setScrollIndicatorInsets:UIEdgeInsetsMake(10, 0, 0, 0)];
+    [_favorShopsView addSubview:_favorShopsTable];
+
+
+    _footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
+}
+
+
+#pragma mark -Tableview代理
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 20;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return _footerView;
+}
+
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if ([tableView isEqual:_favorTopicsTable] && _favorTopicsArray.count) {
+        return _favorTopicsArray.count;
+    }
+    
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([tableView isEqual:_favorTopicsTable] && _favorTopicsArray.count) {
+        
+        NSString * identifierString = @"FavorTopicsTableViewCellIdentifier";
+        
+        FavorTopicsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierString];
+        if (cell == nil) {
+            cell = [[FavorTopicsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifierString];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell setBackgroundColor:[UIColor clearColor]];
+            [cell setBackgroundView:nil];
+        }
+        
+        DiscoverTopicModal * topicModal = [_favorTopicsArray objectAtIndex:indexPath.row];
+        [cell setFavorTopicTableCellWithModal:topicModal];
+        
+        return cell;
+    }
+    
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FunctionFillOrderCellIdentifier"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FunctionFillOrderCellIdentifier"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return cell;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([tableView isEqual:_favorTopicsTable] && _favorTopicsArray.count)
+    {
+        float photoWidth = kScreenWidth -60 -20;
+        float photoHeight = photoWidth/16 *9;
+        
+        return photoHeight +10 +10;
+    }
+    
+    return 0;
+}
+
 
 
 #pragma mark -点击切换分类
@@ -233,7 +395,10 @@
 
     if (tagIndex == 0) {
         [UIView animateWithDuration:0.15 *betweenIndex animations:^{
+            
             [_slideView setFrame:CGRectMake(0, _sectionView.frame.size.height -10 -4, slideViewWidth, 4)];
+            [_contentScrollView setContentOffset:CGPointMake(0, 0)];
+            
         } completion:^(BOOL finished) {
             [_productsBtn setSelected:YES];
             [_productsBtn.titleLabel setFont:selectedFont];
@@ -241,7 +406,10 @@
     }
     if (tagIndex == 1) {
         [UIView animateWithDuration:0.15 *betweenIndex animations:^{
+
             [_slideView setFrame:CGRectMake( (slideViewWidth +slideViewGap) , _sectionView.frame.size.height -10 -4, slideViewWidth, 4)];
+            [_contentScrollView setContentOffset:CGPointMake(kScreenWidth, 0)];
+
         } completion:^(BOOL finished) {
             [_topicsBtn setSelected:YES];
             [_topicsBtn.titleLabel setFont:selectedFont];
@@ -249,7 +417,10 @@
     }
     if (tagIndex == 2) {
         [UIView animateWithDuration:0.15 *betweenIndex animations:^{
+            
             [_slideView setFrame:CGRectMake( (slideViewWidth +slideViewGap) *2, _sectionView.frame.size.height -10 -4, slideViewWidth, 4)];
+            [_contentScrollView setContentOffset:CGPointMake(kScreenWidth *2, 0)];
+            
         } completion:^(BOOL finished) {
             [_storiesBtn setSelected:YES];
             [_storiesBtn.titleLabel setFont:selectedFont];
@@ -257,7 +428,10 @@
     }
     if (tagIndex == 3) {
         [UIView animateWithDuration:0.15 *betweenIndex animations:^{
+            
             [_slideView setFrame:CGRectMake( (slideViewWidth +slideViewGap) *3, _sectionView.frame.size.height -10 -4, slideViewWidth, 4)];
+            [_contentScrollView setContentOffset:CGPointMake(kScreenWidth *3, 0)];
+
         } completion:^(BOOL finished) {
             [_shopsBtn setSelected:YES];
             [_shopsBtn.titleLabel setFont:selectedFont];
